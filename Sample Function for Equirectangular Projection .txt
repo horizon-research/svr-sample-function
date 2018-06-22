@@ -1,0 +1,86 @@
+int w = image.getWidth()
+int h = image.getHeight()
+int hX = headMovementX
+int hy = headMovementY
+
+// Rotation around y-axis for vertical rotation of camera
+Matrix rot_y = {
+    cos(hy), 0, sin(hy),
+    0, 1, 0,
+    -sin(hy), 0, cos(hy)
+};
+
+// Rotation around z-axis for horizontal rotation of camera
+Matrix rot_z = {
+    cos(hx), -sin(hx), 0,
+    sin(hx), cos(hx), 0,
+    0, 0, 1
+};
+
+
+
+
+func coordinates2spherical(i,j) -> the, phi{
+	
+	the = (i - w/2) / w * 2 * PI;
+	
+	phi = (j - h/2) / h * PI;
+	
+	return the,phi; 
+}
+
+func sphericalr2cartesian(the,phi)-> x,y,z{
+	
+	x = cos(phi)*cos(the);
+	y = cos(phi)*sin(the);
+	z = sin(phi);
+	
+	return x,y,z;
+}
+
+func Rotation(x,y,z) -> l,m,n {
+	
+	vector p1 = (x,y,z)
+	p1 /= rot_z
+	p1 /= rot-y
+	
+	l,m,n = p1
+	
+	return l,m,n
+	
+}
+
+func cartesian2spherical(l,m,n) -> the,phi{
+	
+	the = atan(m/l);	
+	
+	phi = asin(n);
+	
+	
+	return the,phi;
+}
+
+func spherical2coordinates(the,phi) -> i,j{
+	i = the / 2 / PI * w + w/2;
+	j = phi / PI * h + h/2;
+	
+	return i ,j ;
+}
+
+func main(i,j,w,h,hx,hy){
+
+
+
+	the,phi = coordinates2spherical(i,j);
+
+	x,y,z = sphericalr2cartesian(the,phi);
+
+	l,m,n = Rotation(x,y,z);
+	
+	the,phi = cartesian2spherical(l,m,n);
+	
+	i,j = spherical2coordinates(the,phi);
+	
+	
+}
+
