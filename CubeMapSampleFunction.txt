@@ -1,22 +1,15 @@
 int w = imageWidth
 int h = imageHeight
 
-func coordinates2spherical(i,j) -> the, phi{
 
-	the = (i - w/2) / w * 2 * PI;
-	phi = (j - h/2) / h * PI;
-	
-	return the,phi; 
-}
-
-func sphericalr2cartesian(the,phi)-> x,y,z{
+func sphericalr2cartesian(the,phi,r)-> x,y,z{
 
 
-	x = cos(phi)*cos(the);
+	x = r* sin(the)*cos(phi);
 
-	y = cos(phi)*sin(the);
+	y = r*sin(the)*sin(phi);
 
-	z = sin(phi);
+	z = r*cos(the);
 
 	return x,y,z;
 
