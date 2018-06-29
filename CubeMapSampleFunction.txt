@@ -1,7 +1,12 @@
 int w = imageWidth
 int h = imageHeight
 
+func computeRadius(size,the) -> r{
 
+	r = size / (2*cos(the));
+	return r;
+	
+}
 func sphericalr2cartesian(the,phi,r)-> x,y,z{
 
 
@@ -115,11 +120,11 @@ func findPixel(int index, float u, float v) -> n,m{
 	return n,m;
 }
 
-func main(i,j) -> n,m{
+func main(i,j,the,phi) -> n,m{
 
-	the,phi = coordinates2spherical(i,j);
+	r = computeRadius(sizeOfCube,the);
 	
-	x,y,z = sphericalr2cartesian(the,phi);
+	x,y,z = sphericalr2cartesian(the,phi,r);
 	
 	u,v,index = convert_xyz_to_cube_uv(x,y,z);
 
