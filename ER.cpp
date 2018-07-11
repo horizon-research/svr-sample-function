@@ -97,7 +97,7 @@ int main(int argc, char** argv ) {
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = -90,ht = 0;
+    double hp = 90,ht = 0;
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
@@ -137,11 +137,11 @@ int main(int argc, char** argv ) {
 			matrixMultiplication(p2,rot_z,p3);
 
 			//convert 3D catesian to 2d coordinates
-            double *res = cartesian2coordinates(p3[0],p3[1],p3[2]);
+           		double *res = cartesian2coordinates(p3[0],p3[1],p3[2]);
 
 			//assign the pixel value
 			Point temp = Point((int)(res[1]), (int)(res[0]));
-            fov.at<Vec3b>(Point(a,b)) = image.at<Vec3b>(temp.x, temp.y);
+            		fov.at<Vec3b>(Point(a,b)) = image.at<Vec3b>(temp.x, temp.y);
         }
         a=0;
     }
