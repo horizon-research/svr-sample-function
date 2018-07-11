@@ -113,7 +113,7 @@ double computeR(double the) {
 
 }
 */
-Point findPixel(int index, double x,double y) {
+double* findPixel(int index, double x,double y) {
 
     int vertical;
     if (index > 2) {
@@ -122,17 +122,20 @@ Point findPixel(int index, double x,double y) {
     else {
         vertical = 0;
     }
-    int n = (tileSize * (index%3))  + x * tileSize;
-    int m = (tileSize * vertical) + y * tileSize;
+    double n = (tileSize * (index%3))  + y * tileSize;
+    double m = (tileSize * vertical) + x * tileSize;
 
-    printf("index: %d,x:%lf,y:%lf\n",index,x, y);
-    printf("n:%d,m:%d\n",n, m);
-    return Point(n, m);
+    //printf("index: %d,x:%lf,y:%lf\n",index,x, y);
+    //printf("n:%lf,m:%lf\n",n, m);
+    double *result = new double[2];
+    result [0] = n;
+    result [1] = m;
+
+    return result;
 }
 
-Point convert_xyz_to_cube_uv(double x, double y, double z) {
+double* convert_xyz_to_cube_uv(double x, double y, double z) {
 
-    printf("x: %lf,y:%lf,z:%lf\n",x,y,z);
     double absX = fabs(x);
     double absY = fabs(y);
     double absZ = fabs(z);
@@ -187,7 +190,7 @@ Point convert_xyz_to_cube_uv(double x, double y, double z) {
         maxAxis = absZ;
         uc = x;
         vc = y;
-        index = 4;
+        index = 2;
     }
     // NEGATIVE Z
     if (!isZPositive && absZ >= absX && absZ >= absY) {
@@ -196,7 +199,7 @@ Point convert_xyz_to_cube_uv(double x, double y, double z) {
         maxAxis = absZ;
         uc = -x;
         vc = y;
-        index = 5;
+        index = 3;
     }
 
     // Convert range from -1 to 1 to 0 to 1
@@ -218,11 +221,11 @@ int main(int argc, char** argv ) {
     h = image.rows;
     tileSize = w/3.0;
 	//parameters for FoV
-    int fovX = 90,fovY = 60,fw = w/4.0,fh = h/3.0;
+    int fovX = 90,fovY = 60,fw = w/4.0 +1,fh = h/3.0+1;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = 90,ht = 0;
+    double hp = 45,ht = 0;
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
@@ -262,28 +265,32 @@ int main(int argc, char** argv ) {
             double p3[] = {0.0, 0.0, 0.0};
             matrixMultiplication(p2, rot_z, p3);
 
-            double *spherical = cartesian2spherical(p3[0], p3[1], p3[2]);
+//            double *spherical = cartesian2spherical(p3[0], p3[1], p3[2]);
+//
+//            if (option == 0) {
+//
+//                //convert 3D catesian to 2d coordinates
+//                double *res = spherical2coordinates(spherical[0],spherical[1]);
+//
+//                //assign the pixel value
+//                Point temp = Point((int) (res[1]), (int) (res[0]));
+//                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
+//            }
+//            else{
+               // printf("a:%d,b:%d\n",a,b);
+		        //printf("X: %lf,Y: %lf,Z:%lf\n",p3[0],p3[1],p3[2]);
+                double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
+                printf("tempX: %d, tempY:%d\n",(int)(temp[0]),(int)(temp[1]));
+                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
 
-            if (option == 0) {
-
-                //convert 3D catesian to 2d coordinates
-                double *res = spherical2coordinates(spherical[0],spherical[1]);
-
-                //assign the pixel value
-                Point temp = Point((int) (res[1]), (int) (res[0]));
-                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
-            }
-            else{
-		printf("X: %lf,Y: %lf,Z:%lf\n",p3[0],p3[1],p3[2]);
-                Point temp = convert_xyz_to_cube_uv(p3[0]*tileSize, p3[1]*tileSize, p3[2]*tileSize);
-                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
-            }
+//            }
         }
         a=0;
     }
 
 	//save the fov image
     imwrite("fov.jpg", fov);
+    fov.release();
 
     return 0;
 
