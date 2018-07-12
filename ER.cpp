@@ -50,20 +50,20 @@ double* spherical2coordinates(double the, double phi){
     return result;
 }
 
-//double* cartesian2coordinates(double x, double y, double z){
-//
-//    double the;
-//
-//    if(x != 0) {
-//        the = atan2(y,x);
-//
-//    } else {
-//        the = toRadian(90);
-//    }
-//
-//    double phi = acos(z);
-//    return spherical2coordinates(the,phi);
-//}
+double* cartesian2coordinates(double x, double y, double z){
+
+    double the;
+
+    if(x != 0) {
+        the = atan2(y,x);
+
+    } else {
+        the = toRadian(90);
+    }
+
+    double phi = acos(z);
+    return spherical2coordinates(the,phi);
+}
 
 
 double* cartesian2spherical(double x, double y, double z){
@@ -103,16 +103,7 @@ void biLinearInterpolation(Mat image,Mat fov,double i,double j) {
     Vec3b p4 = image.at<Vec3b>(j,i+1);
     fov.at<Vec3b>(i, j) = 0.25*(p1 + p2 + p3 + p4);
 }
-/*
-double computeR(double the) {
-    double r;
-    if()
-    double r = tileSize / (2 * cos(the));
-    printf("r:%f\n", r);
-    return r;
 
-}
-*/
 double* findPixel(int index, double x,double y) {
 
     int vertical;
@@ -214,18 +205,18 @@ int main(int argc, char** argv ) {
     int option = 1;
 
 	//load image
-    Mat image = imread("cube.jpg", CV_LOAD_IMAGE_COLOR);
+    Mat image = imread("360.jpg", CV_LOAD_IMAGE_COLOR);
 
 	//get width and height
     w = image.cols;
     h = image.rows;
     tileSize = w/3.0;
 	//parameters for FoV
-    int fovX = 90,fovY = 60,fw = w/4.0 +1,fh = h/3.0+1;
+    int fovX = 90,fovY = 60,fw = w/4.0 ,fh = h/3.0;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = 45,ht = 0;
+    double hp = 90,ht = 0;
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
@@ -269,21 +260,23 @@ int main(int argc, char** argv ) {
 //
 //            if (option == 0) {
 //
-//                //convert 3D catesian to 2d coordinates
-//                double *res = spherical2coordinates(spherical[0],spherical[1]);
-//
-//                //assign the pixel value
-//                Point temp = Point((int) (res[1]), (int) (res[0]));
-//                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
+                //convert 3D catesian to 2d coordinates
+                double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
+
+                //assign the pixel value
+                Point temp = Point((int) (res[1]), (int) (res[0]));
+                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
 //            }
 //            else{
                // printf("a:%d,b:%d\n",a,b);
 		        //printf("X: %lf,Y: %lf,Z:%lf\n",p3[0],p3[1],p3[2]);
-                double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
-                printf("tempX: %d, tempY:%d\n",(int)(temp[0]),(int)(temp[1]));
-                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
+                //double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
+                //printf("tempX: %d, tempY:%d\n",(int)(temp[0]),(int)(temp[1]));
+                
 
 //            }
+
+				//fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
         }
         a=0;
     }
