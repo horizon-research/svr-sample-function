@@ -124,8 +124,8 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         // u (0 to 1) goes from -z to +z
         // v (0 to 1) goes from -y to +y
         maxAxis = absX;
-        uc = z;
-        vc = y;
+        uc = -z;
+        vc = -y;
         index = 5;
         //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
@@ -192,7 +192,7 @@ int main(int argc, char** argv ) {
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = 0,ht = 0;
+    double hp = 45,ht = 180;
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
