@@ -136,7 +136,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
     int isZPositive = z > 0 ? 1 : 0;
 
     double maxAxis, uc, vc;
-
+    double u,v;
     int index;
     // POSITIVE X
     if (isXPositive && absX >= absY && absX >= absZ) {
@@ -145,37 +145,40 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         maxAxis = absX;
         uc = -z;
         vc = y;
-        index = 0;
+        index = 4;
     }
     // NEGATIVE X
-    if (!isXPositive && absX >= absY && absX >= absZ) {
+    else if (!isXPositive && absX >= absY && absX >= absZ) {
         // u (0 to 1) goes from -z to +z
         // v (0 to 1) goes from -y to +y
         maxAxis = absX;
         uc = z;
         vc = y;
-        index = 1;
+        index = 5;
+        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
     // POSITIVE Y
-    if (isYPositive && absY >= absX && absY >= absZ) {
+    else if (isYPositive && absY >= absX && absY >= absZ) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from +z to -z
         maxAxis = absY;
-        uc = x;
-        vc = -z;
-        index = 2;
+        uc = -z;
+        vc = -x;
+        index = 1;
+        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
     // NEGATIVE Y
-    if (!isYPositive && absY >= absX && absY >= absZ) {
+    else  if (!isYPositive && absY >= absX && absY >= absZ) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -z to +z
         maxAxis = absY;
-        uc = x;
-        vc = z;
-        index = 3;
+        uc = -z;
+        vc = x;
+        index = 0;
+        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
     // POSITIVE Z
-    if (isZPositive && absZ >= absX && absZ >= absY) {
+    else  if (isZPositive && absZ >= absX && absZ >= absY) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -y to +y
         maxAxis = absZ;
@@ -184,20 +187,21 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         index = 2;
     }
     // NEGATIVE Z
-    if (!isZPositive && absZ >= absX && absZ >= absY) {
+    else  if (!isZPositive && absZ >= absX && absZ >= absY) {
         // u (0 to 1) goes from +x to -x
         // v (0 to 1) goes from -y to +y
         maxAxis = absZ;
         uc = -x;
         vc = y;
         index = 3;
+        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
 
     // Convert range from -1 to 1 to 0 to 1
-    double u = 0.5f * (uc / maxAxis + 1.0f);
-    double v = 0.5f * (vc / maxAxis + 1.0f);
+    u = 0.5f * (uc / maxAxis + 1.0f);
+    v = 0.5f * (vc / maxAxis + 1.0f);
 
-    return findPixel(index, u, v);
+    return findPixel(index, u, (1-v));
 }
 
 int main(int argc, char** argv ) {
@@ -205,18 +209,18 @@ int main(int argc, char** argv ) {
     int option = 1;
 
 	//load image
-    Mat image = imread("360.jpg", CV_LOAD_IMAGE_COLOR);
+    Mat image = imread("cube.jpg", CV_LOAD_IMAGE_COLOR);
 
 	//get width and height
     w = image.cols;
     h = image.rows;
     tileSize = w/3.0;
 	//parameters for FoV
-    int fovX = 90,fovY = 60,fw = w/4.0 ,fh = h/3.0;
+    int fovX = 60,fovY = 90,fw = w/6.0 ,fh = h/4.0;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = 90,ht = 0;
+    double hp = 0,ht = -45;
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
@@ -261,22 +265,23 @@ int main(int argc, char** argv ) {
 //            if (option == 0) {
 //
                 //convert 3D catesian to 2d coordinates
-                double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
-
-                //assign the pixel value
-                Point temp = Point((int) (res[1]), (int) (res[0]));
-                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
+//                double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
+//
+//                //assign the pixel value
+//                Point temp = Point((int) (res[1]), (int) (res[0]));
+//                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
 //            }
 //            else{
-               // printf("a:%d,b:%d\n",a,b);
+//                printf("a:%d,b:%d\n",a,b);
 		        //printf("X: %lf,Y: %lf,Z:%lf\n",p3[0],p3[1],p3[2]);
-                //double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
+
+                double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
                 //printf("tempX: %d, tempY:%d\n",(int)(temp[0]),(int)(temp[1]));
                 
 
 //            }
 
-				//fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
+				fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
         }
         a=0;
     }
