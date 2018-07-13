@@ -1,6 +1,5 @@
-target_link_libraries( ER ${OpenCV_LIBS} )
 cmake_minimum_required(VERSION 2.8)
 project(svr_sample_function)
 find_package( OpenCV REQUIRED )
-add_executable( ER ER.cpp )
-target_link_libraries( ER ${OpenCV_LIBS} )
+add_executable( FOV FOV.cpp )
+target_link_libraries( FOV ${OpenCV_LIBS} )
