@@ -65,26 +65,6 @@ double* cartesian2coordinates(double x, double y, double z){
     return spherical2coordinates(the,phi);
 }
 
-
-double* cartesian2spherical(double x, double y, double z){
-
-    double the;
-
-    if(x != 0) {
-        the = atan2(y,x);
-
-    } else {
-        the = toRadian(90);
-    }
-
-    double phi = acos(z);
-
-    double *result = new double[2];
-    result [0] = the;
-    result [1] = phi;
-
-    return result;
-}
 void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 
     for (int i=0; i<3; i++) {
@@ -95,14 +75,6 @@ void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 
 }
 
-void biLinearInterpolation(Mat image,Mat fov,double i,double j) {
-
-    Vec3b p1 = image.at<Vec3b>(j,i);
-    Vec3b p2 = image.at<Vec3b>(j+1,i);
-    Vec3b p3 = image.at<Vec3b>(j +1 ,i +1);
-    Vec3b p4 = image.at<Vec3b>(j,i+1);
-    fov.at<Vec3b>(i, j) = 0.25*(p1 + p2 + p3 + p4);
-}
 
 double* findPixel(int index, double x,double y) {
 
@@ -116,8 +88,6 @@ double* findPixel(int index, double x,double y) {
     double n = (tileSize * (index%3))  + y * tileSize;
     double m = (tileSize * vertical) + x * tileSize;
 
-    //printf("index: %d,x:%lf,y:%lf\n",index,x, y);
-    //printf("n:%lf,m:%lf\n",n, m);
     double *result = new double[2];
     result [0] = n;
     result [1] = m;
@@ -125,6 +95,8 @@ double* findPixel(int index, double x,double y) {
     return result;
 }
 
+
+//from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
 double* convert_xyz_to_cube_uv(double x, double y, double z) {
 
     double absX = fabs(x);
@@ -206,7 +178,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
 
 int main(int argc, char** argv ) {
 
-    int option = 1;
+    int option = argv[2][0] - '0';
 
 	//load image
     Mat image = imread("cube.jpg", CV_LOAD_IMAGE_COLOR);
@@ -231,11 +203,6 @@ int main(int argc, char** argv ) {
         {sin(hpr), 0, cos(hpr)}
     };
 
-//    double rot_x [3][3] = {
-//            {1, 0, 0},
-//            {0, cos(htr), -sin(htr)},
-//            {0, sin(htr), cos(htr)}
-//    };
     double rot_z [3][3] = {
         {cos(htr), sin(htr), 0},
         {-sin(htr), cos(htr), 0},
@@ -260,28 +227,23 @@ int main(int argc, char** argv ) {
             double p3[] = {0.0, 0.0, 0.0};
             matrixMultiplication(p2, rot_z, p3);
 
-//            double *spherical = cartesian2spherical(p3[0], p3[1], p3[2]);
-//
-//            if (option == 0) {
-//
-                //convert 3D catesian to 2d coordinates
-//                double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
-//
-//                //assign the pixel value
-//                Point temp = Point((int) (res[1]), (int) (res[0]));
-//                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
-//            }
-//            else{
-//                printf("a:%d,b:%d\n",a,b);
-		        //printf("X: %lf,Y: %lf,Z:%lf\n",p3[0],p3[1],p3[2]);
+            if (option == 0) {
+
+               // convert 3D catesian to 2d coordinates
+                double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
+
+                //assign the pixel value
+                Point temp = Point((int) (res[1]), (int) (res[0]));
+                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
+            }
+            else{
 
                 double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
-                //printf("tempX: %d, tempY:%d\n",(int)(temp[0]),(int)(temp[1]));
-                
+                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
 
-//            }
+            }
 
-				fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
+
         }
         a=0;
     }
