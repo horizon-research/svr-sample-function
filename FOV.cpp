@@ -85,8 +85,8 @@ double* findPixel(int index, double x,double y) {
     else {
         vertical = 0;
     }
-    double n = (tileSize * (index%3))  + y * tileSize;
-    double m = (tileSize * vertical) + x * tileSize;
+    double n = (tileSize * (index%3))  + y * tileSize -1;
+    double m = (tileSize * vertical) + x * tileSize -1;
 
     double *result = new double[2];
     result [0] = n;
@@ -137,7 +137,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         uc = -z;
         vc = -x;
         index = 1;
-        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
+        printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
     // NEGATIVE Y
     else  if (!isYPositive && absY >= absX && absY >= absZ) {
@@ -192,7 +192,7 @@ int main(int argc, char** argv ) {
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = 0,ht = -45;
+    double hp = 0,ht = 45;
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
