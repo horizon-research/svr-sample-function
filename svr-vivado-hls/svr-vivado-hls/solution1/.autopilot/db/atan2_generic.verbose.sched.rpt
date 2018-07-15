@@ -1,0 +1,641 @@
+
+
+================================================================
+== Vivado HLS Report for 'atan2_generic'
+================================================================
+* Date:           Sun Jul 15 14:57:53 2018
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        svr-vivado-hls
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.621|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    1|  271|    1|  271|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  264|  264|         3|          -|          -|    88|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 40
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	10  / (tmp_s)
+	2  / (!tmp_s & !tmp_18)
+	40  / (!tmp_s & tmp_18)
+2 --> 
+	3  / true
+3 --> 
+	4  / (!exitcond_i)
+	6  / (exitcond_i & !tmp_24)
+	40  / (exitcond_i & tmp_24)
+4 --> 
+	5  / true
+5 --> 
+	3  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	40  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 8.62>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%x_in_read = call double @_ssdm_op_Read.ap_auto.double(double %x_in) nounwind"   --->   Operation 41 'read' 'x_in_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%y_in_read = call double @_ssdm_op_Read.ap_auto.double(double %y_in) nounwind"   --->   Operation 42 'read' 'y_in_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%p_Val2_33 = bitcast double %x_in_read to i64" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:438->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:442->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:674]   --->   Operation 43 'bitcast' 'p_Val2_33' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%loc_V = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_33, i32 52, i32 62)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:440->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:442->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:674]   --->   Operation 44 'partselect' 'loc_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%loc_V_4 = trunc i64 %p_Val2_33 to i52" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:441->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:442->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:674]   --->   Operation 45 'trunc' 'loc_V_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%p_Val2_34 = bitcast double %y_in_read to i64" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:438->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:442->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:675]   --->   Operation 46 'bitcast' 'p_Val2_34' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%loc_V_5 = call i11 @_ssdm_op_PartSelect.i11.i64.i32.i32(i64 %p_Val2_34, i32 52, i32 62)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:440->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:442->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:675]   --->   Operation 47 'partselect' 'loc_V_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%loc_V_6 = trunc i64 %p_Val2_34 to i52" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:441->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:442->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:675]   --->   Operation 48 'trunc' 'loc_V_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%rhs_V = zext i11 %loc_V_5 to i12" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:679]   --->   Operation 49 'zext' 'rhs_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (1.63ns)   --->   "%r_V = add i12 27, %rhs_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:679]   --->   Operation 50 'add' 'r_V' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%lhs_V = zext i11 %loc_V to i12" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:679]   --->   Operation 51 'zext' 'lhs_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (1.99ns)   --->   "%tmp_s = icmp ult i12 %r_V, %lhs_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:679]   --->   Operation 52 'icmp' 'tmp_s' <Predicate = true> <Delay = 1.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "br i1 %tmp_s, label %1, label %2" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:679]   --->   Operation 53 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (1.88ns)   --->   "%tmp_18 = icmp eq i11 %loc_V_5, 0" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:686]   --->   Operation 54 'icmp' 'tmp_18' <Predicate = (!tmp_s)> <Delay = 1.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (1.81ns)   --->   "br i1 %tmp_18, label %._crit_edge, label %_ifconv" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:686]   --->   Operation 55 'br' <Predicate = (!tmp_s)> <Delay = 1.81>
+ST_1 : Operation 56 [1/1] (1.63ns)   --->   "%r_V_1 = sub i12 %lhs_V, %rhs_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:712]   --->   Operation 56 'sub' 'r_V_1' <Predicate = (!tmp_s & !tmp_18)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%y_V = call i86 @_ssdm_op_BitConcatenate.i86.i1.i52.i33(i1 true, i52 %loc_V_6, i33 0)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:716]   --->   Operation 57 'bitconcatenate' 'y_V' <Predicate = (!tmp_s & !tmp_18)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (1.88ns)   --->   "%tmp_19 = icmp eq i11 %loc_V, %loc_V_5" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 58 'icmp' 'tmp_19' <Predicate = (!tmp_s & !tmp_18)> <Delay = 1.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%isNeg = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %r_V_1, i32 11)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 59 'bitselect' 'isNeg' <Predicate = (!tmp_s & !tmp_18)> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (1.54ns)   --->   "%tmp_20 = sub i12 0, %r_V_1" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 60 'sub' 'tmp_20' <Predicate = (!tmp_s & !tmp_18)> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 61 [1/1] (0.69ns)   --->   "%sh_assign = select i1 %isNeg, i12 %tmp_20, i12 %r_V_1" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 61 'select' 'sh_assign' <Predicate = (!tmp_s & !tmp_18)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%sh_assign_3_cast = sext i12 %sh_assign to i32" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 62 'sext' 'sh_assign_3_cast' <Predicate = (!tmp_s & !tmp_18)> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp)   --->   "%tmp_24_cast = zext i32 %sh_assign_3_cast to i86" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 63 'zext' 'tmp_24_cast' <Predicate = (!tmp_s & !tmp_18)> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp)   --->   "%tmp_23 = lshr i86 %y_V, %tmp_24_cast" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 64 'lshr' 'tmp_23' <Predicate = (!tmp_s & !tmp_18)> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 65 [1/1] (4.67ns) (out node of the LUT)   --->   "%sel_tmp = select i1 %tmp_19, i86 %y_V, i86 %tmp_23" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 65 'select' 'sel_tmp' <Predicate = (!tmp_s & !tmp_18)> <Delay = 4.67> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 66 [31/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 66 'ddiv' 'tmp_i' <Predicate = (tmp_s)> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 4.67>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%x_V = call i86 @_ssdm_op_BitConcatenate.i86.i1.i52.i33(i1 true, i52 %loc_V_4, i33 0)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:715]   --->   Operation 67 'bitconcatenate' 'x_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%x_V_cast = zext i86 %x_V to i89" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:715]   --->   Operation 68 'zext' 'x_V_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_22_ph)   --->   "%y_V_cast = zext i86 %y_V to i89" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:716]   --->   Operation 69 'zext' 'y_V_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_22_ph)   --->   "%tmp_21 = zext i32 %sh_assign_3_cast to i89" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 70 'zext' 'tmp_21' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_22_ph)   --->   "%tmp_22 = shl i89 %y_V_cast, %tmp_21" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 71 'shl' 'tmp_22' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 72 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_22_ph)   --->   "%sel_tmp_cast = zext i86 %sel_tmp to i89" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 72 'zext' 'sel_tmp_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_22_ph)   --->   "%sel_tmp1 = xor i1 %tmp_19, true" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 73 'xor' 'sel_tmp1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 74 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_22_ph)   --->   "%sel_tmp2 = and i1 %isNeg, %sel_tmp1" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 74 'and' 'sel_tmp2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 75 [1/1] (4.67ns) (out node of the LUT)   --->   "%p_Val2_22_ph = select i1 %sel_tmp2, i89 %tmp_22, i89 %sel_tmp_cast" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719]   --->   Operation 75 'select' 'p_Val2_22_ph' <Predicate = true> <Delay = 4.67> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (1.76ns)   --->   "br label %"operator>>=.exit"" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:162->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 76 'br' <Predicate = true> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 4.83>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%p_Val2_s = phi i86 [ %tz_V, %"operator>>.exit99.i" ], [ 0, %_ifconv ]"   --->   Operation 77 'phi' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%p_Val2_1 = phi i89 [ %ty_V, %"operator>>.exit99.i" ], [ %p_Val2_22_ph, %_ifconv ]"   --->   Operation 78 'phi' 'p_Val2_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%p_Val2_37 = phi i89 [ %tx_V, %"operator>>.exit99.i" ], [ %x_V_cast, %_ifconv ]"   --->   Operation 79 'phi' 'p_Val2_37' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%sh_assign_2 = phi i7 [ %k, %"operator>>.exit99.i" ], [ 0, %_ifconv ]"   --->   Operation 80 'phi' 'sh_assign_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (1.48ns)   --->   "%exitcond_i = icmp eq i7 %sh_assign_2, -40" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:162->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 81 'icmp' 'exitcond_i' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 88, i64 88, i64 88)"   --->   Operation 82 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 83 [1/1] (1.87ns)   --->   "%k = add i7 %sh_assign_2, 1" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:162->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 83 'add' 'k' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "br i1 %exitcond_i, label %"cordic_circ_v1<88, 1, 0, 0, 89, 4, 86, 1>.exit", label %"operator>>.exit99.i"" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:162->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 84 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%tmp_25 = zext i7 %sh_assign_2 to i89" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:183->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 85 'zext' 'tmp_25' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (4.69ns)   --->   "%y_s_V = ashr i89 %p_Val2_1, %tmp_25" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:183->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 86 'ashr' 'y_s_V' <Predicate = (!exitcond_i)> <Delay = 4.69> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 87 [1/1] (4.69ns)   --->   "%x_s_V = ashr i89 %p_Val2_37, %tmp_25" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:185->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 87 'ashr' 'x_s_V' <Predicate = (!exitcond_i)> <Delay = 4.69> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 88 [1/1] (0.00ns)   --->   "%tmp_26 = zext i7 %sh_assign_2 to i64" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 88 'zext' 'tmp_26' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%cordic_ctab_table_12_1 = getelementptr [128 x i126]* @cordic_ctab_table_12, i64 0, i64 %tmp_26" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 89 'getelementptr' 'cordic_ctab_table_12_1' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_3 : Operation 90 [2/2] (3.25ns)   --->   "%p_Val2_40 = load i126* %cordic_ctab_table_12_1, align 16" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 90 'load' 'p_Val2_40' <Predicate = (!exitcond_i)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 126> <Depth = 128> <ROM>
+ST_3 : Operation 91 [1/1] (3.01ns)   --->   "%tmp_24 = icmp eq i86 %p_Val2_s, 0" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 91 'icmp' 'tmp_24' <Predicate = (exitcond_i)> <Delay = 3.01> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 92 [1/1] (1.81ns)   --->   "br i1 %tmp_24, label %._crit_edge, label %._crit_edge117.i_ifconv" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 92 'br' <Predicate = (exitcond_i)> <Delay = 1.81>
+ST_3 : Operation 93 [1/1] (4.14ns)   --->   "%tmp_28 = sub nsw i86 0, %p_Val2_s" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 93 'sub' 'tmp_28' <Predicate = (exitcond_i & !tmp_24)> <Delay = 4.14> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 7.37>
+ST_4 : Operation 94 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i89.i32(i89 %p_Val2_1, i32 88)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:167->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 94 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 95 [1/1] (0.00ns)   --->   "%rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([138 x i8]* @cordic_KD_KD_addsu_1) nounwind"   --->   Operation 95 'specregionbegin' 'rbegin' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 96 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 0, i32 0, [1 x i8]* @p_str52) nounwind" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:122->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:184->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 96 'speclatency' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 97 [1/1] (4.23ns)   --->   "%r_V_3_i = sub i89 %p_Val2_37, %y_s_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:184->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 97 'sub' 'r_V_3_i' <Predicate = true> <Delay = 4.23> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 98 [1/1] (4.23ns)   --->   "%r_V_i = add i89 %p_Val2_37, %y_s_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:184->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 98 'add' 'r_V_i' <Predicate = true> <Delay = 4.23> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 99 [1/1] (1.05ns)   --->   "%tx_V = select i1 %tmp, i89 %r_V_3_i, i89 %r_V_i" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:184->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 99 'select' 'tx_V' <Predicate = true> <Delay = 1.05> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 100 [1/1] (0.00ns)   --->   "%rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([138 x i8]* @cordic_KD_KD_addsu_1, i32 %rbegin) nounwind"   --->   Operation 100 'specregionend' 'rend' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 101 [1/1] (0.00ns)   --->   "%rbegin1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([131 x i8]* @cordic_KD_KD_addsu) nounwind"   --->   Operation 101 'specregionbegin' 'rbegin1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 102 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 0, i32 0, [1 x i8]* @p_str52) nounwind" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:122->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:186->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 102 'speclatency' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 103 [1/1] (4.23ns)   --->   "%r_V_2_i = sub i89 %p_Val2_1, %x_s_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:186->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 103 'sub' 'r_V_2_i' <Predicate = true> <Delay = 4.23> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 104 [1/1] (4.23ns)   --->   "%r_V_i1 = add i89 %p_Val2_1, %x_s_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:186->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 104 'add' 'r_V_i1' <Predicate = true> <Delay = 4.23> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 105 [1/1] (1.05ns)   --->   "%ty_V = select i1 %tmp, i89 %r_V_i1, i89 %r_V_2_i" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:186->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 105 'select' 'ty_V' <Predicate = true> <Delay = 1.05> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 106 [1/1] (0.00ns)   --->   "%rend54 = call i32 (...)* @_ssdm_op_SpecRegionEnd([131 x i8]* @cordic_KD_KD_addsu, i32 %rbegin1) nounwind"   --->   Operation 106 'specregionend' 'rend54' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 107 [1/2] (3.25ns)   --->   "%p_Val2_40 = load i126* %cordic_ctab_table_12_1, align 16" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 107 'load' 'p_Val2_40' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 126> <Depth = 128> <ROM>
+ST_4 : Operation 108 [1/1] (0.00ns)   --->   "%p_Val2_2_cast = call i85 @_ssdm_op_PartSelect.i85.i126.i32.i32(i126 %p_Val2_40, i32 41, i32 125)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 108 'partselect' 'p_Val2_2_cast' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_77 = call i1 @_ssdm_op_BitSelect.i1.i126.i32(i126 %p_Val2_40, i32 40)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 109 'bitselect' 'tmp_77' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 110 [1/1] (0.00ns)   --->   "%tmp_31_cast = zext i1 %tmp_77 to i85" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 110 'zext' 'tmp_31_cast' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 111 [1/1] (4.12ns)   --->   "%p_Val2_42 = add i85 %tmp_31_cast, %p_Val2_2_cast" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 111 'add' 'p_Val2_42' <Predicate = true> <Delay = 4.12> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 5.20>
+ST_5 : Operation 112 [1/1] (0.00ns)   --->   "%p_Val2_43_cast = zext i85 %p_Val2_42 to i86" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 112 'zext' 'p_Val2_43_cast' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 113 [1/1] (0.00ns)   --->   "%rbegin2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([138 x i8]* @cordic_KD_KD_addsu_2) nounwind"   --->   Operation 113 'specregionbegin' 'rbegin2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 114 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 0, i32 0, [1 x i8]* @p_str52) nounwind" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:122->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 114 'speclatency' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 115 [1/1] (4.14ns)   --->   "%r_V_4_i = sub i86 %p_Val2_s, %p_Val2_43_cast" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 115 'sub' 'r_V_4_i' <Predicate = (tmp)> <Delay = 4.14> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 116 [1/1] (4.14ns)   --->   "%r_V_i2 = add i86 %p_Val2_s, %p_Val2_43_cast" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 116 'add' 'r_V_i2' <Predicate = (!tmp)> <Delay = 4.14> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 117 [1/1] (1.05ns)   --->   "%tz_V = select i1 %tmp, i86 %r_V_4_i, i86 %r_V_i2" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 117 'select' 'tz_V' <Predicate = true> <Delay = 1.05> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 118 [1/1] (0.00ns)   --->   "%rend59 = call i32 (...)* @_ssdm_op_SpecRegionEnd([138 x i8]* @cordic_KD_KD_addsu_2, i32 %rbegin2) nounwind"   --->   Operation 118 'specregionend' 'rend59' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 119 [1/1] (0.00ns)   --->   "br label %"operator>>=.exit"" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:162->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724]   --->   Operation 119 'br' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 8.36>
+ST_6 : Operation 120 [1/1] (0.00ns)   --->   "%isneg = call i1 @_ssdm_op_BitSelect.i1.i86.i32(i86 %p_Val2_s, i32 85)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 120 'bitselect' 'isneg' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 121 [1/1] (1.05ns)   --->   "%tmp_187_s = select i1 %isneg, i86 %tmp_28, i86 %p_Val2_s" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 121 'select' 'tmp_187_s' <Predicate = true> <Delay = 1.05> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 122 [1/1] (0.00ns)   --->   "%tmp_16 = call i63 @_ssdm_op_PartSelect.i63.i86.i32.i32(i86 %tmp_187_s, i32 23, i32 85)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 122 'partselect' 'tmp_16' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 123 [1/1] (0.00ns)   --->   "%p_Result_s = sext i63 %tmp_16 to i64" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 123 'sext' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 124 [1/1] (4.06ns)   --->   "%tmp_29 = call i64 @llvm.ctlz.i64(i64 %p_Result_s, i1 true) nounwind" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 124 'ctlz' 'tmp_29' <Predicate = true> <Delay = 4.06> <Core = "CTLZ">   --->   Core 59 'CTLZ' <Latency = 0> <II = 1> <Delay = 4.06> <FuncUnit> <Opcode : 'ctlz'> <InPorts = 1> <OutPorts = 1>
+ST_6 : Operation 125 [1/1] (0.00ns)   --->   "%tmp_79 = trunc i64 %tmp_29 to i32" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 125 'trunc' 'tmp_79' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 126 [1/1] (2.78ns)   --->   "%tmp_31 = icmp eq i63 %tmp_16, 0" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 126 'icmp' 'tmp_31' <Predicate = true> <Delay = 2.78> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 127 [1/1] (0.00ns)   --->   "%p_Result_5 = call i23 @_ssdm_op_PartSelect.i23.i86.i32.i32(i86 %tmp_187_s, i32 22, i32 0)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 127 'partselect' 'p_Result_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 128 [1/1] (0.00ns)   --->   "%p_Result_39 = call i64 @llvm.part.set.i64.i23(i64 -1, i23 %p_Result_5, i32 63, i32 41)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 128 'partset' 'p_Result_39' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 129 [1/1] (4.06ns)   --->   "%tmp_32 = call i64 @llvm.ctlz.i64(i64 %p_Result_39, i1 true) nounwind" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 129 'ctlz' 'tmp_32' <Predicate = true> <Delay = 4.06> <Core = "CTLZ">   --->   Core 59 'CTLZ' <Latency = 0> <II = 1> <Delay = 4.06> <FuncUnit> <Opcode : 'ctlz'> <InPorts = 1> <OutPorts = 1>
+ST_6 : Operation 130 [1/1] (0.00ns)   --->   "%tmp_80 = trunc i64 %tmp_32 to i32" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 130 'trunc' 'tmp_80' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 131 [1/1] (2.55ns)   --->   "%NZeros = add nsw i32 %tmp_79, %tmp_80" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 131 'add' 'NZeros' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 132 [1/1] (0.69ns)   --->   "%NZeros_i_1_i = select i1 %tmp_31, i32 %NZeros, i32 %tmp_79" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 132 'select' 'NZeros_i_1_i' <Predicate = true> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 133 [1/1] (0.00ns)   --->   "%tmp_81 = trunc i32 %NZeros_i_1_i to i11" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 133 'trunc' 'tmp_81' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 4> <Delay = 8.27>
+ST_7 : Operation 134 [1/1] (2.55ns)   --->   "%j = sub nsw i32 86, %NZeros_i_1_i" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 134 'sub' 'j' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 135 [1/1] (2.47ns)   --->   "%tmp_34 = icmp eq i32 %NZeros_i_1_i, 86" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 135 'icmp' 'tmp_34' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 136 [1/1] (2.47ns)   --->   "%tmp_35 = icmp sgt i32 %j, 52" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 136 'icmp' 'tmp_35' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 137 [1/1] (2.55ns)   --->   "%tmp_36 = add nsw i32 -52, %j" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 137 'add' 'tmp_36' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 138 [1/1] (0.69ns)   --->   "%tmp_37 = select i1 %tmp_35, i32 %tmp_36, i32 0" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 138 'select' 'tmp_37' <Predicate = true> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 139 [1/1] (2.55ns)   --->   "%tmp_38 = add nsw i32 -1, %j" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 139 'add' 'tmp_38' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 140 [1/1] (2.47ns)   --->   "%tmp_82 = icmp ugt i32 %tmp_37, %tmp_38" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 140 'icmp' 'tmp_82' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 141 [1/1] (0.00ns)   --->   "%tmp_83 = trunc i32 %tmp_37 to i7" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 141 'trunc' 'tmp_83' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 142 [1/1] (0.00ns)   --->   "%tmp_84 = trunc i32 %tmp_38 to i7" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 142 'trunc' 'tmp_84' <Predicate = true> <Delay = 0.00>
+
+State 8 <SV = 5> <Delay = 6.55>
+ST_8 : Operation 143 [1/1] (0.00ns)   --->   "%tmp_V = sext i86 %tmp_187_s to i87" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 143 'sext' 'tmp_V' <Predicate = (!tmp_34)> <Delay = 0.00>
+ST_8 : Operation 144 [1/1] (0.00ns) (grouped into LUT with out node tmp_95)   --->   "%tmp_85 = call i87 @llvm.part.select.i87(i87 %tmp_V, i32 86, i32 0)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 144 'partselect' 'tmp_85' <Predicate = (tmp_82 & !tmp_34)> <Delay = 0.00>
+ST_8 : Operation 145 [1/1] (1.87ns)   --->   "%tmp_86 = sub i7 %tmp_83, %tmp_84" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 145 'sub' 'tmp_86' <Predicate = (tmp_82 & !tmp_34)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 146 [1/1] (1.87ns)   --->   "%tmp_87 = sub i7 -42, %tmp_83" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 146 'sub' 'tmp_87' <Predicate = (tmp_82 & !tmp_34)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 147 [1/1] (1.87ns)   --->   "%tmp_88 = sub i7 %tmp_84, %tmp_83" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 147 'sub' 'tmp_88' <Predicate = (!tmp_82 & !tmp_34)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node tmp_92)   --->   "%tmp_89 = select i1 %tmp_82, i7 %tmp_86, i7 %tmp_88" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 148 'select' 'tmp_89' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 149 [1/1] (0.00ns) (grouped into LUT with out node tmp_95)   --->   "%tmp_90 = select i1 %tmp_82, i87 %tmp_85, i87 %tmp_V" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 149 'select' 'tmp_90' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 150 [1/1] (0.00ns) (grouped into LUT with out node tmp_95)   --->   "%tmp_91 = select i1 %tmp_82, i7 %tmp_87, i7 %tmp_83" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 150 'select' 'tmp_91' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 151 [1/1] (1.87ns) (out node of the LUT)   --->   "%tmp_92 = sub i7 -42, %tmp_89" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 151 'sub' 'tmp_92' <Predicate = (!tmp_34)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 152 [1/1] (0.00ns) (grouped into LUT with out node tmp_95)   --->   "%tmp_93 = zext i7 %tmp_91 to i87" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 152 'zext' 'tmp_93' <Predicate = (!tmp_34)> <Delay = 0.00>
+ST_8 : Operation 153 [1/1] (4.68ns) (out node of the LUT)   --->   "%tmp_95 = lshr i87 %tmp_90, %tmp_93" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 153 'lshr' 'tmp_95' <Predicate = (!tmp_34)> <Delay = 4.68> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 154 [1/1] (2.47ns)   --->   "%tmp_39 = icmp slt i32 %j, 52" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 154 'icmp' 'tmp_39' <Predicate = (!tmp_34)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 155 [1/1] (2.55ns)   --->   "%tmp_40 = sub nsw i32 52, %j" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 155 'sub' 'tmp_40' <Predicate = (!tmp_34)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 6> <Delay = 6.25>
+ST_9 : Operation 156 [1/1] (1.63ns)   --->   "%p_Repl2_27_trunc = sub i11 -1024, %tmp_81" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 156 'sub' 'p_Repl2_27_trunc' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 157 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%p_Result_40 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i11.i52(i1 %isneg, i11 %p_Repl2_27_trunc, i52 0)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 157 'bitconcatenate' 'p_Result_40' <Predicate = (tmp_34)> <Delay = 0.00>
+ST_9 : Operation 158 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%tmp_94 = zext i7 %tmp_92 to i87" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 158 'zext' 'tmp_94' <Predicate = (!tmp_34)> <Delay = 0.00>
+ST_9 : Operation 159 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%tmp_96 = lshr i87 -1, %tmp_94" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 159 'lshr' 'tmp_96' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 160 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%p_Result_s_53 = and i87 %tmp_95, %tmp_96" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 160 'and' 'p_Result_s_53' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 161 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%man_V = trunc i87 %p_Result_s_53 to i52" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 161 'trunc' 'man_V' <Predicate = (!tmp_34)> <Delay = 0.00>
+ST_9 : Operation 162 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%tmp_41 = select i1 %tmp_39, i32 %tmp_40, i32 0" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 162 'select' 'tmp_41' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 163 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%tmp_42 = zext i32 %tmp_41 to i52" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 163 'zext' 'tmp_42' <Predicate = (!tmp_34)> <Delay = 0.00>
+ST_9 : Operation 164 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%man_V_2 = shl i52 %man_V, %tmp_42" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 164 'shl' 'man_V_2' <Predicate = (!tmp_34)> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.61> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 165 [1/1] (0.00ns) (grouped into LUT with out node res_V)   --->   "%p_Result_41 = call i64 @_ssdm_op_BitConcatenate.i64.i1.i11.i52(i1 %isneg, i11 %p_Repl2_27_trunc, i52 %man_V_2)" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 165 'bitconcatenate' 'p_Result_41' <Predicate = (!tmp_34)> <Delay = 0.00>
+ST_9 : Operation 166 [1/1] (4.61ns) (out node of the LUT)   --->   "%res_V = select i1 %tmp_34, i64 %p_Result_40, i64 %p_Result_41" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 166 'select' 'res_V' <Predicate = true> <Delay = 4.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 167 [1/1] (0.00ns)   --->   "%dp = bitcast i64 %res_V to double" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 167 'bitcast' 'dp' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 168 [1/1] (1.81ns)   --->   "br label %._crit_edge" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726]   --->   Operation 168 'br' <Predicate = true> <Delay = 1.81>
+
+State 10 <SV = 1> <Delay = 8.62>
+ST_10 : Operation 169 [30/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 169 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 2> <Delay = 8.62>
+ST_11 : Operation 170 [29/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 170 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 3> <Delay = 8.62>
+ST_12 : Operation 171 [28/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 171 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 4> <Delay = 8.62>
+ST_13 : Operation 172 [27/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 172 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 5> <Delay = 8.62>
+ST_14 : Operation 173 [26/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 173 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 6> <Delay = 8.62>
+ST_15 : Operation 174 [25/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 174 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 7> <Delay = 8.62>
+ST_16 : Operation 175 [24/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 175 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 8> <Delay = 8.62>
+ST_17 : Operation 176 [23/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 176 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 9> <Delay = 8.62>
+ST_18 : Operation 177 [22/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 177 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 10> <Delay = 8.62>
+ST_19 : Operation 178 [21/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 178 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 11> <Delay = 8.62>
+ST_20 : Operation 179 [20/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 179 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 12> <Delay = 8.62>
+ST_21 : Operation 180 [19/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 180 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 13> <Delay = 8.62>
+ST_22 : Operation 181 [18/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 181 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 14> <Delay = 8.62>
+ST_23 : Operation 182 [17/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 182 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 15> <Delay = 8.62>
+ST_24 : Operation 183 [16/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 183 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 16> <Delay = 8.62>
+ST_25 : Operation 184 [15/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 184 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 17> <Delay = 8.62>
+ST_26 : Operation 185 [14/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 185 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 18> <Delay = 8.62>
+ST_27 : Operation 186 [13/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 186 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 19> <Delay = 8.62>
+ST_28 : Operation 187 [12/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 187 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 20> <Delay = 8.62>
+ST_29 : Operation 188 [11/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 188 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 21> <Delay = 8.62>
+ST_30 : Operation 189 [10/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 189 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 22> <Delay = 8.62>
+ST_31 : Operation 190 [9/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 190 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 23> <Delay = 8.62>
+ST_32 : Operation 191 [8/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 191 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 24> <Delay = 8.62>
+ST_33 : Operation 192 [7/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 192 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 25> <Delay = 8.62>
+ST_34 : Operation 193 [6/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 193 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 26> <Delay = 8.62>
+ST_35 : Operation 194 [5/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 194 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 27> <Delay = 8.62>
+ST_36 : Operation 195 [4/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 195 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 28> <Delay = 8.62>
+ST_37 : Operation 196 [3/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 196 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 29> <Delay = 8.62>
+ST_38 : Operation 197 [2/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 197 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 30> <Delay = 8.62>
+ST_39 : Operation 198 [1/31] (8.62ns)   --->   "%tmp_i = fdiv double %y_in_read, %x_in_read" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 198 'ddiv' 'tmp_i' <Predicate = true> <Delay = 8.62> <Core = "DDiv">   --->   Core 111 'DDiv' <Latency = 30> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'ddiv' 'drem'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 31> <Delay = 1.81>
+ST_40 : Operation 199 [1/1] (1.81ns)   --->   "br label %._crit_edge" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684]   --->   Operation 199 'br' <Predicate = (tmp_s)> <Delay = 1.81>
+ST_40 : Operation 200 [1/1] (0.00ns)   --->   "%p_s = phi double [ %tmp_i, %1 ], [ 0.000000e+00, %2 ], [ %dp, %._crit_edge117.i_ifconv ], [ 0.000000e+00, %"cordic_circ_v1<88, 1, 0, 0, 89, 4, 86, 1>.exit" ]"   --->   Operation 200 'phi' 'p_s' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 201 [1/1] (0.00ns)   --->   "ret double %p_s" [/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:727]   --->   Operation 201 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.62ns
+The critical path consists of the following:
+	wire read on port 'x_in' [4]  (0 ns)
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 2>: 4.68ns
+The critical path consists of the following:
+	'shl' operation ('tmp_22', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719) [33]  (0 ns)
+	'select' operation ('p_Val2_22_ph', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719) [39]  (4.68 ns)
+
+ <State 3>: 4.83ns
+The critical path consists of the following:
+	'phi' operation ('tz.V') with incoming values : ('tz.V', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) [42]  (0 ns)
+	'icmp' operation ('tmp_24', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [83]  (3.02 ns)
+	multiplexor before 'phi' operation ('dp') with incoming values : ('dp', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [140]  (1.81 ns)
+
+ <State 4>: 7.38ns
+The critical path consists of the following:
+	'load' operation ('__Val2__', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) on array 'cordic_ctab_table_12' [69]  (3.25 ns)
+	'add' operation ('__Val2__', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:187->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) [73]  (4.12 ns)
+
+ <State 5>: 5.2ns
+The critical path consists of the following:
+	'sub' operation ('r_V_4_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) [77]  (4.15 ns)
+	'select' operation ('tz.V', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) [79]  (1.05 ns)
+
+ <State 6>: 8.37ns
+The critical path consists of the following:
+	'select' operation ('tmp_187_s', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [88]  (1.05 ns)
+	'ctlz' operation ('tmp_29', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [92]  (4.06 ns)
+	'add' operation ('NZeros', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [99]  (2.55 ns)
+	'select' operation ('NZeros_i_1_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [100]  (0.698 ns)
+
+ <State 7>: 8.27ns
+The critical path consists of the following:
+	'sub' operation ('j', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [101]  (2.55 ns)
+	'add' operation ('tmp_36', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [107]  (2.55 ns)
+	'select' operation ('tmp_37', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [108]  (0.698 ns)
+	'icmp' operation ('tmp_82', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [110]  (2.47 ns)
+
+ <State 8>: 6.55ns
+The critical path consists of the following:
+	'sub' operation ('tmp_87', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [115]  (1.87 ns)
+	'select' operation ('tmp_91', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [119]  (0 ns)
+	'lshr' operation ('tmp_95', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [123]  (4.68 ns)
+
+ <State 9>: 6.25ns
+The critical path consists of the following:
+	'sub' operation ('p_Repl2_27_trunc', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [103]  (1.64 ns)
+	'select' operation ('res.V', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) [133]  (4.62 ns)
+
+ <State 10>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 11>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 12>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 13>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 14>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 15>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 16>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 17>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 18>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 19>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 20>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 21>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 22>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 23>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 24>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 25>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 26>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 27>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 28>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 29>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 30>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 31>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 32>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 33>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 34>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 35>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 36>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 37>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 38>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 39>: 8.62ns
+The critical path consists of the following:
+	'ddiv' operation ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [137]  (8.62 ns)
+
+ <State 40>: 1.81ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('dp') with incoming values : ('dp', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [140]  (1.81 ns)
+	'phi' operation ('dp') with incoming values : ('dp', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726) ('tmp_i', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:563->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) [140]  (0 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

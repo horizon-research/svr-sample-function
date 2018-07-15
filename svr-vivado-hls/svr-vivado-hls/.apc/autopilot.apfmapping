@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="samplefunction.cpp" path="/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/samplefunction.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="FOV.cpp" path="/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/FOV.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
