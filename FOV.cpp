@@ -120,7 +120,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         vc = y;
         index = 4;
     }
-    // NEGATIVE X
+        // NEGATIVE X
     else if (!isXPositive && absX >= absY && absX >= absZ) {
         // u (0 to 1) goes from -z to +z
         // v (0 to 1) goes from -y to +y
@@ -130,7 +130,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         index = 5;
         //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
-    // POSITIVE Y
+        // POSITIVE Y
     else if (isYPositive && absY >= absX && absY >= absZ) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from +z to -z
@@ -140,7 +140,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         index = 1;
         //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
-    // NEGATIVE Y
+        // NEGATIVE Y
     else  if (!isYPositive && absY >= absX && absY >= absZ) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -z to +z
@@ -150,7 +150,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         index = 0;
         //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
-    // POSITIVE Z
+        // POSITIVE Z
     else  if (isZPositive && absZ >= absX && absZ >= absY) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -y to +y
@@ -159,7 +159,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         vc = y;
         index = 2;
     }
-    // NEGATIVE Z
+        // NEGATIVE Z
     else  if (!isZPositive && absZ >= absX && absZ >= absY) {
         // u (0 to 1) goes from +x to -x
         // v (0 to 1) goes from -y to +y
@@ -180,10 +180,10 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
 int main(int argc, char** argv) {
 
     int option = argv[3][0] - '0';
-	//load image
+    //load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
 
-	//get width and height
+    //get width and height
     w = image.cols;
     h = image.rows;
     tileSize = w/3.0;
@@ -201,20 +201,20 @@ int main(int argc, char** argv) {
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
-	//rotation matrices
+    //rotation matrices
     double rot_y [3][3] = {
-        {cos(hpr), 0, -sin(hpr)},
-        {0, 1, 0},
-        {sin(hpr), 0, cos(hpr)}
+            {cos(hpr), 0, -sin(hpr)},
+            {0, 1, 0},
+            {sin(hpr), 0, cos(hpr)}
     };
 
     double rot_z [3][3] = {
-        {cos(htr), sin(htr), 0},
-        {-sin(htr), cos(htr), 0},
-        {0, 0, 1}
+            {cos(htr), sin(htr), 0},
+            {-sin(htr), cos(htr), 0},
+            {0, 0, 1}
     };
 
-	//initialize fov image
+    //initialize fov image
     Mat fov(fh, fw, CV_8UC3, Scalar(0, 0, 0));
 
     int a = 0, b = 0;
@@ -234,7 +234,7 @@ int main(int argc, char** argv) {
 
             if (option == 0) {
 
-               // convert 3D catesian to 2d coordinates
+                // convert 3D catesian to 2d coordinates
                 double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
 
                 //assign the pixel value
@@ -253,7 +253,7 @@ int main(int argc, char** argv) {
         a=0;
     }
 
-	//save the fov image
+    //save the fov image
     imwrite(argv[2], fov);
     fov.release();
 
