@@ -196,7 +196,7 @@ int main(int argc, char** argv) {
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = atoi(argv[4]),ht = atoi(argv[5]);
+    double hp = atof(argv[4]),ht = atof(argv[5]);
 
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
