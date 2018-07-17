@@ -2,7 +2,7 @@
 
 int main() {
 
-    int option = 1;
+	int option = 1;
 
 	//load image
 //    hls::Mat<>image = cvLoadImage("cube.jpg", CV_LOAD_IMAGE_COLOR);
@@ -14,7 +14,8 @@ int main() {
 	int height = 4096;
 
 	//parameters for FoV
-    double hp = 0, ht = 0;
+    angles hp = 0, ht = 0;
+
     int fovX = 60,fovY = 90,fw = width/6.0 ,fh = height/4.0;//1024 1024
 
     static float coordinates [1024][1024][2];

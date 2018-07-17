@@ -47,6 +47,11 @@
 			<location>/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/samplefunction.cpp</location>
 		</link>
 		<link>
+			<name>source/samplefunction.h</name>
+			<type>1</type>
+			<location>/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/samplefunction.h</location>
+		</link>
+		<link>
 			<name>testbench/FOV.cpp</name>
 			<type>1</type>
 			<location>/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/FOV.cpp</location>

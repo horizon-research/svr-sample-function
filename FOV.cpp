@@ -1,6 +1,7 @@
 
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <cstdlib>
 
 using namespace cv;
 
@@ -176,23 +177,27 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
     return findPixel(index, u, (1-v));
 }
 
-int main(int argc, char** argv ) {
+int main(int argc, char** argv) {
 
-    int option = argv[2][0] - '0';
-
+    int option = argv[3][0] - '0';
 	//load image
-    Mat image = imread("cube.jpg", CV_LOAD_IMAGE_COLOR);
+    Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
 
 	//get width and height
     w = image.cols;
     h = image.rows;
     tileSize = w/3.0;
-	//parameters for FoV
-    int fovX = 60,fovY = 90,fw = w/6.0 ,fh = h/4.0;
+
+    //parameters for FoV
+    int fovX = 60,fovY = 60,fw = w/(360.0/fovX) ,fh = h/(360.0/fovY);
+    if(option == 0){
+        fh = h/(180.0/fovY);
+    }
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    double hp = 45,ht = 180;
+    double hp = atoi(argv[4]),ht = atoi(argv[5]);
+
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
 
@@ -249,7 +254,7 @@ int main(int argc, char** argv ) {
     }
 
 	//save the fov image
-    imwrite("fov.jpg", fov);
+    imwrite(argv[2], fov);
     fov.release();
 
     return 0;

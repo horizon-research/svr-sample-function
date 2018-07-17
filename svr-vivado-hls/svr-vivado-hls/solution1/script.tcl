@@ -6,6 +6,7 @@
 open_project svr-vivado-hls
 set_top convert
 add_files samplefunction.cpp
+add_files samplefunction.h
 add_files -tb FOV.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
