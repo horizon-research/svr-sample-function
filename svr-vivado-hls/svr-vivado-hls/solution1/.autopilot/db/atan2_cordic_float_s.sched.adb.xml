@@ -1,0 +1,5113 @@
+<stg><name>atan2_cordic<float></name>
+
+
+<trans_list>
+
+<trans id="895" from="1" to="2">
+<condition id="807">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="896" from="2" to="3">
+<condition id="808">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="897" from="3" to="4">
+<condition id="809">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="898" from="4" to="5">
+<condition id="810">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="899" from="5" to="6">
+<condition id="811">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="900" from="6" to="7">
+<condition id="812">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="901" from="7" to="8">
+<condition id="813">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="902" from="8" to="9">
+<condition id="814">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="903" from="9" to="10">
+<condition id="815">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="904" from="10" to="11">
+<condition id="816">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="905" from="11" to="12">
+<condition id="817">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="906" from="12" to="13">
+<condition id="818">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="907" from="13" to="14">
+<condition id="819">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="908" from="14" to="15">
+<condition id="820">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="909" from="15" to="16">
+<condition id="821">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="910" from="16" to="17">
+<condition id="822">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="911" from="17" to="18">
+<condition id="823">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="912" from="18" to="19">
+<condition id="824">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="913" from="19" to="20">
+<condition id="825">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="914" from="20" to="21">
+<condition id="826">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="915" from="21" to="22">
+<condition id="827">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="916" from="22" to="23">
+<condition id="828">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="917" from="23" to="24">
+<condition id="829">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="918" from="24" to="25">
+<condition id="830">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="919" from="25" to="26">
+<condition id="831">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="920" from="26" to="27">
+<condition id="832">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="921" from="27" to="28">
+<condition id="833">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="922" from="28" to="29">
+<condition id="834">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="923" from="29" to="30">
+<condition id="835">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="924" from="30" to="31">
+<condition id="836">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="925" from="31" to="32">
+<condition id="837">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="926" from="32" to="33">
+<condition id="838">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="927" from="33" to="34">
+<condition id="839">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="928" from="34" to="35">
+<condition id="840">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="929" from="35" to="36">
+<condition id="841">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="930" from="36" to="37">
+<condition id="842">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="931" from="37" to="38">
+<condition id="843">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="932" from="38" to="39">
+<condition id="844">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="933" from="39" to="40">
+<condition id="845">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="934" from="40" to="41">
+<condition id="846">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="935" from="41" to="42">
+<condition id="847">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="936" from="42" to="43">
+<condition id="848">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="937" from="43" to="44">
+<condition id="849">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="938" from="44" to="45">
+<condition id="850">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="939" from="45" to="46">
+<condition id="851">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="940" from="46" to="47">
+<condition id="852">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="941" from="47" to="48">
+<condition id="853">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="942" from="48" to="49">
+<condition id="854">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="943" from="49" to="50">
+<condition id="855">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="944" from="50" to="51">
+<condition id="856">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="945" from="51" to="52">
+<condition id="857">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="946" from="52" to="53">
+<condition id="858">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="947" from="53" to="54">
+<condition id="859">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="948" from="54" to="55">
+<condition id="860">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="949" from="55" to="56">
+<condition id="861">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="950" from="56" to="57">
+<condition id="862">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="58" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:0  %x_in_read = call float @_ssdm_op_Read.ap_auto.float(float %x_in) nounwind
+
+]]></Node>
+<StgValue><ssdm name="x_in_read"/></StgValue>
+</operation>
+
+<operation id="59" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %y_in_read = call float @_ssdm_op_Read.ap_auto.float(float %y_in) nounwind
+
+]]></Node>
+<StgValue><ssdm name="y_in_read"/></StgValue>
+</operation>
+
+<operation id="60" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="32" op_0_bw="32">
+<![CDATA[
+:2  %p_Val2_s = bitcast float %x_in_read to i32
+
+]]></Node>
+<StgValue><ssdm name="p_Val2_s"/></StgValue>
+</operation>
+
+<operation id="61" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:3  %p_Result_70 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_Val2_s, i32 31)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_70"/></StgValue>
+</operation>
+
+<operation id="62" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="8" op_0_bw="8" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+:4  %loc_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_s, i32 23, i32 30)
+
+]]></Node>
+<StgValue><ssdm name="loc_V"/></StgValue>
+</operation>
+
+<operation id="63" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="8" bw="23" op_0_bw="32">
+<![CDATA[
+:5  %loc_V_6 = trunc i32 %p_Val2_s to i23
+
+]]></Node>
+<StgValue><ssdm name="loc_V_6"/></StgValue>
+</operation>
+
+<operation id="64" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="32" op_0_bw="32">
+<![CDATA[
+:6  %p_Val2_53 = bitcast float %y_in_read to i32
+
+]]></Node>
+<StgValue><ssdm name="p_Val2_53"/></StgValue>
+</operation>
+
+<operation id="65" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="10" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:7  %p_Result_s = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_Val2_53, i32 31)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_s"/></StgValue>
+</operation>
+
+<operation id="66" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="8" op_0_bw="8" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+:8  %loc_V_7 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_53, i32 23, i32 30)
+
+]]></Node>
+<StgValue><ssdm name="loc_V_7"/></StgValue>
+</operation>
+
+<operation id="67" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="23" op_0_bw="32">
+<![CDATA[
+:9  %loc_V_8 = trunc i32 %p_Val2_53 to i23
+
+]]></Node>
+<StgValue><ssdm name="loc_V_8"/></StgValue>
+</operation>
+
+<operation id="68" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:10  %tmp_i = icmp eq i8 %loc_V_7, -1
+
+]]></Node>
+<StgValue><ssdm name="tmp_i"/></StgValue>
+</operation>
+
+<operation id="69" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="1" op_0_bw="23" op_1_bw="23">
+<![CDATA[
+:11  %tmp_i_48 = icmp ne i23 %loc_V_8, 0
+
+]]></Node>
+<StgValue><ssdm name="tmp_i_48"/></StgValue>
+</operation>
+
+<operation id="70" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:12  %tmp_77_demorgan = and i1 %tmp_i, %tmp_i_48
+
+]]></Node>
+<StgValue><ssdm name="tmp_77_demorgan"/></StgValue>
+</operation>
+
+<operation id="71" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:13  br i1 %tmp_77_demorgan, label %._crit_edge, label %1
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="72" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:0  %tmp_i2 = icmp eq i8 %loc_V, -1
+
+]]></Node>
+<StgValue><ssdm name="tmp_i2"/></StgValue>
+</operation>
+
+<operation id="73" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="1" op_0_bw="23" op_1_bw="23">
+<![CDATA[
+:1  %tmp_i3 = icmp ne i23 %loc_V_6, 0
+
+]]></Node>
+<StgValue><ssdm name="tmp_i3"/></StgValue>
+</operation>
+
+<operation id="74" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:2  %tmp_79_demorgan = and i1 %tmp_i2, %tmp_i3
+
+]]></Node>
+<StgValue><ssdm name="tmp_79_demorgan"/></StgValue>
+</operation>
+
+<operation id="75" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:3  br i1 %tmp_79_demorgan, label %._crit_edge, label %2
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="76" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="137">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="23" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:0  %tmp_81 = icmp eq i8 %loc_V_7, 0
+
+]]></Node>
+<StgValue><ssdm name="tmp_81"/></StgValue>
+</operation>
+
+<operation id="77" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="137">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="1" op_0_bw="23" op_1_bw="23">
+<![CDATA[
+:1  %tmp_82 = icmp eq i23 %loc_V_8, 0
+
+]]></Node>
+<StgValue><ssdm name="tmp_82"/></StgValue>
+</operation>
+
+<operation id="78" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="137">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="25" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:2  %or_cond1 = and i1 %tmp_81, %tmp_82
+
+]]></Node>
+<StgValue><ssdm name="or_cond1"/></StgValue>
+</operation>
+
+<operation id="79" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="137">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="26" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:3  br i1 %or_cond1, label %3, label %._crit_edge111
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="80" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="138">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+._crit_edge111:0  %tmp_87 = icmp eq i8 %loc_V, 0
+
+]]></Node>
+<StgValue><ssdm name="tmp_87"/></StgValue>
+</operation>
+
+<operation id="81" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="138">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="29" bw="1" op_0_bw="23" op_1_bw="23">
+<![CDATA[
+._crit_edge111:1  %tmp_88 = icmp eq i23 %loc_V_6, 0
+
+]]></Node>
+<StgValue><ssdm name="tmp_88"/></StgValue>
+</operation>
+
+<operation id="82" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="138">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="30" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+._crit_edge111:2  %or_cond = and i1 %tmp_87, %tmp_88
+
+]]></Node>
+<StgValue><ssdm name="or_cond"/></StgValue>
+</operation>
+
+<operation id="83" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="138">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="31" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+._crit_edge111:3  br i1 %or_cond, label %5, label %._crit_edge114
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="84" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="139">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="33" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+._crit_edge114:0  br i1 %tmp_81, label %._crit_edge117, label %._crit_edge120
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="85" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="140">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+._crit_edge120:0  br i1 %tmp_87, label %7, label %8
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="86" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="141">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="39" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:2  %tmp_103_demorgan = and i1 %tmp_i2, %tmp_88
+
+]]></Node>
+<StgValue><ssdm name="tmp_103_demorgan"/></StgValue>
+</operation>
+
+<operation id="87" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="141">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="40" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:3  %tmp_105_demorgan = and i1 %tmp_i, %tmp_82
+
+]]></Node>
+<StgValue><ssdm name="tmp_105_demorgan"/></StgValue>
+</operation>
+
+<operation id="88" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="141">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="41" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:4  br i1 %tmp_103_demorgan, label %9, label %.critedge
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="89" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="142">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="43" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+.critedge:0  br i1 %tmp_105_demorgan, label %17, label %18
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="90" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="45" bw="31" op_0_bw="32">
+<![CDATA[
+:0  %tmp = trunc i32 %p_Val2_53 to i31
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+
+<operation id="91" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="46" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+:1  %p_Result_77 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 false, i31 %tmp)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_77"/></StgValue>
+</operation>
+
+<operation id="92" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="47" bw="32" op_0_bw="32">
+<![CDATA[
+:2  %a = bitcast i32 %p_Result_77 to float
+
+]]></Node>
+<StgValue><ssdm name="a"/></StgValue>
+</operation>
+
+<operation id="93" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="48" bw="31" op_0_bw="32">
+<![CDATA[
+:3  %tmp_610 = trunc i32 %p_Val2_s to i31
+
+]]></Node>
+<StgValue><ssdm name="tmp_610"/></StgValue>
+</operation>
+
+<operation id="94" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="49" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+:4  %p_Result_78 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 false, i31 %tmp_610)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_78"/></StgValue>
+</operation>
+
+<operation id="95" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="50" bw="32" op_0_bw="32">
+<![CDATA[
+:5  %b = bitcast i32 %p_Result_78 to float
+
+]]></Node>
+<StgValue><ssdm name="b"/></StgValue>
+</operation>
+
+<operation id="96" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="51" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:6  %tmp_i4 = icmp eq i32 %p_Result_78, %p_Result_77
+
+]]></Node>
+<StgValue><ssdm name="tmp_i4"/></StgValue>
+</operation>
+
+<operation id="97" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="143">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="52" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:7  br i1 %tmp_i4, label %"atan2_cordic_Q1<float>.exit", label %19
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="98" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="54" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:0  %notlhs = icmp ne i8 %loc_V_7, -1
+
+]]></Node>
+<StgValue><ssdm name="notlhs"/></StgValue>
+</operation>
+
+<operation id="99" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="55" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:1  %tmp_s = or i1 %tmp_82, %notlhs
+
+]]></Node>
+<StgValue><ssdm name="tmp_s"/></StgValue>
+</operation>
+
+<operation id="100" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="56" bw="1" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:2  %notlhs2 = icmp ne i8 %loc_V, -1
+
+]]></Node>
+<StgValue><ssdm name="notlhs2"/></StgValue>
+</operation>
+
+<operation id="101" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="57" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:3  %tmp_424 = or i1 %tmp_88, %notlhs2
+
+]]></Node>
+<StgValue><ssdm name="tmp_424"/></StgValue>
+</operation>
+
+<operation id="102" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="58" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:4  %tmp_425 = and i1 %tmp_s, %tmp_424
+
+]]></Node>
+<StgValue><ssdm name="tmp_425"/></StgValue>
+</operation>
+
+<operation id="103" st_id="1" stage="1" lat="1">
+<core>FCmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="59" bw="1" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:5  %tmp_426 = fcmp ogt float %a, %b
+
+]]></Node>
+<StgValue><ssdm name="tmp_426"/></StgValue>
+</operation>
+
+<operation id="104" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="60" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:6  %tmp_427 = and i1 %tmp_425, %tmp_426
+
+]]></Node>
+<StgValue><ssdm name="tmp_427"/></StgValue>
+</operation>
+
+<operation id="105" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="61" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:7  br i1 %tmp_427, label %20, label %21
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="106" st_id="1" stage="45" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="107" st_id="1" stage="45" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+
+<operation id="108" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="149">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="89" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:0  br i1 %tmp_105_demorgan, label %10, label %._crit_edge122
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="109" st_id="2" stage="44" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="110" st_id="2" stage="44" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="111" st_id="3" stage="43" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="112" st_id="3" stage="43" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="113" st_id="4" stage="42" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="114" st_id="4" stage="42" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="5" st_id="5">
+
+<operation id="115" st_id="5" stage="41" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="116" st_id="5" stage="41" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="6" st_id="6">
+
+<operation id="117" st_id="6" stage="40" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="118" st_id="6" stage="40" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="7" st_id="7">
+
+<operation id="119" st_id="7" stage="39" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="120" st_id="7" stage="39" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="8" st_id="8">
+
+<operation id="121" st_id="8" stage="38" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="122" st_id="8" stage="38" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="9" st_id="9">
+
+<operation id="123" st_id="9" stage="37" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="124" st_id="9" stage="37" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="10" st_id="10">
+
+<operation id="125" st_id="10" stage="36" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="126" st_id="10" stage="36" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="11" st_id="11">
+
+<operation id="127" st_id="11" stage="35" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="128" st_id="11" stage="35" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="12" st_id="12">
+
+<operation id="129" st_id="12" stage="34" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="130" st_id="12" stage="34" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="13" st_id="13">
+
+<operation id="131" st_id="13" stage="33" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="132" st_id="13" stage="33" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="14" st_id="14">
+
+<operation id="133" st_id="14" stage="32" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="134" st_id="14" stage="32" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="15" st_id="15">
+
+<operation id="135" st_id="15" stage="31" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="136" st_id="15" stage="31" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="16" st_id="16">
+
+<operation id="137" st_id="16" stage="30" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="138" st_id="16" stage="30" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="17" st_id="17">
+
+<operation id="139" st_id="17" stage="29" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="140" st_id="17" stage="29" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="18" st_id="18">
+
+<operation id="141" st_id="18" stage="28" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="142" st_id="18" stage="28" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="19" st_id="19">
+
+<operation id="143" st_id="19" stage="27" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="144" st_id="19" stage="27" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="20" st_id="20">
+
+<operation id="145" st_id="20" stage="26" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="146" st_id="20" stage="26" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="21" st_id="21">
+
+<operation id="147" st_id="21" stage="25" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="148" st_id="21" stage="25" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="22" st_id="22">
+
+<operation id="149" st_id="22" stage="24" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="150" st_id="22" stage="24" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="23" st_id="23">
+
+<operation id="151" st_id="23" stage="23" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="152" st_id="23" stage="23" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="24" st_id="24">
+
+<operation id="153" st_id="24" stage="22" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="154" st_id="24" stage="22" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="25" st_id="25">
+
+<operation id="155" st_id="25" stage="21" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="156" st_id="25" stage="21" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="26" st_id="26">
+
+<operation id="157" st_id="26" stage="20" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="158" st_id="26" stage="20" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="27" st_id="27">
+
+<operation id="159" st_id="27" stage="19" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="160" st_id="27" stage="19" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="28" st_id="28">
+
+<operation id="161" st_id="28" stage="18" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="162" st_id="28" stage="18" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="29" st_id="29">
+
+<operation id="163" st_id="29" stage="17" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="164" st_id="29" stage="17" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="30" st_id="30">
+
+<operation id="165" st_id="30" stage="16" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="166" st_id="30" stage="16" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="31" st_id="31">
+
+<operation id="167" st_id="31" stage="15" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="168" st_id="31" stage="15" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="32" st_id="32">
+
+<operation id="169" st_id="32" stage="14" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="170" st_id="32" stage="14" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="33" st_id="33">
+
+<operation id="171" st_id="33" stage="13" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="172" st_id="33" stage="13" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="34" st_id="34">
+
+<operation id="173" st_id="34" stage="12" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="174" st_id="34" stage="12" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="35" st_id="35">
+
+<operation id="175" st_id="35" stage="11" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="176" st_id="35" stage="11" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="36" st_id="36">
+
+<operation id="177" st_id="36" stage="10" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="178" st_id="36" stage="10" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="37" st_id="37">
+
+<operation id="179" st_id="37" stage="9" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="180" st_id="37" stage="9" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="38" st_id="38">
+
+<operation id="181" st_id="38" stage="8" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="182" st_id="38" stage="8" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="39" st_id="39">
+
+<operation id="183" st_id="39" stage="7" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="184" st_id="39" stage="7" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="40" st_id="40">
+
+<operation id="185" st_id="40" stage="6" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="186" st_id="40" stage="6" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="41" st_id="41">
+
+<operation id="187" st_id="41" stage="5" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="188" st_id="41" stage="5" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="42" st_id="42">
+
+<operation id="189" st_id="42" stage="4" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="190" st_id="42" stage="4" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="43" st_id="43">
+
+<operation id="191" st_id="43" stage="3" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="192" st_id="43" stage="3" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="44" st_id="44">
+
+<operation id="193" st_id="44" stage="2" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="194" st_id="44" stage="2" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="45" st_id="45">
+
+<operation id="195" st_id="45" stage="1" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_76_i = call fastcc float @"atan2_generic<float>"(float %a, float %b) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_76_i"/></StgValue>
+</operation>
+
+<operation id="196" st_id="45" stage="1" lat="45">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="66" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %tmp_74_i = call fastcc float @"atan2_generic<float>"(float %b, float %a) nounwind
+
+]]></Node>
+<StgValue><ssdm name="tmp_74_i"/></StgValue>
+</operation>
+</state>
+
+<state id="46" st_id="46">
+
+<operation id="197" st_id="46" stage="5" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_75_i = fsub float 0x3FF921FB60000000, %tmp_74_i
+
+]]></Node>
+<StgValue><ssdm name="tmp_75_i"/></StgValue>
+</operation>
+</state>
+
+<state id="47" st_id="47">
+
+<operation id="198" st_id="47" stage="4" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_75_i = fsub float 0x3FF921FB60000000, %tmp_74_i
+
+]]></Node>
+<StgValue><ssdm name="tmp_75_i"/></StgValue>
+</operation>
+</state>
+
+<state id="48" st_id="48">
+
+<operation id="199" st_id="48" stage="3" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_75_i = fsub float 0x3FF921FB60000000, %tmp_74_i
+
+]]></Node>
+<StgValue><ssdm name="tmp_75_i"/></StgValue>
+</operation>
+</state>
+
+<state id="49" st_id="49">
+
+<operation id="200" st_id="49" stage="2" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_75_i = fsub float 0x3FF921FB60000000, %tmp_74_i
+
+]]></Node>
+<StgValue><ssdm name="tmp_75_i"/></StgValue>
+</operation>
+</state>
+
+<state id="50" st_id="50">
+
+<operation id="201" st_id="50" stage="1" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="67" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_75_i = fsub float 0x3FF921FB60000000, %tmp_74_i
+
+]]></Node>
+<StgValue><ssdm name="tmp_75_i"/></StgValue>
+</operation>
+</state>
+
+<state id="51" st_id="51">
+
+<operation id="202" st_id="51" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="145">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="64" bw="0" op_0_bw="0">
+<![CDATA[
+:1  br label %"atan2_cordic_Q1<float>.exit"
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="203" st_id="51" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="146">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="tmp_i4" val="0"/>
+<literal name="tmp_427" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="68" bw="0" op_0_bw="0">
+<![CDATA[
+:2  br label %"atan2_cordic_Q1<float>.exit"
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="52" st_id="52">
+
+<operation id="204" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="141">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="37" bw="32" op_0_bw="1">
+<![CDATA[
+:0  %tmp_101 = zext i1 %p_Result_s to i32
+
+]]></Node>
+<StgValue><ssdm name="tmp_101"/></StgValue>
+</operation>
+
+<operation id="205" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="141">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="32" op_0_bw="32" op_1_bw="32" op_2_bw="32" op_3_bw="1">
+<![CDATA[
+:1  %m = call i32 @_ssdm_op_BitSet.i32.i32.i32.i1(i32 %tmp_101, i32 1, i1 %p_Result_70)
+
+]]></Node>
+<StgValue><ssdm name="m"/></StgValue>
+</operation>
+
+<operation id="206" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="70" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:0  %c = phi float [ %tmp_75_i, %20 ], [ %tmp_76_i, %21 ], [ 0x3FE921FB60000000, %18 ]
+
+]]></Node>
+<StgValue><ssdm name="c"/></StgValue>
+</operation>
+
+<operation id="207" st_id="52" stage="5" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:1  %d = fsub float 0x400921FB60000000, %c
+
+]]></Node>
+<StgValue><ssdm name="d"/></StgValue>
+</operation>
+
+<operation id="208" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="72" bw="0" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="0" op_8_bw="32" op_9_bw="0">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:2  switch i32 %m, label %._crit_edge125 [
+    i32 0, label %._crit_edge128
+    i32 1, label %22
+    i32 2, label %23
+    i32 3, label %24
+  ]
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="209" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="158">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="91" bw="0" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="0" op_8_bw="32" op_9_bw="0">
+<![CDATA[
+._crit_edge122:0  switch i32 %m, label %._crit_edge125 [
+    i32 0, label %._crit_edge128
+    i32 1, label %14
+    i32 2, label %15
+    i32 3, label %16
+  ]
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="210" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="159">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="101" bw="0" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="0" op_8_bw="32" op_9_bw="0">
+<![CDATA[
+:0  switch i32 %m, label %._crit_edge124 [
+    i32 0, label %._crit_edge128
+    i32 1, label %11
+    i32 2, label %12
+    i32 3, label %13
+  ]
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="211" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="160">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="115" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+._crit_edge117:0  br i1 %p_Result_70, label %6, label %._crit_edge119
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="212" st_id="52" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="161">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="129" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:0  br i1 %p_Result_70, label %4, label %._crit_edge108
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="53" st_id="53">
+
+<operation id="213" st_id="53" stage="4" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:1  %d = fsub float 0x400921FB60000000, %c
+
+]]></Node>
+<StgValue><ssdm name="d"/></StgValue>
+</operation>
+</state>
+
+<state id="54" st_id="54">
+
+<operation id="214" st_id="54" stage="3" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:1  %d = fsub float 0x400921FB60000000, %c
+
+]]></Node>
+<StgValue><ssdm name="d"/></StgValue>
+</operation>
+</state>
+
+<state id="55" st_id="55">
+
+<operation id="215" st_id="55" stage="2" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:1  %d = fsub float 0x400921FB60000000, %c
+
+]]></Node>
+<StgValue><ssdm name="d"/></StgValue>
+</operation>
+</state>
+
+<state id="56" st_id="56">
+
+<operation id="216" st_id="56" stage="1" lat="5">
+<core>FAddSub</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="147">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="71" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+atan2_cordic_Q1<float>.exit:1  %d = fsub float 0x400921FB60000000, %c
+
+]]></Node>
+<StgValue><ssdm name="d"/></StgValue>
+</operation>
+
+<operation id="217" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="157">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="81" bw="32" op_0_bw="32">
+<![CDATA[
+:0  %tmp_257_to_int = bitcast float %c to i32
+
+]]></Node>
+<StgValue><ssdm name="tmp_257_to_int"/></StgValue>
+</operation>
+
+<operation id="218" st_id="56" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="157">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="82" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_257_neg = xor i32 %tmp_257_to_int, -2147483648
+
+]]></Node>
+<StgValue><ssdm name="tmp_257_neg"/></StgValue>
+</operation>
+
+<operation id="219" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="157">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="83" bw="32" op_0_bw="32">
+<![CDATA[
+:2  %tmp_122 = bitcast i32 %tmp_257_neg to float
+
+]]></Node>
+<StgValue><ssdm name="tmp_122"/></StgValue>
+</operation>
+
+<operation id="220" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="157">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="84" bw="0" op_0_bw="0">
+<![CDATA[
+:3  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="221" st_id="56" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="148">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="86" bw="32" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+:0  %p_1 = select i1 %p_Result_s, float 0xBFF921FB60000000, float 0x3FF921FB60000000
+
+]]></Node>
+<StgValue><ssdm name="p_1"/></StgValue>
+</operation>
+
+<operation id="222" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="148">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="87" bw="0" op_0_bw="0">
+<![CDATA[
+:1  br label %UnifiedReturnBlock
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="223" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="162">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="93" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="224" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="163">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="2"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="95" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="225" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="164">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="97" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="226" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="165">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="1"/>
+<literal name="m" val="3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="103" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="227" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="166">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="1"/>
+<literal name="m" val="2"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="105" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="228" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="167">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="tmp_105_demorgan" val="1"/>
+<literal name="m" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="107" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="229" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="168">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="1"/>
+<literal name="m" val="!0"/>
+<literal name="m" val="!1"/>
+<literal name="m" val="!2"/>
+<literal name="m" val="!3"/>
+</and_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="!0"/>
+<literal name="m" val="!1"/>
+<literal name="m" val="!2"/>
+<literal name="m" val="!3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="109" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge124:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="230" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="150">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="111" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+:0  %p_Result_76 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 1070141403)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_76"/></StgValue>
+</operation>
+
+<operation id="231" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="150">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="112" bw="32" op_0_bw="32">
+<![CDATA[
+:1  %ret_i_i_i6 = bitcast i32 %p_Result_76 to float
+
+]]></Node>
+<StgValue><ssdm name="ret_i_i_i6"/></StgValue>
+</operation>
+
+<operation id="232" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="150">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="113" bw="0" op_0_bw="0">
+<![CDATA[
+:2  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="233" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="151">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+<literal name="p_Result_70" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="117" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+._crit_edge119:0  %p_Result_75 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 0)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_75"/></StgValue>
+</operation>
+
+<operation id="234" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="151">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+<literal name="p_Result_70" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="118" bw="32" op_0_bw="32">
+<![CDATA[
+._crit_edge119:1  %ret_i_i_i5 = bitcast i32 %p_Result_75 to float
+
+]]></Node>
+<StgValue><ssdm name="ret_i_i_i5"/></StgValue>
+</operation>
+
+<operation id="235" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="151">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+<literal name="p_Result_70" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="119" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge119:2  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="236" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="152">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+<literal name="p_Result_70" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="121" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+:0  %p_Result_74 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 -1068953637)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_74"/></StgValue>
+</operation>
+
+<operation id="237" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="152">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+<literal name="p_Result_70" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="122" bw="32" op_0_bw="32">
+<![CDATA[
+:1  %ret_i_i_i4 = bitcast i32 %p_Result_74 to float
+
+]]></Node>
+<StgValue><ssdm name="ret_i_i_i4"/></StgValue>
+</operation>
+
+<operation id="238" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="152">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="1"/>
+<literal name="p_Result_70" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="123" bw="0" op_0_bw="0">
+<![CDATA[
+:2  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="239" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="153">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="125" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+:0  %p_Result_73 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 1070141403)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_73"/></StgValue>
+</operation>
+
+<operation id="240" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="153">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="126" bw="32" op_0_bw="32">
+<![CDATA[
+:1  %ret_i_i_i3 = bitcast i32 %p_Result_73 to float
+
+]]></Node>
+<StgValue><ssdm name="ret_i_i_i3"/></StgValue>
+</operation>
+
+<operation id="241" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="153">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="127" bw="0" op_0_bw="0">
+<![CDATA[
+:2  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="242" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="154">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+<literal name="p_Result_70" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="131" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+._crit_edge108:0  %p_Result_72 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 0)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_72"/></StgValue>
+</operation>
+
+<operation id="243" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="154">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+<literal name="p_Result_70" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="132" bw="32" op_0_bw="32">
+<![CDATA[
+._crit_edge108:1  %ret_i_i_i2 = bitcast i32 %p_Result_72 to float
+
+]]></Node>
+<StgValue><ssdm name="ret_i_i_i2"/></StgValue>
+</operation>
+
+<operation id="244" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="154">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+<literal name="p_Result_70" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="133" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge108:2  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="245" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="155">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+<literal name="p_Result_70" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="135" bw="32" op_0_bw="32" op_1_bw="1" op_2_bw="31">
+<![CDATA[
+:0  %p_Result_71 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 -1068953637)
+
+]]></Node>
+<StgValue><ssdm name="p_Result_71"/></StgValue>
+</operation>
+
+<operation id="246" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="155">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+<literal name="p_Result_70" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="136" bw="32" op_0_bw="32">
+<![CDATA[
+:1  %ret_i_i_i1 = bitcast i32 %p_Result_71 to float
+
+]]></Node>
+<StgValue><ssdm name="ret_i_i_i1"/></StgValue>
+</operation>
+
+<operation id="247" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="155">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="1"/>
+<literal name="p_Result_70" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="137" bw="0" op_0_bw="0">
+<![CDATA[
+:2  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="248" st_id="56" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="109">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="1"/>
+</and_exp><and_exp><literal name="tmp_79_demorgan" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="139" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="57" st_id="57">
+
+<operation id="249" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="156">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="74" bw="32" op_0_bw="32">
+<![CDATA[
+:0  %tmp_258_to_int = bitcast float %d to i32
+
+]]></Node>
+<StgValue><ssdm name="tmp_258_to_int"/></StgValue>
+</operation>
+
+<operation id="250" st_id="57" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="156">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="75" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+:1  %tmp_258_neg = xor i32 %tmp_258_to_int, -2147483648
+
+]]></Node>
+<StgValue><ssdm name="tmp_258_neg"/></StgValue>
+</operation>
+
+<operation id="251" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="156">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="76" bw="32" op_0_bw="32">
+<![CDATA[
+:2  %tmp_123 = bitcast i32 %tmp_258_neg to float
+
+]]></Node>
+<StgValue><ssdm name="tmp_123"/></StgValue>
+</operation>
+
+<operation id="252" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="156">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="77" bw="0" op_0_bw="0">
+<![CDATA[
+:3  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="253" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="169">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_103_demorgan" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="2"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="79" bw="0" op_0_bw="0">
+<![CDATA[
+:0  br label %._crit_edge128
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="254" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="170">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="0"/>
+<literal name="tmp_79_demorgan" val="0"/>
+<literal name="or_cond1" val="0"/>
+<literal name="or_cond" val="0"/>
+<literal name="tmp_81" val="0"/>
+<literal name="tmp_87" val="0"/>
+<literal name="tmp_105_demorgan" val="0"/>
+<literal name="m" val="!0"/>
+<literal name="m" val="!1"/>
+<literal name="m" val="!2"/>
+<literal name="m" val="!3"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="99" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge125:0  br label %._crit_edge124
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="255" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="113">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="1"/>
+</and_exp><and_exp><literal name="tmp_79_demorgan" val="1"/>
+</and_exp><and_exp><literal name="or_cond1" val="1"/>
+</and_exp><and_exp><literal name="or_cond" val="1"/>
+</and_exp><and_exp><literal name="tmp_81" val="1"/>
+</and_exp><and_exp><literal name="tmp_87" val="1"/>
+</and_exp><and_exp><literal name="tmp_103_demorgan" val="1"/>
+</and_exp><and_exp><literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="141" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32" op_3_bw="0" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="0" op_8_bw="32" op_9_bw="0" op_10_bw="32" op_11_bw="0" op_12_bw="32" op_13_bw="0" op_14_bw="32" op_15_bw="0" op_16_bw="32" op_17_bw="0" op_18_bw="32" op_19_bw="0">
+<![CDATA[
+._crit_edge128:0  %p_s = phi float [ 0x7FFFFFFFE0000000, %._crit_edge ], [ %ret_i_i_i1, %4 ], [ %ret_i_i_i2, %._crit_edge108 ], [ %ret_i_i_i3, %5 ], [ %ret_i_i_i4, %6 ], [ %ret_i_i_i5, %._crit_edge119 ], [ %ret_i_i_i6, %7 ], [ 0.000000e+00, %._crit_edge124 ], [ 0xC002D97C80000000, %13 ], [ 0x4002D97C80000000, %12 ], [ 0xBFE921FB60000000, %11 ], [ 0xC00921FB60000000, %16 ], [ 0x400921FB60000000, %15 ], [ -0.000000e+00, %14 ], [ %tmp_123, %24 ], [ %d, %23 ], [ %tmp_122, %22 ], [ %c, %"atan2_cordic_Q1<float>.exit" ], [ 0x3FE921FB60000000, %10 ], [ 0.000000e+00, %._crit_edge122 ]
+
+]]></Node>
+<StgValue><ssdm name="p_s"/></StgValue>
+</operation>
+
+<operation id="256" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="113">
+<or_exp><and_exp><literal name="tmp_77_demorgan" val="1"/>
+</and_exp><and_exp><literal name="tmp_79_demorgan" val="1"/>
+</and_exp><and_exp><literal name="or_cond1" val="1"/>
+</and_exp><and_exp><literal name="or_cond" val="1"/>
+</and_exp><and_exp><literal name="tmp_81" val="1"/>
+</and_exp><and_exp><literal name="tmp_87" val="1"/>
+</and_exp><and_exp><literal name="tmp_103_demorgan" val="1"/>
+</and_exp><and_exp><literal name="tmp_105_demorgan" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="142" bw="0" op_0_bw="0">
+<![CDATA[
+._crit_edge128:1  br label %UnifiedReturnBlock
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="257" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="135">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="144" bw="32" op_0_bw="32" op_1_bw="0">
+<![CDATA[
+UnifiedReturnBlock:0  %UnifiedRetVal = phi float [ %p_1, %17 ], [ %p_s, %._crit_edge128 ]
+
+]]></Node>
+<StgValue><ssdm name="UnifiedRetVal"/></StgValue>
+</operation>
+
+<operation id="258" st_id="57" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="135">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="145" bw="0" op_0_bw="32">
+<![CDATA[
+UnifiedReturnBlock:1  ret float %UnifiedRetVal
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+</ports>
+
+
+<dataflows>
+</dataflows>
+
+
+</stg>
