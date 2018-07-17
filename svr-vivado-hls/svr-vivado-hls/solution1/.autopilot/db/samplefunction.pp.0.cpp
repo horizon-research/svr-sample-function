@@ -32224,12 +32224,15 @@ namespace hotbm_apfixed
               ap_int<fp_struct<double>::EXP_BITS> &Ex){
 
    const bool swap_table[8] = {0,1,1,0,0,1,1,0};
-#pragma HLS array_partition variable=swap_table complete
-#pragma HLS RESOURCE variable=fourth_order_double::sin_cos_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_cos_K1 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_cos_K2 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_cos_K3 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_cos_K4 core=ROM_1P_LUTRAM
+_ssdm_SpecConstant(swap_table);
+# 114 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
+#pragma HLS array_partition variable=&swap_table complete
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_cos_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_cos_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_cos_K2 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_cos_K3 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_cos_K4 core=ROM_1P_LUTRAM
 
  ap_uint<alpha+1> A = x(x.wl()-x.iwl()-1,x.wl()-x.iwl()-alpha);
    ap_ufixed<Wx-alpha-beta1, -alpha> B = x;
@@ -32258,16 +32261,16 @@ namespace hotbm_apfixed
           ap_ufixed<Wr, 1> &sin_result,
           ap_ufixed<Wr, 1> &cos_result
           ) {
-#pragma HLS RESOURCE variable=fourth_order_double::cos_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::cos_K1 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::cos_K2 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::cos_K3 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::cos_K4 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_K1 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_K2 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_K3 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=fourth_order_double::sin_K4 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::cos_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::cos_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::cos_K2 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::cos_K3 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::cos_K4 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_K2 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_K3 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&fourth_order_double::sin_K4 core=ROM_1P_LUTRAM
 
  ap_uint<alpha> A = x(x.wl()-x.iwl()-1,
          x.wl()-x.iwl()-alpha);
@@ -32313,11 +32316,14 @@ namespace hotbm_apfixed
               ap_int<fp_struct<float>::EXP_BITS> &Ex){
 
    const bool swap_table[8] = {0,1,1,0,0,1,1,0};
+_ssdm_SpecConstant(swap_table);
+# 203 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
 
-#pragma HLS array_partition variable=swap_table complete
-#pragma HLS RESOURCE variable=second_order_float::sin_cos_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::sin_cos_K1 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::sin_cos_K2 core=ROM_1P_LUTRAM
+
+#pragma HLS array_partition variable=&swap_table complete
+#pragma HLS RESOURCE variable=&second_order_float::sin_cos_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::sin_cos_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::sin_cos_K2 core=ROM_1P_LUTRAM
 
  ap_uint<alpha+1> A = x(x.wl()-x.iwl()-1,x.wl()-x.iwl()-alpha);
    ap_ufixed<Wx-alpha-beta1, -alpha> B = x;
@@ -32343,12 +32349,12 @@ namespace hotbm_apfixed
           ap_ufixed<Wr, 1> &sin_result,
           ap_ufixed<Wr, 1> &cos_result
           ) {
-#pragma HLS RESOURCE variable=second_order_float::cos_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::cos_K1 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::cos_K2 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::sin_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::sin_K1 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=second_order_float::sin_K2 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::cos_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::cos_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::cos_K2 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::sin_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::sin_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&second_order_float::sin_K2 core=ROM_1P_LUTRAM
 
  ap_uint<alpha> A = x(x.wl()-x.iwl()-1,
          x.wl()-x.iwl()-alpha);
@@ -32382,8 +32388,8 @@ namespace hotbm_apfixed
                ap_uint<2> &k,
                ap_ufixed<W_dout, 0> &x){
 
-#pragma HLS RESOURCE variable=first_order_fixed_16::sin_cos_K0 core=ROM_1P_LUTRAM
-#pragma HLS RESOURCE variable=first_order_fixed_16::sin_cos_K1 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&first_order_fixed_16::sin_cos_K0 core=ROM_1P_LUTRAM
+#pragma HLS RESOURCE variable=&first_order_fixed_16::sin_cos_K1 core=ROM_1P_LUTRAM
 
  ap_uint<alpha> A = x(x.wl()-x.iwl()-1,x.wl()-x.iwl()-alpha);
 
@@ -32407,12 +32413,21 @@ namespace hotbm_apfixed
  const int g = 3;
 
  const bool swap_table[8] = {0,1,1,0,0,1,1,0};
- const bool neg_sin_table[16] = {0,0,1,0,1,1,0,1, 1,0,1,1,0,1,0,0};
- const bool neg_cos_table[16] = {0,0,0,1,1,1,1,0, 0,1,1,1,1,0,0,0};
+_ssdm_SpecConstant(swap_table);
+# 297 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
 
-#pragma HLS array_partition variable=swap_table complete
-#pragma HLS array_partition variable=neg_sin_table complete
-#pragma HLS array_partition variable=neg_cos_table complete
+ const bool neg_sin_table[16] = {0,0,1,0,1,1,0,1, 1,0,1,1,0,1,0,0};
+_ssdm_SpecConstant(neg_sin_table);
+# 298 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
+ const bool neg_cos_table[16] = {0,0,0,1,1,1,1,0, 0,1,1,1,1,0,0,0};
+_ssdm_SpecConstant(neg_cos_table);
+# 299 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
+
+#pragma HLS array_partition variable=&swap_table complete
+#pragma HLS array_partition variable=&neg_sin_table complete
+#pragma HLS array_partition variable=&neg_cos_table complete
 
  ap_uint<3> k;
  ap_ufixed<WO+1+g, 0> x;
@@ -32479,11 +32494,20 @@ namespace hotbm_apfixed
  const int g = 3;
 
  const bool swap_table[8] = {0,1,1,0,0,1,1,0};
+_ssdm_SpecConstant(swap_table);
+# 369 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
  const bool neg_sin_table[16] = {0,0,1,0,1,1,0,1, 1,0,1,1,0,1,0,0};
+_ssdm_SpecConstant(neg_sin_table);
+# 370 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
  const bool neg_cos_table[16] = {0,0,0,1,1,1,1,0, 0,1,1,1,1,0,0,0};
-#pragma HLS array_partition variable=swap_table complete
-#pragma HLS array_partition variable=neg_sin_table complete
-#pragma HLS array_partition variable=neg_cos_table complete
+_ssdm_SpecConstant(neg_cos_table);
+# 371 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
+#pragma HLS array_partition variable=&swap_table complete
+#pragma HLS array_partition variable=&neg_sin_table complete
+#pragma HLS array_partition variable=&neg_cos_table complete
 
  ap_uint<3> k;
  ap_ufixed<WO+1+g, 0> x;
@@ -32550,9 +32574,15 @@ namespace hotbm_apfixed
  const int g = 4;
 
  const bool neg_sin_table[8] = {0,0,1,1, 1,1,0,0};
+_ssdm_SpecConstant(neg_sin_table);
+# 440 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
  const bool neg_cos_table[8] = {0,1,1,0, 0,1,1,0};
-#pragma HLS array_partition variable=neg_sin_table complete
-#pragma HLS array_partition variable=neg_cos_table complete
+_ssdm_SpecConstant(neg_cos_table);
+# 441 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
+#pragma HLS array_partition variable=&neg_sin_table complete
+#pragma HLS array_partition variable=&neg_cos_table complete
 
  ap_uint<2> k;
  ap_ufixed<WO+1+g, 0> x;
@@ -32585,6 +32615,9 @@ namespace hotbm_apfixed
    ap_uint<3> index = k;
    index[2] = do_cos;
    const bool special_case_table[8] = {0,1,0,1,1,0,1,0};
+_ssdm_SpecConstant(special_case_table);
+# 475 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_hotbm_apfixed.h"
+
    result(result.wl()-2,0) = 0;
    result[result.wl()-1] = special_case_table[index];
  }
@@ -33509,12 +33542,18 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
                 0, "0x0.082p0", "0x0.108p0", "0x0.193p0", "0x0.221p0", "0x0.2b5p0", "0x0.34dp0", "0x0.3eap0",
                 "0x0.48bp0", "0x0.532p0", "0x0.5dfp0", "0x0.69p0", "0x0.748p0", "0x0.805p0", "0x0.8c8p0", "0x0.991p0",
             };
+_ssdm_SpecConstant(exp_x_lsb_m_1_table);
+# 155 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<12, 0> exp_x_lsb_m_1 = exp_x_lsb_m_1_table[x_lsb_ind];
 
             const ap_ufixed<12,5> exp_x_msb_table[16] = {
                 1, "0x1.a6p0", "0x2.b8p0", "0x4.7cp0", "0x7.64p0", "0xc.2ep0", "0x14.16p0", "0x21.1ep0",
                 "0x0.04p0", "0x0.08p0", "0x0.0cp0", "0x0.16p0", "0x0.22p0", "0x0.3ap0", "0x0.5ep0", "0x0.9cp0",
             };
+_ssdm_SpecConstant(exp_x_msb_table);
+# 161 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<12,5> exp_x_msb = exp_x_msb_table[x_msb_ind];
             ap_ufixed<24,5> y_lo = exp_x_msb * exp_x_lsb_m_1;
             ap_ufixed<12,5> y_lo_s = y_lo;
@@ -33577,6 +33616,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
                 "0x0.000485p0", "0x0.0004e7p0", "0x0.00054ep0", "0x0.0005b9p0",
                 "0x0.000627p0", "0x0.00069ap0", "0x0.000711p0", "0x0.00078cp0",
             };
+_ssdm_SpecConstant(f_x_lsb_table);
+# 217 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<11,-13> f_x_lsb = f_x_lsb_table[x_lsb_ind];
             ap_ufixed<18, -6> exp_x_lsb_m_1 = 0;
             exp_x_lsb_m_1(17,13) = x_lsb_ind(4,0);
@@ -33592,6 +33634,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
                 "0x0.747a510p0", "0x0.7a57ee0p0", "0x0.804d300p0", "0x0.865a778p0",
                 "0x0.8c80248p0", "0x0.92be998p0", "0x0.99163b0p0", "0x0.9f876e8p0",
             };
+_ssdm_SpecConstant(exp_x_msb_2_m_1_table);
+# 232 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<25, 0> exp_x_msb_2_m_1 = exp_x_msb_2_m_1_table[x_msb_ind_2];
 
             ap_ufixed<43,-6> f_x_msb_2_lsb = exp_x_msb_2_m_1 * exp_x_lsb_m_1;
@@ -33608,6 +33653,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
                 "0x0.04b0p0", "0x0.07bcp0", "0x0.0cc0p0", "0x0.1504p0",
                 "0x0.22a4p0", "0x0.3920p0", "0x0.5e2cp0", "0x0.9b44p0",
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 248 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<25,11> exp_x_msb_1 = exp_x_msb_1_table[x_msb_ind_1];
             ap_ufixed<50,11> y_lo = exp_x_msb_1 * exp_x_msb_2_lsb_m_1;
             ap_ufixed<25,11> y_lo_s = y_lo;
@@ -33671,10 +33719,16 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.0000000000p0", "0x0.0000000002p0", "0x0.0000000008p0", "0x0.0000000012p0",
 "0x0.0000000020p0", "0x0.0000000032p0", "0x0.0000000048p0", "0x0.0000000062p0",
             };
+_ssdm_SpecConstant(f_x_msb_4_h_table);
+# 317 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             const ap_ufixed< 7,-51> f_x_msb_4_l_table[8] = {
 "0x0.000000000000000p0", "0x0.000000000000000p0", "0x0.00000000000000cp0", "0x0.000000000000024p0",
 "0x0.000000000000054p0", "0x0.0000000000000a8p0", "0x0.000000000000120p0", "0x0.0000000000001c8p0",
             };
+_ssdm_SpecConstant(f_x_msb_4_l_table);
+# 321 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed< 6,-33> f_x_msb_4_h = f_x_msb_4_h_table[x_msb_ind_4];
             ap_ufixed< 7,-51> f_x_msb_4_l = f_x_msb_4_l_table[x_msb_ind_4];
 
@@ -33684,6 +33738,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.000000000080p0", "0x0.0000000000a2p0", "0x0.0000000000c8p0", "0x0.0000000000f2p0",
 "0x0.000000000120p0", "0x0.000000000152p0", "0x0.000000000188p0", "0x0.0000000001c2p0",
             };
+_ssdm_SpecConstant(f_x_lsb_table);
+# 328 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed< 8,-39> f_x_lsb = f_x_lsb_table[x_lsb_ind];
 
             ap_ufixed< 7,-35> f_x_msb_4_lsb = x_msb_4 * x_lsb;
@@ -33710,6 +33767,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.00000120090036p0", "0x0.000001388a2c6ap0", "0x0.000001520b71a0p0", "0x0.0000016c8cd0d6p0",
 "0x0.000001880e4b0ep0", "0x0.000001a48fe148p0", "0x0.000001c2119484p0", "0x0.000001e09365c0p0",
             };
+_ssdm_SpecConstant(f_x_msb_3_table);
+# 350 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
             ap_ufixed<32,-23> f_x_msb_3 = f_x_msb_3_table[x_msb_ind_3];
             ap_ufixed<44,-11> exp_x_msb_3_m_1 = 0;
@@ -33787,6 +33847,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.01F47F31C92E4p0", "0x0.01F8A003B07AFp0", "0x0.01FCC559FA492p0", "0x0.0200EF35372E4p0",
 "0x0.02051D95F7D1Cp0", "0x0.0209507CCCED1p0", "0x0.020D87EA474BEp0", "0x0.0211C3DEF7CBDp0",
             };
+_ssdm_SpecConstant(f_x_msb_2_table);
+# 371 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<46,-6> f_x_msb_2 = f_x_msb_2_table[x_msb_ind_2];
             ap_ufixed< 5,-6> f_x_msb_2_h;
             f_x_msb_2_h(4,0) = f_x_msb_2(45,41);
@@ -33865,6 +33928,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.5E2D58Dp0", "0x0.6AB7782p0", "0x0.78ED03Ap0", "0x0.8906E49p0",
 "0x0.9B4597Ep0", "0x0.AFF230Ap0", "0x0.C75F7CFp0", "0x0.E1EB512p0",
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 449 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<50,23> exp_x_msb_1 = exp_x_msb_1_table[x_msb_ind_1];
             ap_ufixed<100,21> y_lo = exp_x_msb_1 * exp_x_msb_2_3_4_lsb_m_1;
             ap_ufixed<48,21> y_lo_s = y_lo;
@@ -33997,6 +34063,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.000000000782009B29p0", "0x0.000000000791889D0Bp0", "0x0.0000000007A1209EF2p0", "0x0.0000000007B0C8A0DCp0",
 "0x0.0000000007C080A2CAp0", "0x0.0000000007D048A4BCp0", "0x0.0000000007E020A6B2p0", "0x0.0000000007F008A8ACp0",
             };
+_ssdm_SpecConstant(f_x_msb_4_table);
+# 581 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<31,-37> f_x_msb_4 = f_x_msb_4_table[x_msb_ind_4];
 
             const ap_ufixed<12,-53> f_x_lsb_table[64] = {
@@ -34017,6 +34086,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.00000000000006200p0", "0x0.00000000000006588p0", "0x0.00000000000006920p0", "0x0.00000000000006cc8p0",
 "0x0.00000000000007080p0", "0x0.00000000000007448p0", "0x0.00000000000007820p0", "0x0.00000000000007c08p0",
             };
+_ssdm_SpecConstant(f_x_lsb_table);
+# 649 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<12,-53> f_x_lsb = f_x_lsb_table[x_lsb_ind];
 
             ap_ufixed<14,-44> f_x_msb_4_lsb = x_msb_4 * x_lsb;
@@ -34106,6 +34178,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.000007829B32BACA82p0", "0x0.000007922515527E1Ap0", "0x0.000007A1BEFBCEAAD4p0", "0x0.000007B168E63351AAp0",
 "0x0.000007C122D4847397p0", "0x0.000007D0ECC6C61195p0", "0x0.000007E0C6BCFC2CA3p0", "0x0.000007F0B0B72AC5BEp0",
             };
+_ssdm_SpecConstant(f_x_msb_3_table);
+# 690 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<51,-21> f_x_msb_3 = f_x_msb_3_table[x_msb_ind_3];
             ap_ufixed<62,-10> exp_x_msb_3_m_1 = 0;
             exp_x_msb_3_m_1(61,54) = x_msb_3(7,0);
@@ -34183,6 +34258,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.082707B2BAC20DB40p0", "0x0.08389BA6B92B46284p0", "0x0.084A4402416A1EE6Fp0", "0x0.085C00CA6E045741Fp0",
 "0x0.086DD2045AC678D2Bp0", "0x0.087FB7B524C42936Cp0", "0x0.0891B1E1EA587BE12p0", "0x0.08A3C08FCB2643FFEp0",
             };
+_ssdm_SpecConstant(f_x_msb_2_table);
+# 767 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<64,-4> f_x_msb_2 = f_x_msb_2_table[x_msb_ind_2];
             ap_ufixed< 6,-4> f_x_msb_2_h;
             f_x_msb_2_h(5,0) = f_x_msb_2(63,58);
@@ -34261,6 +34339,9 @@ ap_fixed<W_,I_> exp(ap_fixed<W_,I_> x)
 "0x0.22A555477p0", "0x0.2C7C72FC0p0", "0x0.391F0EE49p0", "0x0.495860DCAp0",
 "0x0.5E2D58D8Bp0", "0x0.78ED03AFBp0", "0x0.9B4597E37p0", "0x0.C75F7CF56p0",
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 845 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<68,32> exp_x_msb_1 = exp_x_msb_1_table[x_msb_ind_1];
             ap_ufixed<140,32> y_lo = exp_x_msb_1 * exp_x_msb_2_3_4_lsb_m_1;
             ap_ufixed<68,32> y_lo_s = y_lo;
@@ -34295,7 +34376,13 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 #pragma HLS pipeline
 
  const static int FO_ = WO_ - I_;
+_ssdm_SpecConstant(&FO_);
+# 944 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
     const static int FI_ = WI_ - I_;
+_ssdm_SpecConstant(&FI_);
+# 945 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
 
     if (I_>33) return 0;
@@ -34325,8 +34412,17 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 
 
         const static int w = 7;
+_ssdm_SpecConstant(&w);
+# 974 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int we = 2;
+_ssdm_SpecConstant(&we);
+# 975 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int wf = 5;
+_ssdm_SpecConstant(&wf);
+# 976 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
         ap_fixed<w,we> x_l = x;
         ap_ufixed<2,1> y = 0;
@@ -34354,8 +34450,17 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 
     } else if (I_s_==2) {
         const static int w = 10;
+_ssdm_SpecConstant(&w);
+# 1003 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int we = 3;
+_ssdm_SpecConstant(&we);
+# 1004 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int wf = 7;
+_ssdm_SpecConstant(&wf);
+# 1005 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
 
         ap_fixed<w,we> x_l = x;
@@ -34391,8 +34496,17 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
     } else if (I_s_==3) {
 
         const static int w = 19;
+_ssdm_SpecConstant(&w);
+# 1040 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int we = 6;
+_ssdm_SpecConstant(&we);
+# 1041 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int wf = 13;
+_ssdm_SpecConstant(&wf);
+# 1042 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
         ap_fixed<w,we> x_l = x;
         ap_ufixed<10,5> y = 0;
@@ -34408,7 +34522,13 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
             if (!x_l[18]) y = "0x1f.f8p0";
         } else {
             const static int g = 2;
+_ssdm_SpecConstant(&g);
+# 1057 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             const static int Maxprecision = FO_+we+g;
+_ssdm_SpecConstant(&Maxprecision);
+# 1058 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_uint<4> x_msb_ind_1;
             x_msb_ind_1[3] = x_l[w-1];
 
@@ -34439,6 +34559,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
                 "0x0.8C80p0", "0x0.8F9Cp0", "0x0.92BEp0", "0x0.95E7p0",
                 "0x0.9916p0", "0x0.9C4Bp0", "0x0.9F87p0", "0x0.A2C9p0",
             };
+_ssdm_SpecConstant(exp_x_msb_2_m_1_table);
+# 1070 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
             ap_ufixed<5,-8> f_x_msb_2_lsb = x_msb_2 * x_lsb;
 
@@ -34459,6 +34582,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
                 "0x0.22A5p0", "0x0.391Fp0", "0x0.5E2Dp0", "0x0.9B45p0",
 
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 1102 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<Maxprecision,5> exp_x_msb = exp_x_msb_1_table[x_msb_ind_1];
 
             ap_ufixed<2*Maxprecision+1,6> y_lo = exp_x_msb * exp_x_msb_2_lsb_m_1;
@@ -34487,8 +34613,17 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
     } else if (I_s_==4) {
 
         const static int wf = 25;
+_ssdm_SpecConstant(&wf);
+# 1136 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int we = 12;
+_ssdm_SpecConstant(&we);
+# 1137 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int w = 37;
+_ssdm_SpecConstant(&w);
+# 1138 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         ap_fixed<w,we> x_l = x;
         ap_ufixed<22,11> y = 0;
         ap_fixed<4,4> x_l_int;
@@ -34507,7 +34642,13 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
             }
         } else {
             const static int g = 2;
+_ssdm_SpecConstant(&g);
+# 1156 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             const static int Maxprecision = 25;
+_ssdm_SpecConstant(&Maxprecision);
+# 1157 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_uint<5> x_msb_ind_1;
             x_msb_ind_1[4] = x_l[w-1];
             x_msb_ind_1(3,0) = x_l(wf+2,wf-1);
@@ -34556,6 +34697,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.000710Dp0", "0x0.00072F2p0", "0x0.00074DCp0", "0x0.00076CAp0",
 "0x0.00078BBp0", "0x0.0007AB1p0", "0x0.0007CABp0", "0x0.0007EA9p0",
             };
+_ssdm_SpecConstant(f_x_msb_3_m_1_table);
+# 1172 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
             ap_ufixed<6,-19> f_x_msb_3_lsb = x_msb_3 * x_lsb;
 
@@ -34584,6 +34728,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
                 "0x0.747a510p0", "0x0.7a57ee0p0", "0x0.804d300p0", "0x0.865a778p0",
                 "0x0.8c80248p0", "0x0.92be998p0", "0x0.99163b0p0", "0x0.9f876e8p0",
             };
+_ssdm_SpecConstant(exp_x_msb_2_m_1_table);
+# 1224 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<25, 0> exp_x_msb_2_m_1 = exp_x_msb_2_m_1_table[x_msb_ind_2];
 
             ap_ufixed<50,-5> f_x_msb_2_3_lsb = exp_x_msb_2_m_1 * exp_x_msb_3_lsb_m_1;
@@ -34601,6 +34748,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
                 "0x0.04b0p0", "0x0.07bcp0", "0x0.0cc0p0", "0x0.1504p0",
                 "0x0.22a4p0", "0x0.3920p0", "0x0.5e2cp0", "0x0.9b44p0",
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 1241 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<25,11> exp_x_msb_1 = exp_x_msb_1_table[x_msb_ind_1];
 
 
@@ -34634,8 +34784,17 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 
         if(WI_>73) return 0;
         const static int we = 24;
+_ssdm_SpecConstant(&we);
+# 1283 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int wf = 49;
+_ssdm_SpecConstant(&wf);
+# 1284 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int w = 73;
+_ssdm_SpecConstant(&w);
+# 1285 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         ap_fixed<w,we> x_l = x;
         ap_ufixed<46,23> y = 0;
         ap_fixed<5,5> x_l_int;
@@ -34655,7 +34814,13 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
             }
         } else {
             const static int g=4;
+_ssdm_SpecConstant(&g);
+# 1304 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             const static int Maxprecision = 51;
+_ssdm_SpecConstant(&Maxprecision);
+# 1305 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_uint<8> x_msb_ind_1;
             x_msb_ind_1[7] = x_l[w-1];
             x_msb_ind_1(6,0) = x_l(wf+3,wf-3);
@@ -34696,12 +34861,18 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.0000000001C20p0", "0x0.0000000001D12p0", "0x0.0000000001E08p0", "0x0.0000000001F02p0",
 
             };
+_ssdm_SpecConstant(f_x_msb_5_table);
+# 1327 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<12,-39> f_x_msb_5 = f_x_msb_5_table[x_msb_ind_5];
 
             const ap_ufixed<7,-33> f_x_msb_4_table[8] = {
 "0x0.0000000000p0", "0x0.0000000002p0", "0x0.0000000008p0", "0x0.0000000012p0",
 "0x0.0000000020p0", "0x0.0000000032p0", "0x0.0000000048p0", "0x0.0000000062p0",
             };
+_ssdm_SpecConstant(f_x_msb_4_table);
+# 1348 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<7,-33> f_x_msb_4 = f_x_msb_4_table[x_msb_ind_4];
 
             ap_ufixed<7,-44> f_x_msb_5_lsb = x_msb_5 * x_lsb;
@@ -34744,6 +34915,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.00000120090036p0", "0x0.000001388a2c6ap0", "0x0.000001520b71a0p0", "0x0.0000016c8cd0d6p0",
 "0x0.000001880e4b0ep0", "0x0.000001a48fe148p0", "0x0.000001c2119484p0", "0x0.000001e09365c0p0",
             };
+_ssdm_SpecConstant(f_x_msb_3_table);
+# 1384 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
             ap_ufixed<32,-23> f_x_msb_3 = f_x_msb_3_table[x_msb_ind_3];
             ap_ufixed<44,-11> exp_x_msb_3_m_1 = 0;
@@ -34822,6 +34996,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.01F47F31C92E4p0", "0x0.01F8A003B07AFp0", "0x0.01FCC559FA492p0", "0x0.0200EF35372E4p0",
 "0x0.02051D95F7D1Cp0", "0x0.0209507CCCED1p0", "0x0.020D87EA474BEp0", "0x0.0211C3DEF7CBDp0",
             };
+_ssdm_SpecConstant(f_x_msb_2_table);
+# 1406 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<46,-6> f_x_msb_2 = f_x_msb_2_table[x_msb_ind_2];
             ap_ufixed< 5,-6> f_x_msb_2_h;
             f_x_msb_2_h(4,0) = f_x_msb_2(45,41);
@@ -34900,6 +35077,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.5E2D58Dp0", "0x0.6AB7782p0", "0x0.78ED03Ap0", "0x0.8906E49p0",
 "0x0.9B4597Ep0", "0x0.AFF230Ap0", "0x0.C75F7CFp0", "0x0.E1EB512p0",
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 1484 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<50,23> exp_x_msb_1 = exp_x_msb_1_table[x_msb_ind_1];
 
             ap_ufixed<100,21> y_lo = exp_x_msb_1 * exp_x_msb_2_3_4_lsb_m_1;
@@ -34926,8 +35106,17 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
         r = y;
     } else {
         const static int wf = 67;
+_ssdm_SpecConstant(&wf);
+# 1575 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int we = 33;
+_ssdm_SpecConstant(&we);
+# 1576 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         const static int w = 100;
+_ssdm_SpecConstant(&w);
+# 1577 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
         ap_fixed<w,we> x_l = x;
 
 
@@ -34952,7 +35141,13 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
             }
         } else {
             const static int g=4;
+_ssdm_SpecConstant(&g);
+# 1601 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             const static int Maxprecision=69;
+_ssdm_SpecConstant(&Maxprecision);
+# 1602 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_uint<8> x_msb_ind_1;
             x_msb_ind_1[7] = x_l[w-1];
 
@@ -35039,6 +35234,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.000000000782009B29p0", "0x0.000000000791889D0Bp0", "0x0.0000000007A1209EF2p0", "0x0.0000000007B0C8A0DCp0",
 "0x0.0000000007C080A2CAp0", "0x0.0000000007D048A4BCp0", "0x0.0000000007E020A6B2p0", "0x0.0000000007F008A8ACp0",
             };
+_ssdm_SpecConstant(f_x_msb_4_table);
+# 1623 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<32,-37> f_x_msb_4 = f_x_msb_4_table[x_msb_ind_4];
 
             const ap_ufixed<16,-53> f_x_msb_5_table[256] = {
@@ -35107,6 +35305,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.000000000000078200p0", "0x0.000000000000079188p0", "0x0.00000000000007A120p0", "0x0.00000000000007B0C8p0",
 "0x0.00000000000007C080p0", "0x0.00000000000007D048p0", "0x0.00000000000007E020p0", "0x0.00000000000007F008p0",
             };
+_ssdm_SpecConstant(f_x_msb_5_table);
+# 1691 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
 
             ap_ufixed<16,-53> f_x_msb_5 = f_x_msb_5_table[x_msb_ind_5];
 
@@ -35210,6 +35411,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.000007829B32BACA82p0", "0x0.000007922515527E1Ap0", "0x0.000007A1BEFBCEAAD4p0", "0x0.000007B168E63351AAp0",
 "0x0.000007C122D4847397p0", "0x0.000007D0ECC6C61195p0", "0x0.000007E0C6BCFC2CA3p0", "0x0.000007F0B0B72AC5BEp0",
             };
+_ssdm_SpecConstant(f_x_msb_3_table);
+# 1794 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<51,-21> f_x_msb_3 = f_x_msb_3_table[x_msb_ind_3];
             ap_ufixed<62,-10> exp_x_msb_3_m_1 = 0;
             exp_x_msb_3_m_1(61,54) = x_msb_3(7,0);
@@ -35288,6 +35492,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.082707B2BAC20DB40p0", "0x0.08389BA6B92B46284p0", "0x0.084A4402416A1EE6Fp0", "0x0.085C00CA6E045741Fp0",
 "0x0.086DD2045AC678D2Bp0", "0x0.087FB7B524C42936Cp0", "0x0.0891B1E1EA587BE12p0", "0x0.08A3C08FCB2643FFEp0",
             };
+_ssdm_SpecConstant(f_x_msb_2_table);
+# 1872 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<64,-4> f_x_msb_2 = f_x_msb_2_table[x_msb_ind_2];
             ap_ufixed< 6,-4> f_x_msb_2_h;
             f_x_msb_2_h(5,0) = f_x_msb_2(63,58);
@@ -35366,6 +35573,9 @@ ap_fixed<WO_,I_> exp_core(ap_fixed<WI_,I_> x)
 "0x0.22A555477p0", "0x0.2C7C72FC0p0", "0x0.391F0EE49p0", "0x0.495860DCAp0",
 "0x0.5E2D58D8Bp0", "0x0.78ED03AFBp0", "0x0.9B4597E37p0", "0x0.C75F7CF56p0",
             };
+_ssdm_SpecConstant(exp_x_msb_1_table);
+# 1950 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_exp_apfixed.h"
+
             ap_ufixed<68,32> exp_x_msb_1 = exp_x_msb_1_table[x_msb_ind_1];
             ap_ufixed<140,32> y_lo = exp_x_msb_1 * exp_x_msb_2_3_4_5_lsb_m_1;
             ap_ufixed<68,32> y_lo_s = y_lo;
@@ -35884,6 +36094,9 @@ ap_fixed<W_,I_> log(ap_fixed<W_,I_> x)
 
 
  const static int F_ = W_ - I_;
+_ssdm_SpecConstant(&F_);
+# 500 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
     if (I_>34) return 0;
     else if (F_>100) return 0;
 
@@ -36087,11 +36300,26 @@ ap_fixed<W_,I_> log(ap_fixed<W_,I_> x)
 
 
             const static int W_s_ = (F_+F_/77*2+12)/15-(100+F_)/133+(99+F_)/133-(100+F_)/118+(98+F_)/118+1;
+_ssdm_SpecConstant(&W_s_);
+# 703 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
 # 713 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
             const static int wf = log_traits<W_s_>::wf;
+_ssdm_SpecConstant(&wf);
+# 713 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
             const static int I_s= I_>0? I_:-I_;
+_ssdm_SpecConstant(&I_s);
+# 714 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
             const static int org_wf = log_traits<W_s_>::org_wf+I_s;
+_ssdm_SpecConstant(&org_wf);
+# 715 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
             const static int MaxPrecision = log_traits<W_s_>::MaxPrecision;
+_ssdm_SpecConstant(&MaxPrecision);
+# 716 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
 
 
 
@@ -36116,6 +36344,9 @@ ap_fixed<W_,I_> log(ap_fixed<W_,I_> x)
 
             typedef typename log_traits<W_s_>::LOG_TYPE LOG_TYPE;
             const static int bypass_threshold = log_traits<W_s_>::p_generic;
+_ssdm_SpecConstant(&bypass_threshold);
+# 740 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
 
 
             ap_uint<1+alpha0> index0;
@@ -36192,6 +36423,9 @@ ap_fixed<W_,I_> log10(ap_fixed<W_,I_> x)
 
 
  const static int F_ = W_ - I_;
+_ssdm_SpecConstant(&F_);
+# 816 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
     if (I_>33) return 0;
     else if (F_>32) return 0;
 
@@ -36298,6 +36532,9 @@ ap_fixed<W_,I_> log10(ap_fixed<W_,I_> x)
         if (x<=0) {r[W_-1] = 1;}
         else {
             const static int W_s_= (F_+F_/77*2+12)/15-(100+F_)/133+(99+F_)/133-(100+F_)/118+(98+F_)/118+1;
+_ssdm_SpecConstant(&W_s_);
+# 922 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
 
 
 
@@ -36305,9 +36542,21 @@ ap_fixed<W_,I_> log10(ap_fixed<W_,I_> x)
 
 
             const static int wf = log_traits<W_s_>::wf;
+_ssdm_SpecConstant(&wf);
+# 929 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
             const static int I_s= I_>0? I_:-I_;
+_ssdm_SpecConstant(&I_s);
+# 930 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
             const static int org_wf = log_traits<W_s_>::org_wf+I_s;
+_ssdm_SpecConstant(&org_wf);
+# 931 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
             const static int MaxPrecision = log_traits<W_s_>::MaxPrecision;
+_ssdm_SpecConstant(&MaxPrecision);
+# 932 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
 
 
 
@@ -36332,6 +36581,9 @@ ap_fixed<W_,I_> log10(ap_fixed<W_,I_> x)
 
             typedef typename log_traits<W_s_>::LOG_TYPE LOG_TYPE;
             const static int bypass_threshold = log_traits<W_s_>::p_generic;
+_ssdm_SpecConstant(&bypass_threshold);
+# 956 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_log_apfixed.h"
+
 
             ap_uint<1+alpha0> index0;
             if (b_frac[org_wf]) index0 = b_frac(org_wf-1,org_wf-6);
@@ -36585,13 +36837,28 @@ ap_fixed<W_,I_> sqrt_fixed(ap_fixed<W_,I_> x)
         if (x[W_-1]) return 0;
         if (I_<=0) {
             const static int lsbx = (-I_+2<=W_) ? (W_+I_-2) : 0;
+_ssdm_SpecConstant(&lsbx);
+# 220 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_sqrt_apfixed.h"
+
             if ( x(W_-1,lsbx) != 0 ) return 0;
         }
 
         const static int prcs = (F_+1)*2;
+_ssdm_SpecConstant(&prcs);
+# 224 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_sqrt_apfixed.h"
+
         const static int msbr = (I_>0) ? (I_+1)/2 : 1;
+_ssdm_SpecConstant(&msbr);
+# 225 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_sqrt_apfixed.h"
+
         const static int msbx = (I_>0) ? I_+3 : 4;
+_ssdm_SpecConstant(&msbx);
+# 226 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_sqrt_apfixed.h"
+
         const static int msbm = (I_>0) ? I_+1 : 2;
+_ssdm_SpecConstant(&msbm);
+# 227 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_sqrt_apfixed.h"
+
 
 
         ap_ufixed<msbx , msbx> x_l_I = x;
@@ -36916,6 +37183,9 @@ namespace pow_apfixed_reduce{
 template<int W_,int I_>
 ap_fixed<W_,I_> pow(ap_fixed<W_,I_> x, ap_fixed<W_,I_> y) {
     const static int F_ = W_ - I_;
+_ssdm_SpecConstant(&F_);
+# 54 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
 
     if (I_>34) return 0;
     else if (F_>33) return 0;
@@ -36959,10 +37229,22 @@ ap_fixed<W_,I_> pow(ap_fixed<W_,I_> x, ap_fixed<W_,I_> y) {
 
 
     const static int E_l = I_+2;
+_ssdm_SpecConstant(&E_l);
+# 97 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
     const static int F_l = W_+E_l;
+_ssdm_SpecConstant(&F_l);
+# 98 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
 
     const static int I_l = I_+1>6?I_+1:6;
+_ssdm_SpecConstant(&I_l);
+# 100 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
     const static int W_l = F_l + I_l;
+_ssdm_SpecConstant(&W_l);
+# 101 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
 
     ap_fixed<W_l,I_l> x_l = x_p;
 
@@ -36974,10 +37256,22 @@ ap_fixed<W_,I_> pow(ap_fixed<W_,I_> x, ap_fixed<W_,I_> y) {
 
 
     const static int FI_m = W_+2;
+_ssdm_SpecConstant(&FI_m);
+# 112 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
 
     const static int I_m = I_>6 ? I_ : 6;
+_ssdm_SpecConstant(&I_m);
+# 114 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
     const static int WI_m = FI_m + I_m;
+_ssdm_SpecConstant(&WI_m);
+# 115 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
     const static int WO_m = F_ + I_m;
+_ssdm_SpecConstant(&WO_m);
+# 116 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
+
     ap_fixed<F_l+W_+6,6+I_> mul_y_ln = ln_x_s * y;
 # 127 "/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/common/technology/autopilot/hls_pow_apfixed.h"
     ap_fixed<WO_m,I_m> exp_r = 0;
@@ -37572,119 +37866,89 @@ namespace hls {
 };
 # 5 "./samplefunction.h" 2
 
-
-typedef ap_fixed<2,6> angles;
-typedef ap_fixed<4,6> indexes;
-
 extern void convert (
 
  int width,
  int height,
- angles hp,
- angles ht,
+ float hp,
+ float ht,
  int fw,
  int fh,
  int fovX,
  int fovY,
  int option,
- indexes fov[1024][1024][2]
+ float fov[1024][1024][2]
 );
 
-extern angles toRadian(angles a);
+extern float toRadian(float a);
 
 extern void spherical2cartesian(
 
- angles the,
- angles phi,
- angles result [3]
+ float the,
+ float phi,
+ float result [3]
 );
 
 extern void spherical2coordinates(
 
- angles the,
- angles phi,
- indexes result [2]
+ float the,
+ float phi,
+ float result [2]
 );
 
 extern void cartesian2coordinates(
 
- angles x,
- angles y,
- angles z,
- indexes result [2]
+ float x,
+ float y,
+ float z,
+ float result [2]
 
 );
 
 extern void matrixMultiplication(
 
- angles vector[3],
- angles matrix[3][3],
- angles result[3]
+ float vector[3],
+ float matrix[3][3],
+ float result[3]
 
 );
 
 extern void findPixel(
 
  int index,
- angles x,
- angles y,
- indexes result [2]
+ float x,
+ float y,
+ float result [2]
 
 );
 
 extern void convert_xyz_to_cube_uv(
 
- angles x,
- angles y,
- angles z,
- indexes result [2]
+ float x,
+ float y,
+ float z,
+ float result [2]
 
 );
 # 2 "samplefunction.cpp" 2
 
 
-angles PI = 3.14159;
+float PI = 3.14159f;
 
 int w ,h;
 
 double tileSize;
 
-angles toRadian(angles a){
-    return a * PI / 180.0;
+float toRadian(float a){
+    return a * PI / 180.0f;
 }
 
-void calSin(angles angle, angles output){
+void spherical2cartesian(float the, float phi,float result [3]){_ssdm_SpecArrayDimSize(result, 3);
 
-    ap_fixed<32,5> temp = angle;
-    output = hls::sinf(temp);
-}
-
-void calCos(angles angle, angles output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::cosf(temp);
-}
-
-void calAtan2(angles angle1,angles angle2, angles output){
-
- ap_fixed<32,5> temp1 = angle1;
- ap_fixed<32,5> temp2 = angle2;
- output = hls::atan2f(temp1,temp2);
-
-}
-
-void calAcos(angles angle, angles output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::acosf(temp);
-
-}
-
-void spherical2cartesian(angles the, angles phi,angles result [3]){
-
-    angles x = hls::sinf(phi)*hls::cosf(the);
-    angles y = hls::sinf(phi)*hls::sinf(the);
-    angles z = hls::cosf(phi);
+ float sp = hls::sinf(phi);
+    float x = sp * hls::cosf(the);
+    float y = sp * hls::sinf(the);
+    float z = hls::cosf(phi);
 
     result[0] = x;
     result[1] = y;
@@ -37692,16 +37956,16 @@ void spherical2cartesian(angles the, angles phi,angles result [3]){
 
 }
 
-void spherical2coordinates(angles the, angles phi,indexes result [2]){
+void spherical2coordinates(float the, float phi,float result [2]){_ssdm_SpecArrayDimSize(result, 2);
 
-    angles i ,j;
+    float i ,j;
 
 
     if(the > PI){
-        i = (the - PI)/2/PI *w;
+        i = (the - PI)/2.0f/PI *w;
     }
     else{
-        i = (PI + the)/2/PI * w;
+        i = (PI + the)/2.0f/PI * w;
     }
 
     j = phi / PI * h;
@@ -37711,23 +37975,23 @@ void spherical2coordinates(angles the, angles phi,indexes result [2]){
 
 }
 
-void cartesian2coordinates(angles x, angles y, angles z,indexes result [2]){
+void cartesian2coordinates(float x, float y, float z,float result [2]){_ssdm_SpecArrayDimSize(result, 2);
 
-    angles the,phi;
+    float the;
 
     if(x != 0) {
-       calAtan2(y,x,the);
+        the = hls::atan2f(y,x);
 
     } else {
-        the = 1.5708;
+        the = 1.5708f;
     }
 
-    calAcos(z,phi);
+    float phi = hls::acosf(z);
 
     spherical2coordinates(the,phi,result);
 }
 
-void matrixMultiplication(angles vector[3], angles matrix[3][3], angles result[3]) {
+void matrixMultiplication(float vector[3], float matrix[3][3], float result[3]) {_ssdm_SpecArrayDimSize(vector, 3);_ssdm_SpecArrayDimSize(matrix, 3);_ssdm_SpecArrayDimSize(result, 3);
 
  result[0] = matrix[0][0] * vector[0] + matrix[0][1] * vector[1] + matrix[0][2] * vector[2];
  result[1] = matrix[1][0] * vector[0] + matrix[1][1] * vector[1] + matrix[1][2] * vector[2];
@@ -37735,7 +37999,7 @@ void matrixMultiplication(angles vector[3], angles matrix[3][3], angles result[3
 
 }
 
-void findPixel(int index, angles x,angles y,indexes *result [2]) {
+void findPixel(int index, float x,float y,float result [2]) {_ssdm_SpecArrayDimSize(result, 2);
 
     int vertical;
 
@@ -37745,34 +38009,27 @@ void findPixel(int index, angles x,angles y,indexes *result [2]) {
      vertical = 0;
     }
 
-    angles n = (tileSize * (index%3)) + y * tileSize -1;
-    angles m = (tileSize * vertical) + x * tileSize -1;
+    float n = tileSize * (index%3) + y * tileSize -1;
+    float m = tileSize * vertical + x * tileSize -1;
 
     result [0] = n;
     result [1] = m;
 
 }
 
-angles abs(angles num){
- if(num < 0){
-  return -num;
- }
 
- return num;
-}
+void convert_xyz_to_cube_uv(float x, float y, float z,float result [2]) {_ssdm_SpecArrayDimSize(result, 2);
 
-void convert_xyz_to_cube_uv(angles x, angles y, angles z,indexes result [2]) {
-
-    angles absX = abs(x);
-    angles absY = abs(y);
-    angles absZ = abs(z);
+    float absX = fabs(x);
+    float absY = fabs(y);
+    float absZ = fabs(z);
 
     int isXPositive = x > 0 ? 1 : 0;
     int isYPositive = y > 0 ? 1 : 0;
     int isZPositive = z > 0 ? 1 : 0;
 
-    angles maxAxis, uc, vc;
-    angles u,v;
+    float maxAxis, uc, vc;
+    float u,v;
     int index;
 
 
@@ -37838,46 +38095,39 @@ void convert_xyz_to_cube_uv(angles x, angles y, angles z,indexes result [2]) {
     u = 0.5f * (uc / maxAxis + 1.0f);
     v = 0.5f * (vc / maxAxis + 1.0f);
 
-    findPixel(index, u, (1-v),result);
+    findPixel(index, u, (1.0f-v),result);
 }
 
-void convert(int width,int height,angles hp,angles ht,int fw,int fh, int fovX,int fovY,int option,indexes fov[1024][1024][2]) {
+void convert(int width,int height,float hp,float ht,int fw,int fh, int fovX,int fovY,int option,float fov[1024][1024][2]) {_ssdm_SpecArrayDimSize(fov, 1024);
 
  w = width;
  h = height;
 
 
 
-    angles htr = toRadian(ht);
-    angles hpr = toRadian(hp);
-    tileSize = w/3.0;
-
-    angles str,ctr,cpr,spr;
-
-    calCos(htr,ctr);
-    calCos(hpr,cpr);
-    calSin(htr,str);
-    calSin(hpr,spr);
+    float htr = toRadian(ht);
+    float hpr = toRadian(hp);
+    tileSize = w/3.0f;
 
 
-    angles rot_y [3][3] = {
-        {cpr, 0, -spr},
+    float rot_y [3][3] = {
+        {hls::cosf(hpr), 0, -hls::sinf(hpr)},
         {0, 1, 0},
-        {spr, 0, cpr}
+        {hls::sinf(hpr), 0, hls::cosf(hpr)}
     };
 
-    angles rot_z [3][3] = {
-        {ctr, str, 0},
-        {-str, ctr, 0},
+    float rot_z [3][3] = {
+        {hls::cosf(htr), hls::sinf(htr), 0},
+        {-hls::sinf(htr), hls::cosf(htr), 0},
         {0, 0, 1}
     };
 
-    angles i = 45.0, j = -30.0;
+    float i = 45, j = -30.0;
 
- angles p1[] = {0.0, 0.0, 0.0};
- angles p2[] = {0.0, 0.0, 0.0};
- angles p3[] = {0.0, 0.0, 0.0};
- indexes res[] = {0.0, 0.0};
+ float p1[] = {0.0, 0.0, 0.0};
+ float p2[] = {0.0, 0.0, 0.0};
+ float p3[] = {0.0, 0.0, 0.0};
+ float res[] = {0.0, 0.0};
 
     for (int a = 0; a < 1024; a++) {
 
@@ -37888,6 +38138,8 @@ void convert(int width,int height,angles hp,angles ht,int fw,int fh, int fovX,in
 
 
  spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i),p1);
+
+       j+= 0.05859f;
 
        matrixMultiplication(p1,rot_y, p2);
 
@@ -37907,9 +38159,7 @@ void convert(int width,int height,angles hp,angles ht,int fw,int fh, int fovX,in
     fov[a][b][0] = res[0];
     fov[a][b][1] = res[1];
 
-       j+= 0.05859;
-
       }
-      i+= 0.08789;
+         i+= 0.08789f;
     }
 }

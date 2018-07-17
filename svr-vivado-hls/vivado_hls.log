@@ -1,76 +1,469 @@
 INFO: [HLS 200-10] Running '/home/rhein/Desktop/CP210/vivado/Vivado/2018.2/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'rhein' on host 'rhein' (Linux_x86_64 version 4.4.0-128-generic) on Mon Jul 16 23:21:18 EDT 2018
+INFO: [HLS 200-10] For user 'rhein' on host 'rhein' (Linux_x86_64 version 4.4.0-128-generic) on Tue Jul 17 12:40:46 EDT 2018
 INFO: [HLS 200-10] On os Ubuntu 16.04.4 LTS
 INFO: [HLS 200-10] In directory '/home/rhein/Desktop/svr-sample-function/svr-vivado-hls'
 INFO: [HLS 200-10] Opening project '/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/svr-vivado-hls'.
+INFO: [HLS 200-10] Adding design file 'samplefunction.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'samplefunction.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'FOV.cpp' to the project
 INFO: [HLS 200-10] Opening solution '/home/rhein/Desktop/svr-sample-function/svr-vivado-hls/svr-vivado-hls/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../samplefunction.cpp in debug mode
-csim.mk:83: recipe for target 'obj/samplefunction.o' failed
-../../../../samplefunction.cpp: In function ‘void spherical2cartesian(angles, angles, angles**)’:
-../../../../samplefunction.cpp:53:17: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘angles* {aka ap_fixed<5, 10>*}’ in assignment
-     result[0] = x;
-                 ^
-../../../../samplefunction.cpp:54:17: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘angles* {aka ap_fixed<5, 10>*}’ in assignment
-     result[1] = y;
-                 ^
-../../../../samplefunction.cpp:55:17: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘angles* {aka ap_fixed<5, 10>*}’ in assignment
-     result[2] = z;
-                 ^
-../../../../samplefunction.cpp: In function ‘void spherical2coordinates(angles, angles, indexes**)’:
-../../../../samplefunction.cpp:73:18: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘indexes* {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>*}’ in assignment
-     result [0] = i;
-                  ^
-../../../../samplefunction.cpp:74:18: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘indexes* {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>*}’ in assignment
-     result [1] = j;
-                  ^
-../../../../samplefunction.cpp: In function ‘void matrixMultiplication(angles*, angles (*)[3], angles**)’:
-../../../../samplefunction.cpp:96:91: error: cannot convert ‘ap_fixed_base<11, 21, true, (ap_q_mode)5u, (ap_o_mode)3u, 0>::RType<10, 20, true>::plus {aka ap_fixed<12, 22, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘angles* {aka ap_fixed<5, 10>*}’ in assignment
-  result[0] = matrix[0][0] * vector[0] + matrix[0][1] * vector[1] + matrix[0][2] * vector[2];
-                                                                                           ^
-../../../../samplefunction.cpp:97:91: error: cannot convert ‘ap_fixed_base<11, 21, true, (ap_q_mode)5u, (ap_o_mode)3u, 0>::RType<10, 20, true>::plus {aka ap_fixed<12, 22, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘angles* {aka ap_fixed<5, 10>*}’ in assignment
-  result[1] = matrix[1][0] * vector[0] + matrix[1][1] * vector[1] + matrix[1][2] * vector[2];
-                                                                                           ^
-../../../../samplefunction.cpp:98:91: error: cannot convert ‘ap_fixed_base<11, 21, true, (ap_q_mode)5u, (ap_o_mode)3u, 0>::RType<10, 20, true>::plus {aka ap_fixed<12, 22, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘angles* {aka ap_fixed<5, 10>*}’ in assignment
-  result[2] = matrix[2][0] * vector[0] + matrix[2][1] * vector[1] + matrix[2][2] * vector[2];
-                                                                                           ^
-../../../../samplefunction.cpp: In function ‘void findPixel(int, angles, angles, indexes**)’:
-../../../../samplefunction.cpp:115:18: error: cannot convert ‘indexes {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘indexes* {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>*}’ in assignment
-     result [0] = n;
-                  ^
-../../../../samplefunction.cpp:116:18: error: cannot convert ‘indexes {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘indexes* {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>*}’ in assignment
-     result [1] = m;
-                  ^
-../../../../samplefunction.cpp: In function ‘void convert(int, int, angles, angles, int, int, int, int, int, float (*)[1024][2])’:
-../../../../samplefunction.cpp:266:56: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘angles** {aka ap_fixed<5, 10>**}’ for argument ‘3’ to ‘void spherical2cartesian(angles, angles, angles**)’
-        spherical2cartesian(toRadian(j), toRadian(i),*p1);
-                                                        ^
-../../../../samplefunction.cpp:268:42: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘angles** {aka ap_fixed<5, 10>**}’ for argument ‘3’ to ‘void matrixMultiplication(angles*, angles (*)[3], angles**)’
-        matrixMultiplication(p1,rot_y, *p2);
-                                          ^
-../../../../samplefunction.cpp:272:43: error: cannot convert ‘angles {aka ap_fixed<5, 10>}’ to ‘angles** {aka ap_fixed<5, 10>**}’ for argument ‘3’ to ‘void matrixMultiplication(angles*, angles (*)[3], angles**)’
-        matrixMultiplication(p2, rot_z, *p3);
-                                           ^
-../../../../samplefunction.cpp:276:53: error: cannot convert ‘indexes {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘indexes** {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>**}’ for argument ‘4’ to ‘void cartesian2coordinates(angles, angles, angles, indexes**)’
-       cartesian2coordinates(p3[0], p3[1], p3[2],*res);
-                                                     ^
-../../../../samplefunction.cpp:280:54: error: cannot convert ‘indexes {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>}’ to ‘indexes** {aka ap_fixed<10, 10, (ap_q_mode)5u, (ap_o_mode)3u, 0>**}’ for argument ‘4’ to ‘void convert_xyz_to_cube_uv(angles, angles, angles, indexes**)’
-       convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],*res);
-                                                      ^
-make: *** [obj/samplefunction.o] Error 1
-ERROR: [SIM 211-100] CSim file generation failed: compilation error(s).
-INFO: [SIM 211-3] *************** CSIM finish ***************
-5
-    while executing
-"source /home/rhein/Desktop/svr-sample-function/svr-vivado-hls/svr-vivado-hls/solution1/csim.tcl"
-    invoked from within
-"hls::main /home/rhein/Desktop/svr-sample-function/svr-vivado-hls/svr-vivado-hls/solution1/csim.tcl"
-    ("uplevel" body line 1)
-    invoked from within
-"uplevel 1 hls::main {*}$args"
-    (procedure "hls_proc" line 5)
-    invoked from within
-"hls_proc $argv"
+INFO: [HLS 200-10] Analyzing design file 'samplefunction.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 367.547 ; gain = 0.148 ; free physical = 1177 ; free virtual = 24063
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 367.547 ; gain = 0.148 ; free physical = 1177 ; free virtual = 24063
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<58, 0, false, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:529).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<29, 0, false, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:531).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<29, 0, false, (ap_q_mode)0, (ap_o_mode)0, 0>::overflow_adjust' into 'ap_fixed_base<29, 0, false, (ap_q_mode)0, (ap_o_mode)0, 0>::ap_fixed_base<32, 32, true, (ap_q_mode)5, (ap_o_mode)3, 0>.1' ().
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<29, 1, false, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:314).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<43, 4, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>=' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:719).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<43, 4, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_::cordic_circ_v1<42, 1, 0, 0, 43, 4, 40, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:185).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<43, 4, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_::cordic_circ_v1<42, 1, 0, 0, 43, 4, 40, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:183).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<40, 1, true, (ap_q_mode)0, (ap_o_mode)3, 0>::quantization_adjust' into 'ap_fixed_base<40, 1, true, (ap_q_mode)0, (ap_o_mode)3, 0>::ap_fixed_base<128, 2, false, (ap_q_mode)5, (ap_o_mode)3, 0>' ().
+INFO: [XFORM 203-603] Inlining function 'cordic_::cordic_circ_v1<42, 1, 0, 0, 43, 4, 40, 1>' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<40, 1, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:188).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:171).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:170).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:169).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator>>' into 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:168).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator<<' into 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:194).
+INFO: [XFORM 203-603] Inlining function 'ap_fixed_base<55, 3, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float' into 'asin_acos_approx::generic_asin<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:126).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 566.578 ; gain = 199.180 ; free physical = 977 ; free virtual = 23890
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::expv' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:466) automatically.
+INFO: [XFORM 203-602] Inlining function 'table_lookup_4oPi_hotbm<23, 29>' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:492) automatically.
+INFO: [XFORM 203-602] Inlining function 'clz<29, 58, 0>' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:520) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::data' into 'fp_struct<float>::to_float' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:311) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_float' into 'fp_struct<float>::to_ieee' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:332) automatically.
+INFO: [XFORM 203-602] Inlining function 'clz' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:306) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::set_mantissa' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:339) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:341) automatically.
+INFO: [XFORM 203-602] Inlining function 'hotbm_::value_list<float>::sin_or_cos_approximation<29, 29>' into 'hotbm_::sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:276) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'hotbm_::sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:313) automatically.
+INFO: [XFORM 203-602] Inlining function 'hotbm_::cos' into 'hls::hotbm::cos' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:12) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::hotbm::cos' into 'hls::cosf' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:44) automatically.
+INFO: [XFORM 203-602] Inlining function 'hotbm_::sin' into 'hls::hotbm::sin' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:9) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::hotbm::sin' into 'hls::sinf' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::sinf' into 'spherical2cartesian' (samplefunction.cpp:16) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::cosf' into 'spherical2cartesian' (samplefunction.cpp:17) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'generic_nan<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_nan.h:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'generic_copysign<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_copysign<float>' into 'generic_abs<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_abs.h:13) automatically.
+INFO: [XFORM 203-602] Inlining function 'cordic_::atan_traits<float>::div' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::mantissa' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:715) automatically.
+INFO: [XFORM 203-602] Inlining function 'cordic_::addsub<0, 0, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_uint<1> >' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:184->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) automatically.
+INFO: [XFORM 203-602] Inlining function 'cordic_::addsub<0, 0, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, bool>' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:186->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) automatically.
+INFO: [XFORM 203-602] Inlining function 'cordic_::addsub<0, 0, ap_fixed<40, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<40, 1, (ap_q_mode)0, (ap_o_mode)3, 0>, ap_uint<1> >' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:188->/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:724) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::data' into 'cordic_::atan2_cordic_Q1<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:739) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'cordic_::atan2_cordic_Q1<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:740) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_isnan<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:752) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_nan<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:753) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::__signbit' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:757) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_isinf<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:789) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_abs<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:809) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::atan2' into 'hls::atan2f' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/atan2float.cpp:10) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_nan<float>' into 'asin_acos_approx::generic_asin<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:99) automatically.
+INFO: [XFORM 203-602] Inlining function 'asin_acos_approx::generic_acos<float>' into 'asin_acos_approx::acos' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_asinacos_float.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'asin_acos_approx::acos' into 'hls::acos' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/acosfloat.cpp:6) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::acos' into 'hls::acosf' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/acosfloat.cpp:10) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::atan2f' into 'cartesian2coordinates' (samplefunction.cpp:51) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::acosf' into 'cartesian2coordinates' (samplefunction.cpp:57) automatically.
+INFO: [XFORM 203-602] Inlining function 'spherical2coordinates' into 'cartesian2coordinates' (samplefunction.cpp:59) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:475) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:489) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'generic_copysign<double>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_copysign<double>' into 'generic_fabs<double>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_fabs.h:12) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_fabs<double>' into 'fabs' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/fabsdouble.cpp:7) automatically.
+INFO: [XFORM 203-602] Inlining function 'fabs' into 'convert_xyz_to_cube_uv' (samplefunction.cpp:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'findPixel' into 'convert_xyz_to_cube_uv' (samplefunction.cpp:166) automatically.
+INFO: [XFORM 203-602] Inlining function 'toRadian' into 'convert' (samplefunction.cpp:176) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::cosf' into 'convert' (samplefunction.cpp:182) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::sinf' into 'convert' (samplefunction.cpp:182) automatically.
+INFO: [XFORM 203-602] Inlining function 'spherical2cartesian' into 'convert' (samplefunction.cpp:208) automatically.
+INFO: [XFORM 203-602] Inlining function 'cartesian2coordinates' into 'convert' (samplefunction.cpp:220) automatically.
+WARNING: [SYNCHK 200-23] /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:296: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 691.934 ; gain = 324.535 ; free physical = 887 ; free virtual = 23810
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:281).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:129).
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'Loop-1' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:135) because its parent loop or function is pipelined.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:672).
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:294) in function 'scaled_fixed2ieee<29, 1>' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:305) in function 'scaled_fixed2ieee<29, 1>' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:312) in function 'scaled_fixed2ieee<29, 1>' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:135) in function 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:162) in function 'cordic_::atan2_generic<float>' completely.
+INFO: [XFORM 203-102] Partitioning array 'out_bits.V' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:293) automatically.
+INFO: [XFORM 203-102] Partitioning array 'c' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:304) automatically.
+INFO: [XFORM 203-102] Partitioning array 'matrix.0' automatically.
+INFO: [XFORM 203-102] Partitioning array 'matrix.1' automatically.
+INFO: [XFORM 203-102] Partitioning array 'matrix.2' automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_y' (samplefunction.cpp:181) in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_z' (samplefunction.cpp:187) in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_y.0' (samplefunction.cpp:181) automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_y.1' (samplefunction.cpp:181) automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_y.2' (samplefunction.cpp:181) automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_z.0' (samplefunction.cpp:187) automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_z.1' (samplefunction.cpp:187) automatically.
+INFO: [XFORM 203-102] Partitioning array 'rot_z.2' (samplefunction.cpp:187) automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p1' (samplefunction.cpp:195) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p2' (samplefunction.cpp:196) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p3' (samplefunction.cpp:197) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'res' (samplefunction.cpp:198) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'swap_table.1'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'swap_table'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'neg_sin_table'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'neg_cos_table'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p1' (samplefunction.cpp:195) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p2' (samplefunction.cpp:196) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p3' (samplefunction.cpp:197) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res' (samplefunction.cpp:198) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::expv' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:466) automatically.
+INFO: [XFORM 203-602] Inlining function 'table_lookup_4oPi_hotbm<23, 29>' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:492) automatically.
+INFO: [XFORM 203-602] Inlining function 'clz<29, 58, 0>' into 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_range_redux.h:520) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::data' into 'fp_struct<float>::to_float' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:311) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_float' into 'fp_struct<float>::to_ieee' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:332) automatically.
+INFO: [XFORM 203-602] Inlining function 'clz' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:306) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::set_mantissa' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:339) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'scaled_fixed2ieee<29, 1>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_float_utils.h:341) automatically.
+INFO: [XFORM 203-602] Inlining function 'range_redux_payne_hanek_hotbm<29, float, 29, 29>' into 'hotbm_::sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:265) automatically.
+INFO: [XFORM 203-602] Inlining function 'hotbm_::value_list<float>::sin_or_cos_approximation<29, 29>' into 'hotbm_::sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:276) automatically.
+INFO: [XFORM 203-602] Inlining function 'scaled_fixed2ieee<29, 1>' into 'hotbm_::sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:278) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'hotbm_::sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:313) automatically.
+INFO: [XFORM 203-602] Inlining function 'hotbm_::cos' into 'hls::hotbm::cos' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:12) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::hotbm::cos' into 'hls::cosf' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:44) automatically.
+INFO: [XFORM 203-602] Inlining function 'hotbm_::sin' into 'hls::hotbm::sin' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:9) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::hotbm::sin' into 'hls::sinf' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/sincoshotbmfloat.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::sinf' into 'spherical2cartesian' (samplefunction.cpp:16) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::cosf' into 'spherical2cartesian' (samplefunction.cpp:17) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'generic_nan<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_nan.h:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'generic_copysign<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_copysign<float>' into 'generic_abs<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_abs.h:13) automatically.
+INFO: [XFORM 203-602] Inlining function 'cordic_::atan_traits<float>::div' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:684) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::mantissa' into 'cordic_::atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:715) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::data' into 'cordic_::atan2_cordic_Q1<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:739) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'cordic_::atan2_cordic_Q1<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:740) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_isnan<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:752) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_nan<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:753) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::__signbit' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:757) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<float>::to_ieee' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:758) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_copysign<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:758) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_isinf<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:789) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_abs<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:809) automatically.
+INFO: [XFORM 203-602] Inlining function 'cordic_::atan2_cordic_Q1<float>' into 'cordic_::atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:811) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::atan2' into 'hls::atan2f' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/atan2float.cpp:10) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_nan<float>' into 'asin_acos_approx::generic_asin<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:99) automatically.
+INFO: [XFORM 203-602] Inlining function 'asin_acos_approx::generic_acos<float>' into 'asin_acos_approx::acos' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/common/hls_asinacos_float.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'asin_acos_approx::acos' into 'hls::acos' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/acosfloat.cpp:6) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::acos' into 'hls::acosf' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c++/acosfloat.cpp:10) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::atan2f' into 'cartesian2coordinates' (samplefunction.cpp:51) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::acosf' into 'cartesian2coordinates' (samplefunction.cpp:57) automatically.
+INFO: [XFORM 203-602] Inlining function 'spherical2coordinates' into 'cartesian2coordinates' (samplefunction.cpp:59) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::data' into 'fp_struct<double>::to_double' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:475) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_double' into 'fp_struct<double>::to_ieee' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/src/technology/autopilot/header_files/utils/x_hls_utils.h:489) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::to_ieee' into 'generic_copysign<double>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_copysign<double>' into 'generic_fabs<double>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_fabs.h:12) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_fabs<double>' into 'fabs' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/src/c/fabsdouble.cpp:7) automatically.
+INFO: [XFORM 203-602] Inlining function 'fabs' into 'convert_xyz_to_cube_uv' (samplefunction.cpp:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'findPixel' into 'convert_xyz_to_cube_uv' (samplefunction.cpp:166) automatically.
+INFO: [XFORM 203-602] Inlining function 'toRadian' into 'convert' (samplefunction.cpp:176) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::cosf' into 'convert' (samplefunction.cpp:182) automatically.
+INFO: [XFORM 203-602] Inlining function 'hls::sinf' into 'convert' (samplefunction.cpp:182) automatically.
+INFO: [XFORM 203-602] Inlining function 'spherical2cartesian' into 'convert' (samplefunction.cpp:208) automatically.
+INFO: [XFORM 203-602] Inlining function 'matrixMultiplication' into 'convert' (samplefunction.cpp:212) automatically.
+INFO: [XFORM 203-602] Inlining function 'cartesian2coordinates' into 'convert' (samplefunction.cpp:220) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:235:18) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:313:12) in function 'hotbm_::sin_or_cos<float>'... converting 15 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:131:45) in function 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>'... converting 248 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:712:17) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726:12) in function 'cordic_::atan2_generic<float>'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726:12) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:726:12) in function 'cordic_::atan2_generic<float>'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (samplefunction.cpp:89:35) to (samplefunction.cpp:167:1) in function 'convert_xyz_to_cube_uv'... converting 12 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (samplefunction.cpp:202:42) to (samplefunction.cpp:218:5) in function 'convert'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:79:20) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:98:5) in function 'asin_acos_approx::generic_asin<float>'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:131:8) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:134:5) in function 'asin_acos_approx::generic_asin<float>'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:123:29) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:126:50) in function 'asin_acos_approx::generic_asin<float>'... converting 10 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:126:50) to (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:126:50) in function 'asin_acos_approx::generic_asin<float>'... converting 4 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'convert_xyz_to_cube_uv' into 'convert' (samplefunction.cpp:224) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:131)...51 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 831.402 ; gain = 464.004 ; free physical = 747 ; free virtual = 23684
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (samplefunction.cpp:200:19) in function 'convert'.
+WARNING: [XFORM 203-631] Renaming function 'hotbm_::sin_or_cos<float>' to 'sin_or_cos<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_hotbm.h:235)
+WARNING: [XFORM 203-631] Renaming function 'cordic_apfixed::doublecordic_apfixed<55, 3, 0, 32>' to 'doublecordic_apfixed' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/hls_cordic_apfixed.h:152:13)
+WARNING: [XFORM 203-631] Renaming function 'cordic_::atan2_generic<float>' to 'atan2_generic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:672)
+WARNING: [XFORM 203-631] Renaming function 'cordic_::atan2_cordic<float>' to 'atan2_cordic<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:749)
+WARNING: [XFORM 203-631] Renaming function 'cordic_::addsub<0, 0, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, bool>' to 'addsub' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:122:5)
+WARNING: [XFORM 203-631] Renaming function 'cordic_::addsub<0, 0, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<43, 4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_uint<1> >' to 'addsub.1' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:122:5)
+WARNING: [XFORM 203-631] Renaming function 'cordic_::addsub<0, 0, ap_fixed<40, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<40, 1, (ap_q_mode)0, (ap_o_mode)3, 0>, ap_uint<1> >' to 'addsub.2' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:122:5)
+WARNING: [XFORM 203-631] Renaming function 'asin_acos_approx::generic_asin<float>' to 'generic_asin<float>' (/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h:79)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 959.402 ; gain = 592.004 ; free physical = 640 ; free virtual = 23580
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'convert' ...
+WARNING: [SYN 201-103] Legalizing function name 'sin_or_cos<float>' to 'sin_or_cos_float_s'.
+WARNING: [SYN 201-103] Legalizing function name 'addsub.1' to 'addsub_1'.
+WARNING: [SYN 201-103] Legalizing function name 'addsub.2' to 'addsub_2'.
+WARNING: [SYN 201-103] Legalizing function name 'atan2_generic<float>' to 'atan2_generic_float_s'.
+WARNING: [SYN 201-103] Legalizing function name 'atan2_cordic<float>' to 'atan2_cordic_float_s'.
+WARNING: [SYN 201-103] Legalizing function name 'generic_asin<float>' to 'generic_asin_float_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sin_or_cos_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'sin_or_cos<float>'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 16.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 38.32 seconds; current allocated memory: 510.416 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 511.109 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'addsub_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'addsub.1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 511.282 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 511.329 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'addsub' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'addsub'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 511.388 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 511.435 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'addsub_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'addsub.2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 511.530 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 511.578 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'atan2_generic_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'atan2_generic<float>'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 44.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.5 seconds; current allocated memory: 513.506 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.51 seconds; current allocated memory: 516.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'atan2_cordic_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'atan2_cordic<float>'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 57.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.87 seconds; current allocated memory: 518.180 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 519.089 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'doublecordic_apfixed' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'doublecordic_apfixed'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 53.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.26 seconds; current allocated memory: 523.567 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.04 seconds; current allocated memory: 528.385 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'generic_asin_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'generic_asin<float>'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 66.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.59 seconds; current allocated memory: 530.185 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.42 seconds; current allocated memory: 531.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'convert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'select' operation ('i_mid2', samplefunction.cpp:202) and 'fadd' operation ('i', samplefunction.cpp:231).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)
+   between 'fadd' operation ('j', samplefunction.cpp:210) and 'fadd' operation ('j', samplefunction.cpp:210).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)
+   between 'select' operation ('i_mid2', samplefunction.cpp:202) and 'fadd' operation ('i', samplefunction.cpp:231).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 2)
+   between 'fadd' operation ('j', samplefunction.cpp:210) and 'fadd' operation ('j', samplefunction.cpp:210).
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)
+   between 'select' operation ('i_mid2', samplefunction.cpp:202) and 'fadd' operation ('i', samplefunction.cpp:231).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
+   between 'fadd' operation ('j', samplefunction.cpp:210) and 'fadd' operation ('j', samplefunction.cpp:210).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 4)
+   between 'fadd' operation ('j', samplefunction.cpp:210) and 'fadd' operation ('j', samplefunction.cpp:210).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 5, Depth = 181.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.76 seconds; current allocated memory: 535.273 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.6 seconds; current allocated memory: 539.607 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sin_or_cos_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'sin_or_cos_float_s_ref_4oPi_table_100_V' to 'sin_or_cos_float_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sin_or_cos_float_s_second_order_float_2' to 'sin_or_cos_float_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sin_or_cos_float_s_second_order_float_3' to 'sin_or_cos_float_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sin_or_cos_float_s_second_order_float_s' to 'sin_or_cos_float_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_mul_80ns_24ns_104_5_1' to 'convert_mul_80ns_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_mux_83_1_1_1' to 'convert_mux_83_1_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_mux_164_1_1_1' to 'convert_mux_164_1hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_mul_mul_15ns_15ns_30_1_1' to 'convert_mul_mul_1ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_mul_mul_15s_15ns_30_1_1' to 'convert_mul_mul_1jbC' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'convert_mul_80ns_fYi': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_mul_mul_1ibs': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_mul_mul_1jbC': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_mux_164_1hbi': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_mux_83_1_g8j': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sin_or_cos_float_s'.
+INFO: [HLS 200-111]  Elapsed time: 2.72 seconds; current allocated memory: 542.900 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'addsub_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'addsub_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.42 seconds; current allocated memory: 545.766 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'addsub' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'addsub'.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 546.058 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'addsub_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'addsub_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 546.363 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'atan2_generic_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'convert_fdiv_32ns_32ns_32_16_0' to 'convert_fdiv_32nskbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_uitofp_32ns_32_6_0' to 'convert_uitofp_32lbW' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'convert_fdiv_32nskbM': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_uitofp_32lbW': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'atan2_generic_float_s'.
+INFO: [HLS 200-111]  Elapsed time: 0.46 seconds; current allocated memory: 551.608 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'atan2_cordic_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'convert_fsub_32ns_32ns_32_5_full_dsp_1' to 'convert_fsub_32nsmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_fcmp_32ns_32ns_1_1_1' to 'convert_fcmp_32nsncg' due to the length limit 20
+INFO: [RTGEN 206-104] Estimated max fanout for 'atan2_cordic_float_s' is 6316 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'convert_fcmp_32nsncg': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fsub_32nsmb6': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'atan2_cordic_float_s'.
+INFO: [HLS 200-111]  Elapsed time: 1.49 seconds; current allocated memory: 564.948 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'doublecordic_apfixed' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'doublecordic_apfixed' is 13681 from HDL expression: ((1'b1 == ap_ce_reg) & (1'b0 == ap_block_pp0_stage0_11001))
+INFO: [RTGEN 206-100] Finished creating RTL model for 'doublecordic_apfixed'.
+INFO: [HLS 200-111]  Elapsed time: 1.91 seconds; current allocated memory: 577.130 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'generic_asin_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'convert_fpext_32ns_64_1_1' to 'convert_fpext_32nocq' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'convert_fpext_32nocq': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_uitofp_32lbW': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'generic_asin_float_s'.
+INFO: [HLS 200-111]  Elapsed time: 4.09 seconds; current allocated memory: 600.247 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'convert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/width' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/height' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/hp' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/ht' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/fw' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/fh' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/fovX' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/fovY' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/option' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'convert/fov' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'convert' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'w' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'h' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'convert_fadd_32ns_32ns_32_5_full_dsp_1' to 'convert_fadd_32nspcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_faddfsub_32ns_32ns_32_5_full_dsp_1' to 'convert_faddfsub_qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_fmul_32ns_32ns_32_4_max_dsp_1' to 'convert_fmul_32nsrcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_sitofp_32ns_32_6_1' to 'convert_sitofp_32sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_fptrunc_64ns_32_1_1' to 'convert_fptrunc_6tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_dadd_64ns_64ns_64_5_full_dsp_1' to 'convert_dadd_64nsudo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_dmul_64ns_64ns_64_6_max_dsp_1' to 'convert_dmul_64nsvdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'convert_sitodp_32ns_64_6_1' to 'convert_sitodp_32wdI' due to the length limit 20
+WARNING: [RTGEN 206-101] Port 'convert/fw' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'convert/fh' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'convert/fovX' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'convert/fovY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+INFO: [RTGEN 206-100] Generating core module 'convert_dadd_64nsudo': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_dmul_64nsvdy': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fadd_32nspcA': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_faddfsub_qcK': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fcmp_32nsncg': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fdiv_32nskbM': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fmul_32nsrcU': 5 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fpext_32nocq': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_fptrunc_6tde': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_sitodp_32wdI': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'convert_sitofp_32sc4': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'convert'.
+INFO: [HLS 200-111]  Elapsed time: 1.97 seconds; current allocated memory: 607.320 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'convert_mul_80ns_fYi_MulnS_0'
+INFO: [RTMG 210-279] Implementing memory 'sin_or_cos_float_bkb_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'sin_or_cos_float_cud_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'sin_or_cos_float_dEe_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'sin_or_cos_float_eOg_rom' using distributed ROMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:03 ; elapsed = 00:01:10 . Memory (MB): peak = 959.402 ; gain = 592.004 ; free physical = 488 ; free virtual = 23476
+INFO: [SYSC 207-301] Generating SystemC RTL for convert.
+INFO: [VHDL 208-304] Generating VHDL RTL for convert.
+INFO: [VLOG 209-307] Generating Verilog RTL for convert.
+INFO: [HLS 200-112] Total elapsed time: 70.32 seconds; peak allocated memory: 607.320 MB.

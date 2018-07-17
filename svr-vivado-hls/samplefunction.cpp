@@ -1,54 +1,22 @@
 #include "samplefunction.h"
 
 
-angles PI = 3.14159;
+float PI = 3.14159f;
 
 int w ,h;
 
-angles tileSize;
+double tileSize;
 
-angles toRadian(angles a){
-	ap_fixed<4,6> pi = 180.0;
-    return a * PI / pi;
+float toRadian(float a){
+    return a * PI / 180.0f;
 }
 
-void calSin(angles angle, angles output){
+void spherical2cartesian(float the, float phi,float result [3]){
 
-    ap_fixed<32,5> temp = angle;
-    output = hls::sinf(temp);
-}
-
-void calCos(angles angle, angles output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::cosf(temp);
-}
-
-void calAtan2(angles angle1,angles angle2, angles output){
-
-	ap_fixed<32,5> temp1 = angle1;
-	ap_fixed<32,5> temp2 = angle2;
-	output = hls::atan2f(temp1,temp2);
-
-}
-
-void calAcos(angles angle, angles output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::acosf(temp);
-
-}
-
-void spherical2cartesian(angles the, angles phi,angles result [3]){
-	angles sphi,cphi,sthe,cthe;
-	calSin(phi,sphi);
-	calCos(phi,cphi);
-	calSin(the,sthe);
-	calCos(the,cthe);
-
-    angles x = sphi*cthe;
-    angles y = sphi*sthe;
-    angles z = cphi;
+	float sp = hls::sinf(phi);
+    float x = sp * hls::cosf(the);
+    float y = sp * hls::sinf(the);
+    float z = hls::cosf(phi);
 
     result[0] = x;
     result[1] = y;
@@ -56,16 +24,16 @@ void spherical2cartesian(angles the, angles phi,angles result [3]){
 
 }
 
-void spherical2coordinates(angles the, angles phi,indexes result [2]){
+void spherical2coordinates(float the, float phi,float result [2]){
 
-    angles i ,j;
+    float i ,j;
 
 
     if(the > PI){
-        i = (the - PI)/2/PI *w;
+        i = (the - PI)/2.0f/PI *w;
     }
     else{
-        i = (PI + the)/2/PI * w;
+        i = (PI + the)/2.0f/PI * w;
     }
 
     j = phi /  PI * h;
@@ -75,23 +43,23 @@ void spherical2coordinates(angles the, angles phi,indexes result [2]){
 
 }
 
-void cartesian2coordinates(angles x, angles y, angles z,indexes result [2]){
+void cartesian2coordinates(float x, float y, float z,float result [2]){
 
-    angles the,phi;
+    float the;
 
     if(x != 0) {
-       calAtan2(y,x,the);
+        the = hls::atan2f(y,x);
 
     } else {
-        the = 1.5708;
+        the = 1.5708f;
     }
 
-    calAcos(z,phi);
+    float phi = hls::acosf(z);
 
     spherical2coordinates(the,phi,result);
 }
 
-void matrixMultiplication(angles vector[3], angles matrix[3][3], angles result[3]) {
+void matrixMultiplication(float vector[3], float matrix[3][3], float result[3]) {
 
 	result[0] = matrix[0][0] * vector[0] + matrix[0][1] * vector[1] + matrix[0][2] * vector[2];
 	result[1] = matrix[1][0] * vector[0] + matrix[1][1] * vector[1] + matrix[1][2] * vector[2];
@@ -99,7 +67,7 @@ void matrixMultiplication(angles vector[3], angles matrix[3][3], angles result[3
 
 }
 
-void findPixel(int index, angles x,angles y,indexes result [2]) {
+void findPixel(int index, float x,float y,float result [2]) {
 
     int vertical;
 
@@ -109,34 +77,27 @@ void findPixel(int index, angles x,angles y,indexes result [2]) {
     	vertical = 0;
     }
 
-    indexes n = (tileSize * (index%3))  + y * tileSize -1;
-    indexes m = (tileSize * vertical) + x * tileSize -1;
+    float n = tileSize * (index%3) + y * tileSize -1;
+    float m = tileSize * vertical + x * tileSize -1;
 
     result [0] = n;
     result [1] = m;
 
 }
 
-angles absVal(angles num){
-	if(num < 0){
-		return -num;
-	}
-
-	return num;
-}
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
-void convert_xyz_to_cube_uv(angles x, angles y, angles z,indexes result [2]) {
+void convert_xyz_to_cube_uv(float x, float y, float z,float result [2]) {
 
-    angles absX = absVal(x);
-    angles absY = absVal(y);
-    angles absZ = absVal(z);
+    float absX = fabs(x);
+    float absY = fabs(y);
+    float absZ = fabs(z);
 
     int isXPositive = x > 0 ? 1 : 0;
     int isYPositive = y > 0 ? 1 : 0;
     int isZPositive = z > 0 ? 1 : 0;
 
-    ap_fixed<5,10> maxAxis = 0, uc = 0, vc = 0;
-    angles u,v;
+    float maxAxis, uc, vc;
+    float u,v;
     int index;
 
     // POSITIVE X
@@ -197,73 +158,56 @@ void convert_xyz_to_cube_uv(angles x, angles y, angles z,indexes result [2]) {
         index = 3;
 
     }
-    angles half = 0.5;
-    angles one = 1;
 
     // Convert range from -1 to 1 to 0 to 1
-    u = half * (uc / maxAxis + one);
-    v = half * (vc / maxAxis + one);
+    u = 0.5f * (uc / maxAxis + 1.0f);
+    v = 0.5f * (vc / maxAxis + 1.0f);
 
-    findPixel(index, u, (one - v),result);
+    findPixel(index, u, (1.0f-v),result);
 }
 
-void convert(int width,int height,angles hp,angles ht,int fw,int fh, int fovX,int fovY,int option,float fov[1024][1024][2]) {
+void convert(int width,int height,float hp,float ht,int fw,int fh, int fovX,int fovY,int option,float fov[1024][1024][2]) {
 
 	w = width;
 	h = height;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    angles htr = toRadian(ht);
-    angles hpr = toRadian(hp);
-    tileSize = w/3.0;
-
-    angles str,ctr,cpr,spr;
-
-    calCos(htr,ctr);
-    calCos(hpr,cpr);
-    calSin(htr,str);
-    calSin(hpr,spr);
+    float htr = toRadian(ht);
+    float hpr = toRadian(hp);
+    tileSize = w/3.0f;
 
 	//rotation matrices
-    angles rot_y [3][3] = {
-        {cpr, 0, -spr},
+    float rot_y [3][3] = {
+        {hls::cosf(hpr), 0, -hls::sinf(hpr)},
         {0, 1, 0},
-        {spr, 0, cpr}
+        {hls::sinf(hpr), 0, hls::cosf(hpr)}
     };
 
-    angles rot_z [3][3] = {
-        {ctr, str, 0},
-        {-str, ctr, 0},
+    float rot_z [3][3] = {
+        {hls::cosf(htr), hls::sinf(htr), 0},
+        {-hls::sinf(htr), hls::cosf(htr), 0},
         {0, 0, 1}
     };
 
-    angles i = 45.0, j = -30.0;
+    float i = 45, j = -30.0;
 
-	angles p1[] = {0.0, 0.0, 0.0};
-	angles p2[] = {0.0, 0.0, 0.0};
-	angles p3[] = {0.0, 0.0, 0.0};
-	indexes res[] = {0.0, 0.0};
-	ap_fixed<1,6> jincrement = 0.05859;
-	ap_fixed<1,6> iincrement = 0.08789;
-	ap_fixed<3,1> pi_2 = 360;
-	ap_fixed<3,1> pi_half = 180;
+	float p1[] = {0.0, 0.0, 0.0};
+	float p2[] = {0.0, 0.0, 0.0};
+	float p3[] = {0.0, 0.0, 0.0};
+	float res[] = {0.0, 0.0};
+
     for (int a = 0; a < 1024; a++) {
 	//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
     	    for (int b = 0; b < 1024; b++) {
 			//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
 			#pragma HLS PIPELINE
 
-    	    	if(j < 0){
-    	    		j += pi_2;
-    	    	}
-
-    	    	if(i < 0){
-    	    		i += pi_half;
-    	    	}
     			//rotation along y axis
 
-    			spherical2cartesian(toRadian(j), toRadian(i),p1);
+    			spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i),p1);
+
+	    		j+= 0.05859f;
 
     			matrixMultiplication(p1,rot_y, p2);
 
@@ -283,10 +227,7 @@ void convert(int width,int height,angles hp,angles ht,int fw,int fh, int fovX,in
 				fov[a][b][0] = res[0];
 				fov[a][b][1] = res[1];
 
-	    		j+= jincrement;
-
     		}
-    		i+= iincrement;
+    	    i+= 0.08789f;
     }
 }
-
