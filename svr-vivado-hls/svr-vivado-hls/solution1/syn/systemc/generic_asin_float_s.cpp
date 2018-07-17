@@ -316,7 +316,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     sensitive << ( tmp_34_reg_844 );
     sensitive << ( tmp_35_reg_849 );
 
-    SC_METHOD(thread_msb_idx_2_cast_fu_567_p1);
+    SC_METHOD(thread_msb_idx_3_cast_fu_567_p1);
     sensitive << ( msb_idx_1_fu_561_p3 );
 
     SC_METHOD(thread_msb_idx_fu_543_p2);
@@ -325,7 +325,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     SC_METHOD(thread_newSel1_fu_449_p3);
     sensitive << ( man_V_2_reg_776 );
     sensitive << ( sel_tmp_fu_406_p2 );
-    sensitive << ( tmp_179_cast_fu_358_p3 );
+    sensitive << ( tmp_222_cast_fu_358_p3 );
 
     SC_METHOD(thread_newSel28_cast_fu_456_p1);
     sensitive << ( newSel1_fu_449_p3 );
@@ -369,7 +369,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     SC_METHOD(thread_out_to_int_fu_699_p1);
     sensitive << ( ap_phi_mux_out_5_phi_fu_115_p14 );
 
-    SC_METHOD(thread_p_Repl2_44_trunc_fu_670_p2);
+    SC_METHOD(thread_p_Repl2_46_trunc_fu_670_p2);
     sensitive << ( tmp_43_fu_660_p1 );
     sensitive << ( tmp27_cast_cast_fu_663_p3 );
 
@@ -516,9 +516,6 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     SC_METHOD(thread_tmp_16_fu_354_p1);
     sensitive << ( tmp_15_fu_349_p2 );
 
-    SC_METHOD(thread_tmp_179_cast_fu_358_p3);
-    sensitive << ( isneg_reg_755_pp0_iter1_reg );
-
     SC_METHOD(thread_tmp_17_fu_365_p1);
     sensitive << ( sh_amt_cast_fu_329_p1 );
 
@@ -542,8 +539,11 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     SC_METHOD(thread_tmp_21_fu_531_p3);
     sensitive << ( p_Result_34_fu_523_p3 );
 
+    SC_METHOD(thread_tmp_222_cast_fu_358_p3);
+    sensitive << ( isneg_reg_755_pp0_iter1_reg );
+
     SC_METHOD(thread_tmp_22_fu_590_p2);
-    sensitive << ( msb_idx_2_cast_fu_567_p1 );
+    sensitive << ( msb_idx_3_cast_fu_567_p1 );
 
     SC_METHOD(thread_tmp_23_fu_647_p2);
     sensitive << ( ap_block_pp0_stage0_11001 );
@@ -557,7 +557,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
 
     SC_METHOD(thread_tmp_24_fu_676_p3);
     sensitive << ( is_neg_reg_828_pp0_iter64_reg );
-    sensitive << ( p_Repl2_44_trunc_fu_670_p2 );
+    sensitive << ( p_Repl2_46_trunc_fu_670_p2 );
 
     SC_METHOD(thread_tmp_27_fu_215_p3);
     sensitive << ( p_Val2_s_fu_146_p1 );
@@ -1356,7 +1356,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, tmp_16_fu_354_p1, "tmp_16_fu_354_p1");
     sc_trace(mVcdFile, sel_tmp1_fu_412_p2, "sel_tmp1_fu_412_p2");
     sc_trace(mVcdFile, sel_tmp_fu_406_p2, "sel_tmp_fu_406_p2");
-    sc_trace(mVcdFile, tmp_179_cast_fu_358_p3, "tmp_179_cast_fu_358_p3");
+    sc_trace(mVcdFile, tmp_222_cast_fu_358_p3, "tmp_222_cast_fu_358_p3");
     sc_trace(mVcdFile, newSel1_fu_449_p3, "newSel1_fu_449_p3");
     sc_trace(mVcdFile, sel_tmp3_fu_380_p2, "sel_tmp3_fu_380_p2");
     sc_trace(mVcdFile, or_cond_fu_443_p2, "or_cond_fu_443_p2");
@@ -1371,7 +1371,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, num_zeros_fu_539_p1, "num_zeros_fu_539_p1");
     sc_trace(mVcdFile, msb_idx_1_fu_561_p3, "msb_idx_1_fu_561_p3");
     sc_trace(mVcdFile, tmp_36_fu_571_p4, "tmp_36_fu_571_p4");
-    sc_trace(mVcdFile, msb_idx_2_cast_fu_567_p1, "msb_idx_2_cast_fu_567_p1");
+    sc_trace(mVcdFile, msb_idx_3_cast_fu_567_p1, "msb_idx_3_cast_fu_567_p1");
     sc_trace(mVcdFile, tmp32_V_fu_587_p1, "tmp32_V_fu_587_p1");
     sc_trace(mVcdFile, tmp_22_fu_590_p2, "tmp_22_fu_590_p2");
     sc_trace(mVcdFile, tmp_38_fu_602_p1, "tmp_38_fu_602_p1");
@@ -1385,7 +1385,7 @@ generic_asin_float_s::generic_asin_float_s(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, p_Result_5_fu_637_p4, "p_Result_5_fu_637_p4");
     sc_trace(mVcdFile, tmp_43_fu_660_p1, "tmp_43_fu_660_p1");
     sc_trace(mVcdFile, tmp27_cast_cast_fu_663_p3, "tmp27_cast_cast_fu_663_p3");
-    sc_trace(mVcdFile, p_Repl2_44_trunc_fu_670_p2, "p_Repl2_44_trunc_fu_670_p2");
+    sc_trace(mVcdFile, p_Repl2_46_trunc_fu_670_p2, "p_Repl2_46_trunc_fu_670_p2");
     sc_trace(mVcdFile, tmp_24_fu_676_p3, "tmp_24_fu_676_p3");
     sc_trace(mVcdFile, p_Result_35_fu_683_p5, "p_Result_35_fu_683_p5");
     sc_trace(mVcdFile, out_to_int_fu_699_p1, "out_to_int_fu_699_p1");
@@ -2413,8 +2413,8 @@ void generic_asin_float_s::thread_msb_idx_1_fu_561_p3() {
     msb_idx_1_fu_561_p3 = (!tmp_35_reg_849.read()[0].is_01())? sc_lv<31>(): ((tmp_35_reg_849.read()[0].to_bool())? ap_const_lv31_0: tmp_34_reg_844.read());
 }
 
-void generic_asin_float_s::thread_msb_idx_2_cast_fu_567_p1() {
-    msb_idx_2_cast_fu_567_p1 = esl_zext<32,31>(msb_idx_1_fu_561_p3.read());
+void generic_asin_float_s::thread_msb_idx_3_cast_fu_567_p1() {
+    msb_idx_3_cast_fu_567_p1 = esl_zext<32,31>(msb_idx_1_fu_561_p3.read());
 }
 
 void generic_asin_float_s::thread_msb_idx_fu_543_p2() {
@@ -2422,7 +2422,7 @@ void generic_asin_float_s::thread_msb_idx_fu_543_p2() {
 }
 
 void generic_asin_float_s::thread_newSel1_fu_449_p3() {
-    newSel1_fu_449_p3 = (!sel_tmp_fu_406_p2.read()[0].is_01())? sc_lv<54>(): ((sel_tmp_fu_406_p2.read()[0].to_bool())? tmp_179_cast_fu_358_p3.read(): man_V_2_reg_776.read());
+    newSel1_fu_449_p3 = (!sel_tmp_fu_406_p2.read()[0].is_01())? sc_lv<54>(): ((sel_tmp_fu_406_p2.read()[0].to_bool())? tmp_222_cast_fu_358_p3.read(): man_V_2_reg_776.read());
 }
 
 void generic_asin_float_s::thread_newSel28_cast_fu_456_p1() {
@@ -2469,8 +2469,8 @@ void generic_asin_float_s::thread_out_to_int_fu_699_p1() {
     out_to_int_fu_699_p1 = ap_phi_mux_out_5_phi_fu_115_p14.read();
 }
 
-void generic_asin_float_s::thread_p_Repl2_44_trunc_fu_670_p2() {
-    p_Repl2_44_trunc_fu_670_p2 = (!tmp_43_fu_660_p1.read().is_01() || !tmp27_cast_cast_fu_663_p3.read().is_01())? sc_lv<8>(): (sc_biguint<8>(tmp_43_fu_660_p1.read()) + sc_biguint<8>(tmp27_cast_cast_fu_663_p3.read()));
+void generic_asin_float_s::thread_p_Repl2_46_trunc_fu_670_p2() {
+    p_Repl2_46_trunc_fu_670_p2 = (!tmp_43_fu_660_p1.read().is_01() || !tmp27_cast_cast_fu_663_p3.read().is_01())? sc_lv<8>(): (sc_biguint<8>(tmp_43_fu_660_p1.read()) + sc_biguint<8>(tmp27_cast_cast_fu_663_p3.read()));
 }
 
 void generic_asin_float_s::thread_p_Result_32_fu_275_p1() {
@@ -2617,10 +2617,6 @@ void generic_asin_float_s::thread_tmp_16_fu_354_p1() {
     tmp_16_fu_354_p1 = esl_sext<55,54>(tmp_15_fu_349_p2.read());
 }
 
-void generic_asin_float_s::thread_tmp_179_cast_fu_358_p3() {
-    tmp_179_cast_fu_358_p3 = (!isneg_reg_755_pp0_iter1_reg.read()[0].is_01())? sc_lv<54>(): ((isneg_reg_755_pp0_iter1_reg.read()[0].to_bool())? ap_const_lv54_3FFFFFFFFFFFFF: ap_const_lv54_0);
-}
-
 void generic_asin_float_s::thread_tmp_17_fu_365_p1() {
     tmp_17_fu_365_p1 = esl_zext<55,32>(sh_amt_cast_fu_329_p1.read());
 }
@@ -2645,8 +2641,12 @@ void generic_asin_float_s::thread_tmp_21_fu_531_p3() {
     tmp_21_fu_531_p3 = esl_cttz<64,64>(p_Result_34_fu_523_p3.read());
 }
 
+void generic_asin_float_s::thread_tmp_222_cast_fu_358_p3() {
+    tmp_222_cast_fu_358_p3 = (!isneg_reg_755_pp0_iter1_reg.read()[0].is_01())? sc_lv<54>(): ((isneg_reg_755_pp0_iter1_reg.read()[0].to_bool())? ap_const_lv54_3FFFFFFFFFFFFF: ap_const_lv54_0);
+}
+
 void generic_asin_float_s::thread_tmp_22_fu_590_p2() {
-    tmp_22_fu_590_p2 = (!ap_const_lv32_1F.is_01() || !msb_idx_2_cast_fu_567_p1.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_1F) - sc_biguint<32>(msb_idx_2_cast_fu_567_p1.read()));
+    tmp_22_fu_590_p2 = (!ap_const_lv32_1F.is_01() || !msb_idx_3_cast_fu_567_p1.read().is_01())? sc_lv<32>(): (sc_biguint<32>(ap_const_lv32_1F) - sc_biguint<32>(msb_idx_3_cast_fu_567_p1.read()));
 }
 
 void generic_asin_float_s::thread_tmp_23_fu_647_p2() {
@@ -2654,7 +2654,7 @@ void generic_asin_float_s::thread_tmp_23_fu_647_p2() {
 }
 
 void generic_asin_float_s::thread_tmp_24_fu_676_p3() {
-    tmp_24_fu_676_p3 = esl_concat<1,8>(is_neg_reg_828_pp0_iter64_reg.read(), p_Repl2_44_trunc_fu_670_p2.read());
+    tmp_24_fu_676_p3 = esl_concat<1,8>(is_neg_reg_828_pp0_iter64_reg.read(), p_Repl2_46_trunc_fu_670_p2.read());
 }
 
 void generic_asin_float_s::thread_tmp_27_fu_215_p3() {

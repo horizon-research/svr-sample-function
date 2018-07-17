@@ -1230,10 +1230,10 @@ _ifconv1:24  %tmp_16 = sext i54 %tmp_15 to i55
 
 <Node id="50" bw="54" op_0_bw="1" op_1_bw="54" op_2_bw="54">
 <![CDATA[
-_ifconv1:25  %tmp_179_cast = select i1 %isneg, i54 -1, i54 0
+_ifconv1:25  %tmp_222_cast = select i1 %isneg, i54 -1, i54 0
 
 ]]></Node>
-<StgValue><ssdm name="tmp_179_cast"/></StgValue>
+<StgValue><ssdm name="tmp_222_cast"/></StgValue>
 </operation>
 
 <operation id="112" st_id="3" stage="1" lat="1">
@@ -1550,7 +1550,7 @@ _ifconv1:40  %or_cond = or i1 %sel_tmp5, %sel_tmp1
 
 <Node id="66" bw="54" op_0_bw="1" op_1_bw="54" op_2_bw="54">
 <![CDATA[
-_ifconv1:41  %newSel1 = select i1 %sel_tmp, i54 %tmp_179_cast, i54 %man_V_2
+_ifconv1:41  %newSel1 = select i1 %sel_tmp, i54 %tmp_222_cast, i54 %man_V_2
 
 ]]></Node>
 <StgValue><ssdm name="newSel1"/></StgValue>
@@ -3190,10 +3190,10 @@ _ifconv25:10  %msb_idx_1 = select i1 %tmp_35, i31 0, i31 %tmp_34
 
 <Node id="87" bw="32" op_0_bw="31">
 <![CDATA[
-_ifconv25:11  %msb_idx_2_cast = zext i31 %msb_idx_1 to i32
+_ifconv25:11  %msb_idx_3_cast = zext i31 %msb_idx_1 to i32
 
 ]]></Node>
-<StgValue><ssdm name="msb_idx_2_cast"/></StgValue>
+<StgValue><ssdm name="msb_idx_3_cast"/></StgValue>
 </operation>
 
 <operation id="201" st_id="59" stage="1" lat="1">
@@ -3274,7 +3274,7 @@ _ifconv25:14  %tmp32_V = trunc i55 %p_Val2_28 to i32
 
 <Node id="91" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-_ifconv25:15  %tmp_22 = sub nsw i32 31, %msb_idx_2_cast
+_ifconv25:15  %tmp_22 = sub nsw i32 31, %msb_idx_3_cast
 
 ]]></Node>
 <StgValue><ssdm name="tmp_22"/></StgValue>
@@ -3732,10 +3732,10 @@ _ifconv25:28  %tmp27_cast_cast = select i1 %tmp_23, i8 76, i8 75
 
 <Node id="105" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-_ifconv25:29  %p_Repl2_44_trunc = add i8 %tmp_43, %tmp27_cast_cast
+_ifconv25:29  %p_Repl2_46_trunc = add i8 %tmp_43, %tmp27_cast_cast
 
 ]]></Node>
-<StgValue><ssdm name="p_Repl2_44_trunc"/></StgValue>
+<StgValue><ssdm name="p_Repl2_46_trunc"/></StgValue>
 </operation>
 
 <operation id="226" st_id="66" stage="1" lat="1">
@@ -3753,7 +3753,7 @@ _ifconv25:29  %p_Repl2_44_trunc = add i8 %tmp_43, %tmp27_cast_cast
 
 <Node id="106" bw="9" op_0_bw="9" op_1_bw="1" op_2_bw="8">
 <![CDATA[
-_ifconv25:30  %tmp_24 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 %is_neg, i8 %p_Repl2_44_trunc)
+_ifconv25:30  %tmp_24 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 %is_neg, i8 %p_Repl2_46_trunc)
 
 ]]></Node>
 <StgValue><ssdm name="tmp_24"/></StgValue>

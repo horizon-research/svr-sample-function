@@ -20,7 +20,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "5243092",
+    "Latency": "1048765",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -42,23 +42,22 @@
       "impl\/vhdl\/addsub_2.vhd",
       "impl\/vhdl\/atan2_cordic_float_s.vhd",
       "impl\/vhdl\/atan2_generic_float_s.vhd",
-      "impl\/vhdl\/convert_dadd_64nsudo.vhd",
-      "impl\/vhdl\/convert_dmul_64nsvdy.vhd",
+      "impl\/vhdl\/convert_dadd_64nstde.vhd",
+      "impl\/vhdl\/convert_dmul_64nsudo.vhd",
       "impl\/vhdl\/convert_fadd_32nspcA.vhd",
-      "impl\/vhdl\/convert_faddfsub_qcK.vhd",
       "impl\/vhdl\/convert_fcmp_32nsncg.vhd",
       "impl\/vhdl\/convert_fdiv_32nskbM.vhd",
-      "impl\/vhdl\/convert_fmul_32nsrcU.vhd",
+      "impl\/vhdl\/convert_fmul_32nsqcK.vhd",
       "impl\/vhdl\/convert_fpext_32nocq.vhd",
-      "impl\/vhdl\/convert_fptrunc_6tde.vhd",
+      "impl\/vhdl\/convert_fptrunc_6sc4.vhd",
       "impl\/vhdl\/convert_fsub_32nsmb6.vhd",
       "impl\/vhdl\/convert_mul_80ns_fYi.vhd",
       "impl\/vhdl\/convert_mul_mul_1ibs.vhd",
       "impl\/vhdl\/convert_mul_mul_1jbC.vhd",
       "impl\/vhdl\/convert_mux_83_1_g8j.vhd",
       "impl\/vhdl\/convert_mux_164_1hbi.vhd",
-      "impl\/vhdl\/convert_sitodp_32wdI.vhd",
-      "impl\/vhdl\/convert_sitofp_32sc4.vhd",
+      "impl\/vhdl\/convert_sitodp_32vdy.vhd",
+      "impl\/vhdl\/convert_sitofp_32rcU.vhd",
       "impl\/vhdl\/convert_uitofp_32lbW.vhd",
       "impl\/vhdl\/doublecordic_apfixed.vhd",
       "impl\/vhdl\/generic_asin_float_s.vhd",
@@ -75,23 +74,22 @@
       "impl\/verilog\/addsub_2.v",
       "impl\/verilog\/atan2_cordic_float_s.v",
       "impl\/verilog\/atan2_generic_float_s.v",
-      "impl\/verilog\/convert_dadd_64nsudo.v",
-      "impl\/verilog\/convert_dmul_64nsvdy.v",
+      "impl\/verilog\/convert_dadd_64nstde.v",
+      "impl\/verilog\/convert_dmul_64nsudo.v",
       "impl\/verilog\/convert_fadd_32nspcA.v",
-      "impl\/verilog\/convert_faddfsub_qcK.v",
       "impl\/verilog\/convert_fcmp_32nsncg.v",
       "impl\/verilog\/convert_fdiv_32nskbM.v",
-      "impl\/verilog\/convert_fmul_32nsrcU.v",
+      "impl\/verilog\/convert_fmul_32nsqcK.v",
       "impl\/verilog\/convert_fpext_32nocq.v",
-      "impl\/verilog\/convert_fptrunc_6tde.v",
+      "impl\/verilog\/convert_fptrunc_6sc4.v",
       "impl\/verilog\/convert_fsub_32nsmb6.v",
       "impl\/verilog\/convert_mul_80ns_fYi.v",
       "impl\/verilog\/convert_mul_mul_1ibs.v",
       "impl\/verilog\/convert_mul_mul_1jbC.v",
       "impl\/verilog\/convert_mux_83_1_g8j.v",
       "impl\/verilog\/convert_mux_164_1hbi.v",
-      "impl\/verilog\/convert_sitodp_32wdI.v",
-      "impl\/verilog\/convert_sitofp_32sc4.v",
+      "impl\/verilog\/convert_sitodp_32vdy.v",
+      "impl\/verilog\/convert_sitofp_32rcU.v",
       "impl\/verilog\/convert_uitofp_32lbW.v",
       "impl\/verilog\/doublecordic_apfixed.v",
       "impl\/verilog\/generic_asin_float_s.v",
@@ -111,7 +109,6 @@
       "impl\/misc\/convert_ap_dadd_3_full_dsp_64_ip.tcl",
       "impl\/misc\/convert_ap_dmul_4_max_dsp_64_ip.tcl",
       "impl\/misc\/convert_ap_fadd_3_full_dsp_32_ip.tcl",
-      "impl\/misc\/convert_ap_faddfsub_3_full_dsp_32_ip.tcl",
       "impl\/misc\/convert_ap_fcmp_0_no_dsp_32_ip.tcl",
       "impl\/misc\/convert_ap_fdiv_14_no_dsp_32_ip.tcl",
       "impl\/misc\/convert_ap_fmul_2_max_dsp_32_ip.tcl",
@@ -141,11 +138,6 @@
         "name": "convert_ap_fadd_3_full_dsp_32",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
         "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fadd_3_full_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
-      },
-      {
-        "name": "convert_ap_faddfsub_3_full_dsp_32",
-        "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_faddfsub_3_full_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
       },
       {
         "name": "convert_ap_fcmp_0_no_dsp_32",
@@ -509,7 +501,7 @@
       "Instances": [
         {
           "ModuleName": "generic_asin_float_s",
-          "InstanceName": "grp_generic_asin_float_s_fu_310",
+          "InstanceName": "grp_generic_asin_float_s_fu_343",
           "Instances": [{
               "ModuleName": "doublecordic_apfixed",
               "InstanceName": "grp_doublecordic_apfixed_fu_135"
@@ -517,7 +509,7 @@
         },
         {
           "ModuleName": "atan2_cordic_float_s",
-          "InstanceName": "grp_atan2_cordic_float_s_fu_315",
+          "InstanceName": "grp_atan2_cordic_float_s_fu_348",
           "Instances": [{
               "ModuleName": "atan2_generic_float_s",
               "InstanceName": "grp_atan2_generic_float_s_fu_169",
@@ -1019,19 +1011,19 @@
         },
         {
           "ModuleName": "sin_or_cos_float_s",
-          "InstanceName": "grp_sin_or_cos_float_s_fu_321"
+          "InstanceName": "grp_sin_or_cos_float_s_fu_354"
         },
         {
           "ModuleName": "sin_or_cos_float_s",
-          "InstanceName": "grp_sin_or_cos_float_s_fu_336"
+          "InstanceName": "grp_sin_or_cos_float_s_fu_369"
         },
         {
           "ModuleName": "sin_or_cos_float_s",
-          "InstanceName": "grp_sin_or_cos_float_s_fu_351"
+          "InstanceName": "grp_sin_or_cos_float_s_fu_384"
         },
         {
           "ModuleName": "sin_or_cos_float_s",
-          "InstanceName": "grp_sin_or_cos_float_s_fu_366"
+          "InstanceName": "grp_sin_or_cos_float_s_fu_399"
         }
       ]
     },
@@ -1053,8 +1045,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "22",
-          "FF": "2358",
-          "LUT": "3028"
+          "FF": "2259",
+          "LUT": "2923"
         }
       },
       "addsub_1": {
@@ -1137,8 +1129,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "0",
-          "FF": "10380",
-          "LUT": "21635"
+          "FF": "10347",
+          "LUT": "21600"
         }
       },
       "atan2_cordic_float_s": {
@@ -1158,8 +1150,8 @@
         "Area": {
           "BRAM_18K": "0",
           "DSP48E": "4",
-          "FF": "17268",
-          "LUT": "24013"
+          "FF": "17235",
+          "LUT": "23978"
         }
       },
       "doublecordic_apfixed": {
@@ -1200,16 +1192,16 @@
         "Area": {
           "BRAM_18K": "2",
           "DSP48E": "0",
-          "FF": "17425",
-          "LUT": "36345"
+          "FF": "17392",
+          "LUT": "36310"
         }
       },
       "convert": {
         "Latency": {
-          "LatencyBest": "5243092",
-          "LatencyAvg": "5243092",
-          "LatencyWorst": "5243092",
-          "PipelineII": "5243093",
+          "LatencyBest": "1048765",
+          "LatencyAvg": "1048765",
+          "LatencyWorst": "1048765",
+          "PipelineII": "1048766",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1221,15 +1213,15 @@
         "Loops": [{
             "Name": "Loop 1",
             "TripCount": "1048576",
-            "Latency": "5243055",
-            "PipelineII": "5",
-            "PipelineDepth": "181"
+            "Latency": "1048717",
+            "PipelineII": "1",
+            "PipelineDepth": "143"
           }],
         "Area": {
-          "BRAM_18K": "6",
-          "DSP48E": "131",
-          "FF": "58430",
-          "LUT": "85671"
+          "BRAM_18K": "2",
+          "DSP48E": "245",
+          "FF": "82312",
+          "LUT": "109073"
         }
       }
     }
@@ -1241,7 +1233,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-07-17 12:41:56 EDT",
+    "Time": "2018-07-17 13:08:55 EDT",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

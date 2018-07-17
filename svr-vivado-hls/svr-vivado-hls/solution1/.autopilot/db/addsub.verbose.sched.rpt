@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'addsub'
 ================================================================
-* Date:           Tue Jul 17 12:41:25 2018
+* Date:           Tue Jul 17 13:08:21 2018
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        svr-vivado-hls
@@ -99,7 +99,7 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
  <State 1>: 4.22ns
 The critical path consists of the following:
 	wire read on port 'b_V' [5]  (0 ns)
-	'add' operation ('r.V', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:126) [11]  (2.96 ns)
+	'sub' operation ('r.V', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:128) [10]  (2.96 ns)
 	'select' operation ('r.V', /wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_cordic.h:125) [12]  (1.26 ns)
 
 

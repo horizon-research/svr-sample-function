@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'generic_asin_float_s'" level="0">
-<item name = "Date">Tue Jul 17 12:41:48 2018
+<item name = "Date">Tue Jul 17 13:08:45 2018
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">svr-vivado-hls</item>
@@ -48,7 +48,7 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 73, 1739</column>
+<column name="Expression">-, -, 40, 1704</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">2, 0, 14045, 34014</column>
 <column name="Memory">-, -, -, -</column>
@@ -82,7 +82,7 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="exp_V_fu_262_p2">+, 0, 0, 12, 11, 12</column>
-<column name="p_Repl2_44_trunc_fu_670_p2">+, 0, 0, 15, 8, 8</column>
+<column name="p_Repl2_46_trunc_fu_670_p2">+, 0, 0, 15, 8, 8</column>
 <column name="tmp_39_fu_606_p2">+, 0, 0, 15, 6, 6</column>
 <column name="tmp_9_fu_309_p2">+, 0, 0, 12, 7, 12</column>
 <column name="F2_fu_297_p2">-, 0, 0, 12, 11, 12</column>
@@ -100,7 +100,7 @@
 <column name="sel_tmp8_fu_395_p2">and, 0, 0, 2, 1, 1</column>
 <column name="sel_tmp_fu_406_p2">and, 0, 0, 2, 1, 1</column>
 <column name="tmp_15_fu_349_p2">ashr, 0, 0, 162, 54, 54</column>
-<column name="tmp_21_fu_531_p3">cttz, 0, 73, 71, 64, 0</column>
+<column name="tmp_21_fu_531_p3">cttz, 0, 40, 36, 64, 0</column>
 <column name="icmp_fu_581_p2">icmp, 0, 0, 18, 26, 1</column>
 <column name="tmp_10_fu_323_p2">icmp, 0, 0, 13, 12, 1</column>
 <column name="tmp_12_fu_335_p2">icmp, 0, 0, 13, 12, 6</column>
@@ -133,7 +133,7 @@
 <column name="t_V_fu_480_p3">select, 0, 0, 55, 1, 55</column>
 <column name="tmp27_cast_cast_fu_663_p3">select, 0, 0, 7, 1, 7</column>
 <column name="tmp32_V_3_fu_625_p3">select, 0, 0, 32, 1, 32</column>
-<column name="tmp_179_cast_fu_358_p3">select, 0, 0, 2, 1, 2</column>
+<column name="tmp_222_cast_fu_358_p3">select, 0, 0, 2, 1, 2</column>
 <column name="tmp32_V_1_fu_596_p2">shl, 0, 0, 101, 32, 32</column>
 <column name="tmp_18_fu_369_p2">shl, 0, 0, 164, 55, 55</column>
 <column name="inabs_neg_fu_172_p2">xor, 0, 0, 33, 32, 33</column>

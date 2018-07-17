@@ -2042,7 +2042,7 @@
             <Obj>
               <type>0</type>
               <id>50</id>
-              <name>tmp_179_cast</name>
+              <name>tmp_222_cast</name>
               <fileName>/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h</fileName>
               <fileDirectory>../../../../../../wrk/2018.2/continuous/2018_06_14_2258646/src/products</fileDirectory>
               <lineNumber>123</lineNumber>
@@ -2066,7 +2066,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>tmp_179_cast_fu_358_p3</rtlName>
+              <rtlName>tmp_222_cast_fu_358_p3</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>54</bitwidth>
@@ -3708,7 +3708,7 @@
             <Obj>
               <type>0</type>
               <id>87</id>
-              <name>msb_idx_2_cast</name>
+              <name>msb_idx_3_cast</name>
               <fileName>/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h</fileName>
               <fileDirectory>../../../../../../wrk/2018.2/continuous/2018_06_14_2258646/src/products</fileDirectory>
               <lineNumber>126</lineNumber>
@@ -3732,7 +3732,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>msb_idx_2_cast_fu_567_p1</rtlName>
+              <rtlName>msb_idx_3_cast_fu_567_p1</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -4534,7 +4534,7 @@
             <Obj>
               <type>0</type>
               <id>105</id>
-              <name>p_Repl2_44_trunc</name>
+              <name>p_Repl2_46_trunc</name>
               <fileName>/wrk/2018.2/continuous/2018_06_14_2258646/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_asin_acos.h</fileName>
               <fileDirectory>../../../../../../wrk/2018.2/continuous/2018_06_14_2258646/src/products</fileDirectory>
               <lineNumber>126</lineNumber>
@@ -4558,7 +4558,7 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>p_Repl2_44_trunc_fu_670_p2</rtlName>
+              <rtlName>p_Repl2_46_trunc_fu_670_p2</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>8</bitwidth>
@@ -10979,7 +10979,7 @@
           </second>
         </item>
         <item>
-          <first>p_Repl2_44_trunc_fu_670_p2 ( + ) </first>
+          <first>p_Repl2_46_trunc_fu_670_p2 ( + ) </first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -11532,33 +11532,6 @@
           </second>
         </item>
         <item>
-          <first>tmp_179_cast_fu_358_p3 ( select ) </first>
-          <second>
-            <count>5</count>
-            <item_version>0</item_version>
-            <item>
-              <first>(0P0)</first>
-              <second>1</second>
-            </item>
-            <item>
-              <first>(1P1)</first>
-              <second>2</second>
-            </item>
-            <item>
-              <first>(2P2)</first>
-              <second>1</second>
-            </item>
-            <item>
-              <first>FF</first>
-              <second>0</second>
-            </item>
-            <item>
-              <first>LUT</first>
-              <second>2</second>
-            </item>
-          </second>
-        </item>
-        <item>
           <first>tmp_18_fu_369_p2 ( shl ) </first>
           <second>
             <count>4</count>
@@ -11661,11 +11634,38 @@
             </item>
             <item>
               <first>FF</first>
-              <second>73</second>
+              <second>40</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>71</second>
+              <second>36</second>
+            </item>
+          </second>
+        </item>
+        <item>
+          <first>tmp_222_cast_fu_358_p3 ( select ) </first>
+          <second>
+            <count>5</count>
+            <item_version>0</item_version>
+            <item>
+              <first>(0P0)</first>
+              <second>1</second>
+            </item>
+            <item>
+              <first>(1P1)</first>
+              <second>2</second>
+            </item>
+            <item>
+              <first>(2P2)</first>
+              <second>1</second>
+            </item>
+            <item>
+              <first>FF</first>
+              <second>0</second>
+            </item>
+            <item>
+              <first>LUT</first>
+              <second>2</second>
             </item>
           </second>
         </item>
@@ -14029,7 +14029,7 @@
           </second>
         </item>
         <item>
-          <first>p_Repl2_44_trunc_fu_670_p2 ( + ) </first>
+          <first>p_Repl2_46_trunc_fu_670_p2 ( + ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -14213,14 +14213,6 @@
           </second>
         </item>
         <item>
-          <first>tmp_179_cast_fu_358_p3 ( select ) </first>
-          <second>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item>50</item>
-          </second>
-        </item>
-        <item>
           <first>tmp_18_fu_369_p2 ( shl ) </first>
           <second>
             <count>1</count>
@@ -14258,6 +14250,14 @@
             <count>1</count>
             <item_version>0</item_version>
             <item>81</item>
+          </second>
+        </item>
+        <item>
+          <first>tmp_222_cast_fu_358_p3 ( select ) </first>
+          <second>
+            <count>1</count>
+            <item_version>0</item_version>
+            <item>50</item>
           </second>
         </item>
         <item>
@@ -16244,7 +16244,7 @@
         </second>
       </item>
       <item>
-        <first>msb_idx_2_cast_fu_567</first>
+        <first>msb_idx_3_cast_fu_567</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -16372,7 +16372,7 @@
         </second>
       </item>
       <item>
-        <first>p_Repl2_44_trunc_fu_670</first>
+        <first>p_Repl2_46_trunc_fu_670</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -16668,14 +16668,6 @@
         </second>
       </item>
       <item>
-        <first>tmp_179_cast_fu_358</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>50</item>
-        </second>
-      </item>
-      <item>
         <first>tmp_17_fu_365</first>
         <second>
           <count>1</count>
@@ -16721,6 +16713,14 @@
           <count>1</count>
           <item_version>0</item_version>
           <item>81</item>
+        </second>
+      </item>
+      <item>
+        <first>tmp_222_cast_fu_358</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>50</item>
         </second>
       </item>
       <item>

@@ -37866,6 +37866,9 @@ namespace hls {
 };
 # 5 "./samplefunction.h" 2
 
+
+typedef ap_fixed<3,7> degree;
+
 extern void convert (
 
  int width,
@@ -37880,7 +37883,7 @@ extern void convert (
  float fov[1024][1024][2]
 );
 
-extern float toRadian(float a);
+extern float toRadian(degree a);
 
 extern void spherical2cartesian(
 
@@ -37939,8 +37942,9 @@ int w ,h;
 
 double tileSize;
 
-float toRadian(float a){
-    return a * PI / 180.0f;
+float toRadian(degree a){
+
+    return a.to_float() * PI / 180.0f;
 }
 
 void spherical2cartesian(float the, float phi,float result [3]){_ssdm_SpecArrayDimSize(result, 3);
@@ -38122,24 +38126,36 @@ void convert(int width,int height,float hp,float ht,int fw,int fh, int fovX,int 
         {0, 0, 1}
     };
 
-    float i = 45, j = -30.0;
+    degree i = 45, j = -30.0;
+
+    degree iincre = 0.08789;
+    degree jincre = 0.05859;
 
  float p1[] = {0.0, 0.0, 0.0};
  float p2[] = {0.0, 0.0, 0.0};
  float p3[] = {0.0, 0.0, 0.0};
  float res[] = {0.0, 0.0};
-
+ ap_fixed<3,1> pi2 = 360;
+ ap_fixed<3,1> pihalf = 180;
     for (int a = 0; a < 1024; a++) {
 
          for (int b = 0; b < 1024; b++) {
 
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ if (j< 0){
+
+           j += pi2;
+
+          }
+
+          if(i < 0){
+           i += pihalf;
+          }
 
 
+       spherical2cartesian(toRadian(j), toRadian(i),p1);
 
- spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i),p1);
-
-       j+= 0.05859f;
+       j+= jincre;
 
        matrixMultiplication(p1,rot_y, p2);
 
@@ -38160,6 +38176,6 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
     fov[a][b][1] = res[1];
 
       }
-         i+= 0.08789f;
+         i+= iincre;
     }
 }

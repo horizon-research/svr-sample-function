@@ -2,6 +2,9 @@
 #define SAMPLEFUNCTION_H
 
 #include <hls_math.h>
+#include <ap_fixed.h>
+
+typedef ap_fixed<3,7> degree;
 
 extern void convert (
 
@@ -17,7 +20,7 @@ extern void convert (
 	float fov[1024][1024][2]
 );
 
-extern float toRadian(float a);
+extern float toRadian(degree a);
 
 extern void spherical2cartesian(
 

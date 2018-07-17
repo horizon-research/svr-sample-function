@@ -1230,10 +1230,10 @@ _ifconv1:24  %tmp_16 = sext i54 %tmp_15 to i55
 
 <Node id="50" bw="54" op_0_bw="1" op_1_bw="54" op_2_bw="54">
 <![CDATA[
-_ifconv1:25  %tmp_179_cast = select i1 %isneg, i54 -1, i54 0
+_ifconv1:25  %tmp_222_cast = select i1 %isneg, i54 -1, i54 0
 
 ]]></Node>
-<StgValue><ssdm name="tmp_179_cast"/></StgValue>
+<StgValue><ssdm name="tmp_222_cast"/></StgValue>
 </operation>
 
 <operation id="112" st_id="3" stage="1" lat="1">
@@ -1550,7 +1550,7 @@ _ifconv1:40  %or_cond = or i1 %sel_tmp5, %sel_tmp1
 
 <Node id="66" bw="54" op_0_bw="1" op_1_bw="54" op_2_bw="54">
 <![CDATA[
-_ifconv1:41  %newSel1 = select i1 %sel_tmp, i54 %tmp_179_cast, i54 %man_V_2
+_ifconv1:41  %newSel1 = select i1 %sel_tmp, i54 %tmp_222_cast, i54 %man_V_2
 
 ]]></Node>
 <StgValue><ssdm name="newSel1"/></StgValue>
@@ -3190,10 +3190,10 @@ _ifconv25:10  %msb_idx_1 = select i1 %tmp_35, i31 0, i31 %tmp_34
 
 <Node id="87" bw="32" op_0_bw="31">
 <![CDATA[
-_ifconv25:11  %msb_idx_2_cast = zext i31 %msb_idx_1 to i32
+_ifconv25:11  %msb_idx_3_cast = zext i31 %msb_idx_1 to i32
 
 ]]></Node>
-<StgValue><ssdm name="msb_idx_2_cast"/></StgValue>
+<StgValue><ssdm name="msb_idx_3_cast"/></StgValue>
 </operation>
 
 <operation id="201" st_id="59" stage="1" lat="1">
@@ -3274,7 +3274,7 @@ _ifconv25:14  %tmp32_V = trunc i55 %p_Val2_28 to i32
 
 <Node id="91" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-_ifconv25:15  %tmp_22 = sub nsw i32 31, %msb_idx_2_cast
+_ifconv25:15  %tmp_22 = sub nsw i32 31, %msb_idx_3_cast
 
 ]]></Node>
 <StgValue><ssdm name="tmp_22"/></StgValue>
@@ -3732,10 +3732,10 @@ _ifconv25:28  %tmp27_cast_cast = select i1 %tmp_23, i8 76, i8 75
 
 <Node id="105" bw="8" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-_ifconv25:29  %p_Repl2_44_trunc = add i8 %tmp_43, %tmp27_cast_cast
+_ifconv25:29  %p_Repl2_46_trunc = add i8 %tmp_43, %tmp27_cast_cast
 
 ]]></Node>
-<StgValue><ssdm name="p_Repl2_44_trunc"/></StgValue>
+<StgValue><ssdm name="p_Repl2_46_trunc"/></StgValue>
 </operation>
 
 <operation id="226" st_id="66" stage="1" lat="1">
@@ -3753,7 +3753,7 @@ _ifconv25:29  %p_Repl2_44_trunc = add i8 %tmp_43, %tmp27_cast_cast
 
 <Node id="106" bw="9" op_0_bw="9" op_1_bw="1" op_2_bw="8">
 <![CDATA[
-_ifconv25:30  %tmp_24 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 %is_neg, i8 %p_Repl2_44_trunc)
+_ifconv25:30  %tmp_24 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 %is_neg, i8 %p_Repl2_46_trunc)
 
 ]]></Node>
 <StgValue><ssdm name="tmp_24"/></StgValue>
@@ -4088,11 +4088,11 @@ _ifconv25:33  br label %._crit_edge38_ifconv
 </dataflow>
 <dataflow id="550" from="tmp_15" to="tmp_16" fromId="109" toId="110">
 </dataflow>
-<dataflow id="551" from="isneg" to="tmp_179_cast" fromId="88" toId="111">
+<dataflow id="551" from="isneg" to="tmp_222_cast" fromId="88" toId="111">
 </dataflow>
-<dataflow id="553" from="StgValue_552" to="tmp_179_cast" fromId="552" toId="111">
+<dataflow id="553" from="StgValue_552" to="tmp_222_cast" fromId="552" toId="111">
 </dataflow>
-<dataflow id="554" from="StgValue_515" to="tmp_179_cast" fromId="515" toId="111">
+<dataflow id="554" from="StgValue_515" to="tmp_222_cast" fromId="515" toId="111">
 </dataflow>
 <dataflow id="555" from="sh_amt_cast" to="tmp_17" fromId="104" toId="112">
 </dataflow>
@@ -4156,7 +4156,7 @@ _ifconv25:33  br label %._crit_edge38_ifconv
 </dataflow>
 <dataflow id="585" from="sel_tmp" to="newSel1" fromId="120" toId="127">
 </dataflow>
-<dataflow id="586" from="tmp_179_cast" to="newSel1" fromId="111" toId="127">
+<dataflow id="586" from="tmp_222_cast" to="newSel1" fromId="111" toId="127">
 </dataflow>
 <dataflow id="587" from="man_V_2" to="newSel1" fromId="97" toId="127">
 </dataflow>
@@ -4460,7 +4460,7 @@ _ifconv25:33  br label %._crit_edge38_ifconv
 </dataflow>
 <dataflow id="747" from="tmp_34" to="msb_idx_1" fromId="197" toId="199">
 </dataflow>
-<dataflow id="748" from="msb_idx_1" to="msb_idx_2_cast" fromId="199" toId="200">
+<dataflow id="748" from="msb_idx_1" to="msb_idx_3_cast" fromId="199" toId="200">
 </dataflow>
 <dataflow id="750" from="_ssdm_op_PartSelect.i26.i31.i32.i32" to="tmp_36" fromId="749" toId="201">
 </dataflow>
@@ -4478,7 +4478,7 @@ _ifconv25:33  br label %._crit_edge38_ifconv
 </dataflow>
 <dataflow id="759" from="StgValue_449" to="tmp_22" fromId="449" toId="204">
 </dataflow>
-<dataflow id="760" from="msb_idx_2_cast" to="tmp_22" fromId="200" toId="204">
+<dataflow id="760" from="msb_idx_3_cast" to="tmp_22" fromId="200" toId="204">
 </dataflow>
 <dataflow id="761" from="tmp32_V" to="tmp32_V_1" fromId="203" toId="205">
 </dataflow>
@@ -4544,15 +4544,15 @@ _ifconv25:33  br label %._crit_edge38_ifconv
 </dataflow>
 <dataflow id="798" from="StgValue_797" to="tmp27_cast_cast" fromId="797" toId="224">
 </dataflow>
-<dataflow id="799" from="tmp_43" to="p_Repl2_44_trunc" fromId="223" toId="225">
+<dataflow id="799" from="tmp_43" to="p_Repl2_46_trunc" fromId="223" toId="225">
 </dataflow>
-<dataflow id="800" from="tmp27_cast_cast" to="p_Repl2_44_trunc" fromId="224" toId="225">
+<dataflow id="800" from="tmp27_cast_cast" to="p_Repl2_46_trunc" fromId="224" toId="225">
 </dataflow>
 <dataflow id="802" from="_ssdm_op_BitConcatenate.i9.i1.i8" to="tmp_24" fromId="801" toId="226">
 </dataflow>
 <dataflow id="803" from="is_neg" to="tmp_24" fromId="190" toId="226">
 </dataflow>
-<dataflow id="804" from="p_Repl2_44_trunc" to="tmp_24" fromId="225" toId="226">
+<dataflow id="804" from="p_Repl2_46_trunc" to="tmp_24" fromId="225" toId="226">
 </dataflow>
 <dataflow id="806" from="_ssdm_op_PartSet.i32.i32.i9.i32.i32" to="p_Result_35" fromId="805" toId="227">
 </dataflow>
