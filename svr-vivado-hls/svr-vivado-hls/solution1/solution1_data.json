@@ -20,7 +20,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "82",
+    "Latency": "5243131",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -37,92 +37,93 @@
   "Files": {
     "CSource": ["..\/..\/samplefunction.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/atan2_cordic_double_s.vhd",
-      "impl\/vhdl\/atan2_generic.vhd",
-      "impl\/vhdl\/atan2_generic_corqcK.vhd",
-      "impl\/vhdl\/convert_dadddsub_wdI.vhd",
-      "impl\/vhdl\/convert_dcmp_64nstde.vhd",
-      "impl\/vhdl\/convert_dcmp_80nszec.vhd",
-      "impl\/vhdl\/convert_ddiv_64nsrcU.vhd",
-      "impl\/vhdl\/convert_ddiv_80nsyd2.vhd",
-      "impl\/vhdl\/convert_dmul_80nsxdS.vhd",
-      "impl\/vhdl\/convert_dsub_64nssc4.vhd",
-      "impl\/vhdl\/convert_fpext_64nvdy.vhd",
-      "impl\/vhdl\/convert_fptrunc_8udo.vhd",
-      "impl\/vhdl\/convert_mul_42ns_ncg.vhd",
-      "impl\/vhdl\/convert_mul_49ns_kbM.vhd",
-      "impl\/vhdl\/convert_mul_49ns_mb6.vhd",
-      "impl\/vhdl\/convert_mul_56ns_lbW.vhd",
-      "impl\/vhdl\/convert_mul_64s_6ocq.vhd",
-      "impl\/vhdl\/convert_mul_170nsibs.vhd",
-      "impl\/vhdl\/convert_mux_42_32bkb.vhd",
-      "impl\/vhdl\/convert_mux_83_1_jbC.vhd",
-      "impl\/vhdl\/convert_mux_164_1pcA.vhd",
-      "impl\/vhdl\/convert_sitodp_32Aem.vhd",
-      "impl\/vhdl\/convert_sitodp_32Bew.vhd",
-      "impl\/vhdl\/scaled_fixed2ieee.vhd",
-      "impl\/vhdl\/sin_or_cos_double_s.vhd",
-      "impl\/vhdl\/sin_or_cos_doublecud.vhd",
-      "impl\/vhdl\/sin_or_cos_doubledEe.vhd",
-      "impl\/vhdl\/sin_or_cos_doubleeOg.vhd",
-      "impl\/vhdl\/sin_or_cos_doublefYi.vhd",
-      "impl\/vhdl\/sin_or_cos_doubleg8j.vhd",
-      "impl\/vhdl\/sin_or_cos_doublehbi.vhd",
+      "impl\/vhdl\/addsub.vhd",
+      "impl\/vhdl\/addsub_1.vhd",
+      "impl\/vhdl\/addsub_2.vhd",
+      "impl\/vhdl\/atan2_cordic_float_s.vhd",
+      "impl\/vhdl\/atan2_generic_float_s.vhd",
+      "impl\/vhdl\/convert_dadd_64nsudo.vhd",
+      "impl\/vhdl\/convert_ddiv_64nswdI.vhd",
+      "impl\/vhdl\/convert_dmul_64nsvdy.vhd",
+      "impl\/vhdl\/convert_fadd_32nspcA.vhd",
+      "impl\/vhdl\/convert_faddfsub_qcK.vhd",
+      "impl\/vhdl\/convert_fcmp_32nsncg.vhd",
+      "impl\/vhdl\/convert_fdiv_32nskbM.vhd",
+      "impl\/vhdl\/convert_fmul_32nsrcU.vhd",
+      "impl\/vhdl\/convert_fpext_32nocq.vhd",
+      "impl\/vhdl\/convert_fptrunc_6tde.vhd",
+      "impl\/vhdl\/convert_fsub_32nsmb6.vhd",
+      "impl\/vhdl\/convert_mul_80ns_fYi.vhd",
+      "impl\/vhdl\/convert_mul_mul_1ibs.vhd",
+      "impl\/vhdl\/convert_mul_mul_1jbC.vhd",
+      "impl\/vhdl\/convert_mux_83_1_g8j.vhd",
+      "impl\/vhdl\/convert_mux_164_1hbi.vhd",
+      "impl\/vhdl\/convert_sitodp_32xdS.vhd",
+      "impl\/vhdl\/convert_sitofp_32sc4.vhd",
+      "impl\/vhdl\/convert_uitofp_32lbW.vhd",
+      "impl\/vhdl\/doublecordic_apfixed.vhd",
+      "impl\/vhdl\/generic_asin_float_s.vhd",
+      "impl\/vhdl\/sin_or_cos_float_bkb.vhd",
+      "impl\/vhdl\/sin_or_cos_float_cud.vhd",
+      "impl\/vhdl\/sin_or_cos_float_dEe.vhd",
+      "impl\/vhdl\/sin_or_cos_float_eOg.vhd",
+      "impl\/vhdl\/sin_or_cos_float_s.vhd",
       "impl\/vhdl\/convert.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/atan2_cordic_double_s.v",
-      "impl\/verilog\/atan2_generic.v",
-      "impl\/verilog\/atan2_generic_corqcK.v",
-      "impl\/verilog\/atan2_generic_corqcK_rom.dat",
-      "impl\/verilog\/convert_dadddsub_wdI.v",
-      "impl\/verilog\/convert_dcmp_64nstde.v",
-      "impl\/verilog\/convert_dcmp_80nszec.v",
-      "impl\/verilog\/convert_ddiv_64nsrcU.v",
-      "impl\/verilog\/convert_ddiv_80nsyd2.v",
-      "impl\/verilog\/convert_dmul_80nsxdS.v",
-      "impl\/verilog\/convert_dsub_64nssc4.v",
-      "impl\/verilog\/convert_fpext_64nvdy.v",
-      "impl\/verilog\/convert_fptrunc_8udo.v",
-      "impl\/verilog\/convert_mul_42ns_ncg.v",
-      "impl\/verilog\/convert_mul_49ns_kbM.v",
-      "impl\/verilog\/convert_mul_49ns_mb6.v",
-      "impl\/verilog\/convert_mul_56ns_lbW.v",
-      "impl\/verilog\/convert_mul_64s_6ocq.v",
-      "impl\/verilog\/convert_mul_170nsibs.v",
-      "impl\/verilog\/convert_mux_42_32bkb.v",
-      "impl\/verilog\/convert_mux_83_1_jbC.v",
-      "impl\/verilog\/convert_mux_164_1pcA.v",
-      "impl\/verilog\/convert_sitodp_32Aem.v",
-      "impl\/verilog\/convert_sitodp_32Bew.v",
-      "impl\/verilog\/scaled_fixed2ieee.v",
-      "impl\/verilog\/sin_or_cos_double_s.v",
-      "impl\/verilog\/sin_or_cos_doublecud.v",
-      "impl\/verilog\/sin_or_cos_doublecud_rom.dat",
-      "impl\/verilog\/sin_or_cos_doubledEe.v",
-      "impl\/verilog\/sin_or_cos_doubledEe_rom.dat",
-      "impl\/verilog\/sin_or_cos_doubleeOg.v",
-      "impl\/verilog\/sin_or_cos_doubleeOg_rom.dat",
-      "impl\/verilog\/sin_or_cos_doublefYi.v",
-      "impl\/verilog\/sin_or_cos_doublefYi_rom.dat",
-      "impl\/verilog\/sin_or_cos_doubleg8j.v",
-      "impl\/verilog\/sin_or_cos_doubleg8j_rom.dat",
-      "impl\/verilog\/sin_or_cos_doublehbi.v",
-      "impl\/verilog\/sin_or_cos_doublehbi_rom.dat",
+      "impl\/verilog\/addsub.v",
+      "impl\/verilog\/addsub_1.v",
+      "impl\/verilog\/addsub_2.v",
+      "impl\/verilog\/atan2_cordic_float_s.v",
+      "impl\/verilog\/atan2_generic_float_s.v",
+      "impl\/verilog\/convert_dadd_64nsudo.v",
+      "impl\/verilog\/convert_ddiv_64nswdI.v",
+      "impl\/verilog\/convert_dmul_64nsvdy.v",
+      "impl\/verilog\/convert_fadd_32nspcA.v",
+      "impl\/verilog\/convert_faddfsub_qcK.v",
+      "impl\/verilog\/convert_fcmp_32nsncg.v",
+      "impl\/verilog\/convert_fdiv_32nskbM.v",
+      "impl\/verilog\/convert_fmul_32nsrcU.v",
+      "impl\/verilog\/convert_fpext_32nocq.v",
+      "impl\/verilog\/convert_fptrunc_6tde.v",
+      "impl\/verilog\/convert_fsub_32nsmb6.v",
+      "impl\/verilog\/convert_mul_80ns_fYi.v",
+      "impl\/verilog\/convert_mul_mul_1ibs.v",
+      "impl\/verilog\/convert_mul_mul_1jbC.v",
+      "impl\/verilog\/convert_mux_83_1_g8j.v",
+      "impl\/verilog\/convert_mux_164_1hbi.v",
+      "impl\/verilog\/convert_sitodp_32xdS.v",
+      "impl\/verilog\/convert_sitofp_32sc4.v",
+      "impl\/verilog\/convert_uitofp_32lbW.v",
+      "impl\/verilog\/doublecordic_apfixed.v",
+      "impl\/verilog\/generic_asin_float_s.v",
+      "impl\/verilog\/sin_or_cos_float_bkb.v",
+      "impl\/verilog\/sin_or_cos_float_bkb_rom.dat",
+      "impl\/verilog\/sin_or_cos_float_cud.v",
+      "impl\/verilog\/sin_or_cos_float_cud_rom.dat",
+      "impl\/verilog\/sin_or_cos_float_dEe.v",
+      "impl\/verilog\/sin_or_cos_float_dEe_rom.dat",
+      "impl\/verilog\/sin_or_cos_float_eOg.v",
+      "impl\/verilog\/sin_or_cos_float_eOg_rom.dat",
+      "impl\/verilog\/sin_or_cos_float_s.v",
       "impl\/verilog\/convert.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
     "Subcore": [
-      "impl\/misc\/convert_ap_dadddsub_3_full_dsp_80_ip.tcl",
-      "impl\/misc\/convert_ap_dcmp_0_no_dsp_64_ip.tcl",
-      "impl\/misc\/convert_ap_dcmp_0_no_dsp_80_ip.tcl",
+      "impl\/misc\/convert_ap_dadd_3_full_dsp_64_ip.tcl",
       "impl\/misc\/convert_ap_ddiv_29_no_dsp_64_ip.tcl",
-      "impl\/misc\/convert_ap_ddiv_29_no_dsp_80_ip.tcl",
-      "impl\/misc\/convert_ap_dmul_4_max_dsp_80_ip.tcl",
-      "impl\/misc\/convert_ap_dsub_3_full_dsp_64_ip.tcl",
-      "impl\/misc\/convert_ap_fpext_0_no_dsp_64_ip.tcl",
-      "impl\/misc\/convert_ap_fptrunc_0_no_dsp_80_ip.tcl",
-      "impl\/misc\/convert_ap_sitodp_4_no_dsp_32_ip.tcl"
+      "impl\/misc\/convert_ap_dmul_4_max_dsp_64_ip.tcl",
+      "impl\/misc\/convert_ap_fadd_3_full_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_faddfsub_3_full_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_fcmp_0_no_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_fdiv_14_no_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_fmul_2_max_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_fpext_0_no_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_fptrunc_0_no_dsp_64_ip.tcl",
+      "impl\/misc\/convert_ap_fsub_3_full_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_sitodp_4_no_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_sitofp_4_no_dsp_32_ip.tcl",
+      "impl\/misc\/convert_ap_uitofp_4_no_dsp_32_ip.tcl"
     ]
   },
   "SubcoreInfo": {
@@ -130,19 +131,9 @@
     "HasClockedDsp": false,
     "IP": [
       {
-        "name": "convert_ap_dadddsub_3_full_dsp_80",
+        "name": "convert_ap_dadd_3_full_dsp_64",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_dadddsub_3_full_dsp_80 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
-      },
-      {
-        "name": "convert_ap_dcmp_0_no_dsp_64",
-        "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name convert_ap_dcmp_0_no_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Custom CONFIG.result_tlast_behv Null"
-      },
-      {
-        "name": "convert_ap_dcmp_0_no_dsp_80",
-        "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name convert_ap_dcmp_0_no_dsp_80 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Custom CONFIG.result_tlast_behv Null"
+        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_dadd_3_full_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
         "name": "convert_ap_ddiv_29_no_dsp_64",
@@ -150,34 +141,64 @@
         "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 29 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_ddiv_29_no_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
-        "name": "convert_ap_ddiv_29_no_dsp_80",
+        "name": "convert_ap_dmul_4_max_dsp_64",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 29 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_ddiv_29_no_dsp_80 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_dmul_4_max_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
-        "name": "convert_ap_dmul_4_max_dsp_80",
+        "name": "convert_ap_fadd_3_full_dsp_32",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_dmul_4_max_dsp_80 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fadd_3_full_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
       },
       {
-        "name": "convert_ap_dsub_3_full_dsp_64",
+        "name": "convert_ap_faddfsub_3_full_dsp_32",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Subtract CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_dsub_3_full_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_faddfsub_3_full_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
       },
       {
-        "name": "convert_ap_fpext_0_no_dsp_64",
+        "name": "convert_ap_fcmp_0_no_dsp_32",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_fpext_0_no_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name convert_ap_fcmp_0_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Custom CONFIG.result_tlast_behv Null"
       },
       {
-        "name": "convert_ap_fptrunc_0_no_dsp_80",
+        "name": "convert_ap_fdiv_14_no_dsp_32",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
-        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fptrunc_0_no_dsp_80 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 14 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fdiv_14_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "convert_ap_fmul_2_max_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fmul_2_max_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "convert_ap_fpext_0_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_fpext_0_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "convert_ap_fptrunc_0_no_dsp_64",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fptrunc_0_no_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "convert_ap_fsub_3_full_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Subtract CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_fsub_3_full_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
       },
       {
         "name": "convert_ap_sitodp_4_no_dsp_32",
         "vlnv": "xilinx.com:ip:floating_point:7.1",
         "params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name convert_ap_sitodp_4_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "convert_ap_sitofp_4_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_sitofp_4_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "convert_ap_uitofp_4_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 64 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name convert_ap_uitofp_4_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
       }
     ]
   },
@@ -232,39 +253,37 @@
     "fov_address0": {
       "type": "data",
       "dir": "out",
-      "width": "23",
+      "width": "21",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "23"
+          "Width": "21"
         }}
     },
     "fov_address1": {
       "type": "data",
       "dir": "out",
-      "width": "23",
+      "width": "21",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "23"
+          "Width": "21"
         }}
     },
     "fov_d0": {
       "type": "data",
       "dir": "out",
-      "width": "80",
+      "width": "32",
       "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "64",
-          "Bits": "80"
+          "Type": "real float",
+          "Width": "32"
         }}
     },
     "fov_d1": {
       "type": "data",
       "dir": "out",
-      "width": "80",
+      "width": "32",
       "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "64",
-          "Bits": "80"
+          "Type": "real float",
+          "Width": "32"
         }}
     },
     "fw": {
@@ -288,19 +307,19 @@
     "hp": {
       "type": "data",
       "dir": "in",
-      "width": "64",
+      "width": "32",
       "ctype": {"DATA": {
           "Type": "real float",
-          "Width": "64"
+          "Width": "32"
         }}
     },
     "ht": {
       "type": "data",
       "dir": "in",
-      "width": "64",
+      "width": "32",
       "ctype": {"DATA": {
           "Type": "real float",
-          "Width": "64"
+          "Width": "32"
         }}
     },
     "option": {
@@ -357,11 +376,11 @@
     },
     "hp": {
       "dir": "in",
-      "width": "64"
+      "width": "32"
     },
     "ht": {
       "dir": "in",
-      "width": "64"
+      "width": "32"
     },
     "fw": {
       "dir": "in",
@@ -385,7 +404,7 @@
     },
     "fov_address0": {
       "dir": "out",
-      "width": "23"
+      "width": "21"
     },
     "fov_ce0": {
       "dir": "out",
@@ -397,11 +416,11 @@
     },
     "fov_d0": {
       "dir": "out",
-      "width": "80"
+      "width": "32"
     },
     "fov_address1": {
       "dir": "out",
-      "width": "23"
+      "width": "21"
     },
     "fov_ce1": {
       "dir": "out",
@@ -413,7 +432,7 @@
     },
     "fov_d1": {
       "dir": "out",
-      "width": "80"
+      "width": "32"
     }
   },
   "CPorts": {
@@ -436,13 +455,13 @@
     "hp": {
       "interfaceRef": "hp",
       "dir": "in",
-      "dataWidth": "64",
+      "dataWidth": "32",
       "handshakeRef": "ap_none"
     },
     "ht": {
       "interfaceRef": "ht",
       "dir": "in",
-      "dataWidth": "64",
+      "dataWidth": "32",
       "handshakeRef": "ap_none"
     },
     "fw": {
@@ -478,17 +497,17 @@
     "fov_d0": {
       "interfaceRef": "fov_d0",
       "dir": "out",
-      "dataWidth": "80",
+      "dataWidth": "32",
       "busTypeRef": "ap_memory",
-      "arraySize": "8000000",
+      "arraySize": "2097152",
       "handshakeRef": "ap_none"
     },
     "fov_d1": {
       "interfaceRef": "fov_d1",
       "dir": "out",
-      "dataWidth": "80",
+      "dataWidth": "32",
       "busTypeRef": "ap_memory",
-      "arraySize": "8000000",
+      "arraySize": "2097152",
       "handshakeRef": "ap_none"
     }
   },
@@ -497,215 +516,728 @@
       "ModuleName": "convert",
       "Instances": [
         {
-          "ModuleName": "atan2_cordic_double_s",
-          "InstanceName": "grp_atan2_cordic_double_s_fu_315",
+          "ModuleName": "generic_asin_float_s",
+          "InstanceName": "grp_generic_asin_float_s_fu_314",
           "Instances": [{
-              "ModuleName": "atan2_generic",
-              "InstanceName": "grp_atan2_generic_fu_171"
+              "ModuleName": "doublecordic_apfixed",
+              "InstanceName": "grp_doublecordic_apfixed_fu_135"
             }]
         },
         {
-          "ModuleName": "sin_or_cos_double_s",
-          "InstanceName": "grp_sin_or_cos_double_s_fu_323",
+          "ModuleName": "atan2_cordic_float_s",
+          "InstanceName": "grp_atan2_cordic_float_s_fu_319",
           "Instances": [{
-              "ModuleName": "scaled_fixed2ieee",
-              "InstanceName": "grp_scaled_fixed2ieee_fu_268"
+              "ModuleName": "atan2_generic_float_s",
+              "InstanceName": "grp_atan2_generic_float_s_fu_169",
+              "Instances": [
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_addsub_1_fu_338"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_1_addsub_1_fu_345"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_2_addsub_1_fu_352"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_3_addsub_1_fu_359"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_4_addsub_1_fu_366"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_5_addsub_1_fu_373"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_6_addsub_1_fu_380"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_7_addsub_1_fu_387"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_8_addsub_1_fu_394"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_9_addsub_1_fu_401"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_s_addsub_1_fu_408"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_10_addsub_1_fu_415"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_11_addsub_1_fu_422"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_12_addsub_1_fu_429"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_13_addsub_1_fu_436"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_14_addsub_1_fu_443"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_15_addsub_1_fu_450"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_16_addsub_1_fu_457"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_17_addsub_1_fu_464"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_18_addsub_1_fu_471"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_19_addsub_1_fu_478"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_20_addsub_1_fu_485"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_21_addsub_1_fu_492"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_22_addsub_1_fu_499"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_23_addsub_1_fu_506"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_24_addsub_1_fu_513"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_25_addsub_1_fu_520"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_26_addsub_1_fu_527"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_27_addsub_1_fu_534"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_28_addsub_1_fu_541"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_29_addsub_1_fu_548"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_30_addsub_1_fu_555"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_31_addsub_1_fu_562"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_32_addsub_1_fu_569"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_33_addsub_1_fu_576"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_34_addsub_1_fu_583"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_35_addsub_1_fu_590"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_36_addsub_1_fu_597"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_37_addsub_1_fu_604"
+                },
+                {
+                  "ModuleName": "addsub_1",
+                  "InstanceName": "op_V_assign_2_0_38_addsub_1_fu_611"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_addsub_fu_618"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_1_addsub_fu_625"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_2_addsub_fu_632"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_3_addsub_fu_639"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_4_addsub_fu_646"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_5_addsub_fu_653"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_6_addsub_fu_660"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_7_addsub_fu_667"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_8_addsub_fu_674"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_9_addsub_fu_681"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_s_addsub_fu_688"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_10_addsub_fu_695"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_11_addsub_fu_702"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_12_addsub_fu_709"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_13_addsub_fu_716"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_14_addsub_fu_723"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_15_addsub_fu_730"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_16_addsub_fu_737"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_17_addsub_fu_744"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_18_addsub_fu_751"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_19_addsub_fu_758"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_20_addsub_fu_765"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_21_addsub_fu_772"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_22_addsub_fu_779"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_23_addsub_fu_786"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_24_addsub_fu_793"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_25_addsub_fu_800"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_26_addsub_fu_807"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_27_addsub_fu_814"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_28_addsub_fu_821"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_29_addsub_fu_828"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_30_addsub_fu_835"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_31_addsub_fu_842"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_32_addsub_fu_849"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_33_addsub_fu_856"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_34_addsub_fu_863"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_35_addsub_fu_870"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_36_addsub_fu_877"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_37_addsub_fu_884"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_38_addsub_fu_891"
+                },
+                {
+                  "ModuleName": "addsub",
+                  "InstanceName": "op_V_assign_3_0_39_addsub_fu_898"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_addsub_2_fu_905"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_1_addsub_2_fu_914"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_2_addsub_2_fu_922"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_3_addsub_2_fu_930"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_4_addsub_2_fu_938"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_5_addsub_2_fu_946"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_6_addsub_2_fu_954"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_7_addsub_2_fu_962"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_8_addsub_2_fu_970"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_9_addsub_2_fu_978"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_s_addsub_2_fu_986"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_10_addsub_2_fu_994"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_11_addsub_2_fu_1002"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_12_addsub_2_fu_1010"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_13_addsub_2_fu_1018"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_14_addsub_2_fu_1026"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_15_addsub_2_fu_1034"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_16_addsub_2_fu_1042"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_17_addsub_2_fu_1050"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_18_addsub_2_fu_1058"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_19_addsub_2_fu_1066"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_20_addsub_2_fu_1074"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_21_addsub_2_fu_1082"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_22_addsub_2_fu_1090"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_23_addsub_2_fu_1098"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_24_addsub_2_fu_1106"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_25_addsub_2_fu_1114"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_26_addsub_2_fu_1122"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_27_addsub_2_fu_1130"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_28_addsub_2_fu_1138"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_29_addsub_2_fu_1146"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_30_addsub_2_fu_1154"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_31_addsub_2_fu_1162"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_32_addsub_2_fu_1170"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_33_addsub_2_fu_1178"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_34_addsub_2_fu_1186"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_35_addsub_2_fu_1194"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_36_addsub_2_fu_1202"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_37_addsub_2_fu_1210"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_38_addsub_2_fu_1218"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_39_addsub_2_fu_1226"
+                },
+                {
+                  "ModuleName": "addsub_2",
+                  "InstanceName": "op_V_assign_4_0_40_addsub_2_fu_1234"
+                }
+              ]
             }]
         },
         {
-          "ModuleName": "sin_or_cos_double_s",
-          "InstanceName": "grp_sin_or_cos_double_s_fu_342",
-          "Instances": [{
-              "ModuleName": "scaled_fixed2ieee",
-              "InstanceName": "grp_scaled_fixed2ieee_fu_268"
-            }]
+          "ModuleName": "sin_or_cos_float_s",
+          "InstanceName": "grp_sin_or_cos_float_s_fu_325"
         },
         {
-          "ModuleName": "sin_or_cos_double_s",
-          "InstanceName": "grp_sin_or_cos_double_s_fu_361",
-          "Instances": [{
-              "ModuleName": "scaled_fixed2ieee",
-              "InstanceName": "grp_scaled_fixed2ieee_fu_268"
-            }]
+          "ModuleName": "sin_or_cos_float_s",
+          "InstanceName": "grp_sin_or_cos_float_s_fu_340"
         },
         {
-          "ModuleName": "sin_or_cos_double_s",
-          "InstanceName": "grp_sin_or_cos_double_s_fu_380",
-          "Instances": [{
-              "ModuleName": "scaled_fixed2ieee",
-              "InstanceName": "grp_scaled_fixed2ieee_fu_268"
-            }]
+          "ModuleName": "sin_or_cos_float_s",
+          "InstanceName": "grp_sin_or_cos_float_s_fu_355"
+        },
+        {
+          "ModuleName": "sin_or_cos_float_s",
+          "InstanceName": "grp_sin_or_cos_float_s_fu_370"
         }
       ]
     },
     "Metrics": {
-      "scaled_fixed2ieee": {
+      "sin_or_cos_float_s": {
         "Latency": {
-          "LatencyBest": "19",
-          "LatencyAvg": "23",
-          "LatencyWorst": "27",
-          "PipelineIIMin": "19",
-          "PipelineIIMax": "27",
-          "PipelineII": "19 ~ 27",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyBest": "15",
+          "LatencyAvg": "15",
+          "LatencyWorst": "15",
+          "PipelineII": "1",
+          "PipelineDepth": "16",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.537"
+          "Estimate": "8.502"
         },
-        "Loops": [
-          {
-            "Name": "Loop 1",
-            "TripCount": "3",
-            "Latency": "9",
-            "PipelineII": "",
-            "PipelineDepth": "3"
-          },
-          {
-            "Name": "Loop 2",
-            "TripCount": "4",
-            "Latency": "4",
-            "PipelineII": "",
-            "PipelineDepth": "1"
-          },
-          {
-            "Name": "Loop 3",
-            "TripCount": "",
-            "LatencyMin": "2",
-            "LatencyMax": "9",
-            "Latency": "2 ~ 9",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          }
-        ],
         "Area": {
-          "FF": "821",
-          "LUT": "1678",
+          "BRAM_18K": "0",
+          "DSP48E": "22",
+          "FF": "2358",
+          "LUT": "3028"
+        }
+      },
+      "addsub_1": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "4.225"
+        },
+        "Area": {
+          "FF": "0",
+          "LUT": "146",
           "BRAM_18K": "0",
           "DSP48E": "0"
         }
       },
-      "sin_or_cos_double_s": {
+      "addsub": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "4.225"
+        },
+        "Area": {
+          "FF": "0",
+          "LUT": "146",
+          "BRAM_18K": "0",
+          "DSP48E": "0"
+        }
+      },
+      "addsub_2": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "4.364"
+        },
+        "Area": {
+          "FF": "0",
+          "LUT": "137",
+          "BRAM_18K": "0",
+          "DSP48E": "0"
+        }
+      },
+      "atan2_generic_float_s": {
         "Latency": {
           "LatencyBest": "43",
-          "LatencyAvg": "47",
-          "LatencyWorst": "51",
-          "PipelineIIMin": "43",
-          "PipelineIIMax": "51",
-          "PipelineII": "43 ~ 51",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyAvg": "43",
+          "LatencyWorst": "43",
+          "PipelineII": "1",
+          "PipelineDepth": "44",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.625"
+          "Estimate": "8.727"
         },
         "Area": {
-          "BRAM_18K": "8",
-          "DSP48E": "86",
-          "FF": "4918",
-          "LUT": "6751"
-        }
-      },
-      "atan2_generic": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "143",
-          "LatencyWorst": "271",
-          "PipelineIIMin": "1",
-          "PipelineIIMax": "271",
-          "PipelineII": "1 ~ 271",
-          "PipelineDepth": "",
-          "PipelineType": "none"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "8.621"
-        },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "88",
-            "Latency": "264",
-            "PipelineII": "",
-            "PipelineDepth": "3"
-          }],
-        "Area": {
-          "BRAM_18K": "4",
+          "BRAM_18K": "0",
           "DSP48E": "0",
-          "FF": "4925",
-          "LUT": "8041"
+          "FF": "10380",
+          "LUT": "21635"
         }
       },
-      "atan2_cordic_double_s": {
+      "atan2_cordic_float_s": {
         "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "12",
-          "LatencyWorst": "284",
-          "PipelineIIMin": "1",
-          "PipelineIIMax": "284",
-          "PipelineII": "1 ~ 284",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyBest": "56",
+          "LatencyAvg": "56",
+          "LatencyWorst": "56",
+          "PipelineII": "1",
+          "PipelineDepth": "57",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.750"
+          "Estimate": "8.727"
         },
         "Area": {
-          "BRAM_18K": "4",
-          "DSP48E": "3",
-          "FF": "6130",
-          "LUT": "10373"
+          "BRAM_18K": "0",
+          "DSP48E": "4",
+          "FF": "17268",
+          "LUT": "24013"
+        }
+      },
+      "doublecordic_apfixed": {
+        "Latency": {
+          "LatencyBest": "52",
+          "LatencyAvg": "52",
+          "LatencyWorst": "52",
+          "PipelineII": "1",
+          "PipelineDepth": "53",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.523"
+        },
+        "Area": {
+          "BRAM_18K": "2",
+          "FF": "13605",
+          "LUT": "33322",
+          "DSP48E": "0"
+        }
+      },
+      "generic_asin_float_s": {
+        "Latency": {
+          "LatencyBest": "65",
+          "LatencyAvg": "65",
+          "LatencyWorst": "65",
+          "PipelineII": "1",
+          "PipelineDepth": "66",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.526"
+        },
+        "Area": {
+          "BRAM_18K": "2",
+          "DSP48E": "0",
+          "FF": "17425",
+          "LUT": "36345"
         }
       },
       "convert": {
         "Latency": {
-          "LatencyBest": "82",
-          "LatencyAvg": "672536",
-          "LatencyWorst": "5654990",
-          "PipelineIIMin": "83",
-          "PipelineIIMax": "5654991",
-          "PipelineII": "83 ~ 5654991",
+          "LatencyBest": "5243131",
+          "LatencyAvg": "5243131",
+          "LatencyWorst": "5243131",
+          "PipelineII": "5243132",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "9.293"
+          "Estimate": "9.873"
         },
         "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "",
-            "LatencyMin": "0",
-            "LatencyMax": "5654900",
-            "Latency": "0 ~ 5654900",
-            "PipelineII": "",
-            "PipelineDepthMin": "49",
-            "PipelineDepthMax": "56549",
-            "PipelineDepth": "49 ~ 56549",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "",
-                "LatencyMin": "0",
-                "LatencyMax": "56500",
-                "Latency": "0 ~ 56500",
-                "PipelineII": "",
-                "PipelineDepthMin": "249",
-                "PipelineDepthMax": "565",
-                "PipelineDepth": "249 ~ 565"
-              }]
+            "TripCount": "1048576",
+            "Latency": "5243075",
+            "PipelineII": "5",
+            "PipelineDepth": "201"
           }],
         "Area": {
-          "BRAM_18K": "36",
-          "DSP48E": "397",
-          "FF": "46648",
-          "LUT": "65627"
+          "BRAM_18K": "6",
+          "DSP48E": "142",
+          "FF": "65493",
+          "LUT": "93117"
         }
       }
     }
@@ -717,7 +1249,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-07-15 14:58:03 EDT",
+    "Time": "2018-07-16 18:54:17 EDT",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

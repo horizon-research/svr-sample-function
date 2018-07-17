@@ -49,7 +49,7 @@ set DataType12 "int"
 set Port12 [list $PortName12 $Interface12 $DataType12 $Pointer12 $Dims12 $Const12 $Volatile12 $ArrayOpt12 $Initializer12 $External12 $NameSpace12]
 lappend globalVariable $Port12
 set PortName13 "PI"
-set BitWidth13 "128"
+set BitWidth13 "32"
 set ArrayOpt13 ""
 set Const13 "0"
 set Volatile13 "0"
@@ -60,7 +60,7 @@ set External13 0
 set Dims13 [list 0]
 set Interface13 "wire"
 set NameSpace13 [list ]
-set DataType13 "long double"
+set DataType13 "float"
 set Port13 [list $PortName13 $Interface13 $DataType13 $Pointer13 $Dims13 $Const13 $Volatile13 $ArrayOpt13 $Initializer13 $External13 $NameSpace13]
 lappend globalVariable $Port13
 set PortList ""
@@ -89,7 +89,7 @@ set DataType1 "int"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
 set PortName2 "hp"
-set BitWidth2 "64"
+set BitWidth2 "32"
 set ArrayOpt2 ""
 set Const2 "0"
 set Volatile2 "0"
@@ -97,11 +97,11 @@ set Pointer2 "0"
 set Reference2 "0"
 set Dims2 [list 0]
 set Interface2 "wire"
-set DataType2 "double"
+set DataType2 "float"
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
 lappend PortList $Port2
 set PortName3 "ht"
-set BitWidth3 "64"
+set BitWidth3 "32"
 set ArrayOpt3 ""
 set Const3 "0"
 set Volatile3 "0"
@@ -109,7 +109,7 @@ set Pointer3 "0"
 set Reference3 "0"
 set Dims3 [list 0]
 set Interface3 "wire"
-set DataType3 "double"
+set DataType3 "float"
 set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3]
 lappend PortList $Port3
 set PortName4 "fw"
@@ -179,9 +179,9 @@ set Const9 "0"
 set Volatile9 "0"
 set Pointer9 "0"
 set Reference9 "0"
-set Dims9 [list 2000 2000 2]
+set Dims9 [list 1024 1024 2]
 set Interface9 "wire"
-set DataType9 "long double"
+set DataType9 "float"
 set Port9 [list $PortName9 $Interface9 $DataType9 $Pointer9 $Dims9 $Const9 $Volatile9 $ArrayOpt9]
 lappend PortList $Port9
 set globalAPint "" 

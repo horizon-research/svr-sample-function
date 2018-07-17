@@ -1,21 +1,21 @@
 #include "samplefunction.h"
 
 
-long double PI = 3.14159265358979323846;
+float PI = 3.14159;
 
 int w ,h;
 
 double tileSize;
 
-double toRadian(double a){
+float toRadian(float a){
     return a / 180.0 * PI;
 }
 
-void spherical2cartesian(long double the, long double phi,long double result [3]){
+void spherical2cartesian(float the, float phi,float result [3]){
 
-    long double x = sin(phi)*cos(the);
-    long double y = sin(phi)*sin(the);
-    long double z = cos(phi);
+    float x = hls::sinf(phi)*hls::cosf(the);
+    float y = hls::sinf(phi)*hls::sinf(the);
+    float z = hls::cosf(phi);
 
     result[0] = x;
     result[1] = y;
@@ -23,12 +23,13 @@ void spherical2cartesian(long double the, long double phi,long double result [3]
 
 }
 
-void spherical2coordinates(long double the, long double phi,long double result [2]){
+void spherical2coordinates(float the, float phi,float result [2]){
 
-    long double i,j;
+    float i ,j;
+
 
     if(the > PI){
-        i = (the - PI) /2/PI *w;
+        i = (the - PI)/2/PI *w;
     }
     else{
         i = (PI + the)/2/PI * w;
@@ -41,41 +42,42 @@ void spherical2coordinates(long double the, long double phi,long double result [
 
 }
 
-void cartesian2coordinates(long double x, long double y, long double z,long double result [2]){
+void cartesian2coordinates(float x, float y, float z,float result [2]){
 
-    long double the;
+    float the;
 
     if(x != 0) {
-        the = atan2(y,x);
+        the = hls::atan2f(y,x);
 
     } else {
-        the = toRadian(90);
+        the = 1.5708;
     }
 
-    long double phi = acos(z);
+    float phi = hls::acosf(z);
+
     spherical2coordinates(the,phi,result);
 }
 
-void matrixMultiplication(long double vector[3], long double matrix[3][3], long double result[3]) {
-
+void matrixMultiplication(float vector[3], float matrix[3][3], float result[3]) {
 
 	result[0] = matrix[0][0] * vector[0] + matrix[0][1] * vector[1] + matrix[0][2] * vector[2];
 	result[1] = matrix[1][0] * vector[0] + matrix[1][1] * vector[1] + matrix[1][2] * vector[2];
-	result[0] = matrix[2][0] * vector[0] + matrix[2][1] * vector[1] + matrix[2][2] * vector[2];
+	result[2] = matrix[2][0] * vector[0] + matrix[2][1] * vector[1] + matrix[2][2] * vector[2];
 
 }
 
-void findPixel(int index, long double x,long double y,long double result [2]) {
+void findPixel(int index, float x,float y,float result [2]) {
 
     int vertical;
+
     if (index > 2) {
         vertical = 1;
+    }else{
+    	vertical = 0;
     }
-    else {
-        vertical = 0;
-    }
-    long double n = (tileSize * (index%3))  + y * tileSize -1;
-    long double m = (tileSize * vertical) + x * tileSize -1;
+
+    float n = (tileSize * (index%3))  + y * tileSize -1;
+    float m = (tileSize * vertical) + x * tileSize -1;
 
     result [0] = n;
     result [1] = m;
@@ -83,19 +85,20 @@ void findPixel(int index, long double x,long double y,long double result [2]) {
 }
 
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
-void convert_xyz_to_cube_uv(long double x, long double y, long double z,long double result [2]) {
+void convert_xyz_to_cube_uv(float x, float y, float z,float result [2]) {
 
-    long double absX = fabs(x);
-    long double absY = fabs(y);
-    long double absZ = fabs(z);
+    float absX = fabs(x);
+    float absY = fabs(y);
+    float absZ = fabs(z);
 
     int isXPositive = x > 0 ? 1 : 0;
     int isYPositive = y > 0 ? 1 : 0;
     int isZPositive = z > 0 ? 1 : 0;
 
-    long double maxAxis, uc, vc;
-    long double u,v;
+    float maxAxis, uc, vc;
+    float u,v;
     int index;
+
     // POSITIVE X
     if (isXPositive && absX >= absY && absX >= absZ) {
         // u (0 to 1) goes from +z to -z
@@ -162,51 +165,54 @@ void convert_xyz_to_cube_uv(long double x, long double y, long double z,long dou
     findPixel(index, u, (1-v),result);
 }
 
-void convert(int width,int height,double hp,double ht,int fw,int fh, int fovX,int fovY,int option,long double fov[2000][2000][2]) {
+void convert(int width,int height,float hp,float ht,int fw,int fh, int fovX,int fovY,int option,float fov[1024][1024][2]) {
 
 	w = width;
 	h = height;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-    long double htr = toRadian(ht);
-    long double hpr = toRadian(hp);
+    float htr = toRadian(ht);
+    float hpr = toRadian(hp);
     tileSize = w/3.0;
 
 	//rotation matrices
-    long double rot_y [3][3] = {
-        {cos(hpr), 0, -sin(hpr)},
+    float rot_y [3][3] = {
+        {hls::cosf(hpr), 0, -hls::sinf(hpr)},
         {0, 1, 0},
-        {sin(hpr), 0, cos(hpr)}
+        {hls::sinf(hpr), 0, hls::cosf(hpr)}
     };
 
-    long double rot_z [3][3] = {
-        {cos(htr), sin(htr), 0},
-        {-sin(htr), cos(htr), 0},
+    float rot_z [3][3] = {
+        {hls::cosf(htr), hls::sinf(htr), 0},
+        {-hls::sinf(htr), hls::cosf(htr), 0},
         {0, 0, 1}
     };
 
-    int a = 0,b = 0;
+    float i = 45.0, j = -30.0;
 
-    for (long double i = 90  - fovY/2.0; i < 90 + fovY/2.0; i+= fovY*1.0/fh,b++) {
-#pragma HLS LOOP_TRIPCOUNT min=0 max=100
-    		for (long double j = -fovX/2.0; j < fovX/2.0; j+= fovX*1.0/fw,a++) {
-#pragma HLS LOOP_TRIPCOUNT min=0 max=100
+	float p1[] = {0.0, 0.0, 0.0};
+	float p2[] = {0.0, 0.0, 0.0};
+	float p3[] = {0.0, 0.0, 0.0};
+	float res[] = {0.0, 0.0};
+
+    for (int a = 0; a < 1024; a++) {
+	//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
+    	    for (int b = 0; b < 1024; b++) {
+			//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
+			#pragma HLS PIPELINE
 
     			//rotation along y axis
-    			long double p2[] = {0.0, 0.0, 0.0};
-    			long double p1[] = {0.0, 0.0, 0.0};
+
     			spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i),p1);
+
     			matrixMultiplication(p1,rot_y, p2);
 
     			//rotate along z axis
-    			long double p3[] = {0.0, 0.0, 0.0};
 
     			matrixMultiplication(p2, rot_z, p3);
 
-				long double res[] = {0.0, 0.0};
 				if (option == 0) {
-
 				  // convert 3D Cartesian to 2d coordinates
 				  cartesian2coordinates(p3[0], p3[1], p3[2],res);
 				}
@@ -217,9 +223,11 @@ void convert(int width,int height,double hp,double ht,int fw,int fh, int fovX,in
 				}
 				fov[a][b][0] = res[0];
 				fov[a][b][1] = res[1];
-    		}
-    		a = 0;
 
+	    		j+= 60.0/1024.0;
+
+    		}
+    		i+= 90.0/1024.0;
     }
 }
 

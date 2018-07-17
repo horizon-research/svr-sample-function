@@ -1,6 +1,6 @@
 #include "samplefunction.h"
 
-int main( ) {
+int main() {
 
     int option = 1;
 
@@ -15,9 +15,9 @@ int main( ) {
 
 	//parameters for FoV
     double hp = 0, ht = 0;
-    int fovX = 60,fovY = 90,fw = width/6.0 ,fh = height/4.0;
+    int fovX = 60,fovY = 90,fw = width/6.0 ,fh = height/4.0;//1024 1024
 
-    static long double coordinates [2000][2000][2];
+    static float coordinates [1024][1024][2];
 
     convert(width,height,hp,ht,fw,fh,fovX,fovY,option,coordinates);
 

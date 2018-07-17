@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'convert'" level="0">
-<item name = "Date">Sun Jul 15 14:57:56 2018
+<item name = "Date">Mon Jul 16 18:53:57 2018
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">svr-vivado-hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 9.293, 1.25</column>
+<column name="ap_clk">10.00, 9.873, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,24 +24,24 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">82, 5654990, 82, 5654990, none</column>
+<column name="">5243131, 5243131, 5243131, 5243131, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_atan2_cordic_double_s_fu_315">atan2_cordic_double_s, 1, 284, 1, 284, none</column>
-<column name="grp_sin_or_cos_double_s_fu_323">sin_or_cos_double_s, 43, 51, 43, 51, none</column>
-<column name="grp_sin_or_cos_double_s_fu_342">sin_or_cos_double_s, 43, 51, 43, 51, none</column>
-<column name="grp_sin_or_cos_double_s_fu_361">sin_or_cos_double_s, 43, 51, 43, 51, none</column>
-<column name="grp_sin_or_cos_double_s_fu_380">sin_or_cos_double_s, 43, 51, 43, 51, none</column>
+<column name="grp_generic_asin_float_s_fu_314">generic_asin_float_s, 65, 65, 1, 1, function</column>
+<column name="grp_atan2_cordic_float_s_fu_319">atan2_cordic_float_s, 56, 56, 1, 1, function</column>
+<column name="grp_sin_or_cos_float_s_fu_325">sin_or_cos_float_s, 15, 15, 1, 1, function</column>
+<column name="grp_sin_or_cos_float_s_fu_340">sin_or_cos_float_s, 15, 15, 1, 1, function</column>
+<column name="grp_sin_or_cos_float_s_fu_355">sin_or_cos_float_s, 15, 15, 1, 1, function</column>
+<column name="grp_sin_or_cos_float_s_fu_370">sin_or_cos_float_s, 15, 15, 1, 1, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">0, 5654900, 49 ~ 56549, -, -, 0 ~ 100, no</column>
-<column name=" + Loop 1.1">0, 56500, 249 ~ 565, -, -, 0 ~ 100, no</column>
+<column name="- Loop 1">5243075, 5243075, 201, 5, 1, 1048576, yes</column>
 </table>
 </item>
 </section>
