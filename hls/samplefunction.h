@@ -17,7 +17,7 @@ extern void crt (
 	int fovX,
 	int fovY,
 	int option,
-	float fov[1024][1024][2]
+	int fov[1024][1024][2]
 );
 
 extern fp toRadian(fp a);

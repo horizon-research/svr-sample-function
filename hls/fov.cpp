@@ -18,7 +18,7 @@ int main() {
 
     int fovX = 60,fovY = 90,fw = width/6.0 ,fh = height/4.0;//1024 1024
 
-    static float coordinates [1024][1024][2];
+    static int coordinates [1024][1024][2];
 
     crt(width,height,hp,ht,fw,fh,fovX,fovY,option,coordinates);
 

@@ -207,7 +207,7 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
     findPixel(index, u, (one - v),result);
 }
 
-void crt(int width,int height,fp hp,fp ht,int fw,int fh, int fovX,int fovY,int option,float fov[1024][1024][2]) {
+void crt(int width,int height,fp hp,fp ht,int fw,int fh, int fovX,int fovY,int option,int fov[1024][1024][2]) {
 
 	w = width;
 	h = height;
@@ -281,8 +281,8 @@ void crt(int width,int height,fp hp,fp ht,int fw,int fh, int fovX,int fovY,int o
 				  convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],res);
 
 				}
-				fov[a][b][0] = res[0];
-				fov[a][b][1] = res[1];
+				fov[a][b][0] = nearbyint(res[0]);
+				fov[a][b][1] = nearbyint(res[1]);
 
 	    		j+= jincrement;
 
