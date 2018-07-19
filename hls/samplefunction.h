@@ -1,18 +1,17 @@
 #ifndef SAMPLEFUNCTION_H
 #define SAMPLEFUNCTION_H
 
-#include <cmath>
 #include <hls_math.h>
 #include <ap_fixed.h>
 
-typedef ap_fixed<29,3> degree;
+typedef ap_fixed<11,5> fp;
 
-extern void convert (
+extern void crt (
 
 	int width,
 	int height,
-	float hp,
-	float ht,
+	fp hp,
+	fp ht,
 	int fw,
 	int fh,
 	int fovX,
@@ -21,54 +20,85 @@ extern void convert (
 	float fov[1024][1024][2]
 );
 
-extern float toRadian(degree a);
+extern fp toRadian(fp a);
+
+extern fp absVal(fp num);
+
+extern void calSin(
+
+	fp angle,
+	fp output
+
+);
+
+extern void calCos(
+
+	fp angle,
+	fp output
+
+);
+
+extern void calAtan2(
+
+	fp angle1,
+	fp angle2,
+	fp output
+
+);
+
+extern void calAcos(
+
+	fp angle,
+	fp output
+
+);
 
 extern void spherical2cartesian(
 
-	float the,
-	float phi,
-	float result [3]
+	fp the,
+	fp phi,
+	fp result [3]
 );
 
 extern void spherical2coordinates(
 
-	float the,
-	float phi,
-	float result [2]
+	fp the,
+	fp phi,
+	fp result [2]
 );
 
 extern void cartesian2coordinates(
 
-	float x,
-	float y,
-	float z,
-	float result [2]
+	fp x,
+	fp y,
+	fp z,
+	fp result [2]
 
 );
 
 extern void matrixMultiplication(
 
-	float vector[3],
-	float matrix[3][3],
-	float result[3]
+	fp vector[3],
+	fp matrix[3][3],
+	fp result[3]
 
 );
 
 extern void findPixel(
 
 	int index,
-	float x,
-	float y,
-	float result [2]
+	fp x,
+	fp y,
+	fp result [2]
 
 );
 
 extern void convert_xyz_to_cube_uv(
 
-	float x,
-	float y,
-	float z,
-	float result [2]
+	fp x,
+	fp y,
+	fp z,
+	fp result [2]
 
 );
 
