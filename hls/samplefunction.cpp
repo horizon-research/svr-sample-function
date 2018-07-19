@@ -199,8 +199,8 @@ void convert(int width,int height,float hp,float ht,int fw,int fh, int fovX,int 
     float p2[] = {0.0, 0.0, 0.0};
     float p3[] = {0.0, 0.0, 0.0};
     float res[] = {0.0, 0.0};
-    ap_fixed<3,1> pi2 = 360;
-    ap_fixed<3,1> pihalf = 180;
+    ap_fixed<5,1> pi2 = 360;
+    ap_fixed<5,1> pihalf = 180;
     for (int a = 0; a < 1024; a++) {
             for (int b = 0; b < 1024; b++) {
             #pragma HLS PIPELINE

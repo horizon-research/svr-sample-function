@@ -1,10 +1,11 @@
 #ifndef SAMPLEFUNCTION_H
 #define SAMPLEFUNCTION_H
 
+#include <cmath>
 #include <hls_math.h>
 #include <ap_fixed.h>
 
-typedef ap_fixed<3,29> degree;
+typedef ap_fixed<29,3> degree;
 
 extern void convert (
 
