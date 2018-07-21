@@ -207,8 +207,9 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
     findPixel(index, u, (one - v),result);
 }
 
-void crt(int width,int height,fp hp,fp ht,int fw,int fh, int fovX,int fovY,int option,int fov[1024][1024][2]) {
-
+void crt(int width,int height,fp hp,fp ht,int option,int fov[1024][1024][2] ) {
+#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
+#pragma HLS INTERFACE ap_fifo port=fov
 	w = width;
 	h = height;
 
