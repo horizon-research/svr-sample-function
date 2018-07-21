@@ -1,6 +1,13 @@
+
+
 #include "samplefunction.h"
 
-int main() {
+int main()
+  {
+
+	//parameters for FoV
+	fp hp = 0.0;
+    fp ht = 0.0;
 
 	int option = 1;
 
@@ -13,14 +20,20 @@ int main() {
 	int width = 6144;
 	int height = 4096;
 
-	//parameters for FoV
-    fp hp = 0, ht = 0;
 
-    int fovX = 60,fovY = 90,fw = width/6.0 ,fh = height/4.0;//1024 1024
+//
+//    int fovX = 60,fovY = 90,fw = width/6.0 ,fh = height/4.0;//1024 1024
+//
+    static int pixels[1024][1024][2];
 
-    int coordinates [1024][1024][2];
+//    for(int i = 0; i < 1024;i++){
+//    	for(int j = 0; j < 1024;j++){
+//    		pixels[i][j][0] = 0;
+//    		pixels[i][j][1] = 0;
+//    	}
+//    }
 
-    crt(width,height,hp,ht,fw,fh,fovX,fovY,option,coordinates);
+    crt(width,height,hp,ht,option,pixels);
 
 	//initialize fov image
     //hls::Mat fov(fh, fw, CV_8UC3, hls::Scalar(0, 0, 0));
@@ -31,4 +44,4 @@ int main() {
 //    cvSaveImage(OUTPUT_IMAGE, dst);
 //    cvReleaseImage(&fov);
     return 0;
-}
+  }

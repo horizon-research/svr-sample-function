@@ -1,9 +1,8 @@
 #include "samplefunction.h"
 
-
 fp PI = 3.14159;
 
-int w ,h;
+fp w ,h;
 
 fp tileSize;
 
@@ -12,39 +11,18 @@ fp toRadian(fp a){
     return a * PI / pi;
 }
 
-void calSin(fp angle, fp output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::sinf(temp);
-}
-
-void calCos(fp angle, fp output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::cosf(temp);
-}
-
-void calAtan2(fp angle1,fp angle2, fp output){
-
-	ap_fixed<32,5> temp1 = angle1;
-	ap_fixed<32,5> temp2 = angle2;
-	output = hls::atan2f(temp1,temp2);
-
-}
-
-void calAcos(fp angle, fp output){
-
-    ap_fixed<32,5> temp = angle;
-    output = hls::acosf(temp);
-
+int nearestNeighbor(fp num){
+	fp half = 0.5;
+	int res = (int)((num + half).to_float());
+	return res;
 }
 
 void spherical2cartesian(fp the, fp phi,fp result [3]){
 	fp sphi,cphi,sthe,cthe;
-	calSin(phi,sphi);
-	calCos(phi,cphi);
-	calSin(the,sthe);
-	calCos(the,cthe);
+	sphi = sinf(phi);
+	cphi = cosf(phi);
+	sthe = sinf(the);
+	cthe = cosf(the);
 
     fp x = sphi*cthe;
     fp y = sphi*sthe;
@@ -80,13 +58,13 @@ void cartesian2coordinates(fp x, fp y, fp z,fp result [2]){
     fp the,phi;
 
     if(x != 0) {
-       calAtan2(y,x,the);
+       the = atan2f(y,x);
 
     } else {
-        the = 1.5708;
+        the = 1.5708f;
     }
 
-    calAcos(z,phi);
+    phi =  acosf(z);
 
     spherical2coordinates(the,phi,result);
 }
@@ -135,7 +113,7 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
     int isYPositive = y > 0 ? 1 : 0;
     int isZPositive = z > 0 ? 1 : 0;
 
-    ap_fixed<5,10> maxAxis = 0, uc = 0, vc = 0;
+    fp maxAxis = 0, uc = 0, vc = 0;
     fp u,v;
     int index;
 
@@ -207,9 +185,11 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
     findPixel(index, u, (one - v),result);
 }
 
-void crt(int width,int height,fp hp,fp ht,int option,int fov[1024][1024][2] ) {
-#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
-#pragma HLS INTERFACE ap_fifo port=fov
+void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
+
+	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
+	#pragma HLS INTERFACE ap_fifo port=fov
+
 	w = width;
 	h = height;
 
@@ -221,11 +201,10 @@ void crt(int width,int height,fp hp,fp ht,int option,int fov[1024][1024][2] ) {
     tileSize = w/three;
 
     fp str,ctr,cpr,spr;
-
-    calCos(htr,ctr);
-    calCos(hpr,cpr);
-    calSin(htr,str);
-    calSin(hpr,spr);
+    ctr = cosf(htr);
+    str = sinf(htr);
+    cpr = cosf(hpr);
+    spr = sinf(hpr);
 
 	//rotation matrices
     fp rot_y [3][3] = {
@@ -282,8 +261,9 @@ void crt(int width,int height,fp hp,fp ht,int option,int fov[1024][1024][2] ) {
 				  convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],res);
 
 				}
-				fov[a][b][0] = nearbyint(res[0]);
-				fov[a][b][1] = nearbyint(res[1]);
+
+				fov[a][b][0] = nearestNeighbor(res[0]);
+				fov[a][b][1] = nearestNeighbor(res[1]);
 
 	    		j+= jincrement;
 
@@ -291,4 +271,6 @@ void crt(int width,int height,fp hp,fp ht,int option,int fov[1024][1024][2] ) {
     		i+= iincrement;
     }
 }
+
+
 

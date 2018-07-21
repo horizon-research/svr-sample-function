@@ -1,73 +1,41 @@
-#ifndef SAMPLEFUNCTION_H
-#define SAMPLEFUNCTION_H
+#ifndef _SAMPLEFUNCTION_H_
+#define _SAMPLEFUNCTION_H_
 
-#include <hls_math.h>
-#include <ap_fixed.h>
+#include <cmath>
+#include "ap_fixed.h"
 
-typedef ap_fixed<11,5> fp;
+typedef ap_fixed<32, 5, AP_RND, AP_WRAP> fp;
 
-extern void crt (
-
+void crt(
 	int width,
 	int height,
 	fp hp,
 	fp ht,
-	int fw,
-	int fh,
-	int fovX,
-	int fovY,
 	int option,
 	int fov[1024][1024][2]
 );
 
-extern fp toRadian(fp a);
+int nearestNeighbor(fp num);
 
-extern fp absVal(fp num);
+fp toRadian(fp a);
 
-extern void calSin(
+fp absVal(fp num);
 
-	fp angle,
-	fp output
-
-);
-
-extern void calCos(
-
-	fp angle,
-	fp output
-
-);
-
-extern void calAtan2(
-
-	fp angle1,
-	fp angle2,
-	fp output
-
-);
-
-extern void calAcos(
-
-	fp angle,
-	fp output
-
-);
-
-extern void spherical2cartesian(
+void spherical2cartesian(
 
 	fp the,
 	fp phi,
 	fp result [3]
 );
 
-extern void spherical2coordinates(
+void spherical2coordinates(
 
 	fp the,
 	fp phi,
 	fp result [2]
 );
 
-extern void cartesian2coordinates(
+void cartesian2coordinates(
 
 	fp x,
 	fp y,
@@ -76,7 +44,7 @@ extern void cartesian2coordinates(
 
 );
 
-extern void matrixMultiplication(
+void matrixMultiplication(
 
 	fp vector[3],
 	fp matrix[3][3],
@@ -84,7 +52,7 @@ extern void matrixMultiplication(
 
 );
 
-extern void findPixel(
+void findPixel(
 
 	int index,
 	fp x,
@@ -93,7 +61,7 @@ extern void findPixel(
 
 );
 
-extern void convert_xyz_to_cube_uv(
+void convert_xyz_to_cube_uv(
 
 	fp x,
 	fp y,
@@ -101,5 +69,6 @@ extern void convert_xyz_to_cube_uv(
 	fp result [2]
 
 );
+
 
 #endif
