@@ -3,17 +3,12 @@
 
 #include <cmath>
 #include "ap_fixed.h"
-#include  "hls_video.h"
 
 typedef ap_fixed<32, 5, AP_RND, AP_WRAP> fp;
-typedef hls::stream<ap_axiu<32,1,1,1> > AXI_STREAM;
-
-#define WIDTH fp(6144)
-#define HEIGHT fp(4096)
-#define TILESIZE fp(2048)
-#define PI fp(3.14159)
 
 void crt(
+	int width,
+	int height,
 	fp hp,
 	fp ht,
 	int option,

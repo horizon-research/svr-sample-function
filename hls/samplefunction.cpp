@@ -1,5 +1,11 @@
 #include "samplefunction.h"
 
+fp PI = 3.14159;
+
+fp w ,h;
+
+fp tileSize;
+
 fp toRadian(fp a){
 	fp pi = 180.0;
     return a * PI / pi;
@@ -34,13 +40,13 @@ void spherical2coordinates(fp the, fp phi,fp result [2]){
 
 
     if(the > PI){
-        i = (the - PI)/2/PI * WIDTH;
+        i = (the - PI)/2/PI *w;
     }
     else{
-        i = (PI + the)/2/PI * WIDTH;
+        i = (PI + the)/2/PI * w;
     }
 
-    j = phi /  PI * HEIGHT;
+    j = phi /  PI * h;
 
     result [0] = i;
     result [1] = j;
@@ -81,8 +87,8 @@ void findPixel(int index, fp x,fp y,fp result [2]) {
     	vertical = 0;
     }
 
-    fp n = (TILESIZE * (index%3))  + y * TILESIZE -1;
-    fp m = (TILESIZE * vertical) + x * TILESIZE -1;
+    fp n = (tileSize * (index%3))  + y * tileSize -1;
+    fp m = (tileSize * vertical) + x * tileSize -1;
 
     result [0] = n;
     result [1] = m;
@@ -179,16 +185,20 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
     findPixel(index, u, (one - v),result);
 }
 
-void crt(fp hp, fp ht,int option,int fov[1024][1024][2]) {
+void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 
 	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
 	#pragma HLS INTERFACE ap_fifo port=fov
+
+	w = width;
+	h = height;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
     fp htr = toRadian(ht);
     fp hpr = toRadian(hp);
     fp three = 3.0;
+    tileSize = w/three;
 
     fp str,ctr,cpr,spr;
     ctr = cosf(htr);
