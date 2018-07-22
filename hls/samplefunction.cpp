@@ -7,8 +7,8 @@ fp w ,h;
 fp tileSize;
 
 fp toRadian(fp a){
-	fp pi = 180.0;
-    return a * PI / pi;
+	fp pi = 0.005556;
+    return a * PI * pi;
 }
 
 int nearestNeighbor(fp num){
@@ -18,11 +18,13 @@ int nearestNeighbor(fp num){
 }
 
 void spherical2cartesian(fp the, fp phi,fp result [3]){
+
 	fp sphi,cphi,sthe,cthe;
-	sphi = sinf(phi);
-	cphi = cosf(phi);
-	sthe = sinf(the);
-	cthe = cosf(the);
+
+	sphi = hls::sinf(phi);
+	cphi = hls::cosf(phi);
+	sthe = hls::sinf(the);
+	cthe = hls::cosf(the);
 
     fp x = sphi*cthe;
     fp y = sphi*sthe;
@@ -58,13 +60,13 @@ void cartesian2coordinates(fp x, fp y, fp z,fp result [2]){
     fp the,phi;
 
     if(x != 0) {
-       the = atan2f(y,x);
+       the = hls::atan2f(y,x);
 
     } else {
         the = 1.5708f;
     }
 
-    phi =  acosf(z);
+    phi =  hls::acosf(z);
 
     spherical2coordinates(the,phi,result);
 }
@@ -195,16 +197,18 @@ void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
+
     fp htr = toRadian(ht);
     fp hpr = toRadian(hp);
     fp three = 3.0;
     tileSize = w/three;
 
     fp str,ctr,cpr,spr;
-    ctr = cosf(htr);
-    str = sinf(htr);
-    cpr = cosf(hpr);
-    spr = sinf(hpr);
+
+    ctr = hls::cosf(htr);
+    str = hls::sinf(htr);
+    cpr = hls::cosf(hpr);
+    spr = hls::sinf(hpr);
 
 	//rotation matrices
     fp rot_y [3][3] = {
@@ -229,6 +233,7 @@ void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 	fp iincrement = 0.08789;
 	fp pi_2 = 360;
 	fp pi_half = 180.0;
+
     for (int a = 0; a < 1024; a++) {
 	//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
     	    for (int b = 0; b < 1024; b++) {

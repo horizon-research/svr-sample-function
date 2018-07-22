@@ -3,8 +3,9 @@
 
 #include <cmath>
 #include "ap_fixed.h"
+#include "hls_math.h"
 
-typedef ap_fixed<32, 5, AP_RND, AP_WRAP> fp;
+typedef ap_fixed<24, 5> fp;
 
 void crt(
 	int width,
