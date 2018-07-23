@@ -1,10 +1,10 @@
 #include "samplefunction.h"
 
-fp PI = 3.14159;
+static fp PI = 3.14159;
 
-fp w ,h;
+static fp w ,h;
 
-fp tileSize;
+static fp tileSize;
 
 fp toRadian(fp a){
 	fp pi = 0.005556;
@@ -12,8 +12,11 @@ fp toRadian(fp a){
 }
 
 int nearestNeighbor(fp num){
+
 	fp half = 0.5;
-	int res = (int)((num + half).to_float());
+
+	int res = (int)((num + half));
+
 	return res;
 }
 
@@ -21,10 +24,10 @@ void spherical2cartesian(fp the, fp phi,fp result [3]){
 
 	fp sphi,cphi,sthe,cthe;
 
-	sphi = hls::sinf(phi);
-	cphi = hls::cosf(phi);
-	sthe = hls::sinf(the);
-	cthe = hls::cosf(the);
+	sphi = hls::sin(phi);
+	cphi = hls::cos(phi);
+	sthe = hls::sin(the);
+	cthe = hls::cos(the);
 
     fp x = sphi*cthe;
     fp y = sphi*sthe;
@@ -60,13 +63,13 @@ void cartesian2coordinates(fp x, fp y, fp z,fp result [2]){
     fp the,phi;
 
     if(x != 0) {
-       the = hls::atan2f(y,x);
+       the = hls::atan2(y,x);
 
     } else {
         the = 1.5708f;
     }
 
-    phi =  hls::acosf(z);
+    phi =  hls::acos(z);
 
     spherical2coordinates(the,phi,result);
 }
@@ -205,10 +208,10 @@ void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 
     fp str,ctr,cpr,spr;
 
-    ctr = hls::cosf(htr);
-    str = hls::sinf(htr);
-    cpr = hls::cosf(hpr);
-    spr = hls::sinf(hpr);
+    ctr = hls::cos(htr);
+    str = hls::sin(htr);
+    cpr = hls::cos(hpr);
+    spr = hls::sin(hpr);
 
 	//rotation matrices
     fp rot_y [3][3] = {
