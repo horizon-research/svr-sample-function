@@ -1,22 +1,21 @@
 #include "samplefunction.h"
 
-static fp PI = 3.14159;
-
-static fp w ,h;
-
-static fp tileSize;
+fp PI = 3.1415926;
+indexes w = 6144 ,h = 4096;
+indexes ts = 2048;
 
 fp toRadian(fp a){
-	fp pi = 0.005556;
-    return a * PI * pi;
+
+	fp oneoverpi = 0.005555556; //1/180
+
+    return a * PI * oneoverpi;
+
 }
 
-int nearestNeighbor(fp num){
+int nearestNeighbor(indexes num){
 
 	fp half = 0.5;
-
-	int res = (int)((num + half));
-
+	int res = (int)(num + half);
 	return res;
 }
 
@@ -36,19 +35,20 @@ void spherical2cartesian(fp the, fp phi,fp result [3]){
     result[0] = x;
     result[1] = y;
     result[2] = z;
-
 }
 
-void spherical2coordinates(fp the, fp phi,fp result [2]){
+void spherical2coordinates(fp the, fp phi,indexes result [2]){
 
-    fp i ,j;
 
+    indexes i ,j;
+
+    fp two = 2*PI;
 
     if(the > PI){
-        i = (the - PI)/2/PI *w;
+        i = (the - PI)/two *w;
     }
     else{
-        i = (PI + the)/2/PI * w;
+        i = (PI + the)/two * w;
     }
 
     j = phi /  PI * h;
@@ -58,7 +58,7 @@ void spherical2coordinates(fp the, fp phi,fp result [2]){
 
 }
 
-void cartesian2coordinates(fp x, fp y, fp z,fp result [2]){
+void cartesian2coordinates(fp x, fp y, fp z,indexes result [2]){
 
     fp the,phi;
 
@@ -66,7 +66,7 @@ void cartesian2coordinates(fp x, fp y, fp z,fp result [2]){
        the = hls::atan2(y,x);
 
     } else {
-        the = 1.5708f;
+        the = 1.57079632679;
     }
 
     phi =  hls::acos(z);
@@ -82,21 +82,24 @@ void matrixMultiplication(fp vector[3], fp matrix[3][3], fp result[3]) {
 
 }
 
-void findPixel(int index, fp x,fp y,fp result [2]) {
+void findPixel(int index, fp x,fp y,indexes result [2]) {
 
-    int vertical;
+    indexes vertical;
+
+    indexes half = 0.5;
 
     if (index > 2) {
-        vertical = 1;
+        vertical = 1.0;
     }else{
-    	vertical = 0;
+    	vertical = 0.0;
     }
 
-    fp n = (tileSize * (index%3))  + y * tileSize -1;
-    fp m = (tileSize * vertical) + x * tileSize -1;
+    indexes mod = index%3;
+    indexes n = ts * mod + y* ts;
+    indexes m = ts * vertical + x * ts;
 
-    result [0] = n;
-    result [1] = m;
+	result [0] = n;
+	result [1] = m;
 
 }
 
@@ -108,7 +111,7 @@ fp absVal(fp num){
 	return num;
 }
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
-void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
+void convert_xyz_to_cube_uv(fp x, fp y, fp z,indexes result [2]) {
 
     fp absX = absVal(x);
     fp absY = absVal(y);
@@ -187,6 +190,7 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,fp result [2]) {
     u = half * (uc / maxAxis + one);
     v = half * (vc / maxAxis + one);
 
+
     findPixel(index, u, (one - v),result);
 }
 
@@ -195,16 +199,11 @@ void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
 	#pragma HLS INTERFACE ap_fifo port=fov
 
-	w = width;
-	h = height;
-
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
 
     fp htr = toRadian(ht);
     fp hpr = toRadian(hp);
-    fp three = 3.0;
-    tileSize = w/three;
 
     fp str,ctr,cpr,spr;
 
@@ -231,28 +230,35 @@ void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 	fp p1[] = {0.0, 0.0, 0.0};
 	fp p2[] = {0.0, 0.0, 0.0};
 	fp p3[] = {0.0, 0.0, 0.0};
-	fp res[] = {0.0, 0.0};
-	fp jincrement = 0.05859;
-	fp iincrement = 0.08789;
-	fp pi_2 = 360;
+	indexes res[] = {0.0, 0.0};
+	fp jincrement = 0.05859375;
+	fp iincrement = 0.087890625;
+	fp pi_2 = 360.0;
 	fp pi_half = 180.0;
+	fp tempJ,tempI;
 
     for (int a = 0; a < 1024; a++) {
-	//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
     	    for (int b = 0; b < 1024; b++) {
-			//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
+			#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
 			#pragma HLS PIPELINE
 
     	    	if(j < 0){
-    	    		j += pi_2;
+    	    		tempJ = j + pi_2;
+    	    	}
+    	    	else{
+    	    		tempJ = j;
     	    	}
 
     	    	if(i < 0){
-    	    		i += pi_half;
+    	    		tempI = i + pi_half;
     	    	}
-    			//rotation along y axis
+    	    	else{
+    	    		tempI = i;
+    	    	}
 
-    			spherical2cartesian(toRadian(j), toRadian(i),p1);
+
+    			spherical2cartesian(toRadian(tempJ), toRadian(tempI),p1);
+    			//rotation along y axis
 
     			matrixMultiplication(p1,rot_y, p2);
 
@@ -262,21 +268,22 @@ void crt(int width,int height,fp hp, fp ht,int option,int fov[1024][1024][2]) {
 
 				if (option == 0) {
 				  // convert 3D Cartesian to 2d coordinates
-				  cartesian2coordinates(p3[0], p3[1], p3[2],res);
+				    cartesian2coordinates(p3[0], p3[1], p3[2],res);
 				}
 				else{
 
-				  convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],res);
+				    convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],res);
 
 				}
 
 				fov[a][b][0] = nearestNeighbor(res[0]);
 				fov[a][b][1] = nearestNeighbor(res[1]);
 
-	    		j+= jincrement;
+				j+= jincrement;
 
     		}
     		i+= iincrement;
+    		j = -30.0;
     }
 }
 

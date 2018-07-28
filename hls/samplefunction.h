@@ -1,11 +1,11 @@
 #ifndef _SAMPLEFUNCTION_H_
 #define _SAMPLEFUNCTION_H_
 
-#include <cmath>
 #include "ap_fixed.h"
 #include "hls_math.h"
 
-typedef ap_fixed<24, 5> fp;
+typedef ap_fixed<32,15> indexes;
+typedef ap_fixed<64,10> fp;
 
 void crt(
 	int width,
@@ -16,7 +16,7 @@ void crt(
 	int fov[1024][1024][2]
 );
 
-int nearestNeighbor(fp num);
+int nearestNeighbor(indexes num);
 
 fp toRadian(fp a);
 
@@ -33,7 +33,7 @@ void spherical2coordinates(
 
 	fp the,
 	fp phi,
-	fp result [2]
+	indexes result [2]
 );
 
 void cartesian2coordinates(
@@ -41,7 +41,7 @@ void cartesian2coordinates(
 	fp x,
 	fp y,
 	fp z,
-	fp result [2]
+	indexes result [2]
 
 );
 
@@ -58,7 +58,7 @@ void findPixel(
 	int index,
 	fp x,
 	fp y,
-	fp result [2]
+	indexes result [2]
 
 );
 
@@ -67,7 +67,7 @@ void convert_xyz_to_cube_uv(
 	fp x,
 	fp y,
 	fp z,
-	fp result [2]
+	indexes result [2]
 
 );
 
