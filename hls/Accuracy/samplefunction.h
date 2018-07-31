@@ -5,7 +5,7 @@
 #include "hls_math.h"
 
 typedef ap_fixed<17,14> indexes;
-typedef ap_fixed<64,26> fp;
+typedef ap_fixed<48,10> fp;
 typedef ap_fixed<20,10> angle;
 
 void crt(
@@ -14,7 +14,7 @@ void crt(
 	angle hp,
 	angle ht,
 	int option,
-	int fov[1024][1024][2]
+	float fov[1024][1024][2]
 );
 
 int nearestNeighbor(indexes num);

@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/rhein/Downloads/clion-2018.1.5/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/home/rhein/Downloads/clion-2018.1.5/bin/cmake/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named FOV
+# Target rules for targets named fov
 
 # Build rule for target.
-FOV: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FOV
-.PHONY : FOV
+fov: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fov
+.PHONY : fov
 
 # fast build rule for target.
-FOV/fast:
-	$(MAKE) -f CMakeFiles/FOV.dir/build.make CMakeFiles/FOV.dir/build
-.PHONY : FOV/fast
+fov/fast:
+	$(MAKE) -f CMakeFiles/fov.dir/build.make CMakeFiles/fov.dir/build
+.PHONY : fov/fast
 
-FOV.o: FOV.cpp.o
+fov.o: fov.cpp.o
 
-.PHONY : FOV.o
+.PHONY : fov.o
 
 # target to build an object file
-FOV.cpp.o:
-	$(MAKE) -f CMakeFiles/FOV.dir/build.make CMakeFiles/FOV.dir/FOV.cpp.o
-.PHONY : FOV.cpp.o
+fov.cpp.o:
+	$(MAKE) -f CMakeFiles/fov.dir/build.make CMakeFiles/fov.dir/fov.cpp.o
+.PHONY : fov.cpp.o
 
-FOV.i: FOV.cpp.i
+fov.i: fov.cpp.i
 
-.PHONY : FOV.i
+.PHONY : fov.i
 
 # target to preprocess a source file
-FOV.cpp.i:
-	$(MAKE) -f CMakeFiles/FOV.dir/build.make CMakeFiles/FOV.dir/FOV.cpp.i
-.PHONY : FOV.cpp.i
+fov.cpp.i:
+	$(MAKE) -f CMakeFiles/fov.dir/build.make CMakeFiles/fov.dir/fov.cpp.i
+.PHONY : fov.cpp.i
 
-FOV.s: FOV.cpp.s
+fov.s: fov.cpp.s
 
-.PHONY : FOV.s
+.PHONY : fov.s
 
 # target to generate assembly for a file
-FOV.cpp.s:
-	$(MAKE) -f CMakeFiles/FOV.dir/build.make CMakeFiles/FOV.dir/FOV.cpp.s
-.PHONY : FOV.cpp.s
+fov.cpp.s:
+	$(MAKE) -f CMakeFiles/fov.dir/build.make CMakeFiles/fov.dir/fov.cpp.s
+.PHONY : fov.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... FOV"
-	@echo "... FOV.o"
-	@echo "... FOV.i"
-	@echo "... FOV.s"
+	@echo "... fov"
+	@echo "... fov.o"
+	@echo "... fov.i"
+	@echo "... fov.s"
 .PHONY : help
 
 

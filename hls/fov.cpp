@@ -1,7 +1,7 @@
 #include "samplefunction.h"
-#include <iostream>
-#include <fstream>
-using namespace std;
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
 
 int main(){
 
@@ -16,18 +16,18 @@ int main(){
     static int pixels[1024][1024][2];
 
     crt(width,height,hp,ht,option,pixels);
-
-    ofstream myfile;
-
-    myfile.open ("test.txt");
-
-    for(int a = 0; a < 1024 ; a++){
-    	for(int b = 0; b < 1024; b++){
-    		myfile << pixels[a][b][0]<< "," << pixels[a][b][1] << std::endl;
-    	}
-    }
-
-    myfile.close();
+//
+//    ofstream myfile;
+//
+//    myfile.open ("test.txt");
+//
+//    for(int a = 0; a < 1024 ; a++){
+//    	for(int b = 0; b < 1024; b++){
+//    		myfile << pixels[a][b][0]<< "," << pixels[a][b][1] << std::endl;
+//    	}
+//    }
+//
+//    myfile.close();
 
     return 0;
   }

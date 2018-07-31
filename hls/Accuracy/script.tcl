@@ -10,8 +10,6 @@ add_files samplefunction.cpp
 add_files -tb fov.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
-create_clock -period 20 -name default
-#source "./testsvr/solution1/directives.tcl"
-##csim_design
-csynth_design
-export_design -flow syn -rtl verilog -format ip_catalog
+create_clock -period 10 -name default
+csim_design
+

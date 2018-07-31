@@ -7,8 +7,8 @@ indexes ts = 2048;
 fp toRadian(angle a){
 
 	fp piOver180 = 0.0174532925; //1/180
-
-    return a * piOver180;
+	fp temp = a;
+    return temp * piOver180;
 
 }
 
@@ -194,7 +194,7 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,indexes result [2]) {
     findPixel(index, u, (one - v),result);
 }
 
-void crt(int width,int height,angle hp, angle ht,int option,int fov[1024][1024][2]) {
+void crt(int width,int height,angle hp, angle ht,int option,float fov[1024][1024][2]) {
 
 	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
 	#pragma HLS INTERFACE ap_fifo port=fov
@@ -276,9 +276,12 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[1024][1024][
 
 				}
 
-				fov[a][b][0] = nearestNeighbor(res[0]);
-				fov[a][b][1] = nearestNeighbor(res[1]);
-
+				//fov[a][b][0] = nearestNeighbor(res[0]);
+				//fov[a][b][1] = nearestNeighbor(res[1]);
+				fov[a][b][0] = res[0].to_float();
+				fov[a][b][1] = res[1].to_float();
+			        
+				//printf("%d,%d\n",fov[a][b][0],fov[a][b][1]);
 				j+= jincrement ;
 
     		}

@@ -3,13 +3,13 @@ import subprocess
 import time
 
 # os.system("source ~/Documents/HLS/Vivado/2018.2/settings64.sh")
-bits = [10, 16, 24, 32, 64]
-integers = [5, 6, 7, 8, 9, 10, 15, 20, 25, 30]
+bits = [24,28,32,36,40,44,48,52,56,60,64]
 
+c = 0
 result = open("result.txt", "w")
 
 for i in bits:
-
+    integers = [round(bits[c]*0.5),round(bits[c]*0.4),round(bits[c]*0.3),round(bits[c]*0.2),round(bits[c]*0.1)]
     for j in integers:
 
         if j < i:
@@ -42,5 +42,5 @@ for i in bits:
             subprocess.Popen("rm verilogs/*.v", shell=True).wait()
             hlsreport.close()
             power.close()
-
+    c += 1
 result.close()

@@ -1,7 +1,7 @@
 create_project test1 tes1.xpr -force
 read_verilog [glob verilogs/*.v]
 synth_design -top crt -part xc7z020clg484-1
-create_clock -period 10.000 -name ap_clk -waveform {0.000 5.000} [get_ports ap_clk]
+create_clock -period 20.000 -name ap_clk -waveform {0.000 10.000} [get_ports ap_clk]
 set_input_delay -clock [get_clocks ap_clk] -min -add_delay 0.0 [get_ports {height[*]}]
 set_input_delay -clock [get_clocks ap_clk] -max -add_delay 0.0 [get_ports {height[*]}]
 set_input_delay -clock [get_clocks ap_clk] -min -add_delay 0.0 [get_ports {hp_V[*]}]

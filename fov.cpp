@@ -15,7 +15,11 @@ double toRadian(double a){
     return a / 180.0 * PI;
 }
 
+int nearestNeighbor(double num){
 
+	int res = (int)(num + 0.5);
+	return res;
+}
 double* spherical2cartesian(double the, double phi){
 
     double x = sin(phi)*cos(the);
@@ -189,7 +193,7 @@ int main(int argc, char** argv) {
     tileSize = w/3.0;
 
     //parameters for FoV
-    int fovX = 60,fovY = 60,fw = w/(360.0/fovX) ,fh = h/(360.0/fovY);
+    int fovX = 60,fovY = 90,fw = w/(360.0/fovX) ,fh = h/(360.0/fovY);
     if(option == 0){
         fh = h/(180.0/fovY);
     }
@@ -238,13 +242,13 @@ int main(int argc, char** argv) {
                 double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
 
                 //assign the pixel value
-                Point temp = Point((int) (res[1]), (int) (res[0]));
+                Point temp = Point(nearestNeighbor (res[1]), nearestNeighbor(res[0]));
                 fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
             }
             else{
 
                 double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
-                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>((int)(temp[1]), (int)(temp[0]));
+                fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor(temp[1]), nearestNeighbor(temp[0]));
 
             }
 
