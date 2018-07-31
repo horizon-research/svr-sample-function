@@ -5,7 +5,7 @@
 #include "hls_math.h"
 
 typedef ap_fixed<17,14> indexes;
-typedef ap_fixed<64,26> fp;
+typedef ap_fixed<64,19> fp;
 typedef ap_fixed<20,10> angle;
 
 void crt(
