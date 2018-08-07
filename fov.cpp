@@ -10,6 +10,7 @@ double PI = 3.14159265358979323846;
 int w ,h;
 
 double tileSize;
+double tileSizeX,tileSizeY;
 
 double toRadian(double a){
     return a / 180.0 * PI;
@@ -182,20 +183,20 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
 }
 
 double* findPixel_EAC(int index, double u, double v){
-    printf("Index: %d\n", index);
-    printf("U: %lf, V: %lf\n",u,v);
+    //printf("Index: %d\n", index);
+    //printf("U: %lf, V: %lf\n",u,v);
     double *result = new double[2];
     double n,m;
-
     if(index < 2){
 
-        n = (tileSize * (index%3))  + u * tileSize -1;
-	m = v * tileSize -1;	
+        n = (tileSizeX * (index%3))  + u * tileSizeX -1;
+	m = v * tileSizeY -1;
+	printf("N: %lf, M: %lf\n",n,m);	
     	
     }
     else{
-        n = (tileSize * (index%3))  + v * tileSize -1;
-        m = tileSize + u * tileSize -1;
+        n = (tileSizeX * (index%3))  + v * tileSizeX -1;
+        m = tileSizeY + u * tileSizeY -1;
     } 
     result[0] = n;
     result[1] = m;
@@ -205,67 +206,71 @@ double* findPixel_EAC(int index, double u, double v){
 double* convert_EAC(double x, double y){
     int index;
     double u,v;
-    double a = x;
-    double b = y;
-    if (x < 0){
 
-        a = x + 360;
+    if (x < 0){
+	x += 360;
     }
     if (y < 0){
-
-        b = y + 360;
+	y += 360;
     }
-    printf("A: %lf, B : %lf\n", a,b);
-    if(abs(x) > abs(y)){
-	if(b > 315 || b < 45){
-	    index = 5;
-	    if(b > 315){
-	        u = (b - 315)/90.0;
- 	    }
+    
+    
+    if(y > 315 || y < 45){
+	if(x >= 315 || x <= 45){
+            index= 5;
+            if(y > 315){
+	        v = (y - 315)/90.0;
+            }
             else{
-		u = (45 + b)/90.0;
+	        v = (y + 45)/90.0;
+            }	
+	    if(x > 315){
+		u = (90- (x -315))/90.0;
 	    }
-	
+	    else{
+		u = (45 - x)/90.0;
+	    }
 	}
-	else if(b >= 45&& b <= 135){
+    }
+    else if(y >= 45 && y <= 135){
+        
+        v = (y - 45)/90.0;
+        if(x >= 315 || x <= 45){
 	    index = 1;
-	    u = (b - 45)/90.0;
+	    if(x > 315){
+                u = (x - 315)/90.0;
+	    }
+	    else{
+		u = (x + 45)/90.0;
+	    }
+        }
+        else if (x > 45 && x <= 135){
+	    index = 2;
+	    u = (x -45)/90.0;
+        }
+	else if(x > 135 && x <= 225){
+	    index = 4;
+	    u = (x -135)/90.0;	
 	}
-	else if(b > 135&& b <= 225){
-	    index = 3;  
-	    u = (b - 135)/90.0;	
-	}
-	else if(b > 225 && b <= 315){
-	    index= 4;
-    	    u = (b - 225)/90.0;	
-	}
-	    v = fmod(a,90.0) /90.0;
+	else{
+	    index = 0;
+	    u = (x -225)/90.0;	
+	}	
+	printf("Index: %d\n", index);
+	printf("U: %lf, V: %lf\n",u,v);
+    }
+    else if(y > 135 && y <= 225){
+        index = 3;
+	
+        v = (y - 135)/90.0;	
     }
     else{
-	
-        if(a > 315 || a < 45){
-	    index = 1;	
-	    if(a > 315){
-	        v = (a - 315)/90.0;
- 	    }
-            else{
-		v = (45 + a) /90.0;
-	    }
-	}
-	else if(a >= 45&& a <= 135){
-	    index = 2;
-	    v = (a - 45)/90.0;
-	}
-	else if(a > 135&& a <= 225){
-	    index = 4;  
-	    v = (a - 135)/90.0;	
-	}
-	else if(a > 225 && a <= 315){
-	    index= 0;	
-	    v = (a -225)/90.0;
-	}
-	u = fmod(b,90.0)/90.0;
+        index = 4;
+        v = (90 - (y - 225))/90.0;
     }
+
+    //u = (fmod(x,90)/90.0);
+
     return findPixel_EAC(index,u,v);
 }
 
@@ -280,9 +285,11 @@ int main(int argc, char** argv) {
     w = image.cols;
     h = image.rows;
     tileSize = w/3.0;
+    tileSizeX = w/3.0;
+    tileSizeY = h/2.0;
 
     // parameters for FoV
-    int fovX = 60,fovY = 90,fw = w/(360.0/fovX) +1 ,fh = h/(360.0/fovY)+1;
+    int fovX = 60,fovY = 60,fw = w/(360.0/fovX) ,fh = h/(360.0/fovY);
     if(option == 0){
         fh = h/(180.0/fovY);
     }
