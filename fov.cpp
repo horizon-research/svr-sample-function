@@ -187,16 +187,28 @@ double* findPixel_EAC(int index, double u, double v){
     //printf("U: %lf, V: %lf\n",u,v);
     double *result = new double[2];
     double n,m;
-    if(index < 2){
+    if(index <= 2){
 
-        n = (tileSizeX * (index%3))  + u * tileSizeX -1;
-	m = v * tileSizeY -1;
-	printf("N: %lf, M: %lf\n",n,m);	
+        n = (tileSizeX * (index%3))  + u * tileSizeX;
+	m = v * tileSizeY;
+	//printf("N: %lf, M: %lf\n",n,m);	
     	
     }
     else{
-        n = (tileSizeX * (index%3))  + v * tileSizeX -1;
-        m = tileSizeY + u * tileSizeY -1;
+	switch(index){
+	    case 3:
+		n = (1 -v) * tileSizeX;
+		m = tileSizeY + (1- u) * tileSizeY;
+		break;
+	    case 4:
+		n = tileSizeX + v * tileSizeX;
+		m = tileSizeY + u * tileSizeY;
+		break;
+	    case 5:
+		n = (tileSizeX * (index%3))  +  v * tileSizeX;
+            	m = tileSizeY + u * tileSizeY;	
+		break;
+	}
     } 
     result[0] = n;
     result[1] = m;
@@ -206,70 +218,96 @@ double* findPixel_EAC(int index, double u, double v){
 double* convert_EAC(double x, double y){
     int index;
     double u,v;
-
+    
     if (x < 0){
 	x += 360;
     }
     if (y < 0){
 	y += 360;
     }
+    //printf("X: %lf, Y: %lf\n",x,y);
     
-    
-    if(y > 315 || y < 45){
+    if(y >= 315 || y <= 45){
+	if(y >= 315){
+	    v = ((360 - y) + 45)/90.0;	
+	}
+	else{
+	    v = (45 - y)/90.0;	
+	}
 	if(x >= 315 || x <= 45){
-            index= 5;
-            if(y > 315){
-	        v = (y - 315)/90.0;
-            }
-            else{
-	        v = (y + 45)/90.0;
-            }	
-	    if(x > 315){
-		u = (90- (x -315))/90.0;
+	    index = 1;
+	    if(x >= 315){
+		u = (x -315)/90.0; 
 	    }
-	    else{
-		u = (45 - x)/90.0;
+	    else if(x <= 45){
+		u = (45 + x)/90.0;
 	    }
 	}
-    }
-    else if(y >= 45 && y <= 135){
-        
-        v = (y - 45)/90.0;
-        if(x >= 315 || x <= 45){
-	    index = 1;
-	    if(x > 315){
-                u = (x - 315)/90.0;
-	    }
-	    else{
-		u = (x + 45)/90.0;
-	    }
-        }
-        else if (x > 45 && x <= 135){
+	else if(x > 45 && x < 135){
 	    index = 2;
-	    u = (x -45)/90.0;
-        }
-	else if(x > 135 && x <= 225){
+	    u = (x - 45)/90.0;
+	}
+	else if(x > 135 && x < 225){
 	    index = 4;
-	    u = (x -135)/90.0;	
+	    u = (x - 135)/90.0;
 	}
 	else{
 	    index = 0;
-	    u = (x -225)/90.0;	
-	}	
-	printf("Index: %d\n", index);
-	printf("U: %lf, V: %lf\n",u,v);
+	    u = (x - 225)/90.0;
+	}
     }
-    else if(y > 135 && y <= 225){
-        index = 3;
+    else if(y > 45 && y <= 135){
 	
-        v = (y - 135)/90.0;	
+	if(x >= 315 || x <= 45){
+	    index = 5;
+	    if(x >= 315){
+		u = (x -315)/90.0; 
+	    }
+	    else if(x <= 45){
+		u = (45 + x)/90.0;
+	    }
+	    v = (135 - y)/90.0;
+	}
+	else if(x > 45 && x < 135){
+	    index = 2;
+	    v = (x -45)/90.0;
+	    u = (y - 45)/90.0;
+	}
+	else if(x > 135 && x < 225){
+	    index = 4;
+	    u = (x - 135)/90.0;
+	    v = (135- y)/90.0;
+	}
+	else{
+	    index = 0;
+	    u = (135 - y)/90.0;
+  	    v = (315 - x)/90.0;
+	}
     }
-    else{
-        index = 4;
-        v = (90 - (y - 225))/90.0;
-    }
+    else if(y > 225 && y < 315){
 
-    //u = (fmod(x,90)/90.0);
+    	if(x >= 315 || x <= 45){
+	    index = 3;
+	    if(x >= 315){
+		u = (x -315)/90.0; 
+	    }
+	    else if(x <= 45){
+		u = (45 + x)/90.0;
+	    }
+	    v = (y - 225)/90.0;
+	}
+	else if(x > 45 && x <= 135){
+	    index = 2;
+	    u = (y - 225)/90.0;
+	    v = (135 - x)/90.0;
+	}
+	else if(x > 225 && x < 315){
+	    index = 0;
+	    u = (315 - y)/90.0;
+  	    v = (315 - x)/90.0;
+	}
+    }
+    //printf("Index: %d\n",index);
 
     return findPixel_EAC(index,u,v);
 }
@@ -289,7 +327,7 @@ int main(int argc, char** argv) {
     tileSizeY = h/2.0;
 
     // parameters for FoV
-    int fovX = 60,fovY = 60,fw = w/(360.0/fovX) ,fh = h/(360.0/fovY);
+    int fovX = 60,fovY = 90,fw = w/(360.0/fovX) ,fh = h/(360.0/fovY);
     if(option == 0){
         fh = h/(180.0/fovY);
     }
@@ -298,69 +336,76 @@ int main(int argc, char** argv) {
     // hp is phi (vertical), goes toward up first
     // both are relative rotation angles
     double hp = atof(argv[5]),ht = atof(argv[4]);
-    // convert to radian
-    double htr = toRadian(ht);
-    double hpr = toRadian(hp);
-
-    // rotation matrices
-    double rot_y [3][3] = {
-            {cos(hpr), 0, -sin(hpr)},
-            {0, 1, 0},
-            {sin(hpr), 0, cos(hpr)}
-    };
-
-    double rot_z [3][3] = {
-            {cos(htr), sin(htr), 0},
-            {-sin(htr), cos(htr), 0},
-            {0, 0, 1}
-    };
 
     // initialize fov image
     Mat fov(fh, fw, CV_8UC3, Scalar(0, 0, 0));
-
-    int a = 0, b = 0;
-    // default head orientation is 0,90
-    for (double i = 90  - fovY/2.0; i < 90 + fovY/2.0; i+= fovY*1.0/fh, b++) {
-
-        for (double j = -fovX/2.0; j < fovX/2.0; j+= fovX*1.0/fw, a++) {
-	    if(option == 3){
-		
-		double *temp = convert_EAC(j, i);
-	        fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor(temp[1]), nearestNeighbor(temp[0]));
-	    }
-	    else{
-		    // rotation along y axis
-		    double p2[] = {0.0, 0.0, 0.0};
-		    matrixMultiplication(spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i)),
-		                         rot_y, p2);
-
-		    // rotate along z axis
-		    double p3[] = {0.0, 0.0, 0.0};
-		    matrixMultiplication(p2, rot_z, p3);
-
-		    if (option == 0) {
-
-		        // convert 3D catesian to 2D coordinates
-		        double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
-
-		        // assign the pixel value
-		        Point temp = Point(nearestNeighbor (res[1]), nearestNeighbor(res[0]));
-		        fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
-		    }
-		    else{
-			// convert 3D catesian to cube UVs
-		        double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
-		        fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor(temp[1]), nearestNeighbor(temp[0]));
-
-		    }
+    
+    if(option == 3){
+	int a = 0, b = 0;
+	for (double i = fovY/2.0; i >= -fovY/2.0; i -= fovY*1.0/fh, b++){
+	    for (double j = -fovX/2.0; j <= fovX/2.0; j+= fovX*1.0/fw, a++) {
+	    
+		double *temp = convert_EAC(ht + j, hp + i);
+       		fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor(temp[1]), nearestNeighbor(temp[0]));
 
 	    }
-            
-
-        }
-        a=0;
+	    a=0;
+	}
+	
     }
 
+    else{
+	// convert to radian
+	double htr = toRadian(ht);
+	double hpr = toRadian(hp);
+
+	// rotation matrices
+	double rot_y [3][3] = {
+	    {cos(hpr), 0, -sin(hpr)},
+	    {0, 1, 0},
+	    {sin(hpr), 0, cos(hpr)}
+	};
+
+	double rot_z [3][3] = {
+	    {cos(htr), sin(htr), 0},
+	    {-sin(htr), cos(htr), 0},
+	    {0, 0, 1}
+	};
+
+
+	int a = 0, b = 0;
+	// default head orientation is 0,90
+	for (double i = 90  - fovY/2.0; i < 90 + fovY/2.0; i+= fovY*1.0/fh, b++) {
+
+	    for (double j = -fovX/2.0; j < fovX/2.0; j+= fovX*1.0/fw, a++) {
+
+	        // rotation along y axis
+	        double p2[] = {0.0, 0.0, 0.0};
+	        matrixMultiplication(spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i)),rot_y, p2);
+
+	        // rotate along z axis
+	        double p3[] = {0.0, 0.0, 0.0};
+	        matrixMultiplication(p2, rot_z, p3);
+
+	        if (option == 0) {
+
+		    // convert 3D catesian to 2D coordinates
+		    double *res = cartesian2coordinates(p3[0], p3[1], p3[2]);
+
+		    // assign the pixel value
+		    Point temp = Point(nearestNeighbor (res[1]), nearestNeighbor(res[0]));
+		    fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(temp.x, temp.y);
+	        }
+	        else{
+		    // convert 3D catesian to cube UVs
+		    double *temp = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
+		    fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor(temp[1]), nearestNeighbor(temp[0]));
+	        }
+
+	    }
+	    a=0;
+	}
+    }
     // save the fov image
     imwrite(argv[2], fov);
 
