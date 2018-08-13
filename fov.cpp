@@ -84,7 +84,7 @@ void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 
 
 double* findPixel(int index, double x,double y) {
-   // printf("Index:%d\n",index);
+
     int vertical;
     if (index > 2) {
         vertical = 1;
@@ -105,17 +105,8 @@ double* findPixel(int index, double x,double y) {
 
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
 double* convert_xyz_to_cube_uv(double x, double y, double z) {
-    double theta;
 
-    if(x != 0) {
-        theta = atan2(y,x)/ PI * 180.0;
 
-    } else {
-        theta = 90;
-    }
-
-    double phi = acos(z)/ PI * 180.0;
-    //printf("Theta:  %lf , Phi: %lf\n", theta,phi);
     double absX = fabs(x);
     double absY = fabs(y);
     double absZ = fabs(z);
@@ -127,6 +118,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
     double maxAxis, uc, vc;
     double u,v;
     int index;
+
     // POSITIVE X
     if (isXPositive && absX >= absY && absX >= absZ) {
         // u (0 to 1) goes from +z to -z
@@ -144,7 +136,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         uc = -z;
         vc = -y;
         index = 5;
-        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
+
     }
         // POSITIVE Y
     else if (isYPositive && absY >= absX && absY >= absZ) {
@@ -154,7 +146,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         uc = -z;
         vc = -x;
         index = 1;
-        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
+
     }
         // NEGATIVE Y
     else  if (!isYPositive && absY >= absX && absY >= absZ) {
@@ -164,7 +156,7 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         uc = -z;
         vc = x;
         index = 0;
-        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
+
     }
         // POSITIVE Z
     else  if (isZPositive && absZ >= absX && absZ >= absY) {
@@ -183,9 +175,8 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
         uc = -x;
         vc = y;
         index = 3;
-        //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
     }
-    //printf("%d,%lf,%lf\n",index,theta,phi);
+
     // Convert range from -1 to 1 to 0 to 1
     u = 0.5f * (uc / maxAxis + 1.0f);
     v = 0.5f * (vc / maxAxis + 1.0f);
@@ -194,14 +185,13 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
 }
 
 double* findPixel_EAC(int index, double u, double v){
-    //printf("Index: %d\n", index);
-    //printf("U: %lf, V: %lf\n",u,v);
+
     double *result = new double[2];
     double n,m;
     if(index <= 2){
 
-        n = (tileSizeX * (index%3))  + u * tileSizeX;
-	    m = v * tileSizeY;
+        n = (tileSizeX * (index%3))  + v * tileSizeX;
+	    m = u * tileSizeY;
 
     }
     else{
@@ -213,8 +203,8 @@ double* findPixel_EAC(int index, double u, double v){
                 break;
 
             case 4:
-                n = tileSizeX + (1 - v) * tileSizeX;
-                m = tileSizeY + (1 - u) * tileSizeY;
+                n = tileSizeX + (1 - u) * tileSizeX;
+                m = tileSizeY + v * tileSizeY;
                 break;
 
             case 5:
@@ -225,11 +215,11 @@ double* findPixel_EAC(int index, double u, double v){
     } 
     result[0] = n;
     result[1] = m;
-    //printf("Tile: %lf, %lf\n",tileSizeX,tileSizeY);
-    //printf("N: %lf, M: %lf\n",result[0], result[1]);
     return result;
 }
 double* convert_EAC(double x, double y, double z){
+
+    double maxAxis, uc, vc;
     double absX = fabs(x);
     double absY = fabs(y);
     double absZ = fabs(z);
@@ -241,73 +231,66 @@ double* convert_EAC(double x, double y, double z){
     double u = 0,v = 0;
     int index;
 
-    double theta;
-
-    if(x != 0) {
-        theta = atan2(y,x)/ PI * 180.0;
-
-    } else {
-        theta = 90;
-    }
-
-    double phi = acos(z)/ PI * 180.0;
 
     // Front
     if (isXPositive && absX >= absY && absX >= absZ) {
-        index = 1;
-        v = (phi - 45)/90.0;
-        u = (theta + 45)/90.0;
 
+        index = 1;
+        maxAxis = absX;
+        uc = -z;
+        vc = y;
 
     }
     // Back
     else if (!isXPositive && absX >= absY && absX >= absZ) {
-        // 135 -180 -135 - -180
+
         index = 4;
-        v = (phi - 45)/90.0;
-        if(theta < 0){
-            u = (theta +135)/-90.0;
-        }
-        else{
-            u = 0.5 + (180 - theta)/90.0;
-        }
+        maxAxis = absX;
+        uc = -z;
+        vc = -y;
 
     }
     // Left
     else if (isYPositive && absY >= absX && absY >= absZ) {
 
         index = 2;
-        v = (phi - 45)/90.0;
-
-        u = (theta - 45)/90.0;
+        maxAxis = absY;
+        uc = -z;
+        vc = -x;
 
     }
     // Right
     else  if (!isYPositive && absY >= absX && absY >= absZ) {
 
         index = 0;
-        v = (phi - 45)/90.0;
-        u = (theta + 135)/90.0;
+        maxAxis = absY;
+        uc = -z;
+        vc = x;
+
     }
     // Up
     else  if (isZPositive && absZ >= absX && absZ >= absY) {
 
         index = 5;
-//        u = (theta + 180)/360;
-//        v = phi / 55.0;
+        maxAxis = absZ;
+        uc = x;
+        vc = y;
 
     }
     // Down
     else  if (!isZPositive && absZ >= absX && absZ >= absY) {
 
         index = 3;
+        maxAxis = absZ;
+        uc = -x;
+        vc = y;
 
-//        u = (theta + 180)/360;
-//        v = (phi - 125) / 55.0;
-       
     }
 
-    //printf("Index: %d,X: %lf,Y: %lf,Z:%lf\n",index,x,y,z);
+    //source: https://github.com/xmar/360Transformations
+    u = 2.0 * atan((uc / maxAxis))/PI + 0.5;
+    v = 2.0 * atan((vc / maxAxis))/PI + 0.5 ;
+
 
     return findPixel_EAC(index,u,v);
 
@@ -358,6 +341,7 @@ int main(int argc, char** argv) {
     Mat fov(fh, fw, CV_8UC3, Scalar(0, 0, 0));
 
     int a = 0, b = 0;
+
     // default head orientation is 0,90
     for (double i = 90  - fovY/2.0; i < 90 + fovY/2.0; i+= fovY*1.0/fh, b++) {
         for (double j = -fovX/2.0; j < fovX/2.0; j+= fovX*1.0/fw, a++) {
@@ -372,24 +356,22 @@ int main(int argc, char** argv) {
             matrixMultiplication(p2, rot_z, p3);
             double *res;
             if (option == 0) {
-                //printf("ER\n");
+
                 // convert 3D catesian to 2D coordinates
                 res = cartesian2coordinates(p3[0], p3[1], p3[2]);
 
-
             }
             else if(option == 1){
-                //printf("CUBEMAP\n");
-            // convert 3D catesian to cube UVs
+
+                // convert 3D catesian to cube UVs
                 res = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
 
             }
             else {
-                // printf("EAC\n");
-                 res = convert_EAC(p3[0], p3[1], p3[2]);
-                //convert_EAC(p3[0], p3[1], p3[2]);
-            }
+                // convert 3D catesian to EAC UVs
+                res = convert_EAC(p3[0], p3[1], p3[2]);
 
+            }
 
             // assign the pixel value
             fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));
