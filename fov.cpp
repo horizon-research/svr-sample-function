@@ -190,7 +190,7 @@ double* findPixel_EAC(int index, double u, double v){
     double n,m;
     if(index <= 2){
 
-        n = (tileSizeX * (index%3))  + v * tileSizeX;
+        n = (tileSizeX * (index%3) - index%3)  + v * tileSizeX;
 	    m = u * tileSizeY;
 
     }
@@ -203,19 +203,21 @@ double* findPixel_EAC(int index, double u, double v){
                 break;
 
             case 4:
-                n = tileSizeX + (1 - u) * tileSizeX;
-                m = tileSizeY + v * tileSizeY;
+                n = tileSizeX + (1 - u) * tileSizeX + 1;
+                m = tileSizeY + v * tileSizeY + 1;
                 break;
 
             case 5:
-                n = tileSizeX * 2  +  u * tileSizeX;
+                n = tileSizeX * 2.0f  +  u * tileSizeX;
                 m = tileSizeY  + (1 - v) * tileSizeY;
                 break;
         }
-    } 
-    result[0] = n;
-    result[1] = m;
+    }
+    result[0] = n - 1;
+    result[1] = m - 1;
+
     return result;
+
 }
 double* convert_EAC(double x, double y, double z){
 
@@ -260,7 +262,7 @@ double* convert_EAC(double x, double y, double z){
 
     }
     // Right
-    else  if (!isYPositive && absY >= absX && absY >= absZ) {
+    else if (!isYPositive && absY >= absX && absY >= absZ) {
 
         index = 0;
         maxAxis = absY;
@@ -269,7 +271,7 @@ double* convert_EAC(double x, double y, double z){
 
     }
     // Up
-    else  if (isZPositive && absZ >= absX && absZ >= absY) {
+    else if (isZPositive && absZ >= absX && absZ >= absY) {
 
         index = 5;
         maxAxis = absZ;
@@ -278,7 +280,7 @@ double* convert_EAC(double x, double y, double z){
 
     }
     // Down
-    else  if (!isZPositive && absZ >= absX && absZ >= absY) {
+    else if (!isZPositive && absZ >= absX && absZ >= absY) {
 
         index = 3;
         maxAxis = absZ;
@@ -287,9 +289,9 @@ double* convert_EAC(double x, double y, double z){
 
     }
 
-    //source: https://github.com/xmar/360Transformations
-    u = 2.0 * atan((uc / maxAxis))/PI + 0.5;
-    v = 2.0 * atan((vc / maxAxis))/PI + 0.5 ;
+
+    u = 2.0f * atan((uc / maxAxis))/PI + 0.5f;
+    v = 2.0f * atan((vc / maxAxis))/PI + 0.5f;
 
 
     return findPixel_EAC(index,u,v);
