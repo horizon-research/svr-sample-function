@@ -20,15 +20,18 @@ double toRadian(double a){
 int nearestNeighbor(double num){
 
 	int res = (int)(num + 0.5);
+
 	return res;
 }
+
 double* spherical2cartesian(double the, double phi){
 
-    double x = sin(phi)*cos(the);
-    double y = sin(phi)*sin(the);
+    double x = sin(phi) * cos(the);
+    double y = sin(phi) * sin(the);
     double z = cos(phi);
 
     double *temp = new double[3];
+
     temp[0] = x;
     temp[1] = y;
     temp[2] = z;
@@ -42,15 +45,16 @@ double* spherical2coordinates(double the, double phi){
     double i,j;
 
     if(the > PI){
-        i = (the - PI) /2.0/PI *w;
+        i = (the - PI) / 2.0 / PI * w;
     }
     else{
-        i = (PI + the)/2.0/PI * w;
+        i = (PI + the) / 2.0 / PI * w;
     }
 
     j = phi /  PI * h;
 
     double *result = new double[2];
+
     result [0] = i;
     result [1] = j;
 
@@ -62,21 +66,24 @@ double* cartesian2coordinates(double x, double y, double z){
     double the;
 
     if(x != 0) {
-        the = atan2(y,x);
+        the = atan2(y, x);
 
     } else {
-        the = toRadian(90);
+        the = toRadian(90.0);
     }
 
     double phi = acos(z);
-    return spherical2coordinates(the,phi);
+    return spherical2coordinates(the, phi);
 }
+
 
 void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 
     for (int i=0; i<3; i++) {
         for (int j=0; j<3; j++) {
+
             res[i] += matrix[i][j] * vector[j];
+
         }
     }
 
@@ -86,16 +93,19 @@ void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 double* findPixel(int index, double x,double y) {
 
     int vertical;
+
     if (index > 2) {
         vertical = 1;
     }
     else {
         vertical = 0;
     }
-    double n = (tileSize * (index%3))  + y * tileSize;
+
+    double n = (tileSize * (index % 3))  + y * tileSize;
     double m = (tileSize * vertical) + x * tileSize;
 
     double *result = new double[2];
+
     result [0] = n;
     result [1] = m;
 
@@ -106,6 +116,9 @@ double* findPixel(int index, double x,double y) {
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
 double* convert_xyz_to_cube_uv(double x, double y, double z) {
 
+    double maxAxis, uc, vc;
+    double u, v;
+    int index;
 
     double absX = fabs(x);
     double absY = fabs(y);
@@ -115,85 +128,100 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
     int isYPositive = y > 0 ? 1 : 0;
     int isZPositive = z > 0 ? 1 : 0;
 
-    double maxAxis, uc, vc;
-    double u,v;
-    int index;
 
     // POSITIVE X
+    // Front
     if (isXPositive && absX >= absY && absX >= absZ) {
         // u (0 to 1) goes from +z to -z
         // v (0 to 1) goes from -y to +y
+        index = 4;
         maxAxis = absX;
         uc = -z;
         vc = y;
-        index = 4;
+
     }
-        // NEGATIVE X
+
+    // NEGATIVE X
+    // Back
     else if (!isXPositive && absX >= absY && absX >= absZ) {
         // u (0 to 1) goes from -z to +z
         // v (0 to 1) goes from -y to +y
+        index = 5;
         maxAxis = absX;
         uc = -z;
         vc = -y;
-        index = 5;
 
     }
-        // POSITIVE Y
+
+    // POSITIVE Y
+    // Left
     else if (isYPositive && absY >= absX && absY >= absZ) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from +z to -z
+        index = 1;
         maxAxis = absY;
         uc = -z;
         vc = -x;
-        index = 1;
 
     }
-        // NEGATIVE Y
+
+    // NEGATIVE Y
+    // Right
     else  if (!isYPositive && absY >= absX && absY >= absZ) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -z to +z
+        index = 0;
         maxAxis = absY;
         uc = -z;
         vc = x;
-        index = 0;
 
     }
-        // POSITIVE Z
+
+    // POSITIVE Z
+    // Up
     else  if (isZPositive && absZ >= absX && absZ >= absY) {
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -y to +y
+        index = 2;
         maxAxis = absZ;
         uc = x;
         vc = y;
-        index = 2;
+
     }
-        // NEGATIVE Z
+
+    // NEGATIVE Z
+    // Down
     else  if (!isZPositive && absZ >= absX && absZ >= absY) {
         // u (0 to 1) goes from +x to -x
         // v (0 to 1) goes from -y to +y
+
+        index = 3;
         maxAxis = absZ;
         uc = -x;
         vc = y;
-        index = 3;
+
     }
 
     // Convert range from -1 to 1 to 0 to 1
     u = 0.5f * (uc / maxAxis + 1.0f);
     v = 0.5f * (vc / maxAxis + 1.0f);
 	
-    return findPixel(index, u, (1-v));
+    return findPixel(index, u, (1 - v));
 }
 
 double* findPixel_EAC(int index, double u, double v){
 
     double *result = new double[2];
     double n,m;
+
+    // Left Front Right
     if(index <= 2){
 
-        n = (tileSizeX * (index%3) - index%3)  + v * tileSizeX;
+        n = (tileSizeX * (index % 3))  + v * tileSizeX;
 	    m = u * tileSizeY;
 
     }
+    // Down Back Up
     else{
 
         switch(index){
@@ -219,9 +247,13 @@ double* findPixel_EAC(int index, double u, double v){
     return result;
 
 }
+
 double* convert_EAC(double x, double y, double z){
 
     double maxAxis, uc, vc;
+    double u, v;
+    int index;
+
     double absX = fabs(x);
     double absY = fabs(y);
     double absZ = fabs(z);
@@ -229,10 +261,6 @@ double* convert_EAC(double x, double y, double z){
     int isXPositive = x > 0 ? 1 : 0;
     int isYPositive = y > 0 ? 1 : 0;
     int isZPositive = z > 0 ? 1 : 0;
-
-    double u = 0,v = 0;
-    int index;
-
 
     // Front
     if (isXPositive && absX >= absY && absX >= absZ) {
@@ -304,7 +332,7 @@ int main(int argc, char** argv) {
     int option = argv[3][0] - '0';
     // load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
-
+    Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
     // get width and height
     w = image.cols;
     h = image.rows;
@@ -313,7 +341,7 @@ int main(int argc, char** argv) {
     tileSizeY = h/2.0;
 
     // parameters for FoV
-    int fovX = 90,fovY = 90,fw = 388 ,fh = 310;
+    int fovX = 110,fovY = 110,fw = w * (fovX / 360.0),fh = h * (fovY / 360.0);
     if(option == 0){
         fh = h*(fovY/180.0);
     }
@@ -377,13 +405,16 @@ int main(int argc, char** argv) {
 
             // assign the pixel value
             fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));
-
+            pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[0] = 255;
+            pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[1] = 255;
+            pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[2] = 255;
         }
         a=0;
     }
 
     // save the fov image
     imwrite(argv[2], fov);
+    imwrite("input.jpg",pat);
 
     return 0;
 
