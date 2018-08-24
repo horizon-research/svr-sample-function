@@ -24,23 +24,21 @@ int nearestNeighbor(double num){
 	return res;
 }
 
-double* spherical2cartesian(double the, double phi){
+void spherical2cartesian(double the, double phi, double result[3]){
 
     double x = sin(phi) * cos(the);
     double y = sin(phi) * sin(the);
     double z = cos(phi);
 
-    double *temp = new double[3];
 
-    temp[0] = x;
-    temp[1] = y;
-    temp[2] = z;
+    result[0] = x;
+    result[1] = y;
+    result[2] = z;
 
-    return temp;
 }
 
 
-double* spherical2coordinates(double the, double phi){
+void spherical2coordinates(double the, double phi, double result[2]){
 
     double i,j;
 
@@ -53,15 +51,11 @@ double* spherical2coordinates(double the, double phi){
 
     j = phi /  PI * h;
 
-    double *result = new double[2];
-
     result [0] = i;
     result [1] = j;
-
-    return result;
 }
 
-double* cartesian2coordinates(double x, double y, double z){
+void cartesian2coordinates(double x, double y, double z, double result[2]){
 
     double the;
 
@@ -73,7 +67,7 @@ double* cartesian2coordinates(double x, double y, double z){
     }
 
     double phi = acos(z);
-    return spherical2coordinates(the, phi);
+    spherical2coordinates(the, phi, result);
 }
 
 
@@ -90,7 +84,7 @@ void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 }
 
 
-double* findPixel(int index, double x,double y) {
+void findPixel(int index, double x,double y, double result[2]) {
 
     int vertical;
 
@@ -104,17 +98,14 @@ double* findPixel(int index, double x,double y) {
     double n = (tileSize * (index % 3))  + y * tileSize;
     double m = (tileSize * vertical) + x * tileSize;
 
-    double *result = new double[2];
-
     result [0] = n;
     result [1] = m;
 
-    return result;
 }
 
 
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
-double* convert_xyz_to_cube_uv(double x, double y, double z) {
+void convert_xyz_to_cube_uv(double x, double y, double z, double result[2]) {
 
     double maxAxis, uc, vc;
     double u, v;
@@ -206,12 +197,11 @@ double* convert_xyz_to_cube_uv(double x, double y, double z) {
     u = 0.5f * (uc / maxAxis + 1.0f);
     v = 0.5f * (vc / maxAxis + 1.0f);
 	
-    return findPixel(index, u, (1 - v));
+    findPixel(index, u, (1 - v), result);
 }
 
-double* findPixel_EAC(int index, double u, double v){
+void findPixel_EAC(int index, double u, double v, double result[2]){
 
-    double *result = new double[2];
     double n,m;
 
     // Left Front Right
@@ -244,11 +234,9 @@ double* findPixel_EAC(int index, double u, double v){
     result[0] = n - 1;
     result[1] = m - 1;
 
-    return result;
-
 }
 
-double* convert_EAC(double x, double y, double z){
+void convert_EAC(double x, double y, double z, double result[2]){
 
     double maxAxis, uc, vc;
     double u, v;
@@ -321,8 +309,7 @@ double* convert_EAC(double x, double y, double z){
     u = 2.0f * atan((uc / maxAxis))/PI + 0.5f;
     v = 2.0f * atan((vc / maxAxis))/PI + 0.5f;
 
-
-    return findPixel_EAC(index,u,v);
+    findPixel_EAC(index,u,v, result);
 
 }
 
@@ -341,15 +328,17 @@ int main(int argc, char** argv) {
     tileSizeY = h/2.0;
 
     // parameters for FoV
-    int fovX = 110,fovY = 110,fw = w * (fovX / 360.0),fh = h * (fovY / 360.0);
-    if(option == 0){
-        fh = h*(fovY/180.0);
-    }
+    int fovX = 180,fovY = 180,fw = w * (fovX / 360.0) + 1,fh = h * (fovY / 360.0) + 1;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
     // both are relative rotation angles
     double hp = atof(argv[5]),ht = atof(argv[4]);
+    if(option == 0){
+        fh = h*(fovY/180.0);
+	hp = (hp / 360.0) * 180.0;
+    }
+
     // convert to radian
     double htr = toRadian(ht);
     double hpr = toRadian(hp);
@@ -368,7 +357,7 @@ int main(int argc, char** argv) {
     };
 
     // initialize fov image
-    Mat fov(fh, fw, CV_8UC3, Scalar(0, 0, 0));
+    Mat fov(fh, fw, CV_8UC3);
 
     int a = 0, b = 0;
 
@@ -376,40 +365,47 @@ int main(int argc, char** argv) {
     for (double i = 90  - fovY/2.0; i < 90 + fovY/2.0; i+= fovY*1.0/fh, b++) {
         for (double j = -fovX/2.0; j < fovX/2.0; j+= fovX*1.0/fw, a++) {
 
+
             // rotation along y axis
+            double p1[] = {0.0, 0.0, 0.0};
+            spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? (i + 180) : i), p1);
+
             double p2[] = {0.0, 0.0, 0.0};
-            matrixMultiplication(spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? i + 180 : i)),
-                                 rot_y, p2);
+            matrixMultiplication(p1, rot_y, p2);
 
             // rotate along z axis
             double p3[] = {0.0, 0.0, 0.0};
             matrixMultiplication(p2, rot_z, p3);
-            double *res;
+
+            double res[] = {0.0,0.0};
             if (option == 0) {
 
                 // convert 3D catesian to 2D coordinates
-                res = cartesian2coordinates(p3[0], p3[1], p3[2]);
+                cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
             }
             else if(option == 1){
 
                 // convert 3D catesian to cube UVs
-                res = convert_xyz_to_cube_uv(p3[0], p3[1], p3[2]);
+                convert_xyz_to_cube_uv(p3[0], p3[1], p3[2], res);
 
             }
             else {
                 // convert 3D catesian to EAC UVs
-                res = convert_EAC(p3[0], p3[1], p3[2]);
+                convert_EAC(p3[0], p3[1], p3[2], res);
 
             }
 
+            if (b >= fh || a >= fw){
+                break;
+            }
             // assign the pixel value
-            fov.at<Vec3b>(Point(a, b)) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));
+            fov.at<Vec3b>(b,a) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));
             pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[0] = 255;
             pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[1] = 255;
             pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[2] = 255;
         }
-        a=0;
+        a = 0;
     }
 
     // save the fov image

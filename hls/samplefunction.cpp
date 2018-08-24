@@ -6,7 +6,7 @@ indexes ts = 2048;
 
 fp toRadian(angle a){
 
-	fp piOver180 = 0.0174532925; //1/180
+	fp piOver180 = 0.0174532925; // 1/180
 
     return a * piOver180;
 
