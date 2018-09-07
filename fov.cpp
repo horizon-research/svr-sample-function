@@ -328,7 +328,7 @@ int main(int argc, char** argv) {
     tileSizeY = h/2.0;
 
     // parameters for FoV
-    int fovX = 180,fovY = 180,fw = w * (fovX / 360.0) + 1,fh = h * (fovY / 360.0) + 1;
+    int fovX = 90,fovY = 90,fw = w * (fovX / 360.0) + 1,fh = h * (fovY / 360.0) + 1;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
