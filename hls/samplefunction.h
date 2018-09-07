@@ -3,18 +3,27 @@
 
 #include "ap_fixed.h"
 #include "hls_math.h"
+#include "hls_video.h"
 
 typedef ap_fixed<17,14> indexes;
-typedef ap_fixed<64,19> fp;
+typedef ap_fixed<28,10> fp;
 typedef ap_fixed<20,10> angle;
+typedef hls::stream<ap_axiu<32,1,1,1> > AXI_STREAM;
+typedef hls::Scalar<3, unsigned char> RGB_PIXEL;
+
+//void crt(
+//	int width,
+//	int height,
+//	angle hp,
+//	angle ht,
+//	int option,
+//	AXI_STREAM& INPUT_STREAM,
+//	AXI_STREAM& OUTPUT_STREAM
+//);
 
 void crt(
-	int width,
-	int height,
-	angle hp,
-	angle ht,
-	int option,
-	int fov[1024][1024][2]
+	AXI_STREAM& INPUT_STREAM,
+	AXI_STREAM& OUTPUT_STREAM
 );
 
 int nearestNeighbor(indexes num);
@@ -72,5 +81,31 @@ void convert_xyz_to_cube_uv(
 
 );
 
+void findPixel_EAC(
+
+	int index,
+	fp u,
+	fp v,
+	indexes result [2]
+
+);
+
+void convert_EAC(
+
+	fp x,
+	fp y,
+	fp z,
+	indexes result [2]
+
+);
+
+//void countPixel(
+//
+//	hls::Mat<4096,6144,HLS_8UC3>image,
+//	RGB_PIXEL pixel,
+//	int indexI,
+//	int indexJ
+//
+//);
 
 #endif

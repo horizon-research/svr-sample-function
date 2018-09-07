@@ -1,12 +1,17 @@
 #include "samplefunction.h"
 
+fp option = 1;
+indexes width = 6144;
+indexes height = 4096;
+angle hp = 0.0;
+angle ht = 0.0;
 fp PI = 3.1415926;
 indexes w = 6144 ,h = 4096;
 indexes ts = 2048;
 
 fp toRadian(angle a){
 
-	fp piOver180 = 0.0174532925; // 1/180
+	fp piOver180 = 0.0174532925; //1/180
 
     return a * piOver180;
 
@@ -194,10 +199,150 @@ void convert_xyz_to_cube_uv(fp x, fp y, fp z,indexes result [2]) {
     findPixel(index, u, (one - v),result);
 }
 
-void crt(int width,int height,angle hp, angle ht,int option,int fov[1024][1024][2]) {
+void findPixel_EAC(int index, fp u,fp v,indexes result [2]){
 
-	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
-	#pragma HLS INTERFACE ap_fifo port=fov
+    indexes n,m;
+    indexes mod = index%3;
+    indexes one = 1.0f;
+    indexes two = 2.0f;
+    // Left Front Right
+    if(index <= 2){
+
+        n = (ts * mod)  + v * ts;
+	    m = u * ts;
+
+    }
+    // Down Back Up
+    else{
+
+        switch(index){
+            case 3:
+                n = u * ts;
+                m = ts + (one - v) * ts;
+                break;
+
+            case 4:
+                n = ts + (one - u) * ts + one;
+                m = ts + v * ts + one;
+                break;
+
+            case 5:
+                n = ts * two  +  u * ts;
+                m = ts  + (one - v) * ts;
+                break;
+        }
+    }
+    result[0] = n - one;
+    result[1] = m - one;
+
+}
+
+void convert_EAC(fp x, fp y, fp z,indexes result [2]){
+
+    fp maxAxis, uc, vc;
+    fp u, v;
+    int index;
+
+    fp absX = absVal(x);
+	fp absY = absVal(y);
+	fp absZ = absVal(z);
+
+    int isXPositive = x > 0 ? 1 : 0;
+    int isYPositive = y > 0 ? 1 : 0;
+    int isZPositive = z > 0 ? 1 : 0;
+
+    // Front
+    if (isXPositive && absX >= absY && absX >= absZ) {
+
+        index = 1;
+        maxAxis = absX;
+        uc = -z;
+        vc = y;
+
+    }
+    // Back
+    else if (!isXPositive && absX >= absY && absX >= absZ) {
+
+        index = 4;
+        maxAxis = absX;
+        uc = -z;
+        vc = -y;
+
+    }
+    // Left
+    else if (isYPositive && absY >= absX && absY >= absZ) {
+
+        index = 2;
+        maxAxis = absY;
+        uc = -z;
+        vc = -x;
+
+    }
+    // Right
+    else if (!isYPositive && absY >= absX && absY >= absZ) {
+
+        index = 0;
+        maxAxis = absY;
+        uc = -z;
+        vc = x;
+
+    }
+    // Up
+    else if (isZPositive && absZ >= absX && absZ >= absY) {
+
+        index = 5;
+        maxAxis = absZ;
+        uc = x;
+        vc = y;
+
+    }
+    // Down
+    else if (!isZPositive && absZ >= absX && absZ >= absY) {
+
+        index = 3;
+        maxAxis = absZ;
+        uc = -x;
+        vc = y;
+
+    }
+
+    fp two = 2.0f;
+    fp half = 0.5f;
+    fp horizontal = uc / maxAxis;
+    fp vertical = vc / maxAxis;
+    u = two * hls::atan(horizontal)/PI + half;
+    v = two * hls::atan(vertical)/PI + half;
+
+
+    findPixel_EAC(index,u,v,result);
+
+}
+
+//void countPixel(hls::Mat<4096,6144,HLS_8UC3>image, RGB_PIXEL pixel, int indexI, int indexJ){
+//	for(int j = 0; j <= indexJ; j++){
+//		for(int i = 0; i < indexI; i++){
+//			image.read();
+//		}
+//	}
+//
+//	pixel = image.read();
+//}
+
+//void crt(int width,int height,angle hp, angle ht,int option,AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
+//
+void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
+
+	#pragma HLS INTERFACE axis register both port=INPUT_STREAM
+	#pragma HLS INTERFACE axis register both port=OUTPUT_STREAM
+//	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
+//	#pragma HLS INTERFACE ap_fifo port=fov
+
+	hls::Mat<1024,1024,HLS_8UC3> fov;
+	hls::Mat<4096,6144,HLS_8UC3> input;
+
+	hls::AXIvideo2Mat(INPUT_STREAM, input);
+
+	RGB_PIXEL tempArr[100][100];
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
@@ -239,7 +384,7 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[1024][1024][
 
     for (int a = 0; a < 1024; a++) {
     	    for (int b = 0; b < 1024; b++) {
-			#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
+			//#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
 			#pragma HLS PIPELINE
 
     	    	if(j < 0){
@@ -270,21 +415,44 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[1024][1024][
 				  // convert 3D Cartesian to 2d coordinates
 				    cartesian2coordinates(p3[0], p3[1], p3[2],res);
 				}
-				else{
+				else if (option == 1){
 
 				    convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],res);
 
 				}
+				else{
+					convert_EAC(p3[0], p3[1], p3[2],res);
+				}
 
-				fov[a][b][0] = nearestNeighbor(res[0]);
-				fov[a][b][1] = nearestNeighbor(res[1]);
+
+				RGB_PIXEL temp = input.read();
+
+//				countPixel(input, temp, nearestNeighbor(res[0]), nearestNeighbor(res[1]));
+//				for(int j = 0; j < 4096; j++){
+//					for(int i = 0; i < 6144; i++){
+//
+//						if (i == nearestNeighbor(res[0]) && j == nearestNeighbor(res[1])){
+//							temp = input.read();
+//							printf("read\n");
+//
+//						}
+//						else{
+//							input.read();
+//						}
+//					}
+//				}
+
+				fov.write(temp);
+				printf("Write\n");
 
 				j+= jincrement ;
-
     		}
     		i+= iincrement;
     		j = -30.0;
     }
+
+    hls::Mat2AXIvideo(fov, OUTPUT_STREAM);
+
 }
 
 
