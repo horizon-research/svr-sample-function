@@ -103,6 +103,8 @@ void coordinates2cartesian(double i, double j, double result[3])
     coordinates2spherical(i, j, angles);
 
     z = cos(angles[1]);
+
+    spherical2cartesian(angles[0], angles[1], z, result);
 }
 
 void matrixMultiplication(double *vector, double matrix[3][3], double res[3])
@@ -572,6 +574,11 @@ int main(int argc, char **argv)
             if ( (x < maxX) && (x > minX) && (y < maxY) && (y > minY) ){
                 double cartesian []  ={0.0, 0.0, 0.0};;
                 coordinates2cartesian(x, y, cartesian);
+
+
+                //matrix multiplarication
+
+                //coordinates2spherical();
                 
             }
         }
