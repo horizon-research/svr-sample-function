@@ -412,11 +412,14 @@ int main(int argc, char **argv)
     // default head orientation is 0,90
 
     //left vertical
+
+    double j1 = 360 -fovX / 2.0;
+
     for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++)
     {
             // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian(a), toRadian((i < 0) ? (i + 180) : i), p1);
+        spherical2cartesian(toRadian(j1), toRadian((i < 0) ? (i + 180) : i), p1);
 
         double p2[] = {0.0, 0.0, 0.0};
         matrixMultiplication(p1, rot_y, p2);
@@ -443,18 +446,19 @@ int main(int argc, char **argv)
         // assign the pixel value
         fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 255;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     
     }
 
     //right vertical
-    a = fw;
+    b=0, a = fw;
+    double j2 = fovX / 2.0;
     for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++)
     {
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian(a), toRadian((i < 0) ? (i + 180) : i), p1);
+        spherical2cartesian(toRadian(j2), toRadian((i < 0) ? (i + 180) : i), p1);
 
         double p2[] = {0.0, 0.0, 0.0};
         matrixMultiplication(p1, rot_y, p2);
@@ -485,17 +489,19 @@ int main(int argc, char **argv)
         // assign the pixel value
         fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 255;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
+
 
     //top horizontal
     b=0, a=0;
+    double i1 = 90 - fovY / 2.0;
     for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++)
     {
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(b), p1);
+        spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i1 < 0) ? (i1 + 180) : i1), p1);
 
         double p2[] = {0.0, 0.0, 0.0};
         matrixMultiplication(p1, rot_y, p2);
@@ -526,17 +532,18 @@ int main(int argc, char **argv)
         // assign the pixel value
         fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 255;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
     //bottom horizontal
-    b = fh;
+    a=0, b = fh;
+    double i2 = 90 + fovY / 2.0;
     for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++)
     {
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(b), p1);
+        spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(i2), p1);
 
         double p2[] = {0.0, 0.0, 0.0};
         matrixMultiplication(p1, rot_y, p2);
@@ -567,8 +574,8 @@ int main(int argc, char **argv)
         // assign the pixel value
         fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 255;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
 
@@ -580,8 +587,24 @@ int main(int argc, char **argv)
 
             //if pixel map to output get input index 
             if ( (x < maxX) && (x > minX) && (y < maxY) && (y > minY) ){
-                double cartesian []  ={0.0, 0.0, 0.0};;
+                double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
+
+		double p1[] = {0.0, 0.0, 0.0};
+           	matrixMultiplication(cartesian, rot_y_inverse, p1);
+
+           	// rotate along z axis
+            	double p2[] = {0.0, 0.0, 0.0};
+            	matrixMultiplication(p1, rot_z_inverse, p2);
+
+		
+		
+		
+		
+		
+	
+
+		
                 
             }
         }
