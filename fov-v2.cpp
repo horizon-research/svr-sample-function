@@ -12,6 +12,7 @@ int w, h;
 
 double tileSize;
 double tileSizeX, tileSizeY;
+int fovX = 90, fovY = 90, fw,fh;
 
 double toRadian(double a)
 {
@@ -95,6 +96,35 @@ void cartesian2coordinates(double x, double y, double z, double result[2])
     spherical2coordinates(the, phi, result);
 }
 
+void cartesian2coordintaes_inverse(double x, double y, double z, double result[2])
+{	    
+	
+    printf("x: %lf, y: %lf, z: %lf\n",x,y,z);
+    double the;
+    // pay atentions to atan2 vs atan
+    if (x != 0)
+    {	
+        the = atan2(y, x);
+	printf("atan2\n");
+    }
+    else
+    {
+        the = toRadian(90.0);
+    }
+    double phi = acos(z);
+
+    printf("%lf %lf\n", the, phi);
+    if( the >= 0 && the <= 90 && phi >=0 && phi <= 90){
+        result[0] = (2*the/PI) * fw;
+        result[1] = (2*phi/PI) * fh;
+    }else{
+	result[0] = 0;
+        result[1] = 0;
+    }
+    printf("res: %lf %lf\n", result[0], result[1]);
+}
+
+
 void coordinates2cartesian(double i, double j, double result[3])
 {
     double x, y, z;
@@ -102,7 +132,8 @@ void coordinates2cartesian(double i, double j, double result[3])
 
     coordinates2spherical(i, j, angles);
 
-    z = cos(angles[1]);
+    spherical2cartesian(angles[0],angles[1],result);
+
 }
 
 void matrixMultiplication(double *vector, double matrix[3][3], double res[3])
@@ -363,7 +394,7 @@ int main(int argc, char **argv)
     tileSizeY = h / 2.0;
 
     // parameters for FoV
-    int fovX = 90, fovY = 90, fw = w * (fovX / 360.0) + 1, fh = h * (fovY / 360.0) + 1;
+    fw = w * (fovX / 360.0) + 1, fh = h * (fovY / 360.0) + 1;
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
@@ -589,23 +620,24 @@ int main(int argc, char **argv)
             if ( (x < maxX) && (x > minX) && (y < maxY) && (y > minY) ){
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
+		printf("Cartesian\n");
 
 		double p1[] = {0.0, 0.0, 0.0};
            	matrixMultiplication(cartesian, rot_y_inverse, p1);
-
-           	// rotate along z axis
+		
+		printf("Y-axis\n");
+           	
+		// rotate along z axis
             	double p2[] = {0.0, 0.0, 0.0};
             	matrixMultiplication(p1, rot_z_inverse, p2);
 
-		
-		
-		
-		
-		
-	
+		printf("Z-axis\n");
 
-		
-                
+		double res[] = {0.0,0.0};
+		cartesian2coordintaes_inverse(p2[0], p2[1],p2[2], res);
+		printf("Coordinates\n");
+		fov.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0])) = image.at<Vec3b>(y,x);     
+		printf("Assigned!\n");
             }
         }
     }
