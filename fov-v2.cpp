@@ -439,6 +439,7 @@ int main(int argc, char **argv)
         {sin(htr), cos(htr), 0},
         {0, 0, 1}};
 
+
     // initialize fov image
     Mat fov(fh, fw, CV_8UC3);
 
@@ -456,7 +457,7 @@ int main(int argc, char **argv)
 
     for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++)
     {
-            // rotation along y axis
+        // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
         spherical2cartesian(toRadian(j1), toRadian((i < 0) ? (i + 180) : i), p1);
 
@@ -468,7 +469,7 @@ int main(int argc, char **argv)
         matrixMultiplication(p2, rot_z, p3);
 
         double res[] = {0.0, 0.0};
-        
+
         // convert 3D catesian to 2D coordinates
         cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
@@ -487,8 +488,9 @@ int main(int argc, char **argv)
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
-    
+
     }
+
 
     //right vertical
     b=0, a = fw;
@@ -617,6 +619,9 @@ int main(int argc, char **argv)
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
+    printf("minX = %d\n, maxX = %d\n minY = %d maxY = %d\n",minX, maxX, minY, maxY);
+
+
 
     //for input pixel in the ouput range, calculate the outpout cordinnates
     int x , y;
@@ -625,19 +630,19 @@ int main(int argc, char **argv)
         for (x = 0; x < w; x++){
 
             //if pixel map to output get input index 
-            if (x <= maxX && x >= minX && y <= maxY && y >= minY){
-
+//            if (x <= maxX && x >= minX && y <= maxY && y >= minY){
+           if (true){
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
                 //printf("Cartesian: %lf, %lf, %lf\n",cartesian[0],cartesian[1],cartesian[2]);
                 double p1[] = {0.0, 0.0, 0.0};
-                    matrixMultiplication(cartesian, rot_y_inverse, p1);
+                    matrixMultiplication(cartesian, rot_z_inverse , p1);
 
                 //printf("P1: %lf, %lf, %lf\n",p1[0],p1[1],p1[2]);
 
                 // rotate along z axis
                 double p2[] = {0.0, 0.0, 0.0};
-                        matrixMultiplication(p1, rot_z_inverse, p2);
+                        matrixMultiplication( p1, rot_y_inverse, p2);
 
                // printf("P2: %lf, %lf, %lf\n",p2[0],p2[1],p2[2]);
 
