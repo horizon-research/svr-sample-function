@@ -3,4 +3,4 @@
 This repository contains C++ and HLS implementation of VR algorithm for svr.
 
 
-./fov-v2 er.jpg fov2.jpg 0 0 1
+./<executable name> <input> <output> <option> <horizontal angle> <vertical angle> 
