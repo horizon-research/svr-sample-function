@@ -445,7 +445,12 @@ int main(int argc, char **argv)
 
     //border on the input frame that map to output pixels
 
-    double maxX = std::numeric_limits<double>::min(), minX = std::numeric_limits<double>::max(), maxY = std::numeric_limits<double>::min(), minY = std::numeric_limits<double>::max();
+    double maxX = -INFINITY;
+    double minX = INFINITY;
+    double maxY = -INFINITY;
+    double minY = INFINITY;
+    printf("minX = %d\n, maxX = %d\n minY = %d maxY = %d\n",minX, maxX, minY, maxY);
+
 
     int a = 0, b = 0;
 
@@ -619,7 +624,12 @@ int main(int argc, char **argv)
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
-    printf("minX = %d\n, maxX = %d\n minY = %d maxY = %d\n",minX, maxX, minY, maxY);
+    if (hp > 45){
+        printf("Cut off\n");
+        minX = 0.0;
+    }
+
+    printf("minX = %d\n maxX = %d\n minY = %d \nmaxY = %d\n",minX, maxX, minY, maxY);
 
 
 
@@ -630,8 +640,8 @@ int main(int argc, char **argv)
         for (x = 0; x < w; x++){
 
             //if pixel map to output get input index 
-//            if (x <= maxX && x >= minX && y <= maxY && y >= minY){
-           if (true){
+            if (x <= maxX && x >= minX && y <= maxY && y >= minY){
+          // if (true){
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
                 //printf("Cartesian: %lf, %lf, %lf\n",cartesian[0],cartesian[1],cartesian[2]);
