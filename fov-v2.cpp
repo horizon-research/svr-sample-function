@@ -16,6 +16,7 @@ double tileSizeX, tileSizeY;
 int fovX = 90, fovY = 90, fw,fh;
 int count = 0;
 
+
 double toRadian(double a)
 {
     return a / 180.0 * PI;
@@ -120,12 +121,16 @@ void cartesian2coordintaes_inverse(double x, double y, double z, double result[2
 
     //printf("%lf %lf\n", the, phi);
     if(the >= -fovX/2.0 && the <= fovX/2 && phi >= 90 -fovY/2.0 && phi <= 90 +fovY/2.0){
-
+//        double temp [] = {0.0, 0.0};
+//        cartesian2coordinates(x,y,z,temp);
+        //printf("temp: %lf %lf\n", temp[0], temp[1]);
         result[0] = (the + fovX/2.0)/90.0 * fw;
 
         result[1] = ((phi -  90  + fovY/2.0)/ 90.0) * fh;
         count++;
     }else{
+
+
         result[0] = 0;
         result[1] = 0;
     }
@@ -449,7 +454,7 @@ int main(int argc, char **argv)
     double minX = INFINITY;
     double maxY = -INFINITY;
     double minY = INFINITY;
-    printf("minX = %d\n, maxX = %d\n minY = %d maxY = %d\n",minX, maxX, minY, maxY);
+   // printf("minX = %d\n, maxX = %d\n minY = %d maxY = %d\n",minX, maxX, minY, maxY);
 
 
     int a = 0, b = 0;
@@ -489,7 +494,7 @@ int main(int argc, char **argv)
         if (maxY < res[1]) maxY = res[1];
 
         // assign the pixel value
-        fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
+        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -533,7 +538,7 @@ int main(int argc, char **argv)
             maxY = res[1];
 
         // assign the pixel value
-        fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
+        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -576,7 +581,7 @@ int main(int argc, char **argv)
             maxY = res[1];
 
         // assign the pixel value
-        fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
+        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -618,18 +623,28 @@ int main(int argc, char **argv)
             maxY = res[1];
 
         // assign the pixel value
-        fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
+        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
-    if (hp > 45){
-        printf("Cut off\n");
+    if (hp <= -45 || hp >= 315){
+
+        maxY = h;
+        maxX = w;
         minX = 0.0;
+
+    }
+    if(hp >= 45){
+
+        minY = 0.0;
+        maxX = w;
+        minX = 0.0;
+
     }
 
-    printf("minX = %d\n maxX = %d\n minY = %d \nmaxY = %d\n",minX, maxX, minY, maxY);
+
 
 
 
@@ -641,7 +656,7 @@ int main(int argc, char **argv)
 
             //if pixel map to output get input index 
             if (x <= maxX && x >= minX && y <= maxY && y >= minY){
-          // if (true){
+           //if (true){
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
                 //printf("Cartesian: %lf, %lf, %lf\n",cartesian[0],cartesian[1],cartesian[2]);
@@ -665,7 +680,7 @@ int main(int argc, char **argv)
             }
         }
     }
-
+        printf("minX = %lf\n maxX = %lf\n minY = %lf \nmaxY = %lf\n",minX, maxX, minY, maxY);
         // save the fov image
         imwrite(argv[2], fov);
         imwrite("input2.jpg", pat);
