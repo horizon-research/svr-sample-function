@@ -119,12 +119,9 @@ void cartesian2coordintaes_inverse(double x, double y, double z, double result[2
     the = the / PI *180.0;
     phi = phi / PI * 180.0;
 
-    //printf("%lf %lf\n", the, phi);
     if(the >= -fovX/2.0 && the <= fovX/2 && phi >= 90 -fovY/2.0 && phi <= 90 +fovY/2.0){
-//        double temp [] = {0.0, 0.0};
-//        cartesian2coordinates(x,y,z,temp);
-        //printf("temp: %lf %lf\n", temp[0], temp[1]);
-        result[0] = (the + fovX/2.0)/90.0 * fw;
+       
+	 result[0] = (the + fovX/2.0)/90.0 * fw;
 
         result[1] = ((phi -  90  + fovY/2.0)/ 90.0) * fh;
         count++;
@@ -134,7 +131,6 @@ void cartesian2coordintaes_inverse(double x, double y, double z, double result[2
         result[0] = 0;
         result[1] = 0;
     }
-    //printf("res: %lf %lf\n", result[0], result[1]);
 }
 
 
@@ -454,8 +450,6 @@ int main(int argc, char **argv)
     double minX = INFINITY;
     double maxY = -INFINITY;
     double minY = INFINITY;
-   // printf("minX = %d\n, maxX = %d\n minY = %d maxY = %d\n",minX, maxX, minY, maxY);
-
 
     int a = 0, b = 0;
 
@@ -494,7 +488,6 @@ int main(int argc, char **argv)
         if (maxY < res[1]) maxY = res[1];
 
         // assign the pixel value
-        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -538,7 +531,6 @@ int main(int argc, char **argv)
             maxY = res[1];
 
         // assign the pixel value
-        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -581,7 +573,6 @@ int main(int argc, char **argv)
             maxY = res[1];
 
         // assign the pixel value
-        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -623,7 +614,6 @@ int main(int argc, char **argv)
             maxY = res[1];
 
         // assign the pixel value
-        //fov.at<Vec3b>(b, a) = image.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]));
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
         pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
@@ -650,32 +640,27 @@ int main(int argc, char **argv)
 
     //for input pixel in the ouput range, calculate the outpout cordinnates
     int x , y;
-    //printf("MaxX: %lf, MaxY: %lf, MinX: %lf. MinY:%lf\n",maxX,maxY,minX,minY);
+
     for (y = 0; y < h; y++){
         for (x = 0; x < w; x++){
 
             //if pixel map to output get input index 
             if (x <= maxX && x >= minX && y <= maxY && y >= minY){
-           //if (true){
+
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
-                //printf("Cartesian: %lf, %lf, %lf\n",cartesian[0],cartesian[1],cartesian[2]);
-                double p1[] = {0.0, 0.0, 0.0};
+                
+		double p1[] = {0.0, 0.0, 0.0};
                     matrixMultiplication(cartesian, rot_z_inverse , p1);
-
-                //printf("P1: %lf, %lf, %lf\n",p1[0],p1[1],p1[2]);
 
                 // rotate along z axis
                 double p2[] = {0.0, 0.0, 0.0};
                         matrixMultiplication( p1, rot_y_inverse, p2);
 
-               // printf("P2: %lf, %lf, %lf\n",p2[0],p2[1],p2[2]);
 
                 double res[] = {0.0,0.0};
                 cartesian2coordintaes_inverse(p2[0], p2[1], p2[2], res);
-                //printf("coordinates: %lf, %lf\n",res[0],res[1]);
                 fov.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0])) = image.at<Vec3b>(y,x);
-               // printf("Assigned!\n");
 
             }
         }
