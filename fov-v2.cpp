@@ -61,30 +61,10 @@ void spherical2coordinates(double the, double phi, double result[2]){
     result[1] = j;
 }
 
-//New approach
-void coordinates2spherical(double i, double j, double result[2]){
-    double theta, phi;
-
-    if (i > w){
-
-        theta = (2 * i * PI / w) - PI;
-
-    }
-    else{
-
-        theta = (2 * i * PI / w) + PI;
-
-    }
-    phi = j * PI / h;
-
-    result[0] = theta;
-    result[1] = phi;
-}
-
 void cartesian2coordinates(double x, double y, double z, double result[2]){
 
     double the;
-    // pay atentions to atan2 vs atan
+
     if (x != 0){
 
         the = atan2(y, x);
@@ -100,7 +80,28 @@ void cartesian2coordinates(double x, double y, double z, double result[2]){
     spherical2coordinates(the, phi, result);
 }
 
-void cartesian2coordintaes_inverse(double x, double y, double z, double result[2]){
+//New approach
+void coordinates2spherical(double i, double j, double result[2]){
+    double theta, phi;
+
+    if (i >= w / 2.0){
+
+        theta = (2 * i * PI / w) - PI;
+
+    }
+    else{
+
+        theta = (2 * i * PI / w) + PI;
+
+    }
+    phi = j * PI / h;
+
+    result[0] = theta;
+    result[1] = phi;
+}
+
+
+void cartesian2coordinates_inverse(double x, double y, double z, double result[2]){
 
     double the;
     // pay atentions to atan2 vs atan
@@ -630,7 +631,7 @@ int main(int argc, char **argv){
 
 
                 double res[] = {0.0,0.0};
-                cartesian2coordintaes_inverse(p2[0], p2[1], p2[2], res);
+                cartesian2coordinates_inverse(p2[0], p2[1], p2[2], res);
                 fov.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0])) = image.at<Vec3b>(y,x);
 
             }
