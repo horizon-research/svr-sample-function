@@ -17,21 +17,19 @@ int fovX = 90, fovY = 90, fw,fh;
 int count = 0;
 
 
-double toRadian(double a)
-{
+double toRadian(double a){
+
     return a / 180.0 * PI;
 }
 
-int nearestNeighbor(double num)
-{
+int nearestNeighbor(double num){
 
     int res = (int)(num + 0.5);
 
     return res;
 }
 
-void spherical2cartesian(double the, double phi, double result[3])
-{
+void spherical2cartesian(double the, double phi, double result[3]){
 
     double x = sin(phi) * cos(the);
     double y = sin(phi) * sin(the);
@@ -42,18 +40,19 @@ void spherical2cartesian(double the, double phi, double result[3])
     result[2] = z;
 }
 
-void spherical2coordinates(double the, double phi, double result[2])
-{
+void spherical2coordinates(double the, double phi, double result[2]){
 
     double i, j;
 
-    if (the > PI)
-    {
+    if (the > PI){
+
         i = (the - PI) / 2.0 / PI * w;
+
     }
-    else
-    {
+    else{
+
         i = (PI + the) / 2.0 / PI * w;
+
     }
 
     j = phi / PI * h;
@@ -63,17 +62,18 @@ void spherical2coordinates(double the, double phi, double result[2])
 }
 
 //New approach
-void coordinates2spherical(double i, double j, double result[2])
-{
+void coordinates2spherical(double i, double j, double result[2]){
     double theta, phi;
 
-    if (i > w)
-    {
+    if (i > w){
+
         theta = (2 * i * PI / w) - PI;
+
     }
-    else
-    {
+    else{
+
         theta = (2 * i * PI / w) + PI;
+
     }
     phi = j * PI / h;
 
@@ -81,52 +81,53 @@ void coordinates2spherical(double i, double j, double result[2])
     result[1] = phi;
 }
 
-void cartesian2coordinates(double x, double y, double z, double result[2])
-{
+void cartesian2coordinates(double x, double y, double z, double result[2]){
 
     double the;
     // pay atentions to atan2 vs atan
-    if (x != 0)
-    {
+    if (x != 0){
+
         the = atan2(y, x);
+
     }
-    else
-    {
+    else{
+
         the = toRadian(90.0);
+
     }
 
     double phi = acos(z);
     spherical2coordinates(the, phi, result);
 }
 
-void cartesian2coordintaes_inverse(double x, double y, double z, double result[2])
-{	    
-	
-   // printf("x: %lf, y: %lf, z: %lf\n",x,y,z);
+void cartesian2coordintaes_inverse(double x, double y, double z, double result[2]){
+
     double the;
     // pay atentions to atan2 vs atan
-    if (x != 0)
-    {	
+    if (x != 0){
+
         the = atan2(y, x);
-	    //printf("atan2\n");
+
     }
-    else
-    {
+    else{
+
         the = toRadian(90.0);
+
     }
+
     double phi = acos(z);
 
-    the = the / PI *180.0;
+    the = the / PI * 180.0;
     phi = phi / PI * 180.0;
 
     if(the >= -fovX/2.0 && the <= fovX/2 && phi >= 90 -fovY/2.0 && phi <= 90 +fovY/2.0){
        
-	 result[0] = (the + fovX/2.0)/90.0 * fw;
+	    result[0] = (the + fovX/2.0)* fw /90.0;
+        result[1] = (phi -  90  + fovY/2.0) * fh/ 90.0;
 
-        result[1] = ((phi -  90  + fovY/2.0)/ 90.0) * fh;
         count++;
-    }else{
-
+    }
+    else{
 
         result[0] = 0;
         result[1] = 0;
@@ -134,8 +135,7 @@ void cartesian2coordintaes_inverse(double x, double y, double z, double result[2
 }
 
 
-void coordinates2cartesian(double i, double j, double result[3])
-{
+void coordinates2cartesian(double i, double j, double result[3]){
 
     double angles [] = {0.0, 0.0};
 
@@ -145,31 +145,30 @@ void coordinates2cartesian(double i, double j, double result[3])
 
 }
 
-void matrixMultiplication(double *vector, double matrix[3][3], double res[3])
-{
+void matrixMultiplication(double *vector, double matrix[3][3], double res[3]){
 
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
 
             res[i] += matrix[i][j] * vector[j];
+
         }
     }
 }
 
-void findPixel(int index, double x, double y, double result[2])
-{
+void findPixel(int index, double x, double y, double result[2]){
 
     int vertical;
 
-    if (index > 2)
-    {
+    if (index > 2){
+
         vertical = 1;
+
     }
-    else
-    {
+    else{
+
         vertical = 0;
+
     }
 
     double n = (tileSize * (index % 3)) + y * tileSize;
@@ -180,8 +179,7 @@ void findPixel(int index, double x, double y, double result[2])
 }
 
 //from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
-void convert_xyz_to_cube_uv(double x, double y, double z, double result[2])
-{
+void convert_xyz_to_cube_uv(double x, double y, double z, double result[2]){
 
     double maxAxis, uc, vc;
     double u, v;
@@ -197,68 +195,67 @@ void convert_xyz_to_cube_uv(double x, double y, double z, double result[2])
 
     // POSITIVE X
     // Front
-    if (isXPositive && absX >= absY && absX >= absZ)
-    {
+    if (isXPositive && absX >= absY && absX >= absZ){
         // u (0 to 1) goes from +z to -z
         // v (0 to 1) goes from -y to +y
         index = 4;
         maxAxis = absX;
         uc = -z;
         vc = y;
+
     }
 
     // NEGATIVE X
     // Back
-    else if (!isXPositive && absX >= absY && absX >= absZ)
-    {
+    else if (!isXPositive && absX >= absY && absX >= absZ){
         // u (0 to 1) goes from -z to +z
         // v (0 to 1) goes from -y to +y
         index = 5;
         maxAxis = absX;
         uc = -z;
         vc = -y;
+
     }
 
     // POSITIVE Y
     // Left
-    else if (isYPositive && absY >= absX && absY >= absZ)
-    {
+    else if (isYPositive && absY >= absX && absY >= absZ){
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from +z to -z
         index = 1;
         maxAxis = absY;
         uc = -z;
         vc = -x;
+
     }
 
     // NEGATIVE Y
     // Right
-    else if (!isYPositive && absY >= absX && absY >= absZ)
-    {
+    else if (!isYPositive && absY >= absX && absY >= absZ){
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -z to +z
         index = 0;
         maxAxis = absY;
         uc = -z;
         vc = x;
+
     }
 
     // POSITIVE Z
     // Up
-    else if (isZPositive && absZ >= absX && absZ >= absY)
-    {
+    else if (isZPositive && absZ >= absX && absZ >= absY){
         // u (0 to 1) goes from -x to +x
         // v (0 to 1) goes from -y to +y
         index = 2;
         maxAxis = absZ;
         uc = x;
         vc = y;
+
     }
 
     // NEGATIVE Z
     // Down
-    else if (!isZPositive && absZ >= absX && absZ >= absY)
-    {
+    else if (!isZPositive && absZ >= absX && absZ >= absY){
         // u (0 to 1) goes from +x to -x
         // v (0 to 1) goes from -y to +y
 
@@ -266,6 +263,7 @@ void convert_xyz_to_cube_uv(double x, double y, double z, double result[2])
         maxAxis = absZ;
         uc = -x;
         vc = y;
+
     }
 
     // Convert range from -1 to 1 to 0 to 1
@@ -275,24 +273,22 @@ void convert_xyz_to_cube_uv(double x, double y, double z, double result[2])
     findPixel(index, u, (1 - v), result);
 }
 
-void findPixel_EAC(int index, double u, double v, double result[2])
-{
+void findPixel_EAC(int index, double u, double v, double result[2]){
 
     double n, m;
 
     // Left Front Right
-    if (index <= 2)
-    {
+    if (index <= 2){
 
         n = (tileSizeX * (index % 3)) + v * tileSizeX;
         m = u * tileSizeY;
+
     }
     // Down Back Up
-    else
-    {
+    else{
 
-        switch (index)
-        {
+        switch (index){
+
         case 3:
             n = u * tileSizeX;
             m = tileSizeY + (1 - v) * tileSizeY;
@@ -307,14 +303,14 @@ void findPixel_EAC(int index, double u, double v, double result[2])
             n = tileSizeX * 2.0f + u * tileSizeX;
             m = tileSizeY + (1 - v) * tileSizeY;
             break;
+
         }
     }
     result[0] = n - 1;
     result[1] = m - 1;
 }
 
-void convert_EAC(double x, double y, double z, double result[2])
-{
+void convert_EAC(double x, double y, double z, double result[2]){
 
     double maxAxis, uc, vc;
     double u, v;
@@ -329,58 +325,58 @@ void convert_EAC(double x, double y, double z, double result[2])
     int isZPositive = z > 0 ? 1 : 0;
 
     // Front
-    if (isXPositive && absX >= absY && absX >= absZ)
-    {
+    if (isXPositive && absX >= absY && absX >= absZ){
 
         index = 1;
         maxAxis = absX;
         uc = -z;
         vc = y;
+
     }
     // Back
-    else if (!isXPositive && absX >= absY && absX >= absZ)
-    {
+    else if (!isXPositive && absX >= absY && absX >= absZ){
 
         index = 4;
         maxAxis = absX;
         uc = -z;
         vc = -y;
+
     }
     // Left
-    else if (isYPositive && absY >= absX && absY >= absZ)
-    {
+    else if (isYPositive && absY >= absX && absY >= absZ){
 
         index = 2;
         maxAxis = absY;
         uc = -z;
         vc = -x;
+
     }
     // Right
-    else if (!isYPositive && absY >= absX && absY >= absZ)
-    {
+    else if (!isYPositive && absY >= absX && absY >= absZ){
 
         index = 0;
         maxAxis = absY;
         uc = -z;
         vc = x;
+
     }
     // Up
-    else if (isZPositive && absZ >= absX && absZ >= absY)
-    {
+    else if (isZPositive && absZ >= absX && absZ >= absY){
 
         index = 5;
         maxAxis = absZ;
         uc = x;
         vc = y;
+
     }
     // Down
-    else if (!isZPositive && absZ >= absX && absZ >= absY)
-    {
+    else if (!isZPositive && absZ >= absX && absZ >= absY){
 
         index = 3;
         maxAxis = absZ;
         uc = -x;
         vc = y;
+
     }
 
     u = 2.0f * atan((uc / maxAxis)) / PI + 0.5f;
@@ -389,12 +385,13 @@ void convert_EAC(double x, double y, double z, double result[2])
     findPixel_EAC(index, u, v, result);
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
+
     int option = argv[3][0] - '0';
     // load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
-    Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    //Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+
     // get width and height
     w = image.cols;
     h = image.rows;
@@ -409,8 +406,9 @@ int main(int argc, char **argv)
     // hp is phi (vertical), goes toward up first
     // both are relative rotation angles
     hp = atof(argv[5]), ht = atof(argv[4]);
-    if (option == 0)
-    {
+
+    if (option == 0){
+
         fh = h * (fovY / 180.0);
         //hp = (hp / 360.0) * 180.0;
     }
@@ -459,8 +457,8 @@ int main(int argc, char **argv)
 
     double j1 = 360 -fovX / 2.0;
 
-    for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++)
-    {
+    for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++){
+
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
         spherical2cartesian(toRadian(j1), toRadian((i < 0) ? (i + 180) : i), p1);
@@ -477,26 +475,23 @@ int main(int argc, char **argv)
         // convert 3D catesian to 2D coordinates
         cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-        if (b >= fh)
-        {
-            break;
-        }
+        if (b >= fh) break;
 
         if (minX > res[0]) minX = res[0];
         if (maxX < res[0]) maxX = res[0];
         if (minY > res[1]) minY = res[1];
         if (maxY < res[1]) maxY = res[1];
 
-        // assign the pixel value
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
+//        // assign the pixel value
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
 
     }
 
 
     //right vertical
-    b=0, a = fw;
+    b=0;
     double j2 = fovX / 2.0;
     for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++)
     {
@@ -516,32 +511,27 @@ int main(int argc, char **argv)
         // convert 3D catesian to 2D coordinates
         cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-        if (b >= fh)
-        {
-            break;
-        }
+        if (b >= fh) break;
 
-        if (minX > res[0])
-            minX = res[0];
-        if (maxX < res[0])
-            maxX = res[0];
-        if (minY > res[1])
-            minY = res[1];
-        if (maxY < res[1])
-            maxY = res[1];
+        if (minX > res[0]) minX = res[0];
+        if (maxX < res[0]) maxX = res[0];
+        if (minY > res[1]) minY = res[1];
+        if (maxY < res[1]) maxY = res[1];
 
-        // assign the pixel value
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
+//        // assign the pixel value
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
 
     //top horizontal
-    b=0, a=0;
+
+    a=0;
     double i1 = 90 - fovY / 2.0;
-    for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++)
-    {
+
+    for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++){
+
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i1 < 0) ? (i1 + 180) : i1), p1);
@@ -558,31 +548,24 @@ int main(int argc, char **argv)
         // convert 3D catesian to 2D coordinates
         cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-        if (a >= fw)
-        {
-            break;
-        }
+        if (a >= fw) break;
 
-        if (minX > res[0])
-            minX = res[0];
-        if (maxX < res[0])
-            maxX = res[0];
-        if (minY > res[1])
-            minY = res[1];
-        if (maxY < res[1])
-            maxY = res[1];
+        if (minX > res[0]) minX = res[0];
+        if (maxX < res[0]) maxX = res[0];
+        if (minY > res[1]) minY = res[1];
+        if (maxY < res[1]) maxY = res[1];
 
-        // assign the pixel value
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
+//        // assign the pixel value
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
     //bottom horizontal
-    a=0, b = fh;
+    a=0;
     double i2 = 90 + fovY / 2.0;
-    for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++)
-    {
+    for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++) {
+
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(i2), p1);
@@ -599,24 +582,17 @@ int main(int argc, char **argv)
         // convert 3D catesian to 2D coordinates
         cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-        if (a >= fw)
-        {
-            break;
-        }
+        if (a >= fw) break;
 
-        if (minX > res[0])
-            minX = res[0];
-        if (maxX < res[0])
-            maxX = res[0];
-        if (minY > res[1])
-            minY = res[1];
-        if (maxY < res[1])
-            maxY = res[1];
+        if (minX > res[0]) minX = res[0];
+        if (maxX < res[0]) maxX = res[0];
+        if (minY > res[1]) minY = res[1];
+        if (maxY < res[1]) maxY = res[1];
 
         // assign the pixel value
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
+//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
     }
 
     if (hp <= -45 || hp >= 315){
@@ -626,17 +602,13 @@ int main(int argc, char **argv)
         minX = 0.0;
 
     }
-    if(hp >= 45){
+    if(hp >= 45) {
 
         minY = 0.0;
         maxX = w;
         minX = 0.0;
 
     }
-
-
-
-
 
     //for input pixel in the ouput range, calculate the outpout cordinnates
     int x , y;
@@ -646,16 +618,15 @@ int main(int argc, char **argv)
 
             //if pixel map to output get input index 
             if (x <= maxX && x >= minX && y <= maxY && y >= minY){
-
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
                 
-		double p1[] = {0.0, 0.0, 0.0};
-                    matrixMultiplication(cartesian, rot_z_inverse , p1);
+		        double p1[] = {0.0, 0.0, 0.0};
+                matrixMultiplication(cartesian, rot_z_inverse , p1);
 
                 // rotate along z axis
                 double p2[] = {0.0, 0.0, 0.0};
-                        matrixMultiplication( p1, rot_y_inverse, p2);
+                matrixMultiplication( p1, rot_y_inverse, p2);
 
 
                 double res[] = {0.0,0.0};
@@ -665,11 +636,53 @@ int main(int argc, char **argv)
             }
         }
     }
-        printf("minX = %lf\n maxX = %lf\n minY = %lf \nmaxY = %lf\n",minX, maxX, minY, maxY);
-        // save the fov image
-        imwrite(argv[2], fov);
-        imwrite("input2.jpg", pat);
-        printf("pixels = %d\n",count);
+    int blackPixels = 0;
 
-        return 0;
+    for(int h = 0; h < fh; h++){
+        for(int v = 0; v < fw; v++){
+            if(fov.at<Vec3b>(h, v)[0] == 0 && fov.at<Vec3b>(h, v)[1] == 0 && fov.at<Vec3b>(h, v)[2] == 0){
+                blackPixels++;
+                double r = 0, g = 0, b = 0;
+                double count = 0;
+
+                if(h - 1 >= 0){
+                    r += fov.at<Vec3b>(h - 1, v)[0];
+                    g += fov.at<Vec3b>(h - 1, v)[1];
+                    b += fov.at<Vec3b>(h - 1, v)[2];
+                    count += 1;
+                }
+                if(h + 1 < fh){
+                    r += fov.at<Vec3b>(h + 1, v)[0];
+                    g += fov.at<Vec3b>(h + 1, v)[1];
+                    b += fov.at<Vec3b>(h + 1, v)[2];
+                    count += 1;
+                }
+                if(v - 1 >= 0){
+                    r += fov.at<Vec3b>(h, v - 1)[0];
+                    g += fov.at<Vec3b>(h, v - 1)[1];
+                    b += fov.at<Vec3b>(h, v - 1)[2];
+                    count += 1;
+                }
+                if(v + 1 < fw){
+                    r += fov.at<Vec3b>(h, v + 1)[0];
+                    g += fov.at<Vec3b>(h, v + 1)[1];
+                    b += fov.at<Vec3b>(h, v + 1)[2];
+                    count += 1;
+                }
+
+                fov.at<Vec3b>(h, v)[0] = r / count;
+                fov.at<Vec3b>(h, v)[1] = g / count;
+                fov.at<Vec3b>(h, v)[2] = b / count;
+
+            }
+        }
+    }
+
+    // save the fov image
+    imwrite(argv[2], fov);
+    //imwrite("input2.jpg", pat);
+    printf("pixels = %d\n",count);
+    printf("black pixels = %d\n",blackPixels);
+
+    return 0;
 }
