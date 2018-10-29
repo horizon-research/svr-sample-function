@@ -611,6 +611,7 @@ int main(int argc, char **argv){
 
     }
 
+    printf("%lf, %lf , %lf, %lf\n", maxX, maxY, minX, minY);
     //for input pixel in the ouput range, calculate the outpout cordinnates
     int x , y;
 
