@@ -3,6 +3,7 @@
 fp PI = 3.1415926;
 indexes w = 1920 ,h = 967;
 angle angle45 = 45, angleNegative45 = -45, angle135 = 135;
+indexes anglePI = 3.1415926;
 angle angle90 = 90,angle180 = 180,angle315 = 315;
 indexes fw = 481, fh = 483;
 int count = 0;
@@ -38,6 +39,8 @@ void spherical2cartesian(fp the, fp phi,fp result [3]){
     result[0] = x;
     result[1] = y;
     result[2] = z;
+
+    //printf("x: %lf, y:%lf, z:%lf\n",x.to_float(), y.to_float(), z.to_float());
 }
 
 void spherical2coordinates(fp the, fp phi,indexes result [2]){
@@ -100,15 +103,15 @@ void coordinates2spherical(indexes i, indexes j, angle result[2]){
 
     if (i >= w / two){
 
-        theta = (two * i / w * PI) - PI;
+        theta = (two * i / w * anglePI) - anglePI;
 
     }
     else{
 
-        theta = (two * i/ w * PI) + PI;
+        theta = (two * i/ w * anglePI) + anglePI;
 
     }
-    phi = j / h * PI;
+    phi = j / h * anglePI;
 
     //printf("theta: %lf , phi: %lf\n", theta.to_float(),phi.to_float());
     result[0] = theta;
@@ -133,13 +136,13 @@ void cartesian2coordinates_inverse(fp x, fp y, fp z, indexes result[2]){
     }
 
     angle phi = hls::acos(z);
-
+   // printf("the: %lf, phi: %lf\n", the.to_float(),phi.to_float());
     the = the / PI * angle180;
     phi = phi / PI * angle180;
-
+    //printf("the: %lf, phi: %lf\n", the.to_float(),phi.to_float());
     if(the >= angleNegative45 && the <= angle45 && phi >= angle45 && phi <= angle135){
 
-	    result[0] = (the + angle45)/angle90* fw ;
+	    result[0] = (the + angle45) / angle90 * fw ;
         result[1] = (phi - angle90  + angle45) / angle90 * fh;
         //printf("res: %lf , %lf\n", result[0].to_float(),result[1].to_float());
         count++;
@@ -219,25 +222,26 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
 	fp pi_half = 180.0;
 	angle tempJ,tempI;
 
-	int maxX = -1;
-	int maxY = -1;
-	int minX = 2000;
-	int minY = 2000;
+	double maxX = -1;
+	double maxY = -1;
+	double minX = 2000;
+	double minY = 2000;
 
 	// left vertical
-	int a = 0, b = 0;
+	int a = 0, b;
 	angle leftbound = 315;
 	angle vertical = 45;
 
-	for(; b < 483; b++){
+	for(b = 0;b < 483; b++){
+		#pragma HLS PIPELINE
 
 		spherical2cartesian(toRadian(leftbound), toRadian(vertical), p1);
 		matrixMultiplication(p1, rot_y, p2);
 		matrixMultiplication(p2, rot_z, p3);
 		cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-		int temp0 = nearestNeighbor(res[0]);
-		int temp1 = nearestNeighbor(res[1]);
+		double temp0 = res[0].to_double();
+		double temp1 = res[1].to_double();
 		if (minX > temp0) minX = temp0;
 		if (maxX < temp0) maxX = temp0;
 		if (minY > temp1) minY = temp1;
@@ -247,19 +251,20 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
 	}
 
 	// right vertical
-	b = 0;
+
 	vertical = 45;
 	angle rightbound = 45;
 
-	for(; b < 483; b++){
+	for(b = 0; b < 483; b++){
+		#pragma HLS PIPELINE
 
 		spherical2cartesian(toRadian(rightbound), toRadian(vertical), p1);
 		matrixMultiplication(p1, rot_y, p2);
 		matrixMultiplication(p2, rot_z, p3);
 		cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-		int temp0 = nearestNeighbor(res[0]);
-		int temp1 = nearestNeighbor(res[1]);
+		double temp0 = res[0].to_double();
+		double temp1 = res[1].to_double();
 		if (minX > temp0) minX = temp0;
 		if (maxX < temp0) maxX = temp0;
 		if (minY > temp1) minY = temp1;
@@ -274,8 +279,11 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
 	angle horizontal = -45;
 	angle angle360 = 360;
 	angle zero = 0;
-	angle  tempH = 0;
-	for(; a < 481; a++){
+	angle tempH = 0;
+
+	for(a = 0; a < 481; a++){
+		#pragma HLS PIPELINE
+
 		if(horizontal < zero){
 			tempH = horizontal + angle360;
 		}
@@ -287,8 +295,9 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
 		matrixMultiplication(p2, rot_z, p3);
 		cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-		int temp0 = nearestNeighbor(res[0]);
-		int temp1 = nearestNeighbor(res[1]);
+		double temp0 = res[0].to_double();
+		double temp1 = res[1].to_double();
+
 		if (minX > temp0) minX = temp0;
 		if (maxX < temp0) maxX = temp0;
 		if (minY > temp1) minY = temp1;
@@ -301,21 +310,24 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
 
 	angle buttombound = 135;
 	horizontal = -45;
-	a = 0;
-	for(; a < 481; a++){
+
+	for(a = 0; a < 481; a++){
+		#pragma HLS PIPELINE
+
 		if(horizontal < zero){
 			tempH = horizontal + angle360;
 		}
 		else{
 			tempH = horizontal;
 		}
-		spherical2cartesian(toRadian(tempH), toRadian(topbound), p1);
+		spherical2cartesian(toRadian(tempH), toRadian(buttombound), p1);
 		matrixMultiplication(p1, rot_y, p2);
 		matrixMultiplication(p2, rot_z, p3);
 		cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
-		int temp0 = nearestNeighbor(res[0]);
-		int temp1 = nearestNeighbor(res[1]);
+		double temp0 = res[0].to_double();
+		double temp1 = res[1].to_double();
+
 		if (minX > temp0) minX = temp0;
 		if (maxX < temp0) maxX = temp0;
 		if (minY > temp1) minY = temp1;
@@ -339,18 +351,20 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
         minX = 0.0;
 
     }
-    printf("Max: x :%d , y:%d, Min: x :%d , y:%d\n", maxX, maxY, minX, minY);
-    indexes x, y;
+
+    printf("Max: x :%lf , y:%lf, Min: x :%lf , y:%lf\n", maxX, maxY, minX, minY);
+    int x, y;
 
     for (y = 0; y < 967; y++){
            for (x = 0; x < 1920; x++){
-
+				#pragma HLS PIPELINE
                //if pixel map to output get input index
-               if (x <= maxX && x >= minX && y <= maxY && y >= minY){
+                if (x <= maxX && x >= minX && y <= maxY && y >= minY){
 
+            	   indexes X = x;
+            	   indexes Y = y;
                    fp cartesian []  = {0.0, 0.0, 0.0};
-                   coordinates2cartesian(x, y, cartesian);
-
+                   coordinates2cartesian(X, Y, cartesian);
 
                    matrixMultiplication(cartesian, rot_z_inverse , p1);
 
@@ -361,7 +375,6 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
 
                    int tempX = nearestNeighbor(res[0]);
                    int tempY = nearestNeighbor(res[1]);
-                   printf("X: %d, Y: %d\n",tempX, tempY);
 
                    fov[tempX][tempY][0] = x;
                    fov[tempX][tempY][1] = y;
@@ -371,5 +384,4 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
            }
        }
     printf("count: %d\n",count);
-
 }

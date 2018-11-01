@@ -38,6 +38,7 @@ void spherical2cartesian(double the, double phi, double result[3]){
     result[0] = x;
     result[1] = y;
     result[2] = z;
+    //printf("x: %lf, y:%lf, z:%lf\n",x, y, z);
 }
 
 void spherical2coordinates(double the, double phi, double result[2]){
@@ -95,7 +96,7 @@ void coordinates2spherical(double i, double j, double result[2]){
 
     }
     phi = j * PI / h;
-
+    printf("theta: %lf , phi: %lf\n", theta,phi);
     result[0] = theta;
     result[1] = phi;
 }
@@ -121,6 +122,7 @@ void cartesian2coordinates_inverse(double x, double y, double z, double result[2
     the = the / PI * 180.0;
     phi = phi / PI * 180.0;
 
+    //printf("the: %lf, phi: %lf\n", the, phi);
     if(the >= -fovX/2.0 && the <= fovX/2 && phi >= 90 -fovY/2.0 && phi <= 90 +fovY/2.0){
        
 	    result[0] = (the + fovX/2.0)* fw /90.0;
@@ -614,12 +616,14 @@ int main(int argc, char **argv){
     printf("%lf, %lf , %lf, %lf\n", maxX, maxY, minX, minY);
     //for input pixel in the ouput range, calculate the outpout cordinnates
     int x , y;
+    int another = 0;
 
     for (y = 0; y < h; y++){
         for (x = 0; x < w; x++){
 
             //if pixel map to output get input index 
             if (x <= maxX && x >= minX && y <= maxY && y >= minY){
+                another++;
                 double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
                 
@@ -685,6 +689,7 @@ int main(int argc, char **argv){
     //imwrite("input2.jpg", pat);
     printf("pixels = %d\n",count);
     printf("black pixels = %d\n",blackPixels);
+    printf("another = %d\n",another);
 
     return 0;
 }

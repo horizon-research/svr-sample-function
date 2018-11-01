@@ -4,9 +4,9 @@
 #include "ap_fixed.h"
 #include "hls_math.h"
 
-typedef ap_fixed<17,14> indexes;
-typedef ap_fixed<64,26> fp;
-typedef ap_fixed<20,10> angle;
+typedef ap_fixed<28,14> indexes;
+typedef ap_fixed<28,14> fp;
+typedef ap_fixed<28,14> angle;
 
 void crt(
 	int width,
