@@ -6,7 +6,9 @@ angle angle45 = 45, angleNegative45 = -45, angle135 = 135;
 indexes anglePI = 3.1415926;
 angle angle90 = 90,angle180 = 180,angle315 = 315;
 indexes fw = 481, fh = 483;
+angle hp = 0,ht = 0;
 int count = 0;
+
 
 fp toRadian(angle a){
 
@@ -166,14 +168,24 @@ void coordinates2cartesian(indexes i, indexes j, fp result[3]){
 }
 
 
-void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]) {
+//void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]) {
 
-	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
-	#pragma HLS INTERFACE ap_fifo port=fov
+void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
+//
+//	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
+//	#pragma HLS INTERFACE ap_fifo port=fov
+#pragma HLS INTERFACE axis port=INPUT_STREAM bundle=VIDEO_IN
+#pragma HLS INTERFACE axis port=OUTPUT_STREAM bundle=VIDEO_OUT
 
-    // ht is theta (horizontal), goes toward left first
-    // hp is phi (vertical), goes toward up first
+#pragma HLS dataflow
 
+	hls::Mat<483,481,HLS_8UC3> output;
+	hls::Mat<967,1920,HLS_8UC3> input;
+
+	hls::AXIvideo2Mat(INPUT_STREAM, input);
+
+	// ht is theta (horizontal), goes toward left first
+	// hp is phi (vertical), goes toward up first
     fp htr = toRadian(ht);
     fp hpr = toRadian(hp);
 
@@ -351,13 +363,15 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
         minX = 0.0;
 
     }
+    RGB_PIXEL fov[481][483];
 
-    printf("Max: x :%lf , y:%lf, Min: x :%lf , y:%lf\n", maxX, maxY, minX, minY);
+    //printf("Max: x :%lf , y:%lf, Min: x :%lf , y:%lf\n", maxX, maxY, minX, minY);
     int x, y;
 
     for (y = 0; y < 967; y++){
            for (x = 0; x < 1920; x++){
-				#pragma HLS PIPELINE
+			#pragma HLS PIPELINE
+
                //if pixel map to output get input index
                 if (x <= maxX && x >= minX && y <= maxY && y >= minY){
 
@@ -376,12 +390,21 @@ void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]
                    int tempX = nearestNeighbor(res[0]);
                    int tempY = nearestNeighbor(res[1]);
 
-                   fov[tempX][tempY][0] = x;
-                   fov[tempX][tempY][1] = y;
-
-
-               }
+                   fov[tempX][tempY] = input.read();
+                   //input.read();
+                }
+                else{
+                	input.read();
+                }
            }
        }
+
+
+    for(int m = 0; m < 483; m++){
+    	for(int n = 0; n < 481; n++){
+    		output.write(fov[n][m]);
+    	}
+    }
     printf("count: %d\n",count);
+    hls::Mat2AXIvideo(output, OUTPUT_STREAM);
 }

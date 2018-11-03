@@ -96,7 +96,7 @@ void coordinates2spherical(double i, double j, double result[2]){
 
     }
     phi = j * PI / h;
-    printf("theta: %lf , phi: %lf\n", theta,phi);
+    //printf("theta: %lf , phi: %lf\n", theta,phi);
     result[0] = theta;
     result[1] = phi;
 }

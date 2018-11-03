@@ -3,18 +3,20 @@
 
 #include "ap_fixed.h"
 #include "hls_math.h"
+#include "hls_video.h"
+
 
 typedef ap_fixed<28,14> indexes;
 typedef ap_fixed<28,14> fp;
 typedef ap_fixed<28,14> angle;
 
+typedef hls::stream<ap_axiu<32,1,1,1> > AXI_STREAM;
+typedef hls::Scalar<3, unsigned char> RGB_PIXEL;
+
+
 void crt(
-	int width,
-	int height,
-	angle hp,
-	angle ht,
-	int option,
-	int fov[481][483][2]
+	AXI_STREAM& INPUT_STREAM,
+	AXI_STREAM& OUTPUT_STREAM
 );
 
 int nearestNeighbor(indexes num);
