@@ -400,6 +400,7 @@ int main(int argc, char** argv) {
                 break;
             }
             // assign the pixel value
+            printf("indices: %d, %d\n", nearestNeighbor(res[0]),nearestNeighbor(res[1]));
             fov.at<Vec3b>(b,a) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));
             pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[0] = 255;
             pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[1] = 255;

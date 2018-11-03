@@ -21,7 +21,7 @@ int main(){
 
 	// Load Input Image
 	src = cvLoadImage("er.bmp");
-	dst = cvCreateImage(cvSize(481,483), src->depth, src->nChannels);
+	dst = cvCreateImage(cvSize(483,481), src->depth, src->nChannels);
 
 	// Image to AXI4 Data Stream
 	IplImage2AXIvideo(src, src_axi);
