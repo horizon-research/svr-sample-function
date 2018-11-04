@@ -185,7 +185,7 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
 
 				// convert 3D Cartesian to 2d coordinates
 				cartesian2coordinates(p3[0], p3[1], p3[2],res);
-				//printf("indices: %d, %d\n", nearestNeighbor(res[0]),nearestNeighbor(res[1]));
+
 				output.write(tempImage[nearestNeighbor(res[0])][nearestNeighbor(res[1])]);
 
 				j+= jincrement ;

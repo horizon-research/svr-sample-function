@@ -33,7 +33,7 @@ int main(){
     // Release Memory
     cvReleaseImage(&src);
     cvReleaseImage(&dst);
-
+//
 
     return 0;
   }

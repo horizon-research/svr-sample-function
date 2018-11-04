@@ -138,22 +138,22 @@ void cartesian2coordinates_inverse(fp x, fp y, fp z, indexes result[2]){
     }
 
     angle phi = hls::acos(z);
-   // printf("the: %lf, phi: %lf\n", the.to_float(),phi.to_float());
+
     the = the / PI * angle180;
     phi = phi / PI * angle180;
-    //printf("the: %lf, phi: %lf\n", the.to_float(),phi.to_float());
-    if(the >= angleNegative45 && the <= angle45 && phi >= angle45 && phi <= angle135){
+
+   if(the >= angleNegative45 && the <= angle45 && phi >= angle45 && phi <= angle135){
 
 	    result[0] = (the + angle45) / angle90 * fw ;
         result[1] = (phi - angle90  + angle45) / angle90 * fh;
-        //printf("res: %lf , %lf\n", result[0].to_float(),result[1].to_float());
-        count++;
-    }
-    else{
 
-        result[0] = 0;
-        result[1] = 0;
-    }
+      // count++;
+   }
+   else{
+
+       result[0] = 0;
+       result[1] = 0;
+   }
 }
 
 
@@ -171,13 +171,13 @@ void coordinates2cartesian(indexes i, indexes j, fp result[3]){
 //void crt(int width,int height,angle hp, angle ht,int option,int fov[481][483][2]) {
 
 void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
-//
-//	#pragma HLS ARRAY_PARTITION variable=fov complete dim=3
-//	#pragma HLS INTERFACE ap_fifo port=fov
-#pragma HLS INTERFACE axis port=INPUT_STREAM bundle=VIDEO_IN
-#pragma HLS INTERFACE axis port=OUTPUT_STREAM bundle=VIDEO_OUT
 
-#pragma HLS dataflow
+	// #pragma HLS ARRAY_PARTITION variable=fov complete dim=3
+	// #pragma HLS INTERFACE ap_fifo port=fov
+	#pragma HLS INTERFACE axis port=INPUT_STREAM bundle=VIDEO_IN
+	#pragma HLS INTERFACE axis port=OUTPUT_STREAM bundle=VIDEO_OUT
+
+	#pragma HLS dataflow
 
 	hls::Mat<483,481,HLS_8UC3> output;
 	hls::Mat<967,1920,HLS_8UC3> input;
@@ -356,33 +356,36 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
 
 	}
 
-    if(hp >= angle45) {
+   if(hp >= angle45) {
 
-        minY = 0.0;
-        maxX = 1920;
-        minX = 0.0;
+       minY = 0.0;
+       maxX = 1920;
+       minX = 0.0;
 
-    }
-    RGB_PIXEL fov[481][483];
+   }
+   RGB_PIXEL fov[481][483];
 
     //printf("Max: x :%lf , y:%lf, Min: x :%lf , y:%lf\n", maxX, maxY, minX, minY);
-    int x, y;
+   int x = 0, y = 0;
 
-    for (y = 0; y < 967; y++){
-           for (x = 0; x < 1920; x++){
+   for (y = 0; y < 967; y++){
+          for (x = 0; x < 1920; x++){
 			#pragma HLS PIPELINE
 
                //if pixel map to output get input index
-                if (x <= maxX && x >= minX && y <= maxY && y >= minY){
+               if (x <= maxX && x >= minX && y <= maxY && y >= minY){
 
             	   indexes X = x;
             	   indexes Y = y;
+
                    fp cartesian []  = {0.0, 0.0, 0.0};
+
                    coordinates2cartesian(X, Y, cartesian);
 
+                   // rotate along z axis
                    matrixMultiplication(cartesian, rot_z_inverse , p1);
 
-                   // rotate along z axis
+                   // rotate along y axis
                    matrixMultiplication(p1, rot_y_inverse, p2);
 
                    cartesian2coordinates_inverse(p2[0], p2[1], p2[2], res);
@@ -390,21 +393,20 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
                    int tempX = nearestNeighbor(res[0]);
                    int tempY = nearestNeighbor(res[1]);
 
-                   fov[tempX][tempY] = input.read();
-                   //input.read();
-                }
-                else{
-                	input.read();
-                }
-           }
-       }
+    		
+                  fov[tempX][tempY] = input.read();
+               }
+               else{
+               	input.read();
+               }
+          }
+   }
 
-
-    for(int m = 0; m < 483; m++){
-    	for(int n = 0; n < 481; n++){
-    		output.write(fov[n][m]);
-    	}
-    }
-    printf("count: %d\n",count);
-    hls::Mat2AXIvideo(output, OUTPUT_STREAM);
+   for(int m = 0; m < 483; m++){
+   	for(int n = 0; n < 481; n++){
+   		output.write(fov[n][m]);
+   	}
+   }
+   //printf("count: %d\n",count);
+   hls::Mat2AXIvideo(output, OUTPUT_STREAM);
 }
