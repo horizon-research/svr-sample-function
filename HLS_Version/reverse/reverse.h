@@ -6,7 +6,7 @@
 #include "hls_video.h"
 
 
-typedef ap_fixed<28,14> indexes;
+typedef ap_fixed<28,14> indices;
 typedef ap_fixed<28,14> fp;
 typedef ap_fixed<28,14> angle;
 
@@ -19,7 +19,7 @@ void crt(
 	AXI_STREAM& OUTPUT_STREAM
 );
 
-int nearestNeighbor(indexes num);
+int nearestNeighbor(indices num);
 
 fp toRadian(fp a);
 
@@ -36,7 +36,7 @@ void spherical2coordinates(
 
 	fp the,
 	fp phi,
-	indexes result [2]
+	indices result [2]
 );
 
 void cartesian2coordinates(
@@ -44,7 +44,7 @@ void cartesian2coordinates(
 	fp x,
 	fp y,
 	fp z,
-	indexes result [2]
+	indices result [2]
 
 );
 
@@ -63,14 +63,14 @@ void cartesian2coordintaes_inverse(
 	fp x,
 	fp y,
 	fp z,
-	indexes result[2]
+	indices result[2]
 
 );
 
 void coordinates2spherical(
 
-	indexes i,
-	indexes j,
+	indices i,
+	indices j,
 	fp result[2]
 
 );
@@ -80,13 +80,13 @@ void cartesian2coordinates(
 	fp x,
 	fp y,
 	fp z,
-	indexes result[2]
+	indices result[2]
 
 );
 void coordinates2cartesian(
 
-	indexes i,
-	indexes j,
+	indices i,
+	indices j,
 	fp result[3]
 
 );

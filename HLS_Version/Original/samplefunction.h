@@ -5,28 +5,19 @@
 #include "hls_math.h"
 #include "hls_video.h"
 
-typedef ap_fixed<28,14> indexes;
 typedef ap_fixed<28,14> fp;
+typedef ap_fixed<28,14> indices;
 typedef ap_fixed<28,14> angle;
 typedef hls::stream<ap_axiu<32,1,1,1> > AXI_STREAM;
 typedef hls::Scalar<3, unsigned char> RGB_PIXEL;
 
-//void crt(
-//	int width,
-//	int height,
-//	angle hp,
-//	angle ht,
-//	int option,
-//	AXI_STREAM& INPUT_STREAM,
-//	AXI_STREAM& OUTPUT_STREAM
-//);
 
 void crt(
 	AXI_STREAM& INPUT_STREAM,
 	AXI_STREAM& OUTPUT_STREAM
 );
 
-int nearestNeighbor(indexes num);
+int nearestNeighbor(indices num);
 
 fp toRadian(fp a);
 
@@ -43,7 +34,7 @@ void spherical2coordinates(
 
 	fp the,
 	fp phi,
-	indexes result [2]
+	indices result [2]
 );
 
 void cartesian2coordinates(
@@ -51,7 +42,7 @@ void cartesian2coordinates(
 	fp x,
 	fp y,
 	fp z,
-	indexes result [2]
+	indices result [2]
 
 );
 
