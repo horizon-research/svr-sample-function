@@ -452,176 +452,163 @@ int main(int argc, char **argv){
     double maxY = -INFINITY;
     double minY = INFINITY;
 
-    int a = 0, b = 0;
+
 
     // default head orientation is 0,90
 
-    //left vertical
+    int a = 0, b = 0;
+    double jT = -fovX / 2.0;
+    double jR = fovX / 2.0;
+    double jB = -fovX / 2.0;
+    double jL = 360 -fovX / 2.0;
+    double iT = 90 - fovY / 2.0;
+    double iR = 90 - fovY / 2.0;
+    double iB = 90 + fovY / 2.0;
+    double iL = 90 - fovY / 2.0;
 
-    double j1 = 360 -fovX / 2.0;
-    double j2 = fovX / 2.0;
-    for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++){
+    double i = 0.0;
+    double j = 0.0;
+
+
+
+    for(int k = 0; k < 2*(fh+fw); k++){
+
+        //Top
+        if (k < fw){
+            i = iT;
+            j = jT;
+            jT +=  fovX * 1.0 / fw;
+        }
+
+        //Right
+        if ((k >= fw) && (k < fw+fh)){
+            i = iR;
+            j = jR;
+            iR += fovY * 1.0 / fh;
+        }
+
+        //Bottom
+        if ((k >= fw+fh) && (k < 2*fw+fh)){
+            i = iB;
+            j = jB;
+            jB +=  fovX * 1.0 / fw;
+        }
+
+        //Left
+        if ((k >= 2*fw+fh) && (k < 2*(fw+fh))){
+            i = iL;
+            j = jL;
+            iL += fovY * 1.0 / fh;
+        }
 
         // rotation along y axis
-        double pL1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian(j1), toRadian((i < 0) ? (i + 180) : i), pL1);
-        double pR1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian(j2), toRadian((i < 0) ? (i + 180) : i), pR1);
+        double p1[] = {0.0, 0.0, 0.0};
+        spherical2cartesian(toRadian(j), toRadian((i < 0) ? (i + 180) : i), p1);
 
-        double pL2[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pL1, rot_y, pL2);
-        double pR2[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pR1, rot_y, pR2);
+        double p2[] = {0.0, 0.0, 0.0};
+        matrixMultiplication(p1, rot_y, p2);
 
         // rotate along z axis
-        double pL3[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pL2, rot_z, pL3);
-        double pR3[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pR2, rot_z, pR3);
+        double p3[] = {0.0, 0.0, 0.0};
+        matrixMultiplication(p2, rot_z, p3);
 
-        double resL[] = {0.0, 0.0};
-        double resR[] = {0.0, 0.0};
-
+        double res[] = {0.0, 0.0};
 
         // convert 3D catesian to 2D coordinates
-        cartesian2coordinates(pL3[0], pL3[1], pL3[2], resL);
-        cartesian2coordinates(pR3[0], pR3[1], pR3[2], resR);
-
+        cartesian2coordinates(p3[0], p3[1], p3[2], res);
 
         if (b >= fh) break;
 
-        if (minX > resL[0]) minX = resL[0];
-        if (maxX < resL[0]) maxX = resL[0];
-        if (minY > resL[1]) minY = resL[1];
-        if (maxY < resL[1]) maxY = resL[1];
-        if (minX > resR[0]) minX = resR[0];
-        if (maxX < resR[0]) maxX = resR[0];
-        if (minY > resR[1]) minY = resR[1];
-        if (maxY < resR[1]) maxY = resR[1];
+        if (minX > res[0]) minX = res[0];
+        if (maxX < res[0]) maxX = res[0];
+        if (minY > res[1]) minY = res[1];
+        if (maxY < res[1]) maxY = res[1];
 
-//        // assign the pixel value
-//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
 
     }
+ 
+    // for (double j = -fovX / 2.0, i = 90 - fovY / 2.0; (j < fovX / 2.0) || (i < 90 + fovY / 2.0); j += fovX * 1.0 / fw, a++, i += fovY * 1.0 / fh, b++){
 
 
-//     //right vertical
-//     b=0;
-//     double j2 = fovX / 2.0;
-//     for (double i = 90 - fovY / 2.0; i < 90 + fovY / 2.0; i += fovY * 1.0 / fh, b++)
-//     {
-//         // rotation along y axis
-//         double pR1[] = {0.0, 0.0, 0.0};
-//         spherical2cartesian(toRadian(j2), toRadian((i < 0) ? (i + 180) : i), pR1);
+    //     if (b < fh){
+    //         double pL1[] = {0.0, 0.0, 0.0};
+    //         spherical2cartesian(toRadian(j1), toRadian((i < 0) ? (i + 180) : i), pL1);
+    //         double pR1[] = {0.0, 0.0, 0.0};
+    //         spherical2cartesian(toRadian(j2), toRadian((i < 0) ? (i + 180) : i), pR1);
 
-//         double pR2[] = {0.0, 0.0, 0.0};
-//         matrixMultiplication(pR1, rot_y, pR2);
+    //         double pL2[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pL1, rot_y, pL2);
+    //         double pR2[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pR1, rot_y, pR2);
 
-//         // rotate along z axis
-//         double pR3[] = {0.0, 0.0, 0.0};
-//         matrixMultiplication(pR2, rot_z, pR3);
+    //         // rotate along z axis
+    //         double pL3[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pL2, rot_z, pL3);
+    //         double pR3[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pR2, rot_z, pR3);
 
-//         double resR[] = {0.0, 0.0};
-
-//         // convert 3D catesian to 2D coordinates
-//         cartesian2coordinates(pR3[0], pR3[1], pR3[2], resR);
-
-//         if (b >= fh) break;
+    //         double resL[] = {0.0, 0.0};
+    //         double resR[] = {0.0, 0.0};
 
 
-
-// //        // assign the pixel value
-// //        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-// //        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-// //        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
-//     }
+    //         // convert 3D catesian to 2D coordinates
+    //         cartesian2coordinates(pL3[0], pL3[1], pL3[2], resL);
+    //         cartesian2coordinates(pR3[0], pR3[1], pR3[2], resR);
 
 
-    //top horizontal
+    //         if (minX > resL[0]) minX = resL[0];
+    //         if (maxX < resL[0]) maxX = resL[0];
+    //         if (minY > resL[1]) minY = resL[1];
+    //         if (maxY < resL[1]) maxY = resL[1];
+    //         if (minX > resR[0]) minX = resR[0];
+    //         if (maxX < resR[0]) maxX = resR[0];
+    //         if (minY > resR[1]) minY = resR[1];
+    //         if (maxY < resR[1]) maxY = resR[1];
+    //     }
 
-    a=0;
-    double i1 = 90 - fovY / 2.0;
-    double i2 = 90 + fovY / 2.0;
+        
+    //     if (a < fw){
+        
+    //         // rotation along y axis
+    //         double pT1[] = {0.0, 0.0, 0.0};
+    //         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i1 < 0) ? (i1 + 180) : i1), pT1);
+    //         double pB1[] = {0.0, 0.0, 0.0};
+    //         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(i2), pB1);
+
+    //         double pT2[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pT1, rot_y, pT2);
+    //         double pB2[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pB1, rot_y, pB2);
 
 
-    for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++){
+    //         // rotate along z axis
+    //         double pT3[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pT2, rot_z, pT3);
+    //         double pB3[] = {0.0, 0.0, 0.0};
+    //         matrixMultiplication(pB2, rot_z, pB3);
 
-        // rotation along y axis
-        double pT1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i1 < 0) ? (i1 + 180) : i1), pT1);
-        double pB1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(i2), pB1);
+    //         double resT[] = {0.0, 0.0};
+    //         double resB[] = {0.0, 0.0};
 
-        double pT2[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pT1, rot_y, pT2);
-        double pB2[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pB1, rot_y, pB2);
+    //         // convert 3D catesian to 2D coordinates
+    //         cartesian2coordinates(pT3[0], pT3[1], pT3[2], resT);
+    //         cartesian2coordinates(pT3[0], pT3[1], pT3[2], resT);
 
 
-        // rotate along z axis
-        double pT3[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pT2, rot_z, pT3);
-        double pB3[] = {0.0, 0.0, 0.0};
-        matrixMultiplication(pB2, rot_z, pB3);
+    //         if (minX > resT[0]) minX = resT[0];
+    //         if (maxX < resT[0]) maxX = resT[0];
+    //         if (minY > resT[1]) minY = resT[1];
+    //         if (maxY < resT[1]) maxY = resT[1];
+    //         if (minX > resB[0]) minX = resB[0];
+    //         if (maxX < resB[0]) maxX = resB[0];
+    //         if (minY > resB[1]) minY = resB[1];
+    //         if (maxY < resB[1]) maxY = resB[1];
+    //     }
 
-        double resT[] = {0.0, 0.0};
-        double resB[] = {0.0, 0.0};
+    //     if ((a >= fw) && (b >= fh)) break;
 
-        // convert 3D catesian to 2D coordinates
-        cartesian2coordinates(pT3[0], pT3[1], pT3[2], resT);
+    // }
 
-        if (a >= fw) break;
-
-        if (minX > resT[0]) minX = resT[0];
-        if (maxX < resT[0]) maxX = resT[0];
-        if (minY > resT[1]) minY = resT[1];
-        if (maxY < resT[1]) maxY = resT[1];
-        if (minX > resB[0]) minX = resB[0];
-        if (maxX < resB[0]) maxX = resB[0];
-        if (minY > resB[1]) minY = resB[1];
-        if (maxY < resB[1]) maxY = resB[1];
-
-        // assign the pixel value
-//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-//        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
-    }
-
-//     //bottom horizontal
-//     a=0;
-//     double i2 = 90 + fovY / 2.0;
-//     for (double j = -fovX / 2.0; j < fovX / 2.0; j += fovX * 1.0 / fw, a++) {
-
-//         // rotation along y axis
-//         double pB1[] = {0.0, 0.0, 0.0};
-//         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(i2), pB1);
-
-//         double pB2[] = {0.0, 0.0, 0.0};
-//         matrixMultiplication(pB1, rot_y, pB2);
-
-//         // rotate along z axis
-//         double pB3[] = {0.0, 0.0, 0.0};
-//         matrixMultiplication(pB2, rot_z, pB3);
-
-//         double resB[] = {0.0, 0.0};
-
-//         // convert 3D catesian to 2D coordinates
-//         cartesian2coordinates(pB3[0], pB3[1], pB3[2], resB);
-
-//         if (a >= fw) break;
-
-//         if (minX > resB[0]) minX = resB[0];
-//         if (maxX < resB[0]) maxX = resB[0];
-//         if (minY > resB[1]) minY = resB[1];
-//         if (maxY < resB[1]) maxY = resB[1];
-
-//         // assign the pixel value
-// //        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[0] = 255;
-// //        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[1] = 0;
-// //        pat.at<Vec3b>(nearestNeighbor(res[1]), nearestNeighbor(res[0]))[2] = 0;
-//     }
 
     if (hp <= -45 || hp >= 315){
 
