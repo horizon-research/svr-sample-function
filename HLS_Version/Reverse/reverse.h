@@ -1,14 +1,16 @@
 #ifndef _REVERSE_H_
 #define _REVERSE_H_
 
+#define INPUT_WIDTH 720
+#define INPUT_HEIGHT 480
+#define fw 180
+#define fh 120
+
 #include "ap_fixed.h"
 #include "hls_math.h"
 #include "hls_video.h"
 
-
-typedef ap_fixed<28,14> indices;
 typedef ap_fixed<28,14> fp;
-typedef ap_fixed<28,14> angle;
 
 typedef hls::stream<ap_axiu<32,1,1,1> > AXI_STREAM;
 typedef hls::Scalar<3, unsigned char> RGB_PIXEL;
@@ -16,10 +18,12 @@ typedef hls::Scalar<3, unsigned char> RGB_PIXEL;
 
 void crt(
 	AXI_STREAM& INPUT_STREAM,
-	AXI_STREAM& OUTPUT_STREAM
+	AXI_STREAM& OUTPUT_STREAM,
+	double theta,
+	double phi
 );
 
-int nearestNeighbor(indices num);
+int nearestNeighbor(fp num);
 
 fp toRadian(fp a);
 
@@ -36,7 +40,7 @@ void spherical2coordinates(
 
 	fp the,
 	fp phi,
-	indices result [2]
+	fp result [2]
 );
 
 void cartesian2coordinates(
@@ -44,7 +48,7 @@ void cartesian2coordinates(
 	fp x,
 	fp y,
 	fp z,
-	indices result [2]
+	fp result [2]
 
 );
 
@@ -63,14 +67,14 @@ void cartesian2coordintaes_inverse(
 	fp x,
 	fp y,
 	fp z,
-	indices result[2]
+	fp result[2]
 
 );
 
 void coordinates2spherical(
 
-	indices i,
-	indices j,
+	fp i,
+	fp j,
 	fp result[2]
 
 );
@@ -80,16 +84,17 @@ void cartesian2coordinates(
 	fp x,
 	fp y,
 	fp z,
-	indices result[2]
+	fp result[2]
 
 );
 void coordinates2cartesian(
 
-	indices i,
-	indices j,
+	fp i,
+	fp j,
 	fp result[3]
 
 );
+
 
 #endif
 
