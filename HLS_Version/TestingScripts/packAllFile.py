@@ -18,6 +18,9 @@ if os.path.exists("testsvr/vivado.log"):
 else:
     shutil.move("vivado.log", "testsvr/vivado.log")
 
+if os.path.exists("utilization.txt"):
+	shutil.move("utilization.txt", "testsvr/utilization.txt")
+
 res = int(sys.argv[1])
 
 shutil.move("testsvr", resolutions[res])

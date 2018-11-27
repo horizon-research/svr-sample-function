@@ -15,7 +15,8 @@ for i in range(5):
     result.write("Latency (clock cycles):\n")
     result.write(hlsdata[31])
     result.write("Utilization (%): \n")
-    result.write(hlsdata[76])
+    result.write(hlsdata[109])
+    result.write(hlsdata[110])
 
     subprocess.Popen("python mv.py", shell=True).wait()
 
