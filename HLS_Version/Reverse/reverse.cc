@@ -210,7 +210,6 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM, double theta, doub
 
     // default head orientation is 0,90
 
-    int a = 0, b = 0;
     fp jT = -fovX / 2.0;
     fp jR = fovX / 2.0;
     fp jB = -fovX / 2.0;
@@ -316,6 +315,8 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM, double theta, doub
     //for input pixel in the ouput range, calculate the outpout cordinnates
     int x , y;
     static RGB_PIXEL fov[fw][fh];
+	//#pragma HLS ARRAY_PARTITION variable=fov complete dim=2
+
     for (y = 0; y < INPUT_HEIGHT; y++){
         for (x = 0; x < INPUT_WIDTH; x++){
 			#pragma HLS PIPELINE
@@ -344,55 +345,63 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM, double theta, doub
             else{
             	input.read();
             }
+
+//            if(x > maxX && y > maxY){
+//				for(int h = 0; h < fh; h++){
+//					for(int v = 0; v < fw; v++){
+//						#pragma HLS PIPELINE
+//						if(fov[v][h].val[0] == 0 && fov[v][h].val[1] == 0 && fov[v][h].val[2] == 0){
+//
+//							fp r = 0, g = 0, b = 0;
+//							fp count = 0;
+//
+//							if(h - 1 >= 0){
+//								r += fov[v][h - 1].val[0];
+//								g += fov[v][h - 1].val[1];
+//								b += fov[v][h - 1].val[2];
+//								count += 1;
+//							}
+//							if(h + 1 < fh){
+//								r += fov[v][h + 1].val[0];
+//								g += fov[v][h + 1].val[1];
+//								b += fov[v][h + 1].val[2];
+//								count += 1;
+//							}
+//							if(v - 1 >= 0){
+//								r += fov[v - 1][h].val[0];
+//								g += fov[v - 1][h].val[1];
+//								b += fov[v - 1][h].val[2];
+//								count += 1;
+//							}
+//							if(v + 1 < fw){
+//								r += fov[v + 1][h].val[0];
+//								g += fov[v + 1][h].val[1];
+//								b += fov[v + 1][h].val[2];
+//								count += 1;
+//							}
+//
+//							fov[v][h].val[0] = r / count;
+//							fov[v][h].val[1] = g / count;
+//							fov[v][h].val[2] = b / count;
+//
+//						}
+//					}
+//				}
+//				break;
+//            }
         }
     }
 
-	for(int v = 0; v < fh; v++){
+
+//
+
+
+    for(int v = 0; v < fh; v++){
 		for(int h = 0; h < fw; h++){
 
     		output.write(fov[h][v]);
     	}
     }
-//
-//    for(int h = 0; h < fh; h++){
-//        for(int v = 0; v < fw; v++){
-//            if(fov[v][h].val[0] == 0 && fov[v][h].val[1] == 0 && fov[v][h].val[2] == 0){
-//
-//                fp r = 0, g = 0, b = 0;
-//                fp count = 0;
-//
-//                if(h - 1 >= 0){
-//                    r += fov[v][h - 1].val[0];
-//                    g += fov[v][h - 1].val[1];
-//                    b += fov[v][h - 1].val[2];
-//                    count += 1;
-//                }
-//                if(h + 1 < fh){
-//                    r += fov[v][h + 1].val[0];
-//                    g += fov[v][h + 1].val[1];
-//                    b += fov[v][h + 1].val[2];
-//                    count += 1;
-//                }
-//                if(v - 1 >= 0){
-//                    r += fov[v - 1][h].val[0];
-//                    g += fov[v - 1][h].val[1];
-//                    b += fov[v - 1][h].val[2];
-//                    count += 1;
-//                }
-//                if(v + 1 < fw){
-//                    r += fov[v + 1][h].val[0];
-//                    g += fov[v + 1][h].val[1];
-//                    b += fov[v + 1][h].val[2];
-//                    count += 1;
-//                }
-//
-//                fov[v][h].val[0] = r / count;
-//                fov[v][h].val[1] = g / count;
-//                fov[v][h].val[2] = b / count;
-//
-//            }
-//        }
-//    }
 
    hls::Mat2AXIvideo(output, OUTPUT_STREAM);
 }

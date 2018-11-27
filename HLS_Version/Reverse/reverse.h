@@ -1,10 +1,10 @@
 #ifndef _REVERSE_H_
 #define _REVERSE_H_
 
-#define INPUT_WIDTH 720
-#define INPUT_HEIGHT 480
-#define fw 180
-#define fh 120
+#define INPUT_WIDTH 3840
+#define INPUT_HEIGHT 2160
+#define fw 960
+#define fh 540
 
 #include "ap_fixed.h"
 #include "hls_math.h"

@@ -9,11 +9,11 @@ int main(){
 	AXI_STREAM src_axi, dst_axi;
 
 	//parameters for FoV
-	double hp = 45.0;
-	double ht = 45.0;
+	double hp = 0.0;
+	double ht = 0.0;
 
 	// Load Input Image
-	src = cvLoadImage("480p.jpg");
+	src = cvLoadImage("4k.jpg");
 	dst = cvCreateImage(cvSize(fw,fh), src->depth, src->nChannels);
 
 	// Image to AXI4 Data Stream
