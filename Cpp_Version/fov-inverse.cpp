@@ -390,6 +390,12 @@ void convert_EAC(double x, double y, double z, double result[2]){
 
 int main(int argc, char **argv){
 
+    //Input:
+    //
+    //
+    //Output:
+    //
+    
     int option = argv[3][0] - '0';
     // load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
@@ -526,89 +532,6 @@ int main(int argc, char **argv){
 
 
     }
- 
-    // for (double j = -fovX / 2.0, i = 90 - fovY / 2.0; (j < fovX / 2.0) || (i < 90 + fovY / 2.0); j += fovX * 1.0 / fw, a++, i += fovY * 1.0 / fh, b++){
-
-
-    //     if (b < fh){
-    //         double pL1[] = {0.0, 0.0, 0.0};
-    //         spherical2cartesian(toRadian(j1), toRadian((i < 0) ? (i + 180) : i), pL1);
-    //         double pR1[] = {0.0, 0.0, 0.0};
-    //         spherical2cartesian(toRadian(j2), toRadian((i < 0) ? (i + 180) : i), pR1);
-
-    //         double pL2[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pL1, rot_y, pL2);
-    //         double pR2[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pR1, rot_y, pR2);
-
-    //         // rotate along z axis
-    //         double pL3[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pL2, rot_z, pL3);
-    //         double pR3[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pR2, rot_z, pR3);
-
-    //         double resL[] = {0.0, 0.0};
-    //         double resR[] = {0.0, 0.0};
-
-
-    //         // convert 3D catesian to 2D coordinates
-    //         cartesian2coordinates(pL3[0], pL3[1], pL3[2], resL);
-    //         cartesian2coordinates(pR3[0], pR3[1], pR3[2], resR);
-
-
-    //         if (minX > resL[0]) minX = resL[0];
-    //         if (maxX < resL[0]) maxX = resL[0];
-    //         if (minY > resL[1]) minY = resL[1];
-    //         if (maxY < resL[1]) maxY = resL[1];
-    //         if (minX > resR[0]) minX = resR[0];
-    //         if (maxX < resR[0]) maxX = resR[0];
-    //         if (minY > resR[1]) minY = resR[1];
-    //         if (maxY < resR[1]) maxY = resR[1];
-    //     }
-
-        
-    //     if (a < fw){
-        
-    //         // rotation along y axis
-    //         double pT1[] = {0.0, 0.0, 0.0};
-    //         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i1 < 0) ? (i1 + 180) : i1), pT1);
-    //         double pB1[] = {0.0, 0.0, 0.0};
-    //         spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian(i2), pB1);
-
-    //         double pT2[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pT1, rot_y, pT2);
-    //         double pB2[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pB1, rot_y, pB2);
-
-
-    //         // rotate along z axis
-    //         double pT3[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pT2, rot_z, pT3);
-    //         double pB3[] = {0.0, 0.0, 0.0};
-    //         matrixMultiplication(pB2, rot_z, pB3);
-
-    //         double resT[] = {0.0, 0.0};
-    //         double resB[] = {0.0, 0.0};
-
-    //         // convert 3D catesian to 2D coordinates
-    //         cartesian2coordinates(pT3[0], pT3[1], pT3[2], resT);
-    //         cartesian2coordinates(pT3[0], pT3[1], pT3[2], resT);
-
-
-    //         if (minX > resT[0]) minX = resT[0];
-    //         if (maxX < resT[0]) maxX = resT[0];
-    //         if (minY > resT[1]) minY = resT[1];
-    //         if (maxY < resT[1]) maxY = resT[1];
-    //         if (minX > resB[0]) minX = resB[0];
-    //         if (maxX < resB[0]) maxX = resB[0];
-    //         if (minY > resB[1]) minY = resB[1];
-    //         if (maxY < resB[1]) maxY = resB[1];
-    //     }
-
-    //     if ((a >= fw) && (b >= fh)) break;
-
-    // }
-
 
     if (hp <= -45 || hp >= 315){
 
