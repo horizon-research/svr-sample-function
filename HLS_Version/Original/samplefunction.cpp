@@ -1,9 +1,9 @@
 #include "samplefunction.h"
 
 
-fp PI = 3.1415926;
-const int fov_x = 90, fov_y = 90;
+fp PI = 3.141592657;
 angle fovX = fov_x,fovY = fov_y;
+indices ts = INPUT_WIDTH / 3;
 
 fp toRadian(angle a){
 
@@ -83,6 +83,230 @@ void matrixMultiplication(fp vector[3], fp matrix[3][3], fp result[3]) {
 
 }
 
+void findPixel(int index, fp x,fp y,indices result [2]) {
+
+    indices vertical;
+
+    indices half = 0.5;
+
+    if (index > 2) {
+        vertical = 1.0;
+    }else{
+        vertical = 0.0;
+    }
+
+    indices mod = index%3;
+    indices n = ts * mod + y* ts;
+    indices m = ts * vertical + x * ts;
+
+    result [0] = n;
+    result [1] = m;
+
+}
+
+//from wikipedia: https://en.wikipedia.org/wiki/Cube_mapping
+void convert_xyz_to_cube_uv(fp x, fp y, fp z,indices result [2]) {
+
+    fp absX = absVal(x);
+    fp absY = absVal(y);
+    fp absZ = absVal(z);
+
+    int isXPositive = x > 0 ? 1 : 0;
+    int isYPositive = y > 0 ? 1 : 0;
+    int isZPositive = z > 0 ? 1 : 0;
+
+    fp maxAxis = 0, uc = 0, vc = 0;
+    fp u,v;
+    int index;
+
+    // POSITIVE X
+    if (isXPositive && absX >= absY && absX >= absZ) {
+        // u (0 to 1) goes from +z to -z
+        // v (0 to 1) goes from -y to +y
+        maxAxis = absX;
+        uc = -z;
+        vc = y;
+        index = 4;
+    }
+    // NEGATIVE X
+    else if (!isXPositive && absX >= absY && absX >= absZ) {
+        // u (0 to 1) goes from -z to +z
+        // v (0 to 1) goes from -y to +y
+        maxAxis = absX;
+        uc = -z;
+        vc = -y;
+        index = 5;
+
+    }
+    // POSITIVE Y
+    else if (isYPositive && absY >= absX && absY >= absZ) {
+        // u (0 to 1) goes from -x to +x
+        // v (0 to 1) goes from +z to -z
+        maxAxis = absY;
+        uc = -z;
+        vc = -x;
+        index = 1;
+
+    }
+    // NEGATIVE Y
+    else  if (!isYPositive && absY >= absX && absY >= absZ) {
+        // u (0 to 1) goes from -x to +x
+        // v (0 to 1) goes from -z to +z
+        maxAxis = absY;
+        uc = -z;
+        vc = x;
+        index = 0;
+
+    }
+    // POSITIVE Z
+    else  if (isZPositive && absZ >= absX && absZ >= absY) {
+        // u (0 to 1) goes from -x to +x
+        // v (0 to 1) goes from -y to +y
+        maxAxis = absZ;
+        uc = x;
+        vc = y;
+        index = 2;
+    }
+    // NEGATIVE Z
+    else  if (!isZPositive && absZ >= absX && absZ >= absY) {
+        // u (0 to 1) goes from +x to -x
+        // v (0 to 1) goes from -y to +y
+        maxAxis = absZ;
+        uc = -x;
+        vc = y;
+        index = 3;
+
+    }
+    fp half = 0.5;
+    fp one = 1;
+
+    // Convert range from -1 to 1 to 0 to 1
+    u = half * (uc / maxAxis + one);
+    v = half * (vc / maxAxis + one);
+
+
+    findPixel(index, u, (one - v),result);
+}
+
+void findPixel_EAC(int index, fp u,fp v,indices result [2]){
+
+    indices n,m;
+    indices mod = index%3;
+    indices one = 1.0f;
+    indices two = 2.0f;
+
+    // Left Front Right
+    if(index <= 2){
+
+        n = (ts * mod)  + v * ts;
+        m = u * ts;
+
+    }
+    // Down Back Up
+    else{
+
+        switch(index){
+            case 3:
+                n = u * ts;
+                m = ts + (one - v) * ts;
+                break;
+
+            case 4:
+                n = ts + (one - u) * ts + one;
+                m = ts + v * ts + one;
+                break;
+
+            case 5:
+                n = ts * two  +  u * ts;
+                m = ts  + (one - v) * ts;
+                break;
+        }
+    }
+    result[0] = n - one;
+    result[1] = m - one;
+
+}
+
+void convert_EAC(fp x, fp y, fp z,indices result [2]){
+
+    fp maxAxis, uc, vc;
+    fp u, v;
+    int index;
+
+    fp absX = absVal(x);
+    fp absY = absVal(y);
+    fp absZ = absVal(z);
+
+    int isXPositive = x > 0 ? 1 : 0;
+    int isYPositive = y > 0 ? 1 : 0;
+    int isZPositive = z > 0 ? 1 : 0;
+
+    // Front
+    if (isXPositive && absX >= absY && absX >= absZ) {
+
+        index = 1;
+        maxAxis = absX;
+        uc = -z;
+        vc = y;
+
+    }
+    // Back
+    else if (!isXPositive && absX >= absY && absX >= absZ) {
+
+        index = 4;
+        maxAxis = absX;
+        uc = -z;
+        vc = -y;
+
+    }
+    // Left
+    else if (isYPositive && absY >= absX && absY >= absZ) {
+
+        index = 2;
+        maxAxis = absY;
+        uc = -z;
+        vc = -x;
+
+    }
+    // Right
+    else if (!isYPositive && absY >= absX && absY >= absZ) {
+
+        index = 0;
+        maxAxis = absY;
+        uc = -z;
+        vc = x;
+
+    }
+    // Up
+    else if (isZPositive && absZ >= absX && absZ >= absY) {
+
+        index = 5;
+        maxAxis = absZ;
+        uc = x;
+        vc = y;
+
+    }
+    // Down
+    else if (!isZPositive && absZ >= absX && absZ >= absY) {
+
+        index = 3;
+        maxAxis = absZ;
+        uc = -x;
+        vc = y;
+
+    }
+
+    fp two = 2.0f;
+    fp half = 0.5f;
+    fp horizontal = uc / maxAxis;
+    fp vertical = vc / maxAxis;
+    u = two * hls::atan(horizontal)/PI + half;
+    v = two * hls::atan(vertical)/PI + half;
+
+
+    findPixel_EAC(index,u,v,result);
+
+}
 
 fp absVal(fp num){
     if(num < 0){
@@ -96,10 +320,9 @@ fp absVal(fp num){
 //
 void crt(double theta, double phi, int option, int fov[fh][fw][2]){
 
-	#pragma HLS INTERFACE ap_fifo port=fov
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
-
+	//#pragma HLS INTERFACE ap_fifo port=fov
 	angle ht = theta, hp = phi;
     fp htr = toRadian(ht);
     fp hpr = toRadian(hp);
@@ -169,8 +392,19 @@ void crt(double theta, double phi, int option, int fov[fh][fw][2]){
                 matrixMultiplication(p2, rot_z, p3);
 
 
-                // convert 3D Cartesian to 2d coordinates
-                cartesian2coordinates(p3[0], p3[1], p3[2],res);
+                if (option == 0) {
+                  // convert 3D Cartesian to 2d coordinates
+                    cartesian2coordinates(p3[0], p3[1], p3[2],res);
+                }
+                else if (option == 1){
+
+                    convert_xyz_to_cube_uv(p3[0], p3[1], p3[2],res);
+                }
+                else if(option == 3){
+
+                    convert_EAC(p3[0], p3[1], p3[2],res);
+                }
+
 
                 fov[a][b][0]= nearestNeighbor(res[0]);
                 fov[a][b][1]= nearestNeighbor(res[1]);
