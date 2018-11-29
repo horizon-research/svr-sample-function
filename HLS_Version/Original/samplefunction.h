@@ -5,6 +5,8 @@
 #define INPUT_HEIGHT 2160
 #define fw 960
 #define fh 540
+#define fov_x  90
+#define fov_y  90
 
 #include "ap_fixed.h"
 #include "hls_math.h"
@@ -57,6 +59,42 @@ void matrixMultiplication(
 	fp vector[3],
 	fp matrix[3][3],
 	fp result[3]
+
+);
+
+void findPixel(
+
+	int index,
+	fp x,
+	fp y,
+	indices result [2]
+
+);
+
+void convert_xyz_to_cube_uv(
+
+	fp x,
+	fp y,
+	fp z,
+	indices result [2]
+
+);
+
+void findPixel_EAC(
+
+	int index,
+	fp u,
+	fp v,
+	indices result [2]
+
+);
+
+void convert_EAC(
+
+	fp x,
+	fp y,
+	fp z,
+	indices result [2]
 
 );
 
