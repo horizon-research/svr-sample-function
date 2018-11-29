@@ -1,11 +1,8 @@
 #include "samplefunction.h"
 
-angle hp = 45.0;
-angle ht = 45.0;
+
 fp PI = 3.1415926;
-    const int w = 720, h = 480;
-const int fw = w/6,fh = h/6;
-const int fov_x = 60, fov_y = 60;
+const int fov_x = 90, fov_y = 90;
 angle fovX = fov_x,fovY = fov_y;
 
 fp toRadian(angle a){
@@ -49,13 +46,13 @@ void spherical2coordinates(fp the, fp phi,indices result [2]){
     fp two = 2 * PI;
 
     if(the > PI){
-        i = (the - PI) / two * w;
+        i = (the - PI) / two * INPUT_WIDTH;
     }
     else{
-        i = (PI + the) / two * w;
+        i = (PI + the) / two * INPUT_WIDTH;
     }
 
-    j = phi /  PI * h;
+    j = phi /  PI * INPUT_HEIGHT;
 
     result [0] = i;
     result [1] = j;
@@ -97,21 +94,13 @@ fp absVal(fp num){
 
 //void crt(int width,int height,angle hp, angle ht,int option,AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
 //
-void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
+void crt(double theta, double phi, int option, int fov[fh][fw][2]){
 
-    #pragma HLS INTERFACE axis port=INPUT_STREAM bundle=VIDEO_IN
-    #pragma HLS INTERFACE axis port=OUTPUT_STREAM bundle=VIDEO_OUT
-
-    #pragma HLS dataflow
-
-    hls::Mat<fh,fw,HLS_8UC3> output;
-    hls::Mat<h,w,HLS_8UC3> input;
-
-    hls::AXIvideo2Mat(INPUT_STREAM, input);
-
+	#pragma HLS INTERFACE ap_fifo port=fov
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
 
+	angle ht = theta, hp = phi;
     fp htr = toRadian(ht);
     fp hpr = toRadian(hp);
 
@@ -149,18 +138,6 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
     fp pi_half = 180.0;
     angle tempJ,tempI;
 
-    RGB_PIXEL tempImage [w][h];
-
-    int count = 0;
-    for(int l = 0; l < h; l++){
-        for(int v = 0; v < w; v++){
-            tempImage[v][l] = input.read();
-
-        }
-    }
-
-
-    count = 0;
     indices half = 0.5, one = 1;
     for (int a = 0; a < fh; a++) {
             for (int b = 0; b < fw; b++) {
@@ -195,31 +172,8 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
                 // convert 3D Cartesian to 2d coordinates
                 cartesian2coordinates(p3[0], p3[1], p3[2],res);
 
-                //output.write(tempImage[nearestNeighbor(res[0])][nearestNeighbor(res[1])]);
-
-//
-                indices u = res[0] - half;
-                indices v = res[1] - half;
-                indices x = (int)(u);
-                indices y = (int)(v);
-                indices u_ratio = u - x;
-                indices v_ratio = v - y;
-                indices u_opposite = one - u_ratio;
-                indices v_opposite = one - v_ratio;
-
-                RGB_PIXEL tempPixel;
-                
-
-                tempPixel.val[0] = (tempImage[x][y].val[0] * u_opposite + tempImage[x + 1][y].val[0] * u_ratio) * v_opposite
-                        + (tempImage[x][y+1].val[0]* u_opposite  + tempImage[x + 1][y + 1].val[0] * u_ratio) * v_ratio;
-
-                tempPixel.val[1] = (tempImage[x][y].val[1] * u_opposite + tempImage[x + 1][y].val[1] * u_ratio) * v_opposite
-                        + (tempImage[x][y+1].val[1]* u_opposite  + tempImage[x + 1][y + 1].val[1] * u_ratio) * v_ratio;
-
-                tempPixel.val[2] = (tempImage[x][y].val[2] * u_opposite + tempImage[x + 1][y].val[2] * u_ratio) * v_opposite
-                                        + (tempImage[x][y+1].val[2]* u_opposite  + tempImage[x + 1][y + 1].val[2] * u_ratio) * v_ratio;
-                output.write(tempPixel);
-                //printf("Write %d, %d, %d\n",fw,fh,count++);
+                fov[a][b][0]= nearestNeighbor(res[0]);
+                fov[a][b][1]= nearestNeighbor(res[1]);
 
                 j+= jincrement ;
             }
@@ -227,7 +181,7 @@ void crt(AXI_STREAM& INPUT_STREAM, AXI_STREAM& OUTPUT_STREAM){
             j = negativeOne * (fovX/two);
     }
     //printf("Writing Finished\n");
-    hls::Mat2AXIvideo(output, OUTPUT_STREAM);
+
 
 
 }

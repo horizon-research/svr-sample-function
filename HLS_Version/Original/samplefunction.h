@@ -1,20 +1,26 @@
 #ifndef _SAMPLEFUNCTION_H_
 #define _SAMPLEFUNCTION_H_
 
+#define INPUT_WIDTH 3840
+#define INPUT_HEIGHT 2160
+#define fw 960
+#define fh 540
+
 #include "ap_fixed.h"
 #include "hls_math.h"
-#include "hls_video.h"
 
-typedef ap_fixed<28,14> fp;
-typedef ap_fixed<28,14> indices;
-typedef ap_fixed<28,14> angle;
-typedef hls::stream<ap_axiu<32,1,1,1> > AXI_STREAM;
-typedef hls::Scalar<3, unsigned char> RGB_PIXEL;
+typedef ap_fixed<17,14> indices;
+typedef ap_fixed<28,10> fp;
+typedef ap_fixed<20,10> angle;
 
 
 void crt(
-	AXI_STREAM& INPUT_STREAM,
-	AXI_STREAM& OUTPUT_STREAM
+
+	double ht,
+	double hp,
+	int option,
+	int fov[fh][fw][2]
+
 );
 
 int nearestNeighbor(indices num);

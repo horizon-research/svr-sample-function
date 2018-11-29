@@ -1,41 +1,23 @@
 #include "samplefunction.h"
-#include "hls_opencv.h"
 #include <iostream>
 
 int main(){
 
 	//parameters for FoV
-	fp hp = 0.0;
-    fp ht = 0.0;
-	const int w = 720, h = 480;
-    const int fw = w/6,fh = h/6;
+	double hp = 0.0;
+    double ht = 0.0;
 
-	IplImage* src;
-	IplImage* dst;
-	AXI_STREAM src_axi, dst_axi;
+    int option = 0;
+    int fov[fh][fw][2];
 
-	// Load Input Image
-	src = cvLoadImage("480p.jpg");
-	dst = cvCreateImage(cvSize(fw,fh), src->depth, src->nChannels);
+    crt(hp, ht, option, fov);
 
-	// Image to AXI4 Data Stream
-	IplImage2AXIvideo(src, src_axi);
+    for(int i = 0; i < fw; i++){
+    	for(int j = 0; j < fh; j++){
+    		printf("x: %d, y: %d\n", fov[j][i][0], fov[j][i][1]);
+    	}
+    }
 
-	// Sample Function
-
-	crt(src_axi,dst_axi);
-    //printf("AXI4 converted\n");
-
-    // AXI4 Data Stream to Image
-    AXIvideo2IplImage(dst_axi, dst);
-   // printf("image converted\n");
-
-    // Save image
-    cvSaveImage("fov.jpg", dst);
-
-    // Release Memory
-    cvReleaseImage(&src);
-    cvReleaseImage(&dst);
 
     return 0;
   }
