@@ -13,7 +13,7 @@ double hp,ht;
 
 double tileSize;
 double tileSizeX, tileSizeY;
-int fovX = 90, fovY = 90, fw,fh;
+int fovX, fovY, fw,fh;
 int count = 0;
 
 
@@ -125,8 +125,8 @@ void cartesian2coordinates_inverse(double x, double y, double z, double result[2
     //printf("the: %lf, phi: %lf\n", the, phi);
     if(the >= -fovX/2.0 && the <= fovX/2 && phi >= 90 -fovY/2.0 && phi <= 90 +fovY/2.0){
        
-	    result[0] = (the + fovX/2.0)* fw /90.0;
-        result[1] = (phi -  90  + fovY/2.0) * fh/ 90.0;
+	    result[0] = (the + fovX/2.0)* fw /fovX;
+        result[1] = (phi -  90  + fovY/2.0) * fh/ fovY;
 
         count++;
     }
@@ -391,12 +391,12 @@ void convert_EAC(double x, double y, double z, double result[2]){
 int main(int argc, char **argv){
 
     //Input:
-    //
+    // ./fov-inverse inputImage.jpg fw fh fovX fovY mode ht hp
     //
     //Output:
-    //
+    // fov.jpg
     
-    int option = argv[3][0] - '0';
+    int option = argv[6][0] - '0';
     // load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
     //Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
@@ -409,18 +409,13 @@ int main(int argc, char **argv){
     tileSizeY = h / 2.0;
 
     // parameters for FoV
-    fw = w * (fovX / 360.0) + 1, fh = h * (fovY / 360.0) + 1;
-
+    //fw = w * (fovX / 360.0) + 1, fh = h * (fovY / 360.0) + 1;
+	fw = atof(argv[2]), fh = atof(argv[3]);
+	fovX = atof(argv[4]), fovY = atof(argv[5]);
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
     // both are relative rotation angles
-    hp = atof(argv[5]), ht = atof(argv[4]);
-
-    if (option == 0){
-
-        fh = h * (fovY / 180.0);
-        //hp = (hp / 360.0) * 180.0;
-    }
+    hp = atof(argv[7]), ht = atof(argv[8]);
 
     // convert to radian
     double htr = toRadian(ht);
@@ -509,7 +504,7 @@ int main(int argc, char **argv){
 
         // rotation along y axis
         double p1[] = {0.0, 0.0, 0.0};
-        spherical2cartesian(toRadian(j), toRadian((i < 0) ? (i + 180) : i), p1);
+        spherical2cartesian(toRadian((j < 0)? (j + 360): j), toRadian((i < 0) ? (i + 180) : i), p1);
 
         double p2[] = {0.0, 0.0, 0.0};
         matrixMultiplication(p1, rot_y, p2);
@@ -548,18 +543,17 @@ int main(int argc, char **argv){
 
     }
 
-    printf("%lf, %lf , %lf, %lf\n", maxX, maxY, minX, minY);
-    //for input pixel in the ouput range, calculate the outpout cordinnates
+    //printf("%lf, %lf , %lf, %lf\n", maxX, maxY, minX, minY);
+    //for input pixel in the output range, calculate the outpout cordinnates
     int x , y;
-    int another = 0;
 
     for (y = 0; y < h; y++){
         for (x = 0; x < w; x++){
 
             //if pixel map to output get input index 
             if (x <= maxX && x >= minX && y <= maxY && y >= minY){
-                another++;
-                double cartesian []  ={0.0, 0.0, 0.0};
+                
+				double cartesian []  ={0.0, 0.0, 0.0};
                 coordinates2cartesian(x, y, cartesian);
                 
 		        double p1[] = {0.0, 0.0, 0.0};
@@ -577,13 +571,12 @@ int main(int argc, char **argv){
             }
         }
     }
-    int blackPixels = 0;
-
-    for(int h = 0; h < fh; h++){
+    
+	for(int h = 0; h < fh; h++){
         for(int v = 0; v < fw; v++){
             if(fov.at<Vec3b>(h, v)[0] == 0 && fov.at<Vec3b>(h, v)[1] == 0 && fov.at<Vec3b>(h, v)[2] == 0){
-                blackPixels++;
-                double r = 0, g = 0, b = 0;
+                
+				double r = 0, g = 0, b = 0;
                 double count = 0;
 
                 if(h - 1 >= 0){
@@ -620,11 +613,8 @@ int main(int argc, char **argv){
     }
 
     // save the fov image
-    imwrite(argv[2], fov);
+    imwrite("fov.jpg", fov);
     //imwrite("input2.jpg", pat);
-    printf("pixels = %d\n",count);
-    printf("black pixels = %d\n",blackPixels);
-    printf("another = %d\n",another);
 
     return 0;
 }
