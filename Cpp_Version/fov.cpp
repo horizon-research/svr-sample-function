@@ -1,7 +1,14 @@
-
-#include <opencv2/opencv.hpp>
+#include <stdio.h>
 #include <iostream>
 #include <cstdlib>
+#include <sys/types.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/fcntl.h>
+#include <time.h>
+#include <opencv2/opencv.hpp>
+#include <thread>
+#include <atomic>
 
 using namespace cv;
 
@@ -19,9 +26,9 @@ double toRadian(double a){
 
 int nearestNeighbor(double num){
 
-	int res = (int)(num + 0.5);
+  int res = (int)(num + 0.5);
 
-	return res;
+  return res;
 }
 
 void spherical2cartesian(double the, double phi, double result[3]){
@@ -196,7 +203,7 @@ void convert_xyz_to_cube_uv(double x, double y, double z, double result[2]) {
     // Convert range from -1 to 1 to 0 to 1
     u = 0.5f * (uc / maxAxis + 1.0f);
     v = 0.5f * (vc / maxAxis + 1.0f);
-	
+  
     findPixel(index, u, (1 - v), result);
 }
 
@@ -208,7 +215,7 @@ void findPixel_EAC(int index, double u, double v, double result[2]){
     if(index <= 2){
 
         n = (tileSizeX * (index % 3))  + v * tileSizeX;
-	    m = u * tileSizeY;
+      m = u * tileSizeY;
 
     }
     // Down Back Up
@@ -313,13 +320,46 @@ void convert_EAC(double x, double y, double z, double result[2]){
 
 }
 
+void get_power(bool *done) {
+    int fd = open("/sys/devices/3160000.i2c/i2c-0/0-0040/iio_device/in_power1_input", O_RDONLY | O_NONBLOCK);
+    if (fd < 0) {
+      perror("open()");
+      exit(1);
+    }
+	int cnt = 0;
+
+ 	double sum = 0;
+
+ 	while (!(*done)) {
+      char buf[32];
+      lseek(fd, 0, 0);
+      int n = read(fd, buf, 32);
+      if (n > 0) {
+      	buf[n] = 0;
+      	char *o = NULL;
+      	sum += strtod(buf, &o);
+      }
+	  cnt++;
+	}
+	fprintf(stdout, "avg power: %lf (%d)\n", sum/cnt, cnt);
+}
+
 
 int main(int argc, char** argv) {
 
-    int option = argv[3][0] - '0';
+    int option = argv[6][0] - '0';
     // load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
-    Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    //Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+
+	//not lock-free, but whatever...
+	bool done = false;
+	std::thread first(get_power, &done);
+    struct timespec tv;
+ 	double start = 0;
+    clock_gettime(CLOCK_MONOTONIC_RAW, &tv);
+    start = tv.tv_sec + tv.tv_nsec * 1e-9;
+
     // get width and height
     w = image.cols;
     h = image.rows;
@@ -328,16 +368,14 @@ int main(int argc, char** argv) {
     tileSizeY = h/2.0;
 
     // parameters for FoV
-    int fovX = 90,fovY = 90,fw = w * (fovX / 360.0) + 1,fh = h * (fovY / 360.0) + 1;
-
+	////// FIX THIS!!!!!!
+    //int fovX = 90,fovY = 90,fw = w * (fovX / 360.0) + 1,fh = h * (fovY / 360.0) + 1;
+	int fw = atof(argv[2]), fh = atof(argv[3]);
+	int fovX = atof(argv[4]), fovY = atof(argv[5]);
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
     // both are relative rotation angles
-    double hp = atof(argv[5]),ht = atof(argv[4]);
-    if(option == 0){
-        fh = h*(fovY/180.0);
-	hp = (hp / 360.0) * 180.0;
-    }
+    double hp = atof(argv[8]),ht = atof(argv[7]);
 
     // convert to radian
     double htr = toRadian(ht);
@@ -400,18 +438,24 @@ int main(int argc, char** argv) {
                 break;
             }
             // assign the pixel value
-            printf("indices: %d, %d\n", nearestNeighbor(res[0]),nearestNeighbor(res[1]));
+            //fprintf(stdout, "indices: %d, %d\n", nearestNeighbor(res[0]),nearestNeighbor(res[1]));
             fov.at<Vec3b>(b,a) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));
-            pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[0] = 255;
-            pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[1] = 255;
-            pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[2] = 255;
+            //pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[0] = 255;
+            //pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[1] = 255;
+            //pat.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]))[2] = 255;
         }
         a = 0;
     }
 
+    clock_gettime(CLOCK_MONOTONIC_RAW, &tv);
+    double end = tv.tv_sec + tv.tv_nsec * 1e-9;
+    fprintf(stderr, "Latency: %.3f ms\n", (end - start) * 1000);
+	done = true;;
+	first.join();
+
     // save the fov image
-    imwrite(argv[2], fov);
-    imwrite("input.jpg",pat);
+    imwrite("output.jpg", fov);
+    //imwrite("input.jpg",pat);
 
     return 0;
 
