@@ -368,10 +368,9 @@ int main(int argc, char** argv) {
     tileSizeY = h/2.0;
 
     // parameters for FoV
-	////// FIX THIS!!!!!!
     //int fovX = 90,fovY = 90,fw = w * (fovX / 360.0) + 1,fh = h * (fovY / 360.0) + 1;
-	int fw = atof(argv[2]), fh = atof(argv[3]);
-	int fovX = atof(argv[4]), fovY = atof(argv[5]);
+    int fw = atof(argv[2]), fh = atof(argv[3]);
+    int fovX = atof(argv[4]), fovY = atof(argv[5]);
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
     // both are relative rotation angles
@@ -456,6 +455,4 @@ int main(int argc, char** argv) {
     //imwrite("input.jpg",pat);
 
     return 0;
-
-
 }
