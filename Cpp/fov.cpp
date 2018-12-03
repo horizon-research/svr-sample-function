@@ -403,11 +403,9 @@ int main(int argc, char** argv) {
     for (double i = 90  - fovY/2.0; i < 90 + fovY/2.0; i+= fovY*1.0/fh, b++) {
         for (double j = -fovX/2.0; j < fovX/2.0; j+= fovX*1.0/fw, a++) {
 
-
-            // rotation along y axis
             double p1[] = {0.0, 0.0, 0.0};
             spherical2cartesian(toRadian((j < 0) ? j + 360 : j), toRadian((i < 0) ? (i + 180) : i), p1);
-
+            // rotation along y axis
             double p2[] = {0.0, 0.0, 0.0};
             matrixMultiplication(p1, rot_y, p2);
 
