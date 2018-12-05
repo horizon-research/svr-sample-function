@@ -13,7 +13,6 @@ double PI = 3.14159265358979323846;
 int w ,h;
 
 double tileSize;
-double tileSizeX,tileSizeY;
 
 
 double toRadian(double a){
@@ -32,7 +31,6 @@ void spherical2cartesian(double the, double phi, double result[3]){
     double x = sin(phi) * cos(the);
     double y = sin(phi) * sin(the);
     double z = cos(phi);
-
 
     result[0] = x;
     result[1] = y;
@@ -74,6 +72,24 @@ void cartesian2coordinates(double x, double y, double z, double result[2]){
     spherical2coordinates(the, phi, result);
 }
 
+void coordinates2cartesian(double i, double j, double result[3]){
+
+    double theta, phi;
+
+    if (i >= w / 2.0){
+
+        theta = (2.0 * i * PI / w) - PI;
+
+    }
+    else{
+
+        theta = (2.0 * i * PI / w) + PI;
+
+    }
+    phi = j * 1.33 * PI / h;
+    
+   spherical2cartesian(theta, phi, result);
+}
 
 void matrixMultiplication(double* vector, double matrix[3][3], double res[3]) {
 
@@ -228,7 +244,7 @@ void convert_xyz_to_cube_uv(double x, double y, double z, double result[2]) {
     u = 0.5f * (uc / maxAxis + 1.0f);
     v = 0.5f * (vc / maxAxis + 1.0f);
 	
-    findPixel(index, u, (1 - v), result);
+    findPixel(index, u, v, result);
 }
 
 // void findPixel_EAC(int index, double u, double v, double result[2]){
@@ -371,21 +387,22 @@ void cube2uv(int x,int y, double result[3]) {
 
 int main(int argc, char** argv) {
 
-	// ofstream myfile;
- // 	myfile.open ("indices.txt");
-
     // load image
     Mat image = imread(argv[1], CV_LOAD_IMAGE_COLOR);
-    // Mat pat = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    int mode = atof(argv[2]);
+    
     // get width and height
     w = image.cols;
     h = image.rows;
     tileSize = w/3.0;
-    tileSizeX = w/3.0;
-    tileSizeY = h/2.0;
 
     // parameters for FoV
     int fovX = 360,fovY = 180,fw = tileSize*3,fh = tileSize*2;
+
+    if(mode == 2){
+
+      fh = fw / 2;
+    }
 
     // ht is theta (horizontal), goes toward left first
     // hp is phi (vertical), goes toward up first
@@ -410,44 +427,55 @@ int main(int argc, char** argv) {
     };
 
     // initialize fov image
-    Mat fov(tileSize*2, tileSize*3, CV_8UC3);
+    Mat fov(fh, fw, CV_8UC3);
 
     int index = 0;
 
+    // traverse the output image
     for(int b = 0; b < fw; b++){
         for(int a = 0; a < fh; a++){
-
-
-            // printf("NEXT ROUND\n");
-            double uvs[] = {0.0, 0.0, 0.0};
-
-            cube2uv(b, a, uvs);
-
-            //printf("UV: %lf %lf %lf\n", uvs[0], uvs[1] ,uvs[2]);
-
-            double cartesian[] = {0.0, 0.0, 0.0};
-
-            convert_cube_uv_to_xyz((int)(uvs[0]), uvs[1] ,uvs[2], cartesian);
-
-            // printf("Cartesian: %lf %lf %lf\n", cartesian[0], cartesian[1], cartesian[2]);
-
+            
             double res[] = {0.0, 0.0};
+            
+            if(mode == 1){
 
-            cartesian2coordinates(cartesian[0], cartesian[1], cartesian[2], res);
+                double uvs[] = {0.0, 0.0, 0.0};
 
-            // printf("Res: %lf %lf \n", res[0], res[1]);
+                // convert indices on output to cube UV and index
+                cube2uv(b, a, uvs);
 
+                double cartesian[] = {0.0, 0.0, 0.0};
+
+                // convert cube uv to cartesian
+                convert_cube_uv_to_xyz((int)(uvs[0]), uvs[1] ,uvs[2], cartesian);
+
+                // convert cartesian to indices on input frame
+                cartesian2coordinates(cartesian[0], cartesian[1], cartesian[2], res);
+
+            }
+
+            if(mode == 2){
+                 
+                 double cartesian[] = {0.0, 0.0, 0.0};
+
+                 // convert indices on output to cartesian
+                 coordinates2cartesian(b, a, cartesian);
+
+                 // convert cartesian to indices on input frame
+                 convert_xyz_to_cube_uv(cartesian[0], cartesian[1], cartesian[2], res);
+
+            }
+
+            // assign the pixel value
             fov.at<Vec3b>(a,b) = image.at<Vec3b>(nearestNeighbor (res[1]), nearestNeighbor (res[0]));   
-
-            // printf("Res(Int): %d %d \n",nearestNeighbor (res[0]), nearestNeighbor (res[1]));
 
         }
     }
+   
     // save the fov image
-    imwrite("cubeMap.jpg", fov);
+    imwrite("out.jpg", fov);
 
 
     return 0;
-
 
 }
